@@ -1,0 +1,27 @@
+Το δέντρο των σελίδων που θα χρησιμοποιήσουμε :
+
+HOME_anonymous :home, sign in, sign up,search,lista events
+
+home_user : home, my profile, search, lista events
+
+my profile : edit profile , my events , my portofoli
+
+my events : porswpiki kathe event, proswpiki paroxou
+
+my portofoli : add money  
+
+lista events : proswpiki paroxou, proswpiki kathe event
+
+proswpiki kathe event : kratisi , proswpiki paroxou
+
+sign in : petuximeno sign in , apotuximeno sign in
+
+sign up : home_user , sign up
+
+apotuximeno sign in : sign in
+
+petuximeno sign in : home_user
+
+proswpiki parouxou : lista dika tou active events, comments , add comment
+
+  
