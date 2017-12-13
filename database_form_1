@@ -1,0 +1,71 @@
+Admin
+    • AdminID (Primary)
+    • Username (Unique)
+    • FirstName
+    • LastName
+    • Mail
+    • Password
+    • PersonalMail
+    • Link 
+
+
+Parent
+    • ParentID (Primary)
+    • Username (Unique)
+    • FirstName
+    • LastName
+    • Address
+    • PostalCode
+    • TelephoneNumber
+    • E-mail (Unique)
+    • Password
+    • Status→0, 1, 2 (Inactive, Pending, Active)
+    • CounterEvents (για επιβράβευση)
+    • Points
+    • BankAccount
+
+
+CompanyService
+    • CompanyID (Primary)
+    • Username (Unique)
+    • FullName (Unique)
+    • Address
+    • PostalCode
+    • TelephoneNumber
+    • Description
+    • E-mail (Unique)
+    • ΑΦΜ
+    • BankAccount
+    • Password
+    • Status→0, 1, 2 (Inactive, Pending, Active)
+    • Points
+
+
+Event
+    • EventID (Primary)
+    • CompanyID (Foreign)
+    • Name
+    • Location
+    • Description
+    • Cost
+    • TicketCounter
+    • IncominCash
+
+Booking
+    • BookID (Primary)
+    • ParentID (Foreign)
+    • EventID (Foreign)
+    • BookDate
+
+
+AdminProfile
+    • AdminProfileID (Primary)
+    • Link (Foreign)
+    • TotalAmountOfMoney
+    • E-mail (Unique)
+    • NameOfTeraFun
+    • Address
+    • PostalCode
+    • Telephone
+    • Description
+    • BankAccount
