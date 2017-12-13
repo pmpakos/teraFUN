@@ -46,10 +46,16 @@ Event
     • CompanyID (Foreign)
     • Name
     • Location
-    • Description
     • Cost
     • TicketCounter
     • IncominCash
+    • MaxCapacity
+    • Description (κειμενάκι διαφημιστικό)
+    • MinAge
+    • MaxAge
+    • Area (Indoor=0 and Outdoor=1)
+    • BasicTopic (κάποιες βασικές θεματικές ενότητες που έχουμε βάλει εμείς: διασκέδαση, άθλημα, εκπαίδευση, ομαδικές, ατομικές, κτλ)
+    • TagDescription ( Tags που έχει επιλέξει-βάλει ο πάροχος , με τη μορφή string)
 
 Booking
     • BookID (Primary)
