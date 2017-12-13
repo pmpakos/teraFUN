@@ -23,6 +23,8 @@ Parent
     • CounterEvents (για επιβράβευση)
     • Points
     • BankAccount
+    • Xposition
+    • YPosition
 
 
 CompanyService
@@ -38,7 +40,9 @@ CompanyService
     • BankAccount
     • Password
     • Status→0, 1, 2 (Inactive, Pending, Active)
-    • Points
+    • Points  
+    • Xposition
+    • YPosition
 
 
 Event
@@ -50,12 +54,14 @@ Event
     • TicketCounter
     • IncominCash
     • MaxCapacity
-    • Description (κειμενάκι διαφημιστικό)
+    • Description (κειμενάκι διαφημιστικό)   
+    • Xposition
+    • YPosition
     • MinAge
     • MaxAge
     • Area (Indoor=0 and Outdoor=1)
-    • BasicTopic (κάποιες βασικές θεματικές ενότητες που έχουμε βάλει εμείς: διασκέδαση, άθλημα, εκπαίδευση, ομαδικές, ατομικές, κτλ)
-    • TagDescription ( Tags που έχει επιλέξει-βάλει ο πάροχος , με τη μορφή string)
+    • BasicTopic (κάποιες βασικές θεματικές ενότητες που έχουμε βάλει εμείς: διασκέδαση, άθλημα, εκπαίδευση, ομαδικές, ατομικές, κτλ και θα είναι 0 ή 1)
+    • TagDescription ( Tags που έχει επιλέξει-βάλει ο πάροχος , με τη μορφή text)
 
 Booking
     • BookID (Primary)
