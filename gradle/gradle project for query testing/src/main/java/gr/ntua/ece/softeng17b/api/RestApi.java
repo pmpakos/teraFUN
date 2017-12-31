@@ -11,10 +11,25 @@ public class RestApi extends Application {
 		Router router = new Router(getContext());
 
 		//GET, POST
-		router.attach("/places", PlacesResource.class);
+		router.attach("/parents", ParentsResource.class);
 
-		//GET, PUT, DELETE
-		router.attach("/places/{id}", PlaceResource.class);
+		//GET, POST
+		router.attach("/administrators", AdministratorsResource.class);
+		
+		//GET, POST
+		router.attach("/companies", CompaniesResource.class);
+
+		//GET, POST
+		router.attach("/adminprofile", AdminProfileResource.class);
+
+		//GET, POST
+		router.attach("/events", EventsResource.class);
+
+		//GET, POST
+		router.attach("/bookings", BookingsResource.class);
+		
+		////GET, PUT, DELETE
+//		router.attach("/places/{id}", PlaceResource.class);
 
 		return router;
 	}
