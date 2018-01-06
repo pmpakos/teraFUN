@@ -25,6 +25,8 @@
 
     <script>
 // The import happens correcly. But currently i cannot create a WatermarkImage object!
+    WatermarkImage wi = new WatermarkImage();
+
     </script>
 
     </body>

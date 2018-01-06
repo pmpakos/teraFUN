@@ -68,6 +68,8 @@ public final class test_005fwatermark_jsp extends org.apache.jasper.runtime.Http
       out.write("    <script src=\"./static/knockout-3.4.2.js\"></script>\n");
       out.write("\n");
       out.write("    <script>\n");
+      out.write("// The import happens correcly. But currently i cannot create a WatermarkImage object!\n");
+      out.write("    WatermarkImage wi = new WatermarkImage();\n");
       out.write("\n");
       out.write("    </script>\n");
       out.write("\n");
