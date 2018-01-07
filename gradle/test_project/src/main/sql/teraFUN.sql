@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 06, 2018 at 03:58 μμ
+-- Generation Time: Jan 07, 2018 at 01:34 μμ
 -- Server version: 5.6.14
 -- PHP Version: 5.5.6
 
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `adminprofile` (
   `Description` text NOT NULL,
   `BankAccount` bigint(16) NOT NULL,
   PRIMARY KEY (`AdminProfileID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `adminprofile`
@@ -93,16 +93,6 @@ CREATE TABLE IF NOT EXISTS `booking` (
   KEY `EventID` (`EventID`),
   KEY `ParentID` (`ParentID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
-
---
--- Dumping data for table `booking`
---
-
-INSERT INTO `booking` (`BookingID`, `ParentID`, `EventID`, `BookDate`, `NumberOfTickets`, `Code`) VALUES
-(2, 5, 4, '2017-12-19', 2, 'fd34a'),
-(3, 4, 4, '2017-12-25', 1, 'rd432'),
-(5, 3, 4, '2017-12-23', 3, '23hj7'),
-(6, 6, 4, '2017-12-27', 2, '5gfr3');
 
 -- --------------------------------------------------------
 
@@ -203,7 +193,8 @@ CREATE TABLE IF NOT EXISTS `event` (
   `Cost` int(10) NOT NULL,
   `Description` text NOT NULL,
   `PhotosFolder` text,
-  `isOffer` int(1) NOT NULL DEFAULT '0',
+  `IsOffer` int(1) NOT NULL DEFAULT '0',
+  `Visits` int(10) NOT NULL DEFAULT '0',
   `Xposition` varchar(25) NOT NULL,
   `Yposition` varchar(25) NOT NULL,
   `MaxCapacity` int(10) NOT NULL,
@@ -218,16 +209,6 @@ CREATE TABLE IF NOT EXISTS `event` (
   PRIMARY KEY (`EventID`),
   KEY `CompanyID` (`CompanyID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
-
---
--- Dumping data for table `event`
---
-
-INSERT INTO `event` (`EventID`, `CompanyID`, `Name`, `Address`, `Date`, `Hour`, `TicketCounter`, `IncomingCash`, `Cost`, `Description`, `PhotosFolder`, `isOffer`, `Xposition`, `Yposition`, `MaxCapacity`, `Indoor`, `MinAge`, `MaxAge`, `Fun`, `Sport`, `Education`, `Team`, `TagDescription`) VALUES
-(4, 4, 'kalosorisma', 'karaolh2', '2017-12-21', '13:00', 0, 0, 10, '', NULL, 0, '\05341.00000000000000', '53443.00000000000000', 100, 1, 0, 12, 1, 1, 1, 1, ''),
-(5, 6, 'partaki1', 'papadopoulou 121', '2017-12-31', '12:00', 0, 0, 20, '', NULL, 0, '43234.00000000000000', '843423.00000000000000', 68, 1, 0, 16, 1, 0, 1, 0, ''),
-(6, 6, 'paidiko party', 'raxeas6', '2017-12-26', '17:00', 0, 0, 30, '', NULL, 0, '\03113.00000000000000', '121.00000000000000', 100, 0, 5, 10, 1, 1, 1, 0, ''),
-(7, 6, 'paidiko party2', 'raxeas82', '2017-12-28', '12:00', 0, 0, 40, '', NULL, 0, '14211.00000000000000', '52352.00000000000000', 100, 1, 10, 15, 1, 1, 1, 1, '');
 
 -- --------------------------------------------------------
 
@@ -294,7 +275,7 @@ ALTER TABLE `comment`
 -- Constraints for table `event`
 --
 ALTER TABLE `event`
-  ADD CONSTRAINT `event_ibfk_1` FOREIGN KEY (`CompanyID`) REFERENCES `companyservice` (`CompanyID`);
+  ADD CONSTRAINT `event_ibfk_1` FOREIGN KEY (`CompanyID`) REFERENCES `companyservice` (`CompanyID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
