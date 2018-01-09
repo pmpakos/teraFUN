@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 07, 2018 at 01:34 μμ
+-- Generation Time: Jan 09, 2018 at 06:25 μμ
 -- Server version: 5.6.14
 -- PHP Version: 5.5.6
 
@@ -92,41 +92,7 @@ CREATE TABLE IF NOT EXISTS `booking` (
   PRIMARY KEY (`BookingID`),
   KEY `EventID` (`EventID`),
   KEY `ParentID` (`ParentID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `comment`
---
-
-CREATE TABLE IF NOT EXISTS `comment` (
-  `CommentID` int(10) NOT NULL AUTO_INCREMENT,
-  `ParentID` int(10) NOT NULL,
-  `CompanyID` int(10) NOT NULL,
-  `Comment` text CHARACTER SET utf8,
-  `Rate` int(1) DEFAULT NULL,
-  `Status` int(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`CommentID`),
-  KEY `ParentID` (`ParentID`),
-  KEY `CompanyID` (`CompanyID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
-
---
--- Dumping data for table `comment`
---
-
-INSERT INTO `comment` (`CommentID`, `ParentID`, `CompanyID`, `Comment`, `Rate`, `Status`) VALUES
-(1, 6, 5, 'Εκπληκτικός χώρος. Πολύ φιλοκό προσωπικό! Το συνιστώ ΑΝΕΠΙΦΎΛΑΚΤΑ!!!', 5, 0),
-(2, 6, 10, NULL, 3, 1),
-(3, 8, 12, NULL, 4, 1),
-(4, 9, 4, 'Η κοπέλα που μας εξυπηρέτησε στην είσοδο ήταν αγενής!! Κατά τα άλλα το μέρος είναι συμπαθητικό', 3, 0),
-(5, 12, 4, NULL, 5, 1),
-(6, 10, 12, NULL, 1, 1),
-(7, 5, 6, NULL, 4, 1),
-(8, 1, 3, NULL, 5, 1),
-(9, 12, 13, 'Οι καθηγητές είναι πολύ ευγενικοί και ακούω τα καλύτερα για τον τρόπο εκπαίδευσης από τα παιδία μου. Είναι από τα καλύτερα φροντιστήρια στην περιοχή!', 5, 0),
-(10, 11, 14, NULL, 3, 1);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -208,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `event` (
   `TagDescription` text NOT NULL,
   PRIMARY KEY (`EventID`),
   KEY `CompanyID` (`CompanyID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -263,13 +229,6 @@ INSERT INTO `parent` (`ParentID`, `Username`, `FirstName`, `LastName`, `Address`
 ALTER TABLE `booking`
   ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`EventID`) REFERENCES `event` (`EventID`),
   ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`ParentID`) REFERENCES `parent` (`ParentID`);
-
---
--- Constraints for table `comment`
---
-ALTER TABLE `comment`
-  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`ParentID`) REFERENCES `parent` (`ParentID`),
-  ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`CompanyID`) REFERENCES `companyservice` (`CompanyID`);
 
 --
 -- Constraints for table `event`
