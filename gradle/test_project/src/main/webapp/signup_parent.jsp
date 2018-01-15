@@ -190,13 +190,13 @@ color: red;
   	 <div class="row">
   	 	<div class="form-group fname col-xs-6">
       	<label for="fname"><span class="glyphicon glyphicon-user"></span>First Name</label>
-      	<input type="text" class="form-control name-validation form-element" name="fname" placeholder="Enter Your First Name" data-validation="false">
+      	<input type="text" class="form-control fname-validation form-element" name="fname" placeholder="Enter Your First Name" data-validation="false">
 	  	<span class="error"><p1 id="fname_error"></p1></span>
     	</div>
 
     	<div class="form-group lname col-xs-6">
       	<label for="lname"><span class="glyphicon glyphicon-user"></span> Last Name</label>
-      	<input type="text" class="form-control name-validation form-element" name="lname" placeholder="Last Name" data-validation="false">
+      	<input type="text" class="form-control lname-validation form-element" name="lname" placeholder="Last Name" data-validation="false">
     	<span class="error"><p1 id="lname_error"></p1></span>
     	</div>
   	 
