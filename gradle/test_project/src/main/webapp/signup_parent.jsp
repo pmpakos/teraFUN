@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>TeraFun</title>
+	<title>Create Account | teraFUN </title>
 	
 	
 	<!-- Latest compiled and minified CSS -->
@@ -19,6 +19,7 @@
       background: #ecf0f1;
 
     }
+   
     .navbar-inverse {
       background: #2c3e50;
       color: white;
@@ -47,6 +48,18 @@
 	font-weight: bold;
 	background-color: #CCC;
 }
+
+p1 {
+font-size: small;
+font-family: helvectia, geneva, arial, sun-sans, sans serif;
+color: red;
+}
+
+.validation
+    {
+      color: red;
+      margin-bottom: 20px;
+    }
 
 .form-body{
     margin:25px;
@@ -116,19 +129,6 @@
 		margin: 7px;
 	}
 }
-/* Just to remove the default padding of bootstrap's col-*-* 
-* mainly need this for the form-heading*/
-/*#main-login{
-	padding-left:0px;
-	padding-right: 0px;
-}*/
-.form-header{
-	width:100%;
-	padding: 30px;
-}
-.multi-form-wrapper{
-	/*margin-bottom:20px;*/
-}
 
 
   </style>
@@ -173,82 +173,86 @@
 	</nav>
 
  
-    
+ 
 <div class="container">
 
-  <div class="jumbotron">
 		 
 			
 			
-			
-
-      <div class="form-content">
-      
-       
-		          <h3>Welcome to teraFUN!</h3>
-		          <p> Create new Account</p>
-		   
-    <div class="form-body"> 
- <!--   <form name="signUpForm" method="post" action="SignUpParentServlet"> 
-  -->
+			   
+  <div class="jumbotron">
   
-  <form role='form'>
-  	<div class="form-group category">
-              <label for="category"> <span class="glyphicon glyphicon-user"></span> Signup as </label>
-				<select  class="form-control form-element" name='category'>
-					<option class='drop-down' value='parent'> Parent </option>			
-					<option class='drop-down' value='company'> Company </option>						
-					<option class='drop-down' value='administration'> Administration </option>			
-				</select>
-	</div>
+	          
+  <h2 style="text-align: left"> Create new Account</h2>
+		   
+  <div class="form-body"> 
+  <form >
+  	 <div class="row">
+  	 	<div class="form-group fname col-xs-6">
+      	<label for="fname"><span class="glyphicon glyphicon-user"></span>First Name</label>
+      	<input type="text" class="form-control name-validation form-element" name="fname" placeholder="Enter Your First Name" data-validation="false">
+	  	<span class="error"><p1 id="fname_error"></p1></span>
+    	</div>
+
+    	<div class="form-group lname col-xs-6">
+      	<label for="lname"><span class="glyphicon glyphicon-user"></span> Last Name</label>
+      	<input type="text" class="form-control name-validation form-element" name="lname" placeholder="Last Name" data-validation="false">
+    	<span class="error"><p1 id="lname_error"></p1></span>
+    	</div>
+  	 
+  	 
+  	 
+  	 </div>
+  	 
     <div class="form-group usn">
     	<label for="username"> <span class="glyphicon glyphicon-user"> </span> UserName</label>
       <input type="text" class="form-control usn-validation form-element" name="usn" placeholder="Enter a valid Username">
     </div>
     
+  
     <div class="form-group email">
     	<label for="Email"> <span class="glyphicon glyphicon-envelope"> </span> Email</label>
         <input type="email" class="form-control email-validation form-element" name="email" aria-describedby="emailHelp" placeholder="Enter your email address" data-validation="false">
-    </div>
-	
-	<div class="form-group password">
+   		<span class="error"><p1 id="email_error"></p1></span>
+	</div>
+	 <div class="row">
+	<div class="form-group password col-xs-6">
         <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
 		<input  type="password" class="form-control password-validation form-element" name="password" placeholder="Password" data-validation="false">
+  		<span class="error"><p1 id="pass1_error"></p1></span>
     </div>
-    <div class="form-group confirm-password">
+    <div class="form-group confirm-password col-xs-6">
      	<label for="confirm-password"><span class="glyphicon glyphicon-eye-open"></span> Confirm Password</label>
 		<input  type="password" class="form-control password-confirmation form-element" name="password1" placeholder="Confirm Password" data-validation="false">
+    	<span class="error"><p1 id="pass2_error"></p1></span>
     </div>
-    
+    </div>
       
-    <div class="form-group fname">
-      <label for="fname"><span class="glyphicon glyphicon-user"></span> Enter Your First Name</label>
-      <input type="text" class="form-control name-validation form-element" name="fname" placeholder="Enter Your First Name" data-validation="false">
-    </div>
-
-    <div class="form-group lname">
-      <label for="lname"><span class="glyphicon glyphicon-user"></span> Last Name</label>
-      <input type="text" class="form-control name-validation form-element" name="lname" placeholder="Last Name" data-validation="false">
-    </div>
-
-      <div class="form-group addr">
+    
+	<div class="row">
+      <div class="form-group addr col-xs-6">
       <label for="addr"><span class="glyphicon glyphicon-home"></span> Address</label>
       <input type="text" class="form-control addr-validation form-element" name="addr" placeholder="Address" data-validation="false">
+	  <span class="error"><p1 id="addr_error"></p1></span>
     </div>  
 
-    <div class="form-group postal">
+    <div class="form-group postal col-xs-6">
       <label for="postal"><span class="glyphicon glyphicon-map-marker"></span> Postal Code</label>
       <input type="text" class="form-control postal-validation form-element" name="postal"  placeholder="Postal Code" data-validation="false">
+      <span class="error"><p1 id="postal_error"></p1></span>
     </div> 
+    </div>
 
     <div class="form-group tel">
       <label for="tel"><span class="glyphicon glyphicon-phone-alt"></span>  Tel. Number</label>
       <input type="text" class="form-control tel-validation form-elementl" name="tel" placeholder="Telephone Number" data-validation="false">
+    	<span class="error"><p1 id="tel_error"></p1></span>
     </div>
 
     <div class="form-group bankaccount">
       <label for="bankaccount"><span class="glyphicon glyphicon-piggy-bank"></span> Bank Account Number</label>
       <input type="text" class="form-control bank-validation form-element" name="bankaccount" placeholder="Bank Account Number" data-validation="false">
+      <span class="error"><p1 id="bank_error"></p1></span>
     </div>
       
 	<button type="button" class="btn btn-default btn-danger btn-block submit-btn signup-btn"><span class="glyphicon glyphicon-pencil"></span>&nbsp; Signup </button>
@@ -262,8 +266,6 @@
           <div class="message pull-left" id="signup-message"></div>
         </div>
       </div>
-</div>
-
 </div>
 
  <script async defer
