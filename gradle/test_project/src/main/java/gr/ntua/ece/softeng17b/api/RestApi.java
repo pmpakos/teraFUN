@@ -20,6 +20,9 @@ public class RestApi extends Application {
 		router.attach("/companies", CompaniesResource.class);
 
 		//GET, POST
+		router.attach("/company/{id}", CompanyResource.class);
+
+		//GET, POST
 		router.attach("/adminprofile", AdminProfileResource.class);
 
 		//GET, POST

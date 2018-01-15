@@ -28,18 +28,35 @@ public class EventDAO{
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
-
-
 	public void insert(Event event){
         
+        String sql = "INSERT INTO event (Name, Address,"
+                    + "DateEvent, Hour, Cost, Description, PhotosFolder, IsOffer, Latitude,"
+                    + "Longitude, MaxCapacity, Indoor, MinAge, MaxAge, Fun, Sport, Education, Team, TagDescription)"
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        this.jdbcTemplate.update(sql, new Object[] {event.Name, event.Address, event.DateEvent,
+            event.Hour, event.Cost, event.Description, event.PhotosFolder, event.IsOffer,
+            event.Latitude, event.Longitude, event.MaxCapacity, event.Indoor, event.MinAge, 
+            event.MaxAge, event.Fun, event.Sport, event.Education, event.Team, 
+            event.TagDescription});   
     }
 
+    public Optional<Event> getEvent(int id) {        
+        List<Event> event = jdbcTemplate.query("select * from event where EventID = ?", new Object[] {id}, new EventRowMapper());
+        if (event.size() == 1)  {
+            return Optional.of(event.get(0));
+        }
+        else {
+            return Optional.empty();
+        }        
+    }
 
     public List<Event> getAll(){
         return jdbcTemplate.query("SELECT * FROM event",new EventRowMapper());
     }
 
-    
+    /*
     public ArrayList<Event> getAllEvents(){
 
         ArrayList<Event> Rep = new ArrayList<Event>();
@@ -77,4 +94,5 @@ public class EventDAO{
             }
         }
     }
+    */
 }

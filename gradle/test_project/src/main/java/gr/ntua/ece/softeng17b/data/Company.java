@@ -12,17 +12,19 @@ public class Company {
 	int AFM;
 	String Password;
 	long BankAccount;
+	String WebPage;
 	String Description;
 	int Status;
 	int Points;
+	String PhotosFolder;
 	double Latitude;
 	double Longitude;
 
 	
 	public Company (int ID, String Username, String CompanyName, String Address,
 	int PostalCode,	long TelephoneNumber, String Email, int AFM, String Password,
-	long BankAccount, String Description, int Status, int Points,
-	double Latitude, double Longitude){
+	long BankAccount, String WebPage, String Description, int Status, int Points,
+	String PhotosFolder, double Latitude, double Longitude){
 		
 		this.CompanyID = ID;
 		this.Username = Username;
@@ -34,9 +36,11 @@ public class Company {
 		this.AFM = AFM;
 		this.Password = Password;
 		this.BankAccount = BankAccount;
+		this.WebPage = WebPage;
 		this.Description = Description;
 		this.Status = Status;
 		this.Points = Points;
+		this.PhotosFolder = PhotosFolder;
 		this.Latitude = Latitude;
 		this.Longitude = Longitude;
 	}

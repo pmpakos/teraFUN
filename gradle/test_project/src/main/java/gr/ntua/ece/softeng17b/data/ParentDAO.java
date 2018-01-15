@@ -28,10 +28,27 @@ public class ParentDAO{
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
-
-
 	public void insert(Parent parent){
-        
+        String sql = "INSERT INTO parent (Username, FirstName, LastName,"
+                    + "Address, PostalCode, TelephoneNumber, Email, Password,"
+                    + "BankAccount, Latitude, Longitude)"
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        this.jdbcTemplate.update(sql, new Object[] {parent.Username, parent.FirstName, parent.LastName, 
+                                        parent.Address, parent.PostalCode, parent.TelephoneNumber,
+                                        parent.Email, parent.Password, parent.BankAccount,
+                                        parent.Latitude, parent.Longitude});   
+    }
+
+
+    public Optional<Parent> getParent(int id) {        
+        List<Parent> parent = jdbcTemplate.query("select * from parent where ParentID = ?", new Object[] {id}, new ParentRowMapper());
+        if (parent.size() == 1)  {
+            return Optional.of(parent.get(0));
+        }
+        else {
+            return Optional.empty();
+        }        
     }
 
 
@@ -91,7 +108,7 @@ public class ParentDAO{
                     rs.getString("FirstName"),
                     rs.getString("LastName"),
                     rs.getString("Address"),rs.getInt("PostalCode"),rs.getLong("TelephoneNumber"),
-                    rs.getString("Email"),rs.getString("Password"),rs.getInt("Status"),rs.getInt("CounterEvents"),
+                    rs.getString("Email"),rs.getString("Password"),rs.getInt("Status"),rs.getInt("CounterParents"),
                     rs.getInt("Points"), rs.getLong("BankAccount"), rs.getDouble("Latitude"), 
                     rs.getDouble("Longitude")
                 );

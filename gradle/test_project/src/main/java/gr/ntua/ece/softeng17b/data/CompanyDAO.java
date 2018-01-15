@@ -29,17 +29,34 @@ public class CompanyDAO{
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
-
-
 	public void insert(Company company){
-        
+        String sql = "INSERT INTO companyservice (Username, CompanyName, Address,"
+                    + "PostalCode, TelephoneNumber, Email, AFM, Password,"
+                    + "BankAccount, WebPage, Description, PhotosFolder, Latitude, Longitude)"
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        this.jdbcTemplate.update(sql, new Object[] {company.Username, company.CompanyName, company.Address, 
+                                        company.PostalCode, company.TelephoneNumber, company.Email,
+                                        company.AFM, company.Password, company.BankAccount, company.WebPage,
+                                        company.Description, company.PhotosFolder, company.Latitude, company.Longitude});  
     }
+
+    public Optional<Company> getCompany(int id) {        
+        List<Company> company = jdbcTemplate.query("select * from companyservice where CompanyID = ?", new Object[] {id}, new CompanyRowMapper());
+        if (company.size() == 1)  {
+            return Optional.of(company.get(0));
+        }
+        else {
+            return Optional.empty();
+        }        
+    }
+
 
 
     public List<Company> getAll(){
         return jdbcTemplate.query("SELECT * FROM companyservice",new CompanyRowMapper());
     }
-
+    /*
     public Boolean login(String Username, String Password){
         
         String sql = "SELECT * "
@@ -131,7 +148,7 @@ public class CompanyDAO{
                 user = new Company(
                     rs.getInt("CompanyID"),"",
                     rs.getString("CompanyName"),
-                    "",0,0,"",0,"",0,"",0,0,0.0,0.0
+                    "",0,0,"",0,"",0,"", "",0,0,"", 0.0,0.0
                 );
                 Rep.add(user);
                 
@@ -148,5 +165,5 @@ public class CompanyDAO{
                 } catch (SQLException e) {}
             }
         }
-    }
+    }*/
 }

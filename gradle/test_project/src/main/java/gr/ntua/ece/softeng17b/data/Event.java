@@ -14,6 +14,9 @@ public class Event {
 	int IncomingCash;
 	int Cost;
 	String Description;
+	String PhotosFolder;
+	int IsOffer;
+	int Visits;
 	double Latitude;
 	double Longitude;
 	int MaxCapacity;
@@ -29,9 +32,9 @@ public class Event {
 		
 	public Event( int ID, int foreignID, String Name, String Address, Date DateEvent,
 			String Hour, int TicketCounter, int IncomingCash, int Cost, String Description, 
-			double Latitude, double Longitude, int MaxCapacity, int Indoor, int MinAge, 
-			int MaxAge, int Fun, int Sport, int Education, int Team, 
-			String TagDescription){
+			String PhotosFolder, int IsOffer, int Visits, double Latitude, double Longitude,
+			int MaxCapacity, int Indoor, int MinAge, int MaxAge, int Fun, int Sport, 
+			int Education, int Team, String TagDescription){
 		
 		this.EventID = ID;
 		this.CompanyID = foreignID;
@@ -43,6 +46,9 @@ public class Event {
 		this.IncomingCash = IncomingCash;
 		this.Cost = Cost;
 		this.Description = Description;
+		this.PhotosFolder = PhotosFolder;
+		this.IsOffer = IsOffer;
+		this.Visits = Visits;
 		this.Latitude = Latitude;
 		this.Longitude = Longitude;
 		this.MaxCapacity = MaxCapacity;

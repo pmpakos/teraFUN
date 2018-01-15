@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.sql.Date;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -28,7 +29,21 @@ public class BookingDAO{
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
+	int BookingID;
+	int ParentID;
+	int EventID;
+	Date BookDate;
+	int NumberOfTickets;
+	String Code;
 
+    public void insert(Booking booking){
+         String sql = "INSERT INTO booking (ParentID, EventID, BookDate,"
+                    + "NumberOfTickets, Code"
+                    + "VALUES (?, ?, ?, ?, ?)";
+
+        this.jdbcTemplate.update(sql, new Object[] {booking.ParentID, booking.EventID, booking.BookDate, 
+                                        booking.NumberOfTickets, booking.Code});
+    }
 
     public List<Booking> getAll(){
         return jdbcTemplate.query("SELECT * FROM booking",new BookingRowMapper());

@@ -67,10 +67,6 @@ public class ParentSignupServlet extends HttpServlet {
 		parent_dao.setJdbcTemplate(dataAccess.jdbcTemplate);
 
 		parent_dao.insert(insert_parent);
-      
-        response.sendRedirect("sam.jsp");	        
-		
-		doGet(request, response);
 	}
 
 }

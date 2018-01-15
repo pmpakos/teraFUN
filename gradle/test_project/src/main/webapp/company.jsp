@@ -19,10 +19,8 @@
     <body>
 
         <div class="container" id="ko">
-            <h1>
-                <span data-bind="text:companies().length"></span> Companies
-            </h1>
-            <table class="table" data-bind="visible: companies().length > 0">
+            <h1>Companies</h1>
+            <table class="table">
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">
@@ -33,7 +31,7 @@
                         </th>
                     </tr>
                 </thead>  
-                <tbody data-bind="foreach:companies">
+                <tbody>
                     <tr>
                         <td>
                             <span data-bind="text:companyname"></span>
@@ -45,9 +43,6 @@
                     
                 </tbody>
             </table>
-            <div class="gmap" id="map">
-        </div>
-
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
@@ -57,62 +52,37 @@
     <% Configuration conf = Configuration.getInstance(); %>
 
     <script>
-        function init() {
             
-          
-          //  var map = new google.maps.Map(document.getElementById('map'), {
-          //      zoom: 13,
-          //      center: ece
-          //  });
-
-          //  console.log("Created map");
-             
-            var Company = function(id, companyname) {
-                this.id = id;
-                this.companyname = companyname;
-            }
-
-            var VM = function(){
-                this.companies = ko.observableArray();            
-            }
-
-            VM.prototype.loadCompanies = function() {
-                console.log("Loading companies...");
-                var opts = {
-                    traditional : true,
-                    cache       : false,
-                    url         : "./api/companies",
-                    type        : "GET",
-                    dataType    : "json"
-                };
-
-                return $.ajax(opts); //returns a promise
-            }
-
-            var viewModel = new VM();
-            console.log("Created VM");            
-
-            viewModel.loadCompanies().done(function(json){
-                console.log("Done loading companies.");                 
-
-                json.results.forEach(function(companyJson){             
-                    var company = new Company(
-                    		companyJson.CompanyID,
-                    		companyJson.CompanyName
-                        );
-                    console.log(company);
-                    viewModel.companies.push(company);
-                });
-            });
-
-            ko.applyBindings(viewModel, document.getElementById('ko'));            
-            console.log("Applied bindings");
+        var VM = function(){
+            this.id = ko.observable();
+            this.companyname = ko.observable();         
         }
 
-    </script>
+        VM.prototype.loadCompany = function() {
+            console.log("Loading company...");
+            var opts = {
+                traditional : true,
+                cache       : false,
+                url         : "./api/company/3",
+                type        : "GET",
+                dataType    : "json"
+            };
 
-   
-    <script> init(); </script>
+            return $.ajax(opts); //returns a promise
+        }
+
+        var viewModel = new VM();
+        console.log("Created VM");            
+
+        viewModel.loadCompany().done(function(companyJson){
+            console.log("Done loading companies.");                 
+            viewModel.id(companyJson.CompanyID);
+            viewModel.companyname(companyJson.CompanyName);
+        });
+
+        ko.applyBindings(viewModel, document.getElementById('ko'));            
+        console.log("Applied bindings");
+    </script>
 
     </body>
 </html>
