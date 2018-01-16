@@ -1,5 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
 <!DOCTYPE html>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <html>
 <head>
 	<title>Create Account | teraFUN </title>
@@ -248,7 +249,7 @@ color: red;
     </div>
 
     <div class="form-group bankaccount">
-      <label for="bankaccount"><span class="glyphicon glyphicon-piggy-bank"></span> Bank Account Number</label>
+      <label for="bankaccount"><span class="glyphicon glyphicon-piggy-bank"></span> Credit Card Number</label>
       <input type="text" class="form-control bank-validation form-element" name="bankaccount" placeholder="Bank Account Number" data-validation="false">
       <span class="error"><p1 id="bank_error"></p1></span>
     </div>

@@ -1,115 +1,52 @@
-invalid_fields_on_page=  0;
-valid_fields=0;
+validpostal=0;
+validtel=0;
+validbank=0;
+validaddr=0;
+validfname=0;
+validlname=0;
+validusn=1;
+validemail=0;
+validpass=0;
+validpass1=0;
 latt=0;
 lngg=0;
 
-/*
-$(document).on('blur','.usn-validation',function(){
-	var content = $(this).val();
-	var message = '';
-	/*Check for punctuation. See if there is a better way*/
-/*	validArray = content.match(/^\w{10}$/i);
-	var valid = true;
 
-	if(content.length == 0){
-		valid = false;
-		invalid_fields_on_page++;
-		console.log("Enter field ");
-		message = "Enter Your USN"; //made change
-	}else if(validArray == null){
-		valid = false;
-		invalid_fields_on_page++;
-		console.log("inalid text input");
-		//alert("invalid");
-		message = "Invalid USN";//made change
-		//console.log(invalidArray);
-	}else{
-		// No errors!
-	}
-
-	$(this).closest('.form-body').siblings('.modal-footer').find('.message').html(message);
-	if(valid){
-	    $(this).css('border','');
-	    $(this).attr('data-validation',true);
-	    $(this).closest('.form-body').siblings('.modal-footer').find('.message').css('color','green');
-
-  }else{
-	    $(this).css('border','1px solid red');
-	    $(this).attr('data-validation',false);
-	    $(this).closest('.form-body').siblings('.modal-footer').find('.message').css('color','red');
-  }
-});*/
-
-
-$(document).on('blur','.alphanum-validation',function(){
-	//".form-group input[type='textbox']"
-	var content = $(this).val();
-	var message = '';
-	/*Check for punctuation. See if there is a better way*/
-	invalidArray = content.match(/[^0-9A-Za-z_ ]/g);
-	var valid = true;
-
-	if(content.length == 0){
-		valid = false;
-		invalid_fields_on_page++;
-		console.log("Enter field ");
-		message = "Enter Field";
-	}else if(invalidArray != null){
-		valid = false;
-		invalid_fields_on_page++;
-		console.log("inalid text input");
-		console.log(invalidArray);
-		message = "Inalid text input";
-	}else{
-		
-	}
-	//globalmessage=globalmessage+
-	//$(this).closest('.form-body').siblings('.modal-footer').find('.message').html(message);
-	 if(valid){
-    	 $(this).css('border','');
-   		 $(this).attr('data-validation',true);
-    	 $(this).closest('.form-body').siblings('.modal-footer').find('.message').css('color','green');
- 	 }else{
-	    $(this).css('border','1px solid red');
-	    $(this).attr('data-validation',false);
-        $(this).closest('.form-body').siblings('.modal-footer').find('.message').css('color','red');
-  }
-});
 
 $(document).on('blur','.password-validation',function(){
 	var content = $(this).val();
-	var message = '';
 
-	invalidArray = content.match(/[^0-9A-Za-z_ ]/g);
-	var valid = true;
-
+	invalidArray = content.match(/[^a-zA-Z0-9Ά-ωΑ-ώ_ ]/g);
+	
+	if(validpass1){
+		
+		 document.getElementById("pass1").value = '';
+		validpass1=0;	
+	}
+	
+	
 	if(content.length == 0){
-		valid = false;
-		invalid_fields_on_page++;
-		//console.log("Enter field ");
-		document.getElementById('pass1_error').innerHTML = 'Enter this field';
-		//message = "Enter Field";
+		validpass=0;
+		document.getElementById('pass1_error').innerHTML = 'Συμπληρώστε αυτό το πεδίο';
 	}else if(invalidArray != null){
-		valid = false;
-		invalid_fields_on_page++;
-		document.getElementById('pass1_error').innerHTML = 'Enter only letters, digits and underscore';
-		//console.log("Enter only Alphabets, digits and underscore");
-		//console.log(invalidArray);
-		//message = "Enter only Alphabets, digits and underscore";
+		
+		validpass=0;
+		
+		document.getElementById('pass1_error').innerHTML = 'Ο κωδικός περιλαμβάνει μόνο αριθμούς, γράμματα και κάτω παύλες';
+	
 	}else if(content.length < 8){
-		valid = false;
-		invalid_fields_on_page++;
-		document.getElementById('pass1_error').innerHTML = 'Password should have at least 8 characters';
-		//console.log("Password should have at least 8 characters");
-		//message = "Password should have at least 8 characters";
+		
+		validpass=0;
+		document.getElementById('pass1_error').innerHTML = 'Ο κωδικός πρόσβασης πρέπει να έχει τουλάχιστον 8 χαρακτήρες';
+		
 	}else{
+		validpass=1;
 		document.getElementById('pass1_error').innerHTML = "";
-		valid_fields++;
 	}
 
 	//$(this).closest('.form-body').siblings('.modal-footer').find('.message').html(message);
 
-if(valid){
+if(validpass){
     $(this).css('border','');
     $(this).attr('data-validation',true);
     //$(this).closest('.form-body').siblings('.modal-footer').find('.message').css('color','green');
@@ -124,39 +61,35 @@ if(valid){
 $(document).on('blur','.password-confirmation',function(){
 	var content = $(this).val();
 	var password = $(this).parent().siblings().find('.password-validation').val();
-	var message = '';
-	/*Check for punctuation. See if there is a better way*/
-	invalidArray = content.match(/[^0-9A-Za-z_ ]/g);
-	var valid = true;
+
+	
+	invalidArray = content.match(/[^a-zA-Z0-9Ά-ωΑ-ώ_ ]/g);
 
 	if(($(this).parent().siblings().find('.password-validation').attr('data-validation') != 'true')){
-		valid = false;
-		invalid_fields_on_page++;
-		document.getElementById('pass2_error').innerHTML = 'First enter a valid password';
-		//console.log("First enter a Correct Password");
+		validpass1=0;
+		document.getElementById('pass2_error').innerHTML = 'Συμπληρώστε έναν έγκυρο κωδικό πρόσβασης';
 		
 	}else if(content.length == 0){
-		valid = false;
-		invalid_fields_on_page++;
-		//console.log("Enter field ");
-		document.getElementById('pass2_error').innerHTML = 'Enter this field';
+		validpass1=0;
+		
+
+		document.getElementById('pass2_error').innerHTML = 'Συμπληρώστε αυτό το πεδίο';
 	}else if(password.length == 0){
-		/*If nothing is entered in the password field (redundant)*/
-		valid = false;
-		invalid_fields_on_page++;
-		console.log("Enter Password First ");
-		document.getElementById('pass2_error').innerHTML = 'Enter password first';
+		
+		validpass1=0;
+		document.getElementById('pass2_error').innerHTML = 'Πρώτα συμπληρώστε τον κωδικό';
+		
 	}else if(password != content){
-		valid = false;
-		invalid_fields_on_page++;
-		console.log("Passwords Dont match");
-		document.getElementById('pass2_error').innerHTML = "Passwords don't match";
+	
+		validpass1=0;
+	
+		document.getElementById('pass2_error').innerHTML = "Οι κωδικοί που δώσατε δεν είναι ίδιοι";
 	}else{
 		document.getElementById('pass2_error').innerHTML = "";
-		valid_fields++;
+		validpass1=1;
 	}
 
-	if(valid){
+	if(validpass1){
 	
     $(this).css('border','');
     $(this).attr('data-validation',true);
@@ -170,149 +103,150 @@ $(document).on('blur','.email-validation',function(){
 	var content = $(this).val();
 	
 	var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-	var valid = re.test(content);
+	validemail = re.test(content);
 
 
 	if(content.length == 0){
-		valid = false;
-		invalid_fields_on_page++;
-		console.log("Enter Email ");
-		document.getElementById('email_error').innerHTML = 'Enter this field';
+		validemail = 0;
 
-	}else if(!valid){
-		valid = false;
-		invalid_fields_on_page++;
-		console.log("Please enter a valid Email");
-		document.getElementById('email_error').innerHTML = 'Enter a valid email address';
+		document.getElementById('email_error').innerHTML = 'Συμπληρώστε αυτό το πεδίο';
+
+	}else if(!validemail){
+		validemail = 0;
+		
+		document.getElementById('email_error').innerHTML = 'Συμπληρώστε μία έγκυρη διεύθυνση ηλεκτρονικού ταχυδρομίου';
 		
 	}
 	else{
 		document.getElementById('email_error').innerHTML = "";
-		valid_fields++;
+		validemail=1;
 	}
 	
-	//$(this).closest('.form-body').siblings('.modal-footer').find('.message').html(message);
 	
-	if(valid){
+	
+	if(validemail){
     $(this).css('border','');
     $(this).attr('data-validation',true);
-   // $(this).closest('.form-body').siblings('.modal-footer').find('.message').css('color','green');
+
   }else{
     $(this).css('border','1px solid red');
     $(this).attr('data-validation',false);
-   // $(this).closest('.form-body').siblings('.modal-footer').find('.message').css('color','red');
+  
     
   }
 });
 
+
 $(document).on('blur','.fname-validation',function(){
 	var content = $(this).val();
-	var re=/^[A-Za-z\s]+$/;
-
-	var valid = re.test(content);	
+	
+	invalidArray = content.match(/[^a-zA-ZΆ-ωΑ-ώ\s]/g);
+		
+	if(invalidArray!=null) validfname=0;
+	else validfname=1;
 
 	if(content.length == 0){
-		valid = false;
-		invalid_fields_on_page++;
-		console.log("Enter field ");
-		document.getElementById('fname_error').innerHTML = 'Enter this field';
-	}else if(!valid){
-		valid = false;
-		invalid_fields_on_page++;
-		console.log("Enter only Letters");
-		document.getElementById('fname_error').innerHTML = 'First name must contain only letters';
+		validfname = 0;
+		
+		document.getElementById('fname_error').innerHTML = 'Συμπληρώστε αυτό το πεδίο';
+	}else if(!validfname){
+		
+		document.getElementById('fname_error').innerHTML = 'Το όνομα πρέπει να περιέχει μόνο γράμματα';
 	}else{
 		document.getElementById('fname_error').innerHTML = "";
-		valid_fields++;
+		
 	}
 
-	//$(this).closest('.form-body').siblings('.modal-footer').find('.message').html(message);
 
-if(valid){
+
+if(validfname){
     $(this).css('border','');
     $(this).attr('data-validation',true);
-    //$(this).closest('.form-body').siblings('.modal-footer').find('.message').css('color','green');
+    
   }else{
     	$(this).css('border','1px solid red');
     	$(this).attr('data-validation',false);
-      //  $(this).closest('.form-body').siblings('.modal-footer').find('.message').css('color','red');
+
   }
 
 });
 
 $(document).on('blur','.lname-validation',function(){
 	var content = $(this).val();
-	var re=/^[A-Za-z\s]+$/;
-
-	var valid = re.test(content);	
+	
+	invalidArray = content.match(/[^a-zA-ZΆ-ωΑ-ώ\s]/g);
+		
+	if(invalidArray!=null) validlname=0;
+	else validlname=1;
 
 	if(content.length == 0){
-		valid = false;
-		invalid_fields_on_page++;
-		console.log("Enter field ");
-		document.getElementById('lname_error').innerHTML = 'Enter this field';
-	}else if(!valid){
-		valid = false;
-		invalid_fields_on_page++;
-		console.log("Enter only Letters");
-		document.getElementById('lname_error').innerHTML = 'First name must contain only letters';
+		validlname = 0;
+	
+		document.getElementById('lname_error').innerHTML = 'Συμπληρώστε αυτό το πεδίο';
+	}else if(!validlname){
+		
+		document.getElementById('lname_error').innerHTML = 'Το επίθετο πρέπει να περιέχει μόνο γράμματα';
 	}else{
 		document.getElementById('lname_error').innerHTML = "";
-		valid_fields++;
+		
 	}
 
-	//$(this).closest('.form-body').siblings('.modal-footer').find('.message').html(message);
 
-if(valid){
+if(validlname){
     $(this).css('border','');
     $(this).attr('data-validation',true);
-    //$(this).closest('.form-body').siblings('.modal-footer').find('.message').css('color','green');
+   
   }else{
     	$(this).css('border','1px solid red');
     	$(this).attr('data-validation',false);
-      //  $(this).closest('.form-body').siblings('.modal-footer').find('.message').css('color','red');
-  }
+        }
 });
 
 $(document).on('blur','.addr-validation',function(){
+	if(validpostal){
+		document.getElementById("postal").value = '';
+		validpostal=0;	
+	}
 	var content = $(this).val();
+	
 	if(content.length == 0){
-		valid = false;
-		invalid_fields_on_page++;
-		console.log("Enter field ");
-		document.getElementById('addr_error').innerHTML = 'Enter this field';
+		validaddr = 0;
+		
+		document.getElementById('addr_error').innerHTML ='Συμπληρώστε αυτό το πεδίο';
 	}
 	else{
+		
 		document.getElementById('addr_error').innerHTML = "";
-		valid_fields++;
+		
 	}
 });
 
 $(document).on('blur','.postal-validation',function(){
+	if(validaddr){
+		document.getElementById("addr").value = '';
+		validaddr=0;	
+	}
 	var content = $(this).val();
 	var address = $(this).parent().siblings().find('.addr-validation').val();
-	var message = '';
 	var location = address+content;
 
 	var content = $(this).val();
 	var re=/\b\d{5}\b/g;
-	var valid = re.test(content);
+	validpostal = re.test(content);
 	
 
 	if(content.length == 0){
-		valid = false;
-		invalid_fields_on_page++;
+		validpostal=0;
 		console.log("Enter postal code ");
-		document.getElementById('postal_error').innerHTML = 'Enter this field';
+		document.getElementById('postal_error').innerHTML = 'Συμπληρώστε αυτό το πεδίο';
 	}else if(address.length==0){
-		valid = false;
-		invalid_fields_on_page++;
+		validpostal = 0;
 		console.log("Enter address first");
-		document.getElementById('addr_error').innerHTML = 'Enter address field';
+		document.getElementById('addr_error').innerHTML = 'Συμπληρώστε αυτό το πεδίο';
 	}
-	else if(valid ==0){
-		invalid_fields_on_page++;
-		document.getElementById('postal_error').innerHTML = 'Postal code must contain 5 digits without space';
+	else if(validpostal ==0){
+		
+		document.getElementById('postal_error').innerHTML = 'Ο ταχυδρομικός κωδικός πρέπει να περιέχει 5 αριθμούς χωρίς κενά';
 		
 	}
 	else{
@@ -325,23 +259,28 @@ $(document).on('blur','.postal-validation',function(){
 	        	  message= "latt =\"" + latt.toString()  + "\" and lngg = \"" + lngg.toString() + "\" ";
 	        	  console.log(message);
 	        	  document.getElementById('postal_error').innerHTML = "";
-	        	  valid_fields++;
+	        	  validpostal=1;
+	        	  validaddr=1;
 		      }
 		      else{
-		    	 valid=false;
-		        invalid_fields_on_page++;
-		  		console.log("Enter valid address and postal code");
-		  		document.getElementById('postal_error').innerHTML = 'Your address or postal code is not valid';
+		    	  validpostal=0;
+	        	  validaddr=0;
+	        	  document.getElementById('addr_error').innerHTML = 'Η διεύθυνση ή ο ΤΚ δεν είναι έγκυρα';
+		  		document.getElementById('postal_error').innerHTML = 'Η διεύθυνση ή ο ΤΚ δεν είναι έγκυρα';
 		      }
 		    });
 		  }
 		
 	}
 	
-	if(valid){
+	if(validpostal){
 		$(this).css('border','');
 		$(this).attr('data-validation',true);
+		$(this).parent().siblings().find('.addr-validation').css('border','');
+		$(this).parent().siblings().find('.addr-validation').attr('data-validation',true);
 	}else{
+		$(this).parent().siblings().find('.addr-validation').css('border','1px solid red');
+		$(this).parent().siblings().find('.addr-validation').attr('data-validation',false);
     	$(this).css('border','1px solid red');
     	$(this).attr('data-validation',false);
     }
@@ -351,26 +290,25 @@ $(document).on('blur','.postal-validation',function(){
 $(document).on('blur','.tel-validation',function(){
 	var content = $(this).val();
 	var re=/\b\d{10}\b/g;
-	var valid = re.test(content);
+	validtel = re.test(content);
 	
 
 	if(content.length == 0){
-		valid = false;
-		invalid_fields_on_page++;
-		console.log("Enter postal code ");
-		document.getElementById('tel_error').innerHTML = 'Enter this field';
-	}else if(valid == 0){
-		invalid_fields_on_page++;
-		document.getElementById('tel_error').innerHTML = 'Telephone must contain 10 digits without space';
+		validtel = false;
+	
+		document.getElementById('tel_error').innerHTML = 'Συμπληρώστε αυτό το πεδίο';
+	}else if(validtel == 0){
+	
+		document.getElementById('tel_error').innerHTML = 'Το τηλέφωνο επικοινωνίας πρέπει να περιέχει μόνο αριθμούς χωρίς κενά';
 		
 	}
 	else{
 		document.getElementById('tel_error').innerHTML = "";
-		valid_fields++;
+		
 	}
 	
 	
-	if(valid){
+	if(validtel){
 		$(this).css('border','');
 		$(this).attr('data-validation',true);
 	}else{
@@ -384,25 +322,25 @@ $(document).on('blur','.tel-validation',function(){
 $(document).on('blur','.bank-validation',function(){
 	var content = $(this).val();
 	var re=/\b\d{16}\b/g;
-	var valid = re.test(content);
+	validbank = re.test(content);
 	
 
 	if(content.length == 0){
-		valid = false;
-		invalid_fields_on_page++;
+		validbank = false;
+		
 		console.log("Enter postal code ");
-		document.getElementById('bank_error').innerHTML = 'Enter this field';
-	}else if(valid == 0){
-		invalid_fields_on_page++;
-		document.getElementById('bank_error').innerHTML = 'Please add 16-number yout bank account number without spaces';
+		document.getElementById('bank_error').innerHTML = 'Συμπληρώστε αυτό το πεδίο';
+	}else if(validbank == 0){
+		
+		document.getElementById('bank_error').innerHTML = 'Παρακαλώ εισάγετε τον 16ψήφιο αριθμού της κάρτας σας χωρίς κενά';
 		
 	}
 	else{
 		document.getElementById('bank_error').innerHTML = "";
-		valid_fields++;
+		
 	}
 	
-	if(valid){
+	if(validbank){
 		$(this).css('border','');
 		$(this).attr('data-validation',true);
 	}else{
@@ -415,38 +353,35 @@ $(document).on('blur','.bank-validation',function(){
 $(document).on('click','.signup-btn',function(){
 	
 	var usn = $(this).siblings('.usn').find('input[name=usn]').val();
-
+	console.log(usn);
 	var email = $(this).siblings('.email').find('input[name=email]').val();
-	
-	var password = $(this).siblings('.password').find('input[name=password]').val();
-	
-	var fname=$(this).siblings('.fname').find('input[name=fname]').val();
-
-	var lname=$(this).siblings('.lname').find('input[name=lname]').val();
-	
-	var postal=$(this).siblings('.postal').find('input[name=postal]').val();
-
-	var addr=$(this).siblings('.addr').find('input[name=addr]').val();
-
+	console.log(email);
+	var password = $(this).siblings('.row').find('input[name=password]').val();
+	console.log(password);
+	var fname=$(this).siblings('.row').find('input[name=fname]').val();
+	console.log(fname);
+	var lname=$(this).siblings('.row').find('input[name=lname]').val();
+	console.log(lname);
+	var postal=$(this).siblings('.row').find('input[name=postal]').val();
+	console.log(postal);
+	var addr=$(this).siblings('.row').find('input[name=addr]').val();
+	console.log(addr);
 	var tel=$(this).siblings('.tel').find('input[name=tel]').val();
-	
+	console.log(tel);
 	var bank=$(this).siblings('.bankaccount').find('input[name=bankaccount]').val();
-
+	console.log(bank);
 	
-	var message= " latt =\"" + latt.toString()  + "\" and lngg = \"" + lngg.toString() + "\" and fname = \"" + fname.toString() + "\" and lname = \"" + lname.toString() +"\" ";
-	//console.log(message);
-	if(valid_fields<10){
-		var mes='Please fill all the fields'
+	var test=validlname&validfname&validpass1&validpass&validusn&validemail&validaddr&validpostal&validtel&validbank;
+	console.log(test);
+	if(test==0){
+		var mes='Παρακαλώ συμπληρώστε όλα τα πεδία';
      	$(this).closest('.form-body').siblings('.modal-footer').find('.message').html(mes);	
         $(this).closest('.form-body').siblings('.modal-footer').find('.message').css('color','red');
 	}
-		
 	
-	else if(invalid_fields_on_page==0){
-		var mes=""
-			
-       $(this).closest('.form-body').siblings('.modal-footer').find('.message').css('color','red');
-			$(this).closest('.form-body').siblings('.modal-footer').find('.message').html(mes);
+	else {
+		var mes="";
+	   $(this).closest('.form-body').siblings('.modal-footer').find('.message').html(mes);
 			
 	/*$.post('/psignup.txt',{
 		usn:usn,
@@ -460,8 +395,8 @@ $(document).on('click','.signup-btn',function(){
 		bank:bank,
 		latt:latt,
 		lngg:lngg
-	},response);*/
-		
+	},response);
+		*/
 		$.ajax({
 			type:"POST",
 			data:{
@@ -479,30 +414,12 @@ $(document).on('click','.signup-btn',function(){
 			},
 			url:'/app/parent_signup',
 			success: function(){
-				window.location.href = 'http://localhost:8765/app/parent.jsp'
+				window.location.href='http://localhost:8765/app/parent.jsp'
 			}
-		});
-		
-
-	function response(res){
-		//alert(res);
-		/*var result = JSON.parse(res);
-		//console.log("message : " + result.message + result.success);
-		$('#signup-message').html(result.message);
-		if(result.success){
-			$('#signup-message').css('color','green');
-		}else{
-			$('#signup-message').css('color','red');
-		}*/
-		//$('#signup-message').html(result.message);
-		return ;	
-	}
+				
+		});	
 	}
 	});
-
-
-
-
 
 
 

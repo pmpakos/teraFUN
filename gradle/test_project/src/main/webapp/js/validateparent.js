@@ -34,10 +34,10 @@ $(document).on('blur','.password-validation',function(){
 		
 		document.getElementById('pass1_error').innerHTML = 'Ο κωδικός περιλαμβάνει μόνο αριθμούς, γράμματα και κάτω παύλες';
 	
-	}else if(content.length < 5){
+	}else if(content.length < 8){
 		
 		validpass=0;
-		document.getElementById('pass1_error').innerHTML = 'Ο κωδικός πρόσβασης πρέπει να έχει τουλάχιστον 5 χαρακτήρες';
+		document.getElementById('pass1_error').innerHTML = 'Ο κωδικός πρόσβασης πρέπει να έχει τουλάχιστον 8 χαρακτήρες';
 		
 	}else{
 		validpass=1;
@@ -321,7 +321,7 @@ $(document).on('blur','.tel-validation',function(){
 
 $(document).on('blur','.bank-validation',function(){
 	var content = $(this).val();
-	var re=/\b\d{12}\b/g;
+	var re=/\b\d{16}\b/g;
 	validbank = re.test(content);
 	
 
@@ -332,7 +332,7 @@ $(document).on('blur','.bank-validation',function(){
 		document.getElementById('bank_error').innerHTML = 'Συμπληρώστε αυτό το πεδίο';
 	}else if(validbank == 0){
 		
-		document.getElementById('bank_error').innerHTML = 'Παρακαλώ εισάγετε τον 12ψήφιο αριθμού του τραπεζικού σας λογαριασμού χωρίς κενά';
+		document.getElementById('bank_error').innerHTML = 'Παρακαλώ εισάγετε τον 16ψήφιο αριθμού της κάρτας σας χωρίς κενά';
 		
 	}
 	else{

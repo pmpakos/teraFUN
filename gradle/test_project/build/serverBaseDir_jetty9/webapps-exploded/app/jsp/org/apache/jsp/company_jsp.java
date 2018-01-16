@@ -109,7 +109,7 @@ public final class company_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            var opts = {\n");
       out.write("                traditional : true,\n");
       out.write("                cache       : false,\n");
-      out.write("                url         : \"./api/company/3\",\n");
+      out.write("                url         : \"./api/company/11\",\n");
       out.write("                type        : \"GET\",\n");
       out.write("                dataType    : \"json\"\n");
       out.write("            };\n");

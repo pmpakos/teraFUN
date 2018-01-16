@@ -30,7 +30,7 @@ public final class signup_005fparent_jsp extends org.apache.jasper.runtime.HttpJ
     PageContext _jspx_page_context = null;
 
     try {
-      response.setContentType("text/html");
+      response.setContentType("text/html; charset=utf-8");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -41,6 +41,8 @@ public final class signup_005fparent_jsp extends org.apache.jasper.runtime.HttpJ
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\n");
+      out.write("<!-- <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"> -->\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("<head>\n");
@@ -226,25 +228,22 @@ public final class signup_005fparent_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("  <div class=\"jumbotron\">\n");
       out.write("  \n");
       out.write("\t          \n");
-      out.write("  <h2 style=\"text-align: left\"> Create new Account</h2>\n");
+      out.write("  <h2 style=\"text-align: center\"> Δημιουργία Νέου Λογαριασμού</h2>\n");
       out.write("\t\t   \n");
       out.write("  <div class=\"form-body\"> \n");
-      out.write("  <form >\n");
-      out.write("  \t <div class=\"row\">\n");
+      out.write("  <form role='form'>\n");
+      out.write("  \t \n");
+      out.write("  \t \t<div class=\"row\">\n");
       out.write("  \t \t<div class=\"form-group fname col-xs-6\">\n");
       out.write("      \t<label for=\"fname\"><span class=\"glyphicon glyphicon-user\"></span>First Name</label>\n");
-      out.write("      \t<input type=\"text\" class=\"form-control fname-validation form-element\" name=\"fname\" placeholder=\"Enter Your First Name\" data-validation=\"false\">\n");
+      out.write("      \t<input type=\"text\" class=\"form-control fname-validation form-element\" name=\"fname\" placeholder=\"First Name\" data-validation=\"false\">\n");
       out.write("\t  \t<span class=\"error\"><p1 id=\"fname_error\"></p1></span>\n");
       out.write("    \t</div>\n");
-      out.write("\n");
       out.write("    \t<div class=\"form-group lname col-xs-6\">\n");
       out.write("      \t<label for=\"lname\"><span class=\"glyphicon glyphicon-user\"></span> Last Name</label>\n");
       out.write("      \t<input type=\"text\" class=\"form-control lname-validation form-element\" name=\"lname\" placeholder=\"Last Name\" data-validation=\"false\">\n");
       out.write("    \t<span class=\"error\"><p1 id=\"lname_error\"></p1></span>\n");
-      out.write("    \t</div>\n");
-      out.write("  \t \n");
-      out.write("  \t \n");
-      out.write("  \t \n");
+      out.write("    \t</div>  \t \n");
       out.write("  \t </div>\n");
       out.write("  \t \n");
       out.write("    <div class=\"form-group usn\">\n");
@@ -261,12 +260,12 @@ public final class signup_005fparent_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("\t <div class=\"row\">\n");
       out.write("\t<div class=\"form-group password col-xs-6\">\n");
       out.write("        <label for=\"password\"><span class=\"glyphicon glyphicon-eye-open\"></span> Password</label>\n");
-      out.write("\t\t<input  type=\"password\" class=\"form-control password-validation form-element\" name=\"password\" placeholder=\"Password\" data-validation=\"false\">\n");
+      out.write("\t\t<input  type=\"password\" class=\"form-control password-validation form-element\" id=\"pass\" name=\"password\" placeholder=\"Password\" data-validation=\"false\">\n");
       out.write("  \t\t<span class=\"error\"><p1 id=\"pass1_error\"></p1></span>\n");
       out.write("    </div>\n");
       out.write("    <div class=\"form-group confirm-password col-xs-6\">\n");
       out.write("     \t<label for=\"confirm-password\"><span class=\"glyphicon glyphicon-eye-open\"></span> Confirm Password</label>\n");
-      out.write("\t\t<input  type=\"password\" class=\"form-control password-confirmation form-element\" name=\"password1\" placeholder=\"Confirm Password\" data-validation=\"false\">\n");
+      out.write("\t\t<input  type=\"password\" class=\"form-control password-confirmation form-element\" id=\"pass1\" name=\"password1\" placeholder=\"Confirm Password\" data-validation=\"false\">\n");
       out.write("    \t<span class=\"error\"><p1 id=\"pass2_error\"></p1></span>\n");
       out.write("    </div>\n");
       out.write("    </div>\n");
@@ -275,25 +274,25 @@ public final class signup_005fparent_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("\t<div class=\"row\">\n");
       out.write("      <div class=\"form-group addr col-xs-6\">\n");
       out.write("      <label for=\"addr\"><span class=\"glyphicon glyphicon-home\"></span> Address</label>\n");
-      out.write("      <input type=\"text\" class=\"form-control addr-validation form-element\" name=\"addr\" placeholder=\"Address\" data-validation=\"false\">\n");
+      out.write("      <input type=\"text\" class=\"form-control addr-validation form-element\" id=\"addr\" name=\"addr\" placeholder=\"Address\" data-validation=\"false\">\n");
       out.write("\t  <span class=\"error\"><p1 id=\"addr_error\"></p1></span>\n");
       out.write("    </div>  \n");
       out.write("\n");
       out.write("    <div class=\"form-group postal col-xs-6\">\n");
       out.write("      <label for=\"postal\"><span class=\"glyphicon glyphicon-map-marker\"></span> Postal Code</label>\n");
-      out.write("      <input type=\"text\" class=\"form-control postal-validation form-element\" name=\"postal\"  placeholder=\"Postal Code\" data-validation=\"false\">\n");
+      out.write("      <input type=\"text\" class=\"form-control postal-validation form-element\" id=\"postal\" name=\"postal\"  placeholder=\"Postal Code\" data-validation=\"false\">\n");
       out.write("      <span class=\"error\"><p1 id=\"postal_error\"></p1></span>\n");
       out.write("    </div> \n");
       out.write("    </div>\n");
       out.write("\n");
       out.write("    <div class=\"form-group tel\">\n");
-      out.write("      <label for=\"tel\"><span class=\"glyphicon glyphicon-phone-alt\"></span>  Tel. Number</label>\n");
-      out.write("      <input type=\"text\" class=\"form-control tel-validation form-elementl\" name=\"tel\" placeholder=\"Telephone Number\" data-validation=\"false\">\n");
+      out.write("      <label for=\"tel\"><span class=\"glyphicon glyphicon-phone-alt\"></span> Contact Number</label>\n");
+      out.write("      <input type=\"text\" class=\"form-control tel-validation form-elementl\" name=\"tel\" placeholder=\"Contact Number\" data-validation=\"false\">\n");
       out.write("    \t<span class=\"error\"><p1 id=\"tel_error\"></p1></span>\n");
       out.write("    </div>\n");
       out.write("\n");
       out.write("    <div class=\"form-group bankaccount\">\n");
-      out.write("      <label for=\"bankaccount\"><span class=\"glyphicon glyphicon-piggy-bank\"></span> Bank Account Number</label>\n");
+      out.write("      <label for=\"bankaccount\"><span class=\"glyphicon glyphicon-piggy-bank\"></span> Credit Card Number</label>\n");
       out.write("      <input type=\"text\" class=\"form-control bank-validation form-element\" name=\"bankaccount\" placeholder=\"Bank Account Number\" data-validation=\"false\">\n");
       out.write("      <span class=\"error\"><p1 id=\"bank_error\"></p1></span>\n");
       out.write("    </div>\n");

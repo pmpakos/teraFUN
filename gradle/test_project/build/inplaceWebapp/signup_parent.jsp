@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -183,25 +185,22 @@ color: red;
   <div class="jumbotron">
   
 	          
-  <h2 style="text-align: left"> Create new Account</h2>
+  <h2 style="text-align: center"> Δημιουργία Νέου Λογαριασμού</h2>
 		   
   <div class="form-body"> 
-  <form >
-  	 <div class="row">
+  <form role='form'>
+  	 
+  	 	<div class="row">
   	 	<div class="form-group fname col-xs-6">
       	<label for="fname"><span class="glyphicon glyphicon-user"></span>First Name</label>
-      	<input type="text" class="form-control fname-validation form-element" name="fname" placeholder="Enter Your First Name" data-validation="false">
+      	<input type="text" class="form-control fname-validation form-element" name="fname" placeholder="First Name" data-validation="false">
 	  	<span class="error"><p1 id="fname_error"></p1></span>
     	</div>
-
     	<div class="form-group lname col-xs-6">
       	<label for="lname"><span class="glyphicon glyphicon-user"></span> Last Name</label>
       	<input type="text" class="form-control lname-validation form-element" name="lname" placeholder="Last Name" data-validation="false">
     	<span class="error"><p1 id="lname_error"></p1></span>
-    	</div>
-  	 
-  	 
-  	 
+    	</div>  	 
   	 </div>
   	 
     <div class="form-group usn">
@@ -218,12 +217,12 @@ color: red;
 	 <div class="row">
 	<div class="form-group password col-xs-6">
         <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-		<input  type="password" class="form-control password-validation form-element" name="password" placeholder="Password" data-validation="false">
+		<input  type="password" class="form-control password-validation form-element" id="pass" name="password" placeholder="Password" data-validation="false">
   		<span class="error"><p1 id="pass1_error"></p1></span>
     </div>
     <div class="form-group confirm-password col-xs-6">
      	<label for="confirm-password"><span class="glyphicon glyphicon-eye-open"></span> Confirm Password</label>
-		<input  type="password" class="form-control password-confirmation form-element" name="password1" placeholder="Confirm Password" data-validation="false">
+		<input  type="password" class="form-control password-confirmation form-element" id="pass1" name="password1" placeholder="Confirm Password" data-validation="false">
     	<span class="error"><p1 id="pass2_error"></p1></span>
     </div>
     </div>
@@ -232,25 +231,25 @@ color: red;
 	<div class="row">
       <div class="form-group addr col-xs-6">
       <label for="addr"><span class="glyphicon glyphicon-home"></span> Address</label>
-      <input type="text" class="form-control addr-validation form-element" name="addr" placeholder="Address" data-validation="false">
+      <input type="text" class="form-control addr-validation form-element" id="addr" name="addr" placeholder="Address" data-validation="false">
 	  <span class="error"><p1 id="addr_error"></p1></span>
     </div>  
 
     <div class="form-group postal col-xs-6">
       <label for="postal"><span class="glyphicon glyphicon-map-marker"></span> Postal Code</label>
-      <input type="text" class="form-control postal-validation form-element" name="postal"  placeholder="Postal Code" data-validation="false">
+      <input type="text" class="form-control postal-validation form-element" id="postal" name="postal"  placeholder="Postal Code" data-validation="false">
       <span class="error"><p1 id="postal_error"></p1></span>
     </div> 
     </div>
 
     <div class="form-group tel">
-      <label for="tel"><span class="glyphicon glyphicon-phone-alt"></span>  Tel. Number</label>
-      <input type="text" class="form-control tel-validation form-elementl" name="tel" placeholder="Telephone Number" data-validation="false">
+      <label for="tel"><span class="glyphicon glyphicon-phone-alt"></span> Contact Number</label>
+      <input type="text" class="form-control tel-validation form-elementl" name="tel" placeholder="Contact Number" data-validation="false">
     	<span class="error"><p1 id="tel_error"></p1></span>
     </div>
 
     <div class="form-group bankaccount">
-      <label for="bankaccount"><span class="glyphicon glyphicon-piggy-bank"></span> Bank Account Number</label>
+      <label for="bankaccount"><span class="glyphicon glyphicon-piggy-bank"></span> Credit Card Number</label>
       <input type="text" class="form-control bank-validation form-element" name="bankaccount" placeholder="Bank Account Number" data-validation="false">
       <span class="error"><p1 id="bank_error"></p1></span>
     </div>

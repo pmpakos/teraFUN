@@ -63,7 +63,7 @@
             var opts = {
                 traditional : true,
                 cache       : false,
-                url         : "./api/company/3",
+                url         : "./api/company/11",
                 type        : "GET",
                 dataType    : "json"
             };
