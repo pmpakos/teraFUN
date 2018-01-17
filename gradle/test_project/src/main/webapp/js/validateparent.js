@@ -57,7 +57,7 @@ $(document).on('blur','.usn-validation',function(){
 
 	//$(this).closest('.form-body').siblings('.modal-footer').find('.message').html(message);
 
-if(validpass){
+if(validusn){
     $(this).css('border','');
     $(this).attr('data-validation',true);
     //$(this).closest('.form-body').siblings('.modal-footer').find('.message').css('color','green');
@@ -73,7 +73,7 @@ if(validpass){
 $(document).on('blur','.password-validation',function(){
 	var content = $(this).val();
 
-	invalidArray = content.match(/[^a-zA-Z0-9Ά-ωΑ-ώ_ ]/g);
+	invalidArray = content.match(/[^a-zA-Z0-9_ ]/g);
 	
 	if(validpass1){
 		document.getElementById("pass1").value = '';
@@ -88,12 +88,12 @@ $(document).on('blur','.password-validation',function(){
 		
 		validpass=0;
 		
-		document.getElementById('pass1_error').innerHTML = 'Ο κωδικός περιλαμβάνει μόνο αριθμούς, γράμματα και κάτω παύλες';
+		document.getElementById('pass1_error').innerHTML = 'Ο κωδικός περιλαμβάνει μόνο αριθμούς, λατινικά γράμματα και κάτω παύλες';
 	
-	}else if(content.length < 8){
+	}else if(content.length < 5){
 		
 		validpass=0;
-		document.getElementById('pass1_error').innerHTML = 'Ο κωδικός πρόσβασης πρέπει να έχει τουλάχιστον 8 χαρακτήρες';
+		document.getElementById('pass1_error').innerHTML = 'Ο κωδικός πρόσβασης πρέπει να έχει τουλάχιστον 5 χαρακτήρες';
 		
 	}else{
 		validpass=1;
@@ -119,11 +119,11 @@ $(document).on('blur','.password-confirmation',function(){
 	var password = $(this).parent().siblings().find('.password-validation').val();
 
 	
-	invalidArray = content.match(/[^a-zA-Z0-9Ά-ωΑ-ώ_ ]/g);
+	//invalidArray = content.match(/[^a-zA-Z0-9_ ]/g);
 
 	if(($(this).parent().siblings().find('.password-validation').attr('data-validation') != 'true')){
 		validpass1=0;
-		document.getElementById('pass2_error').innerHTML = 'Συμπληρώστε έναν έγκυρο κωδικό πρόσβασης';
+		document.getElementById('pass2_error').innerHTML = 'Συμπληρώστε πρώτα έναν έγκυρο κωδικό πρόσβασης';
 		
 	}else if(content.length == 0){
 		validpass1=0;
@@ -384,7 +384,6 @@ $(document).on('blur','.bank-validation',function(){
 	if(content.length == 0){
 		validbank = false;
 		
-		console.log("Enter postal code ");
 		document.getElementById('bank_error').innerHTML = 'Συμπληρώστε αυτό το πεδίο';
 	}else if(validbank == 0){
 		
@@ -392,6 +391,7 @@ $(document).on('blur','.bank-validation',function(){
 		
 	}
 	else{
+
 		document.getElementById('bank_error').innerHTML = "";
 		
 	}
