@@ -33,6 +33,11 @@
         <servlet-class>gr.ntua.ece.softeng17b.servlets.CheckParentEmailServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>parent_change_status</servlet-name>
+        <servlet-class>gr.ntua.ece.softeng17b.servlets.ParentChangeStatus</servlet-class>
+    </servlet>
+
 
     <servlet>
         <servlet-name>velocity</servlet-name>
@@ -91,6 +96,11 @@
     <servlet-mapping>
         <servlet-name>parent_check_email</servlet-name>
         <url-pattern>/check_email</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>parent_change_status</servlet-name>
+        <url-pattern>/change_status</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>

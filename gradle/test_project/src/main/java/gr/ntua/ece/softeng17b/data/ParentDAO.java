@@ -41,6 +41,13 @@ public class ParentDAO{
     }
 
 
+    public void changeStatus(int id, int newStatus){
+        String sql = "UPDATE parent SET status = ? WHERE ParentID = ?";
+
+        this.jdbcTemplate.update(sql, new Object[] {newStatus, id});   
+    }
+
+
     public Optional<Parent> getParent(int id) {        
         List<Parent> parent = jdbcTemplate.query("select * from parent where ParentID = ?", new Object[] {id}, new ParentRowMapper());
         if (parent.size() == 1)  {
