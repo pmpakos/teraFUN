@@ -204,8 +204,9 @@ color: red;
   	 </div>
   	 
     <div class="form-group usn">
-    	<label for="username"> <span class="glyphicon glyphicon-user"> </span> UserName</label>
-      <input type="text" class="form-control usn-validation form-element" name="usn" placeholder="Enter a valid Username">
+    	<label for="username"> <span class="glyphicon glyphicon-user" > </span> UserName</label>
+      <input type="text" class="form-control usn-validation form-element" name="usn" placeholder="Enter a valid Username" data-validation="false" id="usn-border">
+      <span class="error"><p1 id="usn_error"></p1></span>
     </div>
     
   

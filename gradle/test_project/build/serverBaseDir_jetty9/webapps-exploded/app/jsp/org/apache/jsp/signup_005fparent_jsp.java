@@ -247,8 +247,9 @@ public final class signup_005fparent_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("  \t </div>\n");
       out.write("  \t \n");
       out.write("    <div class=\"form-group usn\">\n");
-      out.write("    \t<label for=\"username\"> <span class=\"glyphicon glyphicon-user\"> </span> UserName</label>\n");
-      out.write("      <input type=\"text\" class=\"form-control usn-validation form-element\" name=\"usn\" placeholder=\"Enter a valid Username\">\n");
+      out.write("    \t<label for=\"username\"> <span class=\"glyphicon glyphicon-user\" > </span> UserName</label>\n");
+      out.write("      <input type=\"text\" class=\"form-control usn-validation form-element\" name=\"usn\" placeholder=\"Enter a valid Username\" data-validation=\"false\" id=\"usn-border\">\n");
+      out.write("      <span class=\"error\"><p1 id=\"usn_error\"></p1></span>\n");
       out.write("    </div>\n");
       out.write("    \n");
       out.write("  \n");

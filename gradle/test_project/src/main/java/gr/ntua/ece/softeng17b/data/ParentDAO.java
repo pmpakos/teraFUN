@@ -51,120 +51,19 @@ public class ParentDAO{
         }        
     }
 
-
+    public int check_username(String username) {        
+        List<Parent> parent = jdbcTemplate.query("select * from parent where Username = ?", new Object[] {username}, new ParentRowMapper());
+        if (parent.size() == 1)  {
+            return 1;
+        }
+        else {
+            return 0;
+        }        
+    }
+    
     public List<Parent> getAll(){
         return jdbcTemplate.query("SELECT * FROM parent",new ParentRowMapper());
     }
 
-    public Boolean login(String Username, String Password){
-        
-        String sql = "SELECT * "
-                + "FROM parent WHERE ( (parent.Username = ?) && (parent.Password = ? ) )";
-
-        Connection conn = null;
-
-        try {
-            conn = dataSource.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, Username);
-            ps.setString(2, Password);
-            ResultSet rs = ps.executeQuery();
-            int flag = 0;
-            if ( rs.next() ) {
-                flag = 1;
-            }
-            rs.close();
-            ps.close();
-            if (flag==1)
-                return true;
-            return false;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            if (conn != null) {
-                try {
-                conn.close();
-                } catch (SQLException e) {}
-            }
-        }
-    }
-    
-    public Parent Details(String Username, String Password){
-        
-        String sql = "SELECT * "
-                + "FROM parent WHERE ( (parent.Username="+ Username +") && (parent.Password =" + Password +"))";
-
-        Connection conn = null;
-
-        try {
-            conn = dataSource.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
-            Parent user = null;
-            ResultSet rs = ps.executeQuery();
-            int flag = 0;
-            if ( rs.next() ) {
-                user = new Parent(
-                    rs.getInt("ParentID"), rs.getString("Username"),
-                    rs.getString("FirstName"),
-                    rs.getString("LastName"),
-                    rs.getString("Address"),rs.getInt("PostalCode"),rs.getLong("TelephoneNumber"),
-                    rs.getString("Email"),rs.getString("Password"),rs.getInt("Status"),rs.getInt("CounterParents"),
-                    rs.getInt("Points"), rs.getLong("BankAccount"), rs.getDouble("Latitude"), 
-                    rs.getDouble("Longitude")
-                );
-                flag = 1;
-            }
-            rs.close();
-            ps.close();
-            if (flag==1)
-                return user;
-            return null;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            if (conn != null) {
-                try {
-                conn.close();
-                } catch (SQLException e) {}
-            }
-        }
-    }
-    
-    public ArrayList<Parent> getAllParents(){
-
-        ArrayList<Parent> Rep = new ArrayList<Parent>();
-        
-        String sql = "SELECT parent.ParentID, parent.FirstName, parent.LastName FROM parent";
-
-        Connection conn = null;
-
-        try {
-            conn = dataSource.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
-            Parent user = null;
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                System.out.println("Hi");
-                user = new Parent(
-                    rs.getInt("ParentID"), "",
-                    rs.getString("FirstName"),
-                    rs.getString("LastName"),
-                    "",0,0,"","",0,0,0,0,0.0,0.0
-                );
-                Rep.add(user);
-                
-            }
-            rs.close();
-            ps.close();
-            return Rep;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            if (conn != null) {
-                try {
-                conn.close();
-                } catch (SQLException e) {}
-            }
-        }
-    }
+   
 }

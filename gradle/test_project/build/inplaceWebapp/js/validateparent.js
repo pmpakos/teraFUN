@@ -4,7 +4,7 @@ validbank=0;
 validaddr=0;
 validfname=0;
 validlname=0;
-validusn=1;
+validusn=0;
 validemail=0;
 validpass=0;
 validpass1=0;
@@ -13,14 +13,70 @@ lngg=0;
 
 
 
+$(document).on('blur','.usn-validation',function(){
+	var content = $(this).val();
+
+	invalidArray = content.match(/[^a-zA-Z0-9]/g);
+	
+
+	
+	if(content.length == 0){
+		validusn=0;
+		document.getElementById('usn_error').innerHTML = 'Συμπληρώστε αυτό το πεδίο';
+	}else if(invalidArray != null){
+		
+		validusn=0;
+		
+		document.getElementById('usn_error').innerHTML = 'Ο κωδικός περιλαμβάνει μόνο λατινικά γράμματα και αριθμούς';
+	}
+	else if(content.length < 2){
+		validusn=0;
+		document.getElementById('usn_error').innerHTML = 'Tο username πρέπει να έχει τουλάχιστον δύο χαρακτήρες';
+	}
+	else{
+		$.ajax({
+			type:"POST",
+			data:{
+				usn:content,},
+			url:'/app/check_username',
+			success: function(username_check){
+				console.log("Result is: "+username_check);
+				if (username_check == "true"){
+					validusn=0;
+					document.getElementById('usn_error').innerHTML = "To username αυτό χρησιμοποιείται ήδη";
+					
+				}
+				else{
+					validusn = 1;
+					document.getElementById('usn_error').innerHTML = "<span style=\"color:green\">" + "Έγκυρο username" + "</span>";
+					document.getElementById("usn-border").style.borderColor = "green";
+				}
+			}
+		});
+	}
+
+	//$(this).closest('.form-body').siblings('.modal-footer').find('.message').html(message);
+
+if(validpass){
+    $(this).css('border','');
+    $(this).attr('data-validation',true);
+    //$(this).closest('.form-body').siblings('.modal-footer').find('.message').css('color','green');
+  }else{
+    	$(this).css('border','1px solid red');
+    	$(this).attr('data-validation',false);
+      //  $(this).closest('.form-body').siblings('.modal-footer').find('.message').css('color','red');
+  }
+
+});
+
+
 $(document).on('blur','.password-validation',function(){
 	var content = $(this).val();
 
 	invalidArray = content.match(/[^a-zA-Z0-9Ά-ωΑ-ώ_ ]/g);
 	
 	if(validpass1){
-		
-		 document.getElementById("pass1").value = '';
+		document.getElementById("pass1").value = '';
 		validpass1=0;	
 	}
 	
@@ -382,21 +438,6 @@ $(document).on('click','.signup-btn',function(){
 	else {
 		var mes="";
 	   $(this).closest('.form-body').siblings('.modal-footer').find('.message').html(mes);
-			
-	/*$.post('/psignup.txt',{
-		usn:usn,
-		email:email,
-		password:password,
-		fname:fname,
-		lname:lname,
-		postal:postal,
-		addr:addr,
-		tel:tel,
-		bank:bank,
-		latt:latt,
-		lngg:lngg
-	},response);
-		*/
 		$.ajax({
 			type:"POST",
 			data:{
