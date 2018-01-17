@@ -174,8 +174,25 @@ $(document).on('blur','.email-validation',function(){
 		
 	}
 	else{
-		document.getElementById('email_error').innerHTML = "";
-		validemail=1;
+		$.ajax({
+			type:"POST",
+			data:{
+				email:content,},
+			url:'/app/check_email',
+			success: function(email_check){
+				console.log("Result is: "+email_check);
+				if (email_check == "true"){
+					validemail=0;
+					document.getElementById('email_error').innerHTML = "To email αυτό χρησιμοποιείται ήδη";
+				}
+				else{
+					document.getElementById('email_error').innerHTML = "";
+					validemail=1;
+					document.getElementById('email_error').innerHTML = "<span style=\"color:green\">" + "Έγκυρο email" + "</span>";
+					document.getElementById("email-border").style.borderColor = "green";
+				}
+			}
+		});
 	}
 	
 	

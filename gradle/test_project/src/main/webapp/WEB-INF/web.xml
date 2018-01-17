@@ -28,6 +28,11 @@
         <servlet-class>gr.ntua.ece.softeng17b.servlets.CheckParentUsernameServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>parent_check_email</servlet-name>
+        <servlet-class>gr.ntua.ece.softeng17b.servlets.CheckParentEmailServlet</servlet-class>
+    </servlet>
+
 
     <servlet>
         <servlet-name>velocity</servlet-name>
@@ -82,6 +87,11 @@
         <servlet-name>parent_check_username</servlet-name>
         <url-pattern>/check_username</url-pattern>
     </servlet-mapping>  
+
+    <servlet-mapping>
+        <servlet-name>parent_check_email</servlet-name>
+        <url-pattern>/check_email</url-pattern>
+    </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>velocity</servlet-name>

@@ -60,6 +60,16 @@ public class ParentDAO{
             return 0;
         }        
     }
+
+    public int check_email(String email) {        
+        List<Parent> parent = jdbcTemplate.query("select * from parent where Email = ?", new Object[] {email}, new ParentRowMapper());
+        if (parent.size() == 1)  {
+            return 1;
+        }
+        else {
+            return 0;
+        }        
+    }
     
     public List<Parent> getAll(){
         return jdbcTemplate.query("SELECT * FROM parent",new ParentRowMapper());
