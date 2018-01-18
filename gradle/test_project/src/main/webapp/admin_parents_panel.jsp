@@ -256,7 +256,7 @@
                         parentJson.CounterEvents,
                         parentJson.Status,
                         parentJson.Points,
-                        parentJson.BankAccount,
+                        parentJson.BankAccount
                         );
                     console.log(parent);
                     viewModel.parents.push(parent);

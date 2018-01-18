@@ -299,7 +299,7 @@ public final class admin_005fparents_005fpanel_jsp extends org.apache.jasper.run
       out.write("                        parentJson.CounterEvents,\n");
       out.write("                        parentJson.Status,\n");
       out.write("                        parentJson.Points,\n");
-      out.write("                        parentJson.BankAccount,\n");
+      out.write("                        parentJson.BankAccount\n");
       out.write("                        );\n");
       out.write("                    console.log(parent);\n");
       out.write("                    viewModel.parents.push(parent);\n");
@@ -314,7 +314,7 @@ public final class admin_005fparents_005fpanel_jsp extends org.apache.jasper.run
       out.write("\n");
       out.write("\n");
       out.write("  </body>\n");
-      out.write("</html>");
+      out.write("</html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
