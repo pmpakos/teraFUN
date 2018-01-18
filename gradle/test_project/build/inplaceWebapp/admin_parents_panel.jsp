@@ -89,6 +89,7 @@
 
 
     <script>
+
             $(document).ready(function() {
               var table = $('#Data').DataTable( {
                   "paging": true,
@@ -98,7 +99,9 @@
                     "targets": 11,
                     "orderable": false
                   } ],
-                  //"pagingType": "simple_numbers",
+                  "bDeferRender": true, 
+
+                  "pagingType": "simple_numbers",
                   //"scrollY": "200px",
                   //"stateSave": true,
                   //"searching": true,

@@ -179,6 +179,7 @@ public final class admin_005fparents_005fpanel_jsp extends org.apache.jasper.run
       out.write("\n");
       out.write("\n");
       out.write("    <script>\n");
+      out.write("\n");
       out.write("            $(document).ready(function() {\n");
       out.write("              var table = $('#Data').DataTable( {\n");
       out.write("                  \"paging\": true,\n");
@@ -188,7 +189,9 @@ public final class admin_005fparents_005fpanel_jsp extends org.apache.jasper.run
       out.write("                    \"targets\": 11,\n");
       out.write("                    \"orderable\": false\n");
       out.write("                  } ],\n");
-      out.write("                  //\"pagingType\": \"simple_numbers\",\n");
+      out.write("                  \"bDeferRender\": true, \n");
+      out.write("\n");
+      out.write("                  \"pagingType\": \"simple_numbers\",\n");
       out.write("                  //\"scrollY\": \"200px\",\n");
       out.write("                  //\"stateSave\": true,\n");
       out.write("                  //\"searching\": true,\n");
