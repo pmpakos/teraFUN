@@ -194,6 +194,10 @@ public final class admin_005fparents_005fpanel_jsp extends org.apache.jasper.run
       out.write("                  \"paging\": true,\n");
       out.write("                  \"iDisplay\": 10,\n");
       out.write("                  \"bLengthChange\": false,\n");
+      out.write("                  \"columnDefs\": [ {\n");
+      out.write("                    \"targets\": 11,\n");
+      out.write("                    \"orderable\": false\n");
+      out.write("                  } ],\n");
       out.write("                  //\"pagingType\": \"simple_numbers\",\n");
       out.write("                  //\"scrollY\": \"200px\",\n");
       out.write("                  //\"stateSave\": true,\n");
@@ -218,7 +222,7 @@ public final class admin_005fparents_005fpanel_jsp extends org.apache.jasper.run
       out.write("                      '<li> <button id=\"check7\" type=\"button\" class=\"toggle-vis btn btn-success btn-filter\" data-column=\"7\">Email</button> </li>'+\n");
       out.write("                      '<li> <button id=\"check8\" type=\"button\" class=\"toggle-vis btn btn-success btn-filter\" data-column=\"8\">Πλήθος Κρατήσεων</button> </li>'+\n");
       out.write("                      '<li> <button id=\"check9\" type=\"button\" class=\"toggle-vis btn btn-success btn-filter\" data-column=\"9\">Πόντοι</button> </li>'+\n");
-      out.write("                      '<li> <button id=\"check10\" type=\"button\" class=\"toggle-vis btn btn-success btn-filter\" data-column=\"10\">Αριθμός Κάρτας</button> </li>'+\n");
+      out.write("                      '<li> <button id=\"check10\" type=\"button\" class=\"toggle-vis btn btn-success btn-filter\" data-column=\"10\">Αριθμός Κάρτας </button> </li>'+\n");
       out.write("                      '<li> <button id=\"check11\" type=\"button\" class=\"toggle-vis btn btn-success btn-filter\" data-column=\"11\">Status</button> </li>'+\n");
       out.write("                    '</ul>'+\n");
       out.write("                '</div>'+\n");

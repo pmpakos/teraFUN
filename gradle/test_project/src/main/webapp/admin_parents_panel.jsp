@@ -151,6 +151,10 @@
                   "paging": true,
                   "iDisplay": 10,
                   "bLengthChange": false,
+                  "columnDefs": [ {
+                    "targets": 11,
+                    "orderable": false
+                  } ],
                   //"pagingType": "simple_numbers",
                   //"scrollY": "200px",
                   //"stateSave": true,
@@ -175,7 +179,7 @@
                       '<li> <button id="check7" type="button" class="toggle-vis btn btn-success btn-filter" data-column="7">Email</button> </li>'+
                       '<li> <button id="check8" type="button" class="toggle-vis btn btn-success btn-filter" data-column="8">Πλήθος Κρατήσεων</button> </li>'+
                       '<li> <button id="check9" type="button" class="toggle-vis btn btn-success btn-filter" data-column="9">Πόντοι</button> </li>'+
-                      '<li> <button id="check10" type="button" class="toggle-vis btn btn-success btn-filter" data-column="10">Αριθμός Κάρτας</button> </li>'+
+                      '<li> <button id="check10" type="button" class="toggle-vis btn btn-success btn-filter" data-column="10">Αριθμός Κάρτας </button> </li>'+
                       '<li> <button id="check11" type="button" class="toggle-vis btn btn-success btn-filter" data-column="11">Status</button> </li>'+
                     '</ul>'+
                 '</div>'+
