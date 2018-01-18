@@ -11,6 +11,11 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.List<String> _jspx_dependants;
 
+  static {
+    _jspx_dependants = new java.util.ArrayList<String>(1);
+    _jspx_dependants.add("/header.jsp");
+  }
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
@@ -56,14 +61,25 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t<script src=\"//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js\"></script>\n");
       out.write("\t<script src=\"js/login.js\"></script>\n");
       out.write("<link rel=\"stylesheet\" href=\"//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css\">\n");
-      out.write("<link rel=\"stylesheet\" href=\"style.css\"> \n");
+      out.write("<link rel=\"stylesheet\" href=\"css/stylelogin.css\"> \n");
+      out.write("<link rel=\"stylesheet\" href=\"css/header.css\"> \n");
       out.write("\n");
       out.write("</head>\n");
-      out.write("<body>\n");
+      out.write("\n");
       out.write("\n");
       out.write("<body>\n");
       out.write("\n");
-      out.write("<nav class=\"navbar navbar-inverse navbar-fixed-top\">\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<!-- <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"> -->\n");
+      out.write("<!DOCTYPE html>\n");
+      out.write("<html>\n");
+      out.write("<head>\n");
+      out.write("\n");
+      out.write("  </head>\n");
+      out.write("    <body>\n");
+      out.write("        <nav class=\"navbar navbar-inverse navbar-fixed-top\">\n");
       out.write("            <div class=\"container\">\n");
       out.write("                <div class=\"navbar-header\">\n");
       out.write("                     <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-nav-demo\" aria-expanded=\"false\">\n");
@@ -73,7 +89,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <span class=\"icon-bar\"></span>\n");
       out.write("              </button>\n");
       out.write("                \n");
-      out.write("                    <a href=\"index.html\" class=\"navbar-brand\"><img src=\"logo.png\"  class=\"img-responsive\" alt=\"\"/></a>\n");
+      out.write("                    <a href=\"index.html\" class=\"navbar-brand\"><img src=\"static/logo.png\"  class=\"img-responsive\" alt=\"\"/></a>\n");
       out.write("                </div>\n");
       out.write("                <div class=\"collapse navbar-collapse\" id=\"bs-nav-demo\">\n");
       out.write("                    <ul class=\"nav navbar-nav\">\n");
@@ -92,6 +108,9 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </div>\n");
       out.write("            </div>\n");
       out.write("        </nav>\n");
+      out.write("</body>\n");
+      out.write("</html>\n");
+      out.write("\n");
       out.write("\n");
       out.write("\t<div class=\"container\">\n");
       out.write("    \t<div class=\"row\">\n");
@@ -112,7 +131,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t\t<div class=\"row\">\n");
       out.write("\t\t\t\t\t\t\t<div class=\"col-lg-12\">\n");
       out.write("\t\t\t\t\t\n");
-      out.write("\t\t\t\t\t\t\t\t<form id=\"login-form\"role=\"form\" style=\"display: block;\">\n");
+      out.write("\t\t\t\t\t\t\t\t<form id=\"login-form\" role=\"form\" style=\"display: block;\">\n");
       out.write("\t\t\n");
       out.write("\t\t\t\t\t\t\t\t\t<div class=\"form-group usn\">\n");
       out.write("\t\t\t\t\t\t\t\t\t\t<label for=\"usn\"> <span class=\"glyphicon glyphicon-user\"> </span>UserName</label>\n");

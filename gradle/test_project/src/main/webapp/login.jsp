@@ -14,43 +14,16 @@
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script src="js/login.js"></script>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="style.css"> 
+<link rel="stylesheet" href="css/stylelogin.css"> 
+<link rel="stylesheet" href="css/header.css"> 
 
 </head>
-<body>
+
 
 <body>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-                
-                    <a href="index.html" class="navbar-brand"><img src="logo.png"  class="img-responsive" alt=""/></a>
-                </div>
-                <div class="collapse navbar-collapse" id="bs-nav-demo">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#"> Επικοινωνία </a></li>
-                        <li><a href="#"> Σχετικά </a></li>                
-                    </ul>
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="signup_parent.jsp">Εγγραφή  <i class="fa fa-user-plus"></i></a></li>
-                            <li><a href="login.jsp">Σύνδεση<i class="fa fa-user"></i></a></li>
-                    </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                          <input class="form-control mr-sm-2 " type="search" placeholder="Αναζήτηση" aria-label="Search">
-                              <button class="btn btn-danger my-2 my-sm-0" type="submit">Αναζήτηση</button>
-                        </form>
-                </div>
-            </div>
-        </nav>
-
+<%@include file="header.jsp" %>
 	<div class="container">
     	<div class="row">
 			<div class="col-md-6 col-md-offset-3">

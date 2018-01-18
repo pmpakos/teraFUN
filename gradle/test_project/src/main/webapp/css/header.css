@@ -1,0 +1,34 @@
+
+    
+    .jumbotron {
+        color: #2c3e50;
+        background: #ecf0f1;
+        
+      }
+      .navbar-inverse {
+        background: #2c3e50;
+        color: white;
+      }
+      .navbar-inverse .navbar-brand, .navbar-inverse a{
+        color:white;
+        height:60px;
+      }
+      .navbar-inverse .navbar-nav>li>a {
+        color: white;
+        margin-top:10px;
+        font-size:150%;
+      } 
+      .navbar-brand img{
+         height:50px;
+         margin-top:0px;
+      }
+      .form-inline{
+      margin-top:20px;
+      }
+      .footer{
+        margin-top:20px;
+        background-color: #ecf0f1;
+        color: black;
+      }
+
+    

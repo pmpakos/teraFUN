@@ -1,55 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Create Account | teraFUN </title>
 	
-	
-	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
-	<!-- Latest compiled JavaScript -->
+
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="css/header.css"> 
+
+	
 	<script src="js/validateparent.js"></script>
 	
 	
-  <style type="text/css">
-    body { padding-top: 70px; }
-    .jumbotron {
-      color: #2c3e50;
-      background: #ecf0f1;
 
-    }
-   
-    .navbar-inverse {
-      background: #2c3e50;
-      color: white;
-    }
-    .navbar-inverse .navbar-brand, .navbar-inverse a{
-      color:white;
-      height:60px;
-    }
-    .navbar-inverse .navbar-nav>li>a {
-      color: white;
-      margin-top:10px;
-      font-size:150%;
-    } 
-    .navbar-brand img{
-       height:50px;
-       margin-top:0px;
-    }
-   
-	
-	footer{
-	bottom:0px;
-	left:0px;
-	width:100%;
-	line-height: 35px;
-	text-align: center;
-	font-weight: bold;
-	background-color: #CCC;
-}
+  <style type="text/css">
+  body { padding-top: 70px; }
 
 p1 {
 font-size: small;
@@ -139,41 +111,7 @@ color: red;
 <body>
 
 
-    
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo" aria-expanded="false">
-	        <span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-			
-				<a href="basics.html" class="navbar-brand"><img src="logo.png"  class="img-responsive" alt=""/></a>
-			</div>
-			<div class="collapse navbar-collapse" id="bs-nav-demo">
-				<ul class="nav navbar-nav">
-					<li><a href="basics.html">MyLocation</a></li>
-					<li><a href="#"> Contact   </a></li>
-					<li><a href="#"> About   </a></li>
-					<li><a href="#">    </a></li>
-					<li><a href="#">    </a></li>	
-				
-
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">Signup  <i class="fa fa-user-plus"></i></a></li>
-       					<li><a href="#about">Login  <i class="fa fa-user"></i></a></li>
-				</ul>
-				<form class="form-inline my-2 my-lg-0">
-				      <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
-      				      <button class="btn btn-danger my-2 my-sm-0" type="submit">Search</button>
-  			        </form>
-			</div>
-		</div>
-	</nav>
-
+    <%@include file="header.jsp" %>
  
  
 <div class="container">

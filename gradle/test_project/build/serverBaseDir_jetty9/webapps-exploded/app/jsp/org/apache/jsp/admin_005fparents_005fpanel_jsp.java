@@ -11,6 +11,11 @@ public final class admin_005fparents_005fpanel_jsp extends org.apache.jasper.run
 
   private static java.util.List<String> _jspx_dependants;
 
+  static {
+    _jspx_dependants = new java.util.ArrayList<String>(1);
+    _jspx_dependants.add("/header.jsp");
+  }
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
@@ -30,7 +35,7 @@ public final class admin_005fparents_005fpanel_jsp extends org.apache.jasper.run
     PageContext _jspx_page_context = null;
 
     try {
-      response.setContentType("text/html; charset=utf-8");
+      response.setContentType("text/html; charset=UTF-8");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -50,6 +55,7 @@ public final class admin_005fparents_005fpanel_jsp extends org.apache.jasper.run
       out.write("      <link rel=\"stylesheet\" type=\"text/css\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css\">\n");
       out.write("      <link rel=\"stylesheet\" type=\"text/css\" href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css\">\n");
       out.write("      <link rel=\"stylesheet\" href=\"css/dataTables.min.css\"/>\n");
+      out.write("      <link rel=\"stylesheet\" href=\"css/header.css\"> \n");
       out.write("\n");
       out.write("    <style type=\"text/css\">\n");
       out.write("     body { padding-top: 10px; } \n");
@@ -61,36 +67,6 @@ public final class admin_005fparents_005fpanel_jsp extends org.apache.jasper.run
       out.write("      }\n");
       out.write("    .btn-filter {\n");
       out.write("        width:100%;\n");
-      out.write("      }\n");
-      out.write("    .jumbotron {\n");
-      out.write("        color: #2c3e50;\n");
-      out.write("        background: #ecf0f1;\n");
-      out.write("        height: 190px;\n");
-      out.write("      }\n");
-      out.write("      .navbar-inverse {\n");
-      out.write("        background: #2c3e50;\n");
-      out.write("        color: white;\n");
-      out.write("      }\n");
-      out.write("      .navbar-inverse .navbar-brand, .navbar-inverse a{\n");
-      out.write("        color:white;\n");
-      out.write("        height:60px;\n");
-      out.write("      }\n");
-      out.write("      .navbar-inverse .navbar-nav>li>a {\n");
-      out.write("        color: white;\n");
-      out.write("        margin-top:10px;\n");
-      out.write("        font-size:150%;\n");
-      out.write("      } \n");
-      out.write("      .navbar-brand img{\n");
-      out.write("         height:50px;\n");
-      out.write("         margin-top:0px;\n");
-      out.write("      }\n");
-      out.write("      .form-inline{\n");
-      out.write("      margin-top:20px;\n");
-      out.write("      }\n");
-      out.write("      .footer{\n");
-      out.write("        margin-top:20px;\n");
-      out.write("        background-color: #ecf0f1;\n");
-      out.write("        color: black;\n");
       out.write("      }\n");
       out.write("      h1{\n");
       out.write("        margin-top: 200px;\n");
@@ -104,6 +80,16 @@ public final class admin_005fparents_005fpanel_jsp extends org.apache.jasper.run
       out.write("\n");
       out.write("  </head>\n");
       out.write("    <body>\n");
+      out.write("        ");
+      out.write("\n");
+      out.write("\n");
+      out.write("<!-- <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"> -->\n");
+      out.write("<!DOCTYPE html>\n");
+      out.write("<html>\n");
+      out.write("<head>\n");
+      out.write("\n");
+      out.write("  </head>\n");
+      out.write("    <body>\n");
       out.write("        <nav class=\"navbar navbar-inverse navbar-fixed-top\">\n");
       out.write("            <div class=\"container\">\n");
       out.write("                <div class=\"navbar-header\">\n");
@@ -114,7 +100,7 @@ public final class admin_005fparents_005fpanel_jsp extends org.apache.jasper.run
       out.write("                <span class=\"icon-bar\"></span>\n");
       out.write("              </button>\n");
       out.write("                \n");
-      out.write("                    <a href=\"index.html\" class=\"navbar-brand\"><img src=\"logo.png\"  class=\"img-responsive\" alt=\"\"/></a>\n");
+      out.write("                    <a href=\"index.html\" class=\"navbar-brand\"><img src=\"static/logo.png\"  class=\"img-responsive\" alt=\"\"/></a>\n");
       out.write("                </div>\n");
       out.write("                <div class=\"collapse navbar-collapse\" id=\"bs-nav-demo\">\n");
       out.write("                    <ul class=\"nav navbar-nav\">\n");
@@ -133,6 +119,10 @@ public final class admin_005fparents_005fpanel_jsp extends org.apache.jasper.run
       out.write("                </div>\n");
       out.write("            </div>\n");
       out.write("        </nav>\n");
+      out.write("</body>\n");
+      out.write("</html>\n");
+      out.write("\n");
+      out.write("\n");
       out.write("\n");
       out.write("       <div class=\"container\" id=\"ko\">\n");
       out.write("            <h1> <span data-bind=\"text:parents().length\"></span> Parents </h1>\n");
