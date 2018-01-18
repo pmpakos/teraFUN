@@ -10,6 +10,13 @@
 
     <style type="text/css">
      body { padding-top: 10px; } 
+    .toolbar {
+      float: left;
+    }
+    .btn-admin {
+        width:90;
+      }
+
     .jumbotron {
         color: #2c3e50;
         background: #ecf0f1;
@@ -83,49 +90,49 @@
         </nav>
 
        <div class="container" id="ko">
-            <h1>
-                <span data-bind="text:parents().length"></span> Parents
-            </h1>
-
-
-            <div class="btn-group">
-              <button type="button" class="toggle-vis btn btn-primary" data-column="0">Όνομα</button>
-              <button type="button" class="toggle-vis btn btn-primary" data-column="1">Επώνυμο</button>
-              <button type="button" class="toggle-vis btn btn-primary" data-column="2">Id</button>
-            </div>
+            <h1> <span data-bind="text:parents().length"></span> Parents </h1>
 
             <table id="Data" class="table table-striped table-bordered" data-bind="visible: parents().length > 0">
                 <thead class="thead-light">
                     <tr>
-                        <th scope="col">
-                            Όνομα
-                        </th>
-                        <th scope="col">
-                            Eπώνυμο
-                        </th>
-                        <th scope="col">         
-                            Id                   
-                        </th>
+                        <th scope="col">Id</th>
+                        <th scope="col">Όνομα </th>
+                        <th scope="col">Eπώνυμο </th>
+                        <th scope="col">Διεύθυνση</th>
+                        <th scope="col">Τ.Κ.</th>
+                        <th scope="col">Τηλέφωνο Επικοινωνίας </th>
+                        <th scope="col">Username </th>
+                        <th scope="col">Email </th>
+                        <th scope="col">Πλήθος Κρατήσεων </th>
+                        <th scope="col">Πόντοι </th>
+                        <th scope="col">Αριθμός Κάρτας </th>
+                        <th scope="col">Status </th>
                     </tr>
                 </thead>  
                 <tbody data-bind="foreach:parents">
                     <tr>
+                        <td> <span data-bind="text:id"></span> </td>
+                        <td> <span data-bind="text:firstname"></span> </td>
+                        <td> <span data-bind="text:lastname"></span> </td>
+                        <td> <span data-bind="text:address"></span> </td>
+                        <td> <span data-bind="text:postalcode"></span> </td>
+                        <td> <span data-bind="text:tel"></span> </td>
+                        <td> <span data-bind="text:username"></span> </td>
+                        <td> <span data-bind="text:email"></span> </td>
+                        <td> <span data-bind="text:cntbook"></span> </td>                        
+                        <td> <span data-bind="text:points"></span> </td>
+                        <td> <span data-bind="text:bankaccount"></span> </td>
                         <td>
-                            <span data-bind="text:firstname"></span>
+                            <button data-bind="visible: status==0" type="button" class="btn btn-default btn-admin">Ανενεργός</button>
+                            <button data-bind="visible: status==1" type="button" class="btn btn-danger btn-admin">Block</button>
+                            <button data-bind="visible: status==2" type="button" class="btn btn-info btn-admin">Unblock</button>
                         </td>
-                        <td>
-                            <span data-bind="text:lastname"></span>
-                        </td>
-                        <td>
-                            <span data-bind="text:id"></span>
-                        </td>
-                    </tr>
-                    
+
+                    </tr>                   
                 </tbody>
             </table>
+
         </div>
-
-
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
@@ -137,18 +144,48 @@
 
 
     <script>
-            
             $(document).ready(function() {
               var table = $('#Data').DataTable( {
                   "paging": true,
                   "iDisplay": 10,
                   "bLengthChange": false,
-                  "pagingType": "simple_numbers"
+                  //"pagingType": "simple_numbers",
                   //"scrollY": "200px",
                   //"stateSave": true,
-                  //,"searching": false
-              } );
-           
+                  //"searching": true,
+                  "dom": '<"toolbar">frtip'
+                } );
+   
+              $("div.toolbar").html(
+            '<div class="row">'+
+              '<div class="col-lg-12">'+
+                 '<div class="button-group">'+
+                    '<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon '+
+                      'glyphicon-filter"> Φίλτρα</span> <span class="caret"></span></button>'+
+                    '<ul class="dropdown-menu">'+
+                      '<li> <button id="check0" type="button" class="toggle-vis btn btn-success" data-column="0">Id </button> </li>         '+
+                      '<li> <button id="check1" type="button" class="toggle-vis btn btn-success" data-column="1">Όνομα</button> </li>'+
+                      '<li> <button id="check2" type="button" class="toggle-vis btn btn-success" data-column="2">Επώνυμο</button> </li>'+
+                      '<li> <button id="check3" type="button" class="toggle-vis btn btn-success" data-column="3">Διεύθυνση</button> </li>'+
+                      '<li> <button id="check4" type="button" class="toggle-vis btn btn-success" data-column="4">Τ.Κ.</button> </li>'+
+                      '<li> <button id="check5" type="button" class="toggle-vis btn btn-success" data-column="5">Τηλέφωνο Επικοινωνίας</button></li>'+
+                      '<li> <button id="check6" type="button" class="toggle-vis btn btn-success" data-column="6">Username</button> </li>'+
+                      '<li> <button id="check7" type="button" class="toggle-vis btn btn-success" data-column="7">Email</button> </li>'+
+                      '<li> <button id="check8" type="button" class="toggle-vis btn btn-success" data-column="8">Πλήθος Κρατήσεων</button> </li>'+
+                      '<li> <button id="check9" type="button" class="toggle-vis btn btn-success" data-column="9">Πόντοι</button> </li>'+
+                      '<li> <button id="check10" type="button" class="toggle-vis btn btn-success" data-column="10">Αριθμός Κάρτας</button> </li>'+
+                      '<li> <button id="check11" type="button" class="toggle-vis btn btn-success" data-column="11">Status</button> </li>'+
+                    '</ul>'+
+                '</div>'+
+              '</div>'+
+            '</div>'
+              );
+          
+            $('[id^="check"]').click(function () {
+                 $(this).toggleClass('btn-success btn-danger'); 
+            });
+
+
               $('.toggle-vis').on( 'click', function (e) {
                   e.preventDefault();
            
@@ -158,12 +195,23 @@
                   // Toggle the visibility
                   column.visible( !column.visible() );
               } );
-          } );
+            } );
+
+
              
-            var Parent = function(id, firstname, lastname) {
+            var Parent = function(id,firstname, lastname, username, address, postalcode, tel, email, cntbook, status, points, bankaccount) {
                 this.id = id;
                 this.firstname = firstname;
                 this.lastname = lastname;
+                this.username = username;
+                this.address = address;
+                this.postalcode = postalcode; 
+                this.tel = tel; 
+                this.email = email;
+                this.cntbook = cntbook; 
+                this.status = status;
+                this.points = points;
+                this.bankaccount = bankaccount;
             }
 
             var VM = function(){
@@ -187,13 +235,22 @@
             console.log("Created VM");            
 
             viewModel.loadParents().done(function(json){
-                console.log("Done loading places.");                 
+                console.log("Done loading parents.");                 
 
                 json.results.forEach(function(parentJson){             
                     var parent = new Parent(
                         parentJson.ParentID,
                         parentJson.FirstName,
-                        parentJson.LastName
+                        parentJson.LastName,
+                        parentJson.Username,
+                        parentJson.Address,
+                        parentJson.PostalCode,
+                        parentJson.TelephoneNumber,
+                        parentJson.Email,
+                        parentJson.CounterEvents,
+                        parentJson.Status,
+                        parentJson.Points,
+                        parentJson.BankAccount,
                         );
                     console.log(parent);
                     viewModel.parents.push(parent);

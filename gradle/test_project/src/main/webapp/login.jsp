@@ -70,7 +70,7 @@
 						<div class="row">
 							<div class="col-lg-12">
 					
-								<form id="login-form"role="form" style="display: block;">
+								<form id="login-form" role="form" style="display: block;">
 		
 									<div class="form-group usn">
 										<label for="usn"> <span class="glyphicon glyphicon-user"> </span>UserName</label>

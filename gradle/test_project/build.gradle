@@ -56,3 +56,11 @@ gretty {
     managedClassReload=true
     //servletContainer = 'tomcat8' //use the default (jetty)
 }
+
+task signJars(type: GradleBuild) {
+    new File('build/signed').mkdirs()
+
+    fileTree('build/unsigned').each { File file -> ant.signjar(destDir: 'build/signed', jar: file, alias:'app', keystore:'testkeystore', storepass:'xxxxxxxxx', preservelastmodified:'true')
+    }
+}
+

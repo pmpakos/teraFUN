@@ -35,7 +35,7 @@
 
     <servlet>
         <servlet-name>parent_change_status</servlet-name>
-        <servlet-class>gr.ntua.ece.softeng17b.servlets.ParentChangeStatus</servlet-class>
+        <servlet-class>gr.ntua.ece.softeng17b.servlets.ParentChangeStatusServlet</servlet-class>
     </servlet>
 
 
