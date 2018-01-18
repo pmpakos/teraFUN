@@ -14,9 +14,11 @@
       float: left;
     }
     .btn-admin {
-        width:90;
+        width:90px;
       }
-
+    .btn-filter {
+        width:100%;
+      }
     .jumbotron {
         color: #2c3e50;
         background: #ecf0f1;
@@ -163,18 +165,18 @@
                     '<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon '+
                       'glyphicon-filter"> Φίλτρα</span> <span class="caret"></span></button>'+
                     '<ul class="dropdown-menu">'+
-                      '<li> <button id="check0" type="button" class="toggle-vis btn btn-success" data-column="0">Id </button> </li>         '+
-                      '<li> <button id="check1" type="button" class="toggle-vis btn btn-success" data-column="1">Όνομα</button> </li>'+
-                      '<li> <button id="check2" type="button" class="toggle-vis btn btn-success" data-column="2">Επώνυμο</button> </li>'+
-                      '<li> <button id="check3" type="button" class="toggle-vis btn btn-success" data-column="3">Διεύθυνση</button> </li>'+
-                      '<li> <button id="check4" type="button" class="toggle-vis btn btn-success" data-column="4">Τ.Κ.</button> </li>'+
-                      '<li> <button id="check5" type="button" class="toggle-vis btn btn-success" data-column="5">Τηλέφωνο Επικοινωνίας</button></li>'+
-                      '<li> <button id="check6" type="button" class="toggle-vis btn btn-success" data-column="6">Username</button> </li>'+
-                      '<li> <button id="check7" type="button" class="toggle-vis btn btn-success" data-column="7">Email</button> </li>'+
-                      '<li> <button id="check8" type="button" class="toggle-vis btn btn-success" data-column="8">Πλήθος Κρατήσεων</button> </li>'+
-                      '<li> <button id="check9" type="button" class="toggle-vis btn btn-success" data-column="9">Πόντοι</button> </li>'+
-                      '<li> <button id="check10" type="button" class="toggle-vis btn btn-success" data-column="10">Αριθμός Κάρτας</button> </li>'+
-                      '<li> <button id="check11" type="button" class="toggle-vis btn btn-success" data-column="11">Status</button> </li>'+
+                      '<li> <button id="check0" type="button" class="toggle-vis btn btn-success btn-filter" data-column="0">Id </button> </li>         '+
+                      '<li> <button id="check1" type="button" class="toggle-vis btn btn-success btn-filter" data-column="1">Όνομα</button> </li>'+
+                      '<li> <button id="check2" type="button" class="toggle-vis btn btn-success btn-filter" data-column="2">Επώνυμο</button> </li>'+
+                      '<li> <button id="check3" type="button" class="toggle-vis btn btn-success btn-filter" data-column="3">Διεύθυνση</button> </li>'+
+                      '<li> <button id="check4" type="button" class="toggle-vis btn btn-success btn-filter" data-column="4">Τ.Κ.</button> </li>'+
+                      '<li> <button id="check5" type="button" class="toggle-vis btn btn-success btn-filter" data-column="5">Τηλέφωνο Επικοινωνίας</button></li>'+
+                      '<li> <button id="check6" type="button" class="toggle-vis btn btn-success btn-filter" data-column="6">Username</button> </li>'+
+                      '<li> <button id="check7" type="button" class="toggle-vis btn btn-success btn-filter" data-column="7">Email</button> </li>'+
+                      '<li> <button id="check8" type="button" class="toggle-vis btn btn-success btn-filter" data-column="8">Πλήθος Κρατήσεων</button> </li>'+
+                      '<li> <button id="check9" type="button" class="toggle-vis btn btn-success btn-filter" data-column="9">Πόντοι</button> </li>'+
+                      '<li> <button id="check10" type="button" class="toggle-vis btn btn-success btn-filter" data-column="10">Αριθμός Κάρτας</button> </li>'+
+                      '<li> <button id="check11" type="button" class="toggle-vis btn btn-success btn-filter" data-column="11">Status</button> </li>'+
                     '</ul>'+
                 '</div>'+
               '</div>'+
