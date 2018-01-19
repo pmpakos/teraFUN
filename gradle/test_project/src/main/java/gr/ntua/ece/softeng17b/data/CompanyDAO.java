@@ -41,6 +41,20 @@ public class CompanyDAO{
                                         company.Description, company.PhotosFolder, company.Latitude, company.Longitude});  
     }
 
+
+    public int login(String username, String password) {        
+        List<String> db_id = jdbcTemplate.queryForList("select CompanyID from companyservice where (Username = ? && Password = ?)", new Object[] {username, password}, String.class); 
+
+        int result = -1;
+
+        if(db_id.size() == 0){
+           return -1;
+        }
+        
+        return Integer.parseInt(db_id.get(0)); 
+    }
+
+
     public Optional<Company> getCompany(int id) {        
         List<Company> company = jdbcTemplate.query("select * from companyservice where CompanyID = ?", new Object[] {id}, new CompanyRowMapper());
         if (company.size() == 1)  {

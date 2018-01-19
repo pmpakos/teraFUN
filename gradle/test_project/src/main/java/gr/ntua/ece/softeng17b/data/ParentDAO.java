@@ -11,7 +11,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.apache.commons.dbcp2.BasicDataSource;
+
 import org.springframework.jdbc.core.JdbcTemplate;
+
 
 public class ParentDAO{
 
@@ -57,6 +59,18 @@ public class ParentDAO{
             return Optional.empty();
         }        
     }
+
+    public int login(String username, String password) {     
+        System.out.println("I'n in Dao usn: "+ username +" pass: "+ password);   
+        List<String> db_id = jdbcTemplate.queryForList("select ParentID from parent where (Username = ? and Password = ?)", new Object[] {username, password}, String.class); 
+
+        if(db_id.size() == 0){
+           return -1;
+        }
+        
+        return Integer.parseInt(db_id.get(0)); 
+    }
+
 
     public int check_username(String username) {        
         List<Parent> parent = jdbcTemplate.query("select * from parent where Username = ?", new Object[] {username}, new ParentRowMapper());

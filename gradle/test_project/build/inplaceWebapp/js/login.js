@@ -18,9 +18,9 @@ $(function() {
 });
 
 validpass=0;
-validusn=0;
+validusn=1;
 validpass2=0;
-validusn2=0;
+validusn2=1;
 
 
 $(document).on('blur','.pass-val',function(){
@@ -45,6 +45,7 @@ if(validpass){
 $(document).on('blur','.usn-val',function(){
 	var content = $(this).val();
 	validusn=1;
+
 	
 	if(content.length == 0){
 		validusn=0;
@@ -108,24 +109,39 @@ $(document).on('click','.btn-loginp',function(){
 	console.log(password);
 	var test=validpass&validusn;
 	
-	console.log(test);
 	
+	console.log("Valid: "+validpass+" Usn Valid: "+validusn);
 	if(test==0){
 	
 	}
 	
 	else {
-		var mes="";
+		var mes="Eftassa edw ";
+		console.log(mes);
 	   
 		$.ajax({
 			type:"POST",
 			data:{
 				usn:usn,	
 				password:password,
+				isParent:1
 			},
-			url:'/app/parent_login',
-			success: function(){
-				window.location.href='http://localhost:8765/app/parent.jsp'
+			url:'/app/login',
+			success: function(result){
+				if(result == "0"){
+					document.getElementById('usn_error1').innerHTML = "<span style=\"color:red\">" + "To username ή ο κωδικός δεν είναι έγκυρος" + "</span>";
+					document.getElementById("usn").style.borderColor = "red";
+					document.getElementById("password").value = '';
+					
+					//reset the company form in case of parent submit
+					document.getElementById("username").value = '';
+					document.getElementById('usn_error').innerHTML = "";
+					document.getElementById("username").style.borderColor = "#ccc";
+				}
+				else{
+					window.location.href='http://localhost:8765/app/index.jsp'
+				}
+				
 			}
 				
 		});	
@@ -139,7 +155,7 @@ $(document).on('click','.btn-loginc',function(){
 	console.log(password);
 	var test=validpass2&validusn2;
 	
-	console.log(test);
+
 	
 	if(test==0){
 	
@@ -153,10 +169,24 @@ $(document).on('click','.btn-loginc',function(){
 			data:{
 				usn:usn,	
 				password:password,
+				isParent:0
 			},
-			url:'/app/company_login',
-			success: function(){
-				window.location.href='http://localhost:8765/app/parent.jsp'
+			url:'/app/login',
+			success: function(result){
+				if(result == "0"){
+					document.getElementById('usn_error2').innerHTML = "<span style=\"color:red\">" + "To username ή ο κωδικός δεν είναι έγκυρος" + "</span>";
+					document.getElementById("username").style.borderColor = "red";
+					document.getElementById("password").value = '';
+					
+					//reset the parent form in case of company submit
+					document.getElementById("usn").value = '';
+					document.getElementById('usn_error1').innerHTML = "";
+					document.getElementById("usn").style.borderColor = "#ccc";
+				}
+				else{
+					window.location.href='http://localhost:8765/app/company_home.jsp'
+				}
+				
 			}
 				
 		});	
