@@ -7,7 +7,7 @@
 	<title>Create Account | teraFUN </title>
 	
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
 
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
@@ -17,6 +17,9 @@
 	
 	<script src="js/validateparent.js"></script>
 	
+
+    
+
 	
 
   <style type="text/css">
@@ -201,7 +204,7 @@ color: red;
     	<span class="error"><p1 id="tel_error"></p1></span>
     </div>
 
-    <div class="form-group bankaccount">
+    <div class="form-group bankaccount"> 
       <label for="bankaccount"><span class="glyphicon glyphicon-piggy-bank"></span> Credit Card Number</label>
       <input type="text" class="form-control bank-validation form-element" name="bankaccount" placeholder="Bank Account Number" data-validation="false">
       <span class="error"><p1 id="bank_error"></p1></span>
@@ -218,6 +221,10 @@ color: red;
 	<button type="button" class="btn btn-block submit-btn signup-btn"><span class="glyphicon glyphicon-pencil"></span>&nbsp; Signup </button>
 </div>
 </div>
+
+  <div class="form-group">
+      <span class="error"><p1 id="final_error"></p1></span>
+  </div>
   </form>
     
 	
@@ -235,7 +242,7 @@ color: red;
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title">Terms and conditions</h3>
+                <h3 class="modal-title">Όροι και προϋποθέσεις</h3>
             </div>
 
             <div class="modal-body">
@@ -255,8 +262,8 @@ color: red;
      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJxFd20F7bBF7yY7hdjPcw0UybXJXiPYE">
     </script>
 
-<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
 </body>
 </html>
 

@@ -55,7 +55,7 @@ public final class signup_005fparent_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("\t<title>Create Account | teraFUN </title>\n");
       out.write("\t\n");
       out.write("\t<link rel=\"stylesheet\" href=\"//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\"> \n");
-      out.write("\t<script src=\"//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js\"></script> \n");
+      out.write("\t<script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js\"></script> \n");
       out.write("\n");
       out.write("\t<script src=\"//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js\"></script>\n");
       out.write("\n");
@@ -65,6 +65,9 @@ public final class signup_005fparent_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("\t\n");
       out.write("\t<script src=\"js/validateparent.js\"></script>\n");
       out.write("\t\n");
+      out.write("\n");
+      out.write("    \n");
+      out.write("\n");
       out.write("\t\n");
       out.write("\n");
       out.write("  <style type=\"text/css\">\n");
@@ -291,7 +294,7 @@ public final class signup_005fparent_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("    \t<span class=\"error\"><p1 id=\"tel_error\"></p1></span>\n");
       out.write("    </div>\n");
       out.write("\n");
-      out.write("    <div class=\"form-group bankaccount\">\n");
+      out.write("    <div class=\"form-group bankaccount\"> \n");
       out.write("      <label for=\"bankaccount\"><span class=\"glyphicon glyphicon-piggy-bank\"></span> Credit Card Number</label>\n");
       out.write("      <input type=\"text\" class=\"form-control bank-validation form-element\" name=\"bankaccount\" placeholder=\"Bank Account Number\" data-validation=\"false\">\n");
       out.write("      <span class=\"error\"><p1 id=\"bank_error\"></p1></span>\n");
@@ -308,6 +311,10 @@ public final class signup_005fparent_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("\t<button type=\"button\" class=\"btn btn-block submit-btn signup-btn\"><span class=\"glyphicon glyphicon-pencil\"></span>&nbsp; Signup </button>\n");
       out.write("</div>\n");
       out.write("</div>\n");
+      out.write("\n");
+      out.write("  <div class=\"form-group\">\n");
+      out.write("      <span class=\"error\"><p1 id=\"final_error\"></p1></span>\n");
+      out.write("  </div>\n");
       out.write("  </form>\n");
       out.write("    \n");
       out.write("\t\n");
@@ -325,7 +332,7 @@ public final class signup_005fparent_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("    <div class=\"modal-dialog\">\n");
       out.write("        <div class=\"modal-content\">\n");
       out.write("            <div class=\"modal-header\">\n");
-      out.write("                <h3 class=\"modal-title\">Terms and conditions</h3>\n");
+      out.write("                <h3 class=\"modal-title\">Όροι και προϋποθέσεις</h3>\n");
       out.write("            </div>\n");
       out.write("\n");
       out.write("            <div class=\"modal-body\">\n");
@@ -345,8 +352,8 @@ public final class signup_005fparent_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("     src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyDJxFd20F7bBF7yY7hdjPcw0UybXJXiPYE\">\n");
       out.write("    </script>\n");
       out.write("\n");
-      out.write("<script src=\"https://code.jquery.com/jquery-2.1.4.js\"></script>\n");
-      out.write("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js\"></script>\n");
+      out.write("\n");
+      out.write("\n");
       out.write("</body>\n");
       out.write("</html>\n");
       out.write("\n");

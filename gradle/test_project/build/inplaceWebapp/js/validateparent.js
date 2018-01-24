@@ -13,21 +13,20 @@ latt=0;
 lngg=0;
 
 
+
 $(document).ready(function() {
 
 	$('#agreeButton, #disagreeButton').on('click', function() {
         var whichButton = $(this).attr('id');
         console.log(whichButton);
         if(whichButton=="disagreeButton"){
-        	document.getElementById("agree").value = 'no';
+        	 agree=false;
+        	
         }
         else{
-        	document.getElementById("agree").value = 'yes';
+        	 agree=true;
+        	
         }
-        var val=$(this).siblings().find('.name').val();
-        console.log(val);
-
-
        
     });
 });
@@ -36,7 +35,7 @@ $(document).on('blur','.usn-validation',function(){
 	var content = $(this).val();
 
 	invalidArray = content.match(/[^a-zA-Z0-9]/g);
-	
+	validusn=2;
 
 	
 	if(content.length == 0){
@@ -67,8 +66,7 @@ $(document).on('blur','.usn-validation',function(){
 				}
 				else{
 					validusn = 1;
-					document.getElementById('usn_error').innerHTML = "<span style=\"color:green\">" + "Έγκυρο username" + "</span>";
-					document.getElementById("usn-border").style.borderColor = "green";
+					document.getElementById('usn_error').innerHTML = "<span style=\"color:green\">" + "Διαθέσιμο username" + "</span>";
 				}
 			}
 		});
@@ -176,6 +174,7 @@ $(document).on('blur','.password-confirmation',function(){
 
 $(document).on('blur','.email-validation',function(){
 	var content = $(this).val();
+	validemail=2;
 	
 	var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	validemail = re.test(content);
@@ -208,7 +207,7 @@ $(document).on('blur','.email-validation',function(){
 					document.getElementById('email_error').innerHTML = "";
 					validemail=1;
 					document.getElementById('email_error').innerHTML = "<span style=\"color:green\">" + "Έγκυρο email" + "</span>";
-					document.getElementById("email-border").style.borderColor = "green";
+					//document.getElementById('email-border').style.borderColor = "green";
 				}
 			}
 		});
@@ -444,28 +443,35 @@ $(document).on('blur','.bank-validation',function(){
 
 $(document).on('click','.signup-btn',function(){
 	
-	var usn = $(this).parent().siblings('.usn').find('input[name=usn]').val();
+	var usn = $(this).parent().parent().siblings('.usn').find('input[name=usn]').val();
 	console.log(usn);
-	var email = $(this).parent().siblings('.email').find('input[name=email]').val();
+	var email = $(this).parent().parent().siblings('.email').find('input[name=email]').val();
 	console.log(email);
-	var password = $(this).parent().siblings('.row').find('input[name=password]').val();
+	var password = $(this).parent().parent().siblings('.row').find('input[name=password]').val();
 	console.log(password);
-	var fname=$(this).parent().siblings('.row').find('input[name=fname]').val();
+	var fname=$(this).parent().parent().siblings('.row').find('input[name=fname]').val();
 	console.log(fname);
-	var lname=$(this).parent().siblings('.row').find('input[name=lname]').val();
+	var lname=$(this).parent().parent().siblings('.row').find('input[name=lname]').val();
 	console.log(lname);
-	var postal=$(this).parent().siblings('.row').find('input[name=postal]').val();
+	var postal=$(this).parent().parent().siblings('.row').find('input[name=postal]').val();
 	console.log(postal);
-	var addr=$(this).parent().siblings('.row').find('input[name=addr]').val();
+	var addr=$(this).parent().parent().siblings('.row').find('input[name=addr]').val();
 	console.log(addr);
-	var tel=$(this).parent().siblings('.tel').find('input[name=tel]').val();
+	var tel=$(this).parent().parent().siblings('.tel').find('input[name=tel]').val();
 	console.log(tel);
-	var bank=$(this).parent().siblings('.bankaccount').find('input[name=bankaccount]').val();
+	var bank=$(this).parent().parent().siblings('.bankaccount').find('input[name=bankaccount]').val();
 	console.log(bank);
 	
-	var test=validlname&validfname&validpass1&validpass&validusn&validemail&validaddr&validpostal&validtel&validbank;
+	var test=agree&validlname&validfname&validpass1&validpass&validusn&validemail&validaddr&validpostal&validtel&validbank;
 	console.log(test);
-	if(test==0){
+	
+	if(agree==false){
+		var mes='πρέπει να συμφωνήσετε με τους όρους και τις προϋποθέσεις';
+     	$(this).closest('.form-body').siblings('.modal-footer').find('.message').html(mes);	
+        $(this).closest('.form-body').siblings('.modal-footer').find('.message').css('color','red');
+
+	}
+	else if(test==0){
 		var mes='Παρακαλώ συμπληρώστε όλα τα πεδία';
      	$(this).closest('.form-body').siblings('.modal-footer').find('.message').html(mes);	
         $(this).closest('.form-body').siblings('.modal-footer').find('.message').css('color','red');
