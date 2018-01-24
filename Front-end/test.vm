@@ -1,5 +1,0 @@
-#set($pageTitle = "Velocity test")
-
-<h1>This is velocity speaking</h1>
-
-Over and out!

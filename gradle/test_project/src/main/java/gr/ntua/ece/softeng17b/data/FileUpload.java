@@ -8,9 +8,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.io.InputStream;
 import java.io.FileOutputStream;
+import watermark.WatermarkImage;
 
 public class FileUpload {
-	public static boolean processFile(String path, FileItemStream item){
+	public static boolean processFile(String path, FileItemStream item, String fieldName){
 		try{
 			File f = new File(path+File.separator+"/src/main/webapp/images");
 			if(!f.exists())f.mkdir();
@@ -21,11 +22,14 @@ public class FileUpload {
 			byte[] b = new byte[1024];
 					
 			while((x=is.read(b))!=-1){
-				fos.write(b,0,x);
-				
+				fos.write(b,0,x);				
 			}
 			fos.flush();
 			fos.close();
+			System.out.println(path+"/src/main/webapp/images/"+fieldName);
+			String[] strArray = new String[] {path+"/src/main/webapp/images/"+fieldName};
+			WatermarkImage.main(strArray);
+			System.out.println("ΥΕΑΑΑΑΑ");
 			return true;
 		}catch(Exception e){
 			e.printStackTrace();

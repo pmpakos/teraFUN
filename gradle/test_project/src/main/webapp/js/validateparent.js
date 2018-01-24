@@ -466,7 +466,7 @@ $(document).on('click','.signup-btn',function(){
 	console.log(test);
 	
 	if(agree==false){
-		var mes='πρέπει να συμφωνήσετε με τους όρους και τις προϋποθέσεις';
+		var mes='Πρέπει να συμφωνήσετε με τους όρους και τις προϋποθέσεις';
      	$(this).closest('.form-body').siblings('.modal-footer').find('.message').html(mes);	
         $(this).closest('.form-body').siblings('.modal-footer').find('.message').css('color','red');
 

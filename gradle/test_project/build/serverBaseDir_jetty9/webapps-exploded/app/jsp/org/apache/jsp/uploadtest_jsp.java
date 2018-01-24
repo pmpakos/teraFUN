@@ -54,7 +54,7 @@ public final class uploadtest_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<form action=\"upload_image\" method=\"Post\"  enctype=\"multipart/form-data\" name=\"form1\">\n");
       out.write("\n");
       out.write("Name: <input type=\"text\" name=\"name\" /><br/>\n");
-      out.write("Select: <input type=\"file\" name=\"file\"  />\n");
+      out.write("Select: <input type=\"file\" name=\"file\" multiple/>\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");

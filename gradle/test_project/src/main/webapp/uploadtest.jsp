@@ -12,7 +12,7 @@
 <form action="upload_image" method="Post"  enctype="multipart/form-data" name="form1">
 
 Name: <input type="text" name="name" /><br/>
-Select: <input type="file" name="file"  />
+Select: <input type="file" name="file" multiple/>
 
 
 

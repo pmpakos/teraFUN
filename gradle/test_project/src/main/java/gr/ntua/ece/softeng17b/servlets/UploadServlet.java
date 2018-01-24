@@ -64,10 +64,12 @@ public class UploadServlet extends HttpServlet {
 	    		  }
 	    		  else{
 	    			  //String path = getServletContext().getRealPath("/");
-	    			   String path = new java.io.File( "." ).getCanonicalPath();
-	    			  response.getWriter().println(path+"<br/>");
-	    			  if (FileUpload.processFile(path,item))
-	    				  response.getWriter().println("file success!!!");
+	    			  String fieldName = item.getFieldName();
+	    			  String fileName = item.getName();
+	    			  String path = new java.io.File( "." ).getCanonicalPath();
+	    			  //response.getWriter().println(path+"<br/>");
+	    			  if (FileUpload.processFile(path,item,fileName))
+	    				  response.getWriter().println(fileName+" file success!!!\n");
 	    			  else 
 	    				  response.getWriter().println("pulo");
 	    		  }
@@ -83,8 +85,7 @@ public class UploadServlet extends HttpServlet {
 	   }
 
 	   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException { doPost(request, response); }
-	   	    
-	
+	   	
 
 
 }
