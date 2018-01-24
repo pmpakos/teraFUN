@@ -7,14 +7,13 @@
 	<title>Create Account | teraFUN </title>
 	
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
 
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 	<link rel="stylesheet" href="css/header.css"> 
-
 	
 	<script src="js/validateparent.js"></script>
 	
@@ -103,7 +102,22 @@ color: red;
 		margin: 7px;
 	}
 }
-
+.signup-btn {
+  background-color: #d9534f;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  height: auto;
+  font-weight: normal;
+  padding: 14px 0;
+  text-transform: uppercase;
+  border-color: #d9534f;
+}
+.signup-btn:hover,
+.signup-btn:focus {
+  color: #fff;
+  background-color:#c9302c;border-color:#761c19
+}
 
   </style>
 
@@ -126,7 +140,7 @@ color: red;
   <h2 style="text-align: center"> Δημιουργία Νέου Λογαριασμού</h2>
 		   
   <div class="form-body"> 
-  <form role='form'>
+  <form id="registrationForm" role='form'>
   	 
   	 	<div class="row">
   	 	<div class="form-group fname col-xs-6">
@@ -192,18 +206,49 @@ color: red;
       <input type="text" class="form-control bank-validation form-element" name="bankaccount" placeholder="Bank Account Number" data-validation="false">
       <span class="error"><p1 id="bank_error"></p1></span>
     </div>
-      
-	<button type="button" class="btn btn-default btn-danger btn-block submit-btn signup-btn"><span class="glyphicon glyphicon-pencil"></span>&nbsp; Signup </button>
+
+    <div class="form-group">
+        <!--<div class="col-xs-6 col-xs-offset-3">-->
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#termsModal">Όροι και προϋποθέσεις</button>
+            <input type="hidden" class="form-control agree form-element" name="agree" id="agree" value="no" />
+        <!--</div>-->
+    </div>
+ <div class="form-group">
+<div class="col-sm-6 col-sm-offset-3">   
+	<button type="button" class="btn btn-block submit-btn signup-btn"><span class="glyphicon glyphicon-pencil"></span>&nbsp; Signup </button>
+</div>
+</div>
   </form>
     
 	
   </div>
+
   <div class="modal-footer">
 
           <!-- Message from serverside (basanth)-->
           <div class="message pull-left" id="signup-message"></div>
         </div>
       </div>
+</div>
+
+<div class="modal fade" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="Terms and conditions" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Terms and conditions</h3>
+            </div>
+
+            <div class="modal-body">
+                <p>ΘΑ ΠΡΕΠΕΙ ΝΑ ΠΛΗΡΩΣΕΤΕ 5 ΕΥΡΩ ΡΕ</p>
+                <p>και επίσης όλα τα προσωπικά σας δεδομένα είναι ασφαλή στην τέραΦΑΝ</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="agreeButton" data-dismiss="modal">Συμφωνώ</button>
+                <button type="button" class="btn btn-default" id="disagreeButton" data-dismiss="modal">Διαφωνώ</button>
+            </div>
+        </div>
+    </div>
 </div>
 
  <script async defer

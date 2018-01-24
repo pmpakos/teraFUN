@@ -82,7 +82,7 @@ body {
 }
 
 .btn-loginc {
-	background-color: #d9534f;
+	background-color: #009CA9;
 	outline: none;
 	color: #fff;
 	font-size: 14px;
@@ -95,7 +95,7 @@ body {
 .btn-loginc:hover,
 .btn-loginc:focus {
 	color: #fff;
-	bbackground-color:#c9302c;
+	background-color:#008080;
 	border-color:#761c19
 }
 

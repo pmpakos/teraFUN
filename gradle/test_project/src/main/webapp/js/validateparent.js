@@ -8,10 +8,29 @@ validusn=0;
 validemail=0;
 validpass=0;
 validpass1=0;
+agree=0;
 latt=0;
 lngg=0;
 
 
+$(document).ready(function() {
+
+	$('#agreeButton, #disagreeButton').on('click', function() {
+        var whichButton = $(this).attr('id');
+        console.log(whichButton);
+        if(whichButton=="disagreeButton"){
+        	document.getElementById("agree").value = 'no';
+        }
+        else{
+        	document.getElementById("agree").value = 'yes';
+        }
+        var val=$(this).siblings().find('.name').val();
+        console.log(val);
+
+
+       
+    });
+});
 
 $(document).on('blur','.usn-validation',function(){
 	var content = $(this).val();
@@ -27,7 +46,7 @@ $(document).on('blur','.usn-validation',function(){
 		
 		validusn=0;
 		
-		document.getElementById('usn_error').innerHTML = 'Ο κωδικός περιλαμβάνει μόνο λατινικά γράμματα και αριθμούς';
+		document.getElementById('usn_error').innerHTML = 'Το username περιλαμβάνει μόνο λατινικά γράμματα και αριθμούς';
 	}
 	else if(content.length < 2){
 		validusn=0;
@@ -57,15 +76,15 @@ $(document).on('blur','.usn-validation',function(){
 
 	//$(this).closest('.form-body').siblings('.modal-footer').find('.message').html(message);
 
-if(validusn){
-    $(this).css('border','');
-    $(this).attr('data-validation',true);
+	if(validusn){
+    	$(this).css('border','');
+    	$(this).attr('data-validation',true);
     //$(this).closest('.form-body').siblings('.modal-footer').find('.message').css('color','green');
-  }else{
-    	$(this).css('border','1px solid red');
-    	$(this).attr('data-validation',false);
+  	}else{
+    		$(this).css('border','1px solid red');
+    		$(this).attr('data-validation',false);
       //  $(this).closest('.form-body').siblings('.modal-footer').find('.message').css('color','red');
-  }
+  	}
 
 });
 
@@ -425,23 +444,23 @@ $(document).on('blur','.bank-validation',function(){
 
 $(document).on('click','.signup-btn',function(){
 	
-	var usn = $(this).siblings('.usn').find('input[name=usn]').val();
+	var usn = $(this).parent().siblings('.usn').find('input[name=usn]').val();
 	console.log(usn);
-	var email = $(this).siblings('.email').find('input[name=email]').val();
+	var email = $(this).parent().siblings('.email').find('input[name=email]').val();
 	console.log(email);
-	var password = $(this).siblings('.row').find('input[name=password]').val();
+	var password = $(this).parent().siblings('.row').find('input[name=password]').val();
 	console.log(password);
-	var fname=$(this).siblings('.row').find('input[name=fname]').val();
+	var fname=$(this).parent().siblings('.row').find('input[name=fname]').val();
 	console.log(fname);
-	var lname=$(this).siblings('.row').find('input[name=lname]').val();
+	var lname=$(this).parent().siblings('.row').find('input[name=lname]').val();
 	console.log(lname);
-	var postal=$(this).siblings('.row').find('input[name=postal]').val();
+	var postal=$(this).parent().siblings('.row').find('input[name=postal]').val();
 	console.log(postal);
-	var addr=$(this).siblings('.row').find('input[name=addr]').val();
+	var addr=$(this).parent().siblings('.row').find('input[name=addr]').val();
 	console.log(addr);
-	var tel=$(this).siblings('.tel').find('input[name=tel]').val();
+	var tel=$(this).parent().siblings('.tel').find('input[name=tel]').val();
 	console.log(tel);
-	var bank=$(this).siblings('.bankaccount').find('input[name=bankaccount]').val();
+	var bank=$(this).parent().siblings('.bankaccount').find('input[name=bankaccount]').val();
 	console.log(bank);
 	
 	var test=validlname&validfname&validpass1&validpass&validusn&validemail&validaddr&validpostal&validtel&validbank;
