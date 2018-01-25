@@ -10,6 +10,8 @@ import javax.servlet.http.HttpSession;
 
 import gr.ntua.ece.softeng17b.conf.*;
 import gr.ntua.ece.softeng17b.data.*;
+
+import gr.ntua.ece.softeng17b.EmailSender;
 /**
  * Servlet implementation class LoginServlet
  */
@@ -51,14 +53,14 @@ public class ParentSignupServlet extends HttpServlet {
 		Double lat = Double.parseDouble(request.getParameter("latt"));
 		Double lng = Double.parseDouble(request.getParameter("lngg"));
 		long vcode = Math.round(Math.random() * 89999) + 10000;
-		System.out.println("verification code " + vcode);
-
-		System.out.println("username: " + username);
-	 
-	        // do some processing here...
+		
+		System.out.println("username: " + username + "   vcode: " + vcode);
+		
+	     // do some processing here...
 
 	    Parent insert_parent = new Parent(0, username,firstname,lastname, 
 						address, postal, tel, email, password, 0, 0, 0, bank, lat, lng, vcode);
+
 
         Configuration conf = Configuration.getInstance();
         DataAccess dataAccess = Configuration.getInstance().getDataAccess();
@@ -68,6 +70,9 @@ public class ParentSignupServlet extends HttpServlet {
 		parent_dao.setJdbcTemplate(dataAccess.jdbcTemplate);
 
 		parent_dao.insert(insert_parent);
+
+		EmailSender.verifmail(email,firstname,lastname,username,address,postal,bank,tel,vcode);
+
 	}
 
 }
