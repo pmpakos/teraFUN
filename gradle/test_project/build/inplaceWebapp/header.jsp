@@ -4,9 +4,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-  </head>
-    <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -21,21 +18,17 @@
                 </div>
                 <div class="collapse navbar-collapse" id="bs-nav-demo">
                     <ul class="nav navbar-nav">
+                        <li><a href="#"> Αναζήτηση</a></li>                
                         <li><a href="#"> Επικοινωνία </a></li>
                         <li><a href="#"> Σχετικά </a></li>                
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="signup_parent.jsp">Εγγραφή  <i class="fa fa-user-plus"></i></a></li>
-                            <li><a href="login.jsp">Σύνδεση<i class="fa fa-user"></i></a></li>
+                        <li><a href="login.jsp">Σύνδεση<i class="fa fa-user"></i></a></li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                          <input class="form-control mr-sm-2 " type="search" placeholder="Αναζήτηση" aria-label="Search">
-                              <button class="btn btn-danger my-2 my-sm-0" type="submit">Αναζήτηση</button>
-                        </form>
                 </div>
             </div>
         </nav>
-</body>
+</head>
 </html>
-

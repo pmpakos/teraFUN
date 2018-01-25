@@ -33,13 +33,13 @@ public class ParentDAO{
 	public void insert(Parent parent){
         String sql = "INSERT INTO parent (Username, FirstName, LastName,"
                     + "Address, PostalCode, TelephoneNumber, Email, Password,"
-                    + "BankAccount, Latitude, Longitude)"
-                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    + "BankAccount, Latitude, Longitude, VerificationCode)"
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         this.jdbcTemplate.update(sql, new Object[] {parent.Username, parent.FirstName, parent.LastName, 
                                         parent.Address, parent.PostalCode, parent.TelephoneNumber,
                                         parent.Email, parent.Password, parent.BankAccount,
-                                        parent.Latitude, parent.Longitude});   
+                                        parent.Latitude, parent.Longitude, parent.VerificationCode});   
     }
 
 

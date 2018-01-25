@@ -50,14 +50,15 @@ public class ParentSignupServlet extends HttpServlet {
 		long bank =  Long.parseLong(request.getParameter("bank"));
 		Double lat = Double.parseDouble(request.getParameter("latt"));
 		Double lng = Double.parseDouble(request.getParameter("lngg"));
-
+		long vcode = Math.round(Math.random() * 89999) + 10000;
+		System.out.println("verification code " + vcode);
 
 		System.out.println("username: " + username);
 	 
 	        // do some processing here...
 
 	    Parent insert_parent = new Parent(0, username,firstname,lastname, 
-						address, postal, tel, email, password, 0, 0, 0, bank, lat, lng);
+						address, postal, tel, email, password, 0, 0, 0, bank, lat, lng, vcode);
 
         Configuration conf = Configuration.getInstance();
         DataAccess dataAccess = Configuration.getInstance().getDataAccess();

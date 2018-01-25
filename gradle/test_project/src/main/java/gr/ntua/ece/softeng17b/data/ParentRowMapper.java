@@ -25,11 +25,12 @@ class ParentRowMapper implements RowMapper<Parent>  {
         long BankAccount = rs.getLong("BankAccount");
         double Latitude = rs.getDouble("Latitude");
         double Longitude = rs.getDouble("Longitude");
+        long VerificationCode = rs.getLong("VerificationCode");
 
         return new Parent( ParentID, Username, FirstName, LastName, 
                          Address, PostalCode, TelephoneNumber, 
                          Email, Password, Status, 
                          CounterEvents, Points, BankAccount, 
-                         Latitude, Longitude);
+                         Latitude, Longitude, VerificationCode);
     }
 }

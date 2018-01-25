@@ -93,6 +93,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </div>\n");
       out.write("                <div class=\"collapse navbar-collapse\" id=\"bs-nav-demo\">\n");
       out.write("                    <ul class=\"nav navbar-nav\">\n");
+      out.write("                        <li><a href=\"#\"> Αναζήτηση</a></li>                \n");
       out.write("                        <li><a href=\"#\"> Επικοινωνία </a></li>\n");
       out.write("                        <li><a href=\"#\"> Σχετικά </a></li>                \n");
       out.write("                    </ul>\n");
@@ -101,16 +102,11 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <li><a href=\"signup_parent.jsp\">Εγγραφή  <i class=\"fa fa-user-plus\"></i></a></li>\n");
       out.write("                            <li><a href=\"login.jsp\">Σύνδεση<i class=\"fa fa-user\"></i></a></li>\n");
       out.write("                    </ul>\n");
-      out.write("                    <form class=\"form-inline my-2 my-lg-0\">\n");
-      out.write("                          <input class=\"form-control mr-sm-2 \" type=\"search\" placeholder=\"Αναζήτηση\" aria-label=\"Search\">\n");
-      out.write("                              <button class=\"btn btn-danger my-2 my-sm-0\" type=\"submit\">Αναζήτηση</button>\n");
-      out.write("                        </form>\n");
       out.write("                </div>\n");
       out.write("            </div>\n");
       out.write("        </nav>\n");
       out.write("</body>\n");
-      out.write("</html>\n");
-      out.write("\n");
+      out.write("</html>");
       out.write("\n");
       out.write("\t<div class=\"container\">\n");
       out.write("    \t<div class=\"row\">\n");

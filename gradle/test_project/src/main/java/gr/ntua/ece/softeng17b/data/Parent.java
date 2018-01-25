@@ -17,12 +17,13 @@ public class Parent {
 	long BankAccount;
 	double Latitude;
 	double Longitude;
+	long VerificationCode;
 	
 	public Parent(int ID, String Username, String FirstName, String LastName, 
 						String Address, int PostalCode, long TelephoneNumber, 
 						String Email, String Password, int Status, 
 						int CounterEvents, int Points, long BankAccount, 
-						double Latitude, double Longitude){
+						double Latitude, double Longitude, long VerificationCode){
 		this.ParentID = ID;
 		this.Username = Username;
 		this.FirstName = FirstName;
@@ -38,6 +39,7 @@ public class Parent {
 		this.BankAccount = BankAccount;
 		this.Latitude = Latitude;
 		this.Longitude = Longitude;
+		this.VerificationCode = VerificationCode;
 	}
 	
 	public int getParentID(){

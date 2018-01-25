@@ -15,28 +15,26 @@
       float: left;
     }
     .btn-admin {
-        width:90px;
+        width:140px;
       }
     .btn-filter {
         width:100%;
       }
       h1{
-        margin-top: 200px;
+        margin-top: 80px;
         width: 100%;
 
         font-family: 'Open Sans', sans-serif;
       }
-
-
     </style>
 
-  </head>
-    <body>
+    <head>
         <%@include file="header.jsp" %>
+    </head>
 
-       <div class="container" id="ko">
+    <body>
+      <div id="ko">
             <h1> <span data-bind="text:parents().length"></span> Parents </h1>
-
             <table id="Data" class="table table-striped table-bordered" data-bind="visible: parents().length > 0">
                 <thead class="thead-light">
                     <tr>
@@ -51,6 +49,7 @@
                         <th scope="col">Πλήθος Κρατήσεων </th>
                         <th scope="col">Πόντοι </th>
                         <th scope="col">Αριθμός Κάρτας </th>
+                        <th scope="col">Κωδικός Εγγραφής</th>
                         <th scope="col">Status </th>
                     </tr>
                 </thead>  
@@ -67,16 +66,17 @@
                         <td> <span data-bind="text:cntbook"></span> </td>                        
                         <td> <span data-bind="text:points"></span> </td>
                         <td> <span data-bind="text:bankaccount"></span> </td>
+                        <td> <span data-bind="text:vcode"></span> </td>
                         <td>
-                            <button data-bind="visible: status==0" type="button" class="btn btn-default btn-admin">Ανενεργός</button>
-                            <button data-bind="visible: status==1, click: function(data, event) { change_status(id, 2, data, event) }" type="button" class="btn btn-danger btn-admin">Block</button>
-                            <button data-bind="visible: status==2, click: function(data, event) { change_status(id, 1, data, event) }" type="button" class="btn btn-info btn-admin">Unblock</button>
+                            <button data-bind="visible: status==0" type="button" class="btn btn-default btn-admin">Μη Επαληθευμένος</button>
+                            <button data-bind="visible: status==1" type="button" class="btn btn-default btn-admin">Ανενεργός</button>
+                            <button data-bind="visible: status==2, click: function(data, event) { change_status(id, 3, data, event) }" type="button" class="btn btn-danger btn-admin">Block</button>
+                            <button data-bind="visible: status==3, click: function(data, event) { change_status(id, 2, data, event) }" type="button" class="btn btn-info btn-admin">Unblock</button>
                         </td>
 
                     </tr>                   
                 </tbody>
             </table>
-
         </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
@@ -86,9 +86,6 @@
     <script src="./js/DataTable.js"></script>
     <script src="./js/DataTable.bootstrap4.js"></script>
     <script src="js/admin_panel_parent.js"></script>
-
-
-
-
-  </body>
+    
+    </body>
 </html>

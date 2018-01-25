@@ -35,7 +35,8 @@ $(document).ready(function() {
           '<li> <button id="check8" type="button" class="toggle-vis btn btn-success btn-filter" data-column="8">Πλήθος Κρατήσεων</button> </li>'+
           '<li> <button id="check9" type="button" class="toggle-vis btn btn-success btn-filter" data-column="9">Πόντοι</button> </li>'+
           '<li> <button id="check10" type="button" class="toggle-vis btn btn-success btn-filter" data-column="10">Αριθμός Κάρτας </button> </li>'+
-          '<li> <button id="check11" type="button" class="toggle-vis btn btn-success btn-filter" data-column="11">Status</button> </li>'+
+          '<li> <button id="check11" type="button" class="toggle-vis btn btn-success btn-filter" data-column="11">Κωδικός Εγγραφής</button> </li>'+
+          '<li> <button id="check12" type="button" class="toggle-vis btn btn-success btn-filter" data-column="11">Status</button> </li>'+
         '</ul>'+
     '</div>'+
   '</div>'+
@@ -60,7 +61,7 @@ $('[id^="check"]').click(function () {
 
 
  
-var Parent = function(id,firstname, lastname, username, address, postalcode, tel, email, cntbook, status, points, bankaccount) {
+var Parent = function(id,firstname, lastname, username, address, postalcode, tel, email, cntbook, status, points, bankaccount, vcode) {
     this.id = id;
     this.firstname = firstname;
     this.lastname = lastname;
@@ -73,6 +74,7 @@ var Parent = function(id,firstname, lastname, username, address, postalcode, tel
     this.status = status;
     this.points = points;
     this.bankaccount = bankaccount;
+    this.vcode = vcode;
 }
 
 var VM = function(){
@@ -111,7 +113,8 @@ viewModel.loadParents().done(function(json){
             parentJson.CounterEvents,
             parentJson.Status,
             parentJson.Points,
-            parentJson.BankAccount
+            parentJson.BankAccount,
+            parentJson.VerificationCode
             );
         console.log(parent);
         viewModel.parents.push(parent);
