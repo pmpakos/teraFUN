@@ -18,9 +18,9 @@ $(function() {
 });
 
 validpass=0;
-validusn=1;
+validusn=0;
 validpass2=0;
-validusn2=1;
+validusn2=0;
 
 
 $(document).on('blur','.pass-val',function(){

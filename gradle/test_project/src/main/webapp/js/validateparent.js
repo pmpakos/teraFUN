@@ -293,6 +293,8 @@ if(validlname){
         }
 });
 
+
+
 $(document).on('blur','.addr-validation',function(){
 	if(validpostal){
 		document.getElementById("postal").value = '';

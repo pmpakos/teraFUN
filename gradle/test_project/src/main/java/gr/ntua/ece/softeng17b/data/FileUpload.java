@@ -29,7 +29,6 @@ public class FileUpload {
 			System.out.println(path+"/src/main/webapp/images/"+fieldName);
 			String[] strArray = new String[] {path+"/src/main/webapp/images/"+fieldName};
 			WatermarkImage.main(strArray);
-			System.out.println("ΥΕΑΑΑΑΑ");
 			return true;
 		}catch(Exception e){
 			e.printStackTrace();
