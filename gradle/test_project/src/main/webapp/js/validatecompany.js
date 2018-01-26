@@ -29,7 +29,7 @@ $(document).on('blur','.compname-validation',function(){
 
 $(document).on('blur','.afm-validation',function(){
 	var content = $(this).val();
-	var re=/\b\d{}\b/g;
+	var re=/\b\d{9}\b/g;
 	validafm = re.test(content);
 	
 
@@ -64,12 +64,53 @@ function validatecompany(){
 	console.log(usn);
 	var password = document.getElementById('pass').value;
 	console.log(password);
+
+	var email = document.getElementById('email').value;
+	var postal = document.getElementById('pass').value;
+	var addr = document.getElementById('pass').value;
+	var afm = document.getElementById('email').value;
+	var tel = document.getElementById('pass').value;
+	var webpage = document.getElementById('pass').value;
+	var compname = document.getElementById('pass').value;
 	var description=document.getElementById('description').value;
 	console.log(description);
-	var test=agree&validpass1&validusn;
+
+	var test=agree&validcompname&validpass1&validpass&validusn&validemail&validaddr&validpostal&validtel&validafm;
+	console.log(test);
+
 	console.log(test); 
-	if(test) return true;
-	else return false; 
+	if(test){
+		document.getElementById('total_error').innerHTML = "";
+		$.ajax({
+			type:"POST",
+			data:{
+				usn:usn,
+				email:email,
+				password:password,
+				compname:compname,
+				webpage: webpage,
+				postal:postal,
+				addr:addr,
+				tel:tel,
+				afm:afm,
+				latt:latt,
+				lngg:lngg,
+				description:description
+			},
+			url:'/app/company_signup',
+
+			success: function(){
+				
+			}
+				
+		});	
+		return true;
+	} 
+	else{
+
+		document.getElementById('total_error').innerHTML = 'Πρέπει να συμπληρώσετε τα υποχρεωτικά πεδία και να συμφωνήσετε με τους όρους και τις προϋποθέσεις';
+		return false; 	
+	} 
 }
 
 

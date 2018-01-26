@@ -1,26 +1,17 @@
 package gr.ntua.ece.softeng17b.servlets;
 
-import java.io.File;
-import java.io.InputStream;
-
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.commons.fileupload.*;
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import java.io.PrintWriter;
+import javax.servlet.http.HttpSession;
 
+import gr.ntua.ece.softeng17b.conf.*;
+import gr.ntua.ece.softeng17b.data.*;
 
-import gr.ntua.ece.softeng17b.data.FileUploadComp;
-
-import javax.servlet.http.*;
+import java.util.*;
 
 /**
  * Servlet implementation class CompanySignupServlet
@@ -39,64 +30,37 @@ public class CompanySignupServlet extends HttpServlet {
 	    
 		  // String password = request.getParameter("password");
 	
+			String username = request.getParameter("usn");
+			String email = request.getParameter("email");
+			String password = request.getParameter("password");
+			String compname = request.getParameter("compname");
+			String address = request.getParameter("addr");
+			String webpage = request.getParameter("webpage");
+			String description = request.getParameter("description");
+			int postal = Integer.parseInt(request.getParameter("postal"));
+			long tel = Long.parseLong(request.getParameter("tel"));
+			int afm =  Integer.parseInt(request.getParameter("afm"));
+			Double lat = Double.parseDouble(request.getParameter("latt"));
+			Double lng = Double.parseDouble(request.getParameter("lngg"));
+			// long vcode = Math.round(Math.random() * 89999) + 10000;
+			
+			System.out.println("company signup servlet: description: " + description + "   username: " + username);
+			
+		     // do some processing here...
 
-	      response.setContentType("text/html");
-	      boolean isMultipart = ServletFileUpload.isMultipartContent(request);
-	      java.io.PrintWriter out = response.getWriter( );
+		    Company insert_company = new Company(0, username,compname, 
+							address, postal, tel, email, afm, password, 0, webpage, description, 0, 0, username, lat, lng);
 
 
-	   
-	      
-	      
-	      if( !isMultipart )
-	      {
-	         out.println("No Upload This Time");
-	         return;
-	      }
-	      String username="default";
-	      String value[]=new String[20];
-	      int i=0;
-	      ServletFileUpload upload = new ServletFileUpload();
-	      try{
-	    	  FileItemIterator itr= upload.getItemIterator(request);
-	    	  // FileItemStream item = itr.next();
+	        Configuration conf = Configuration.getInstance();
+	        DataAccess dataAccess = Configuration.getInstance().getDataAccess();
+	        CompanyDAO company_dao = new CompanyDAO();
 
-	    	  while(itr.hasNext()){
-	    		  FileItemStream item = itr.next();
-	    		  if(item.isFormField()){
-	    			 String fieldName = item.getFieldName();
-	    			 InputStream is = item.openStream();
-	    			 byte[] b= new byte[is.available()];
-	    			 is.read(b);
+			company_dao.setDataSource(dataAccess.dataSource);
+			company_dao.setJdbcTemplate(dataAccess.jdbcTemplate);
 
-	    			 value[i]=new String(b);
-	    			 if(i==0){
-	    			 	username=value[i];
-	    			 }
-	    			 response.getWriter().println(fieldName+":"+value[i]+"<br/>");
-	    			 i++;
-	    		  }
-	    		  else{
-	    			  //String path = getServletContext().getRealPath("/");
-	    			  String fieldName = item.getFieldName();
-	    			  System.out.println(fieldName);
-	    			  String fileName = item.getName();
-	    			  String path = new java.io.File( "." ).getCanonicalPath();
-	    			  if (FileUploadComp.processFile(path,item,fileName,username))
-	    				  response.getWriter().println(fileName+" file success!!!\n");
-	    			  else 
-	    				  response.getWriter().println("pulo");
-	    		  }
-	    		  
-	    	  }
-	    	  	
-	    	  
-	      }catch(FileUploadException fue){
-	    	  fue.printStackTrace();
-	      }
-	      
-	      
-	    }
+			company_dao.insert(insert_company);
+		}
 
 	   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException { doPost(request, response); }
 	   	

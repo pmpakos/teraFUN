@@ -48,6 +48,15 @@
         <servlet-class>gr.ntua.ece.softeng17b.servlets.UploadServlet</servlet-class>
     </servlet>
 
+      <servlet>
+        <servlet-name>upload_image_company</servlet-name>
+        <servlet-class>gr.ntua.ece.softeng17b.servlets.UploadImageCompanyServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>company_signup_form</servlet-name>
+        <servlet-class>gr.ntua.ece.softeng17b.servlets.CompanySignupServlet</servlet-class>
+    </servlet>
 
 
     <servlet>
@@ -124,6 +133,15 @@
         <url-pattern>/upload_image</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>company_signup_form</servlet-name>
+        <url-pattern>/company_signup</url-pattern>
+    </servlet-mapping>  
+    
+     <servlet-mapping>
+        <servlet-name>upload_image_company</servlet-name>
+        <url-pattern>/upload_image_company</url-pattern>
+    </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>velocity</servlet-name>
