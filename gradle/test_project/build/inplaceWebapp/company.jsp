@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="gr.ntua.ece.softeng17b.conf.*" %>
+<% int ID = 3; %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,6 +42,12 @@
 
 
   </style>
+  <style>
+       .gmap {
+        height: 400px;
+        width: 50%;
+       }
+    </style>
 
 </head>
 <body>
@@ -131,10 +138,18 @@
                     <p>
                        <span data-bind="text:description"></span> 
                     </p>
+                    <button type="button" class="btn btn-primary btn-lg btn-block">Events</button>
                 </div>
                
             </div>
-            </div>
+            
+                
+
+            <h2>Map</h2>
+
+            <div id="map" class="gmap"></div>
+    
+    </div>
 
     
 
@@ -150,43 +165,61 @@
     <% Configuration conf = Configuration.getInstance(); %>
 
     <script>
-            
-        var VM = function(){
-            this.id = ko.observable();
-            this.companyname = ko.observable(); 
-            this.web = ko.observable(); 
-            this.description =  ko.observable(); 
-            this.address =  ko.observable();      
+        function initMap() {    
+            var VM = function(){
+                this.id = ko.observable();
+                this.companyname = ko.observable(); 
+                this.web = ko.observable(); 
+                this.description =  ko.observable(); 
+                this.address =  ko.observable();    
+            }
+
+            VM.prototype.loadCompany = function() {
+                console.log("Loading company...");
+                var ID = <%=ID%>;
+                var opts = {
+                    traditional : true,
+                    cache       : false,
+                    url         : "./api/company/"+ID,
+                    type        : "GET",
+                    dataType    : "json"
+                };
+
+                return $.ajax(opts); //returns a promise
+            }
+
+            var viewModel = new VM();
+            console.log("Created VM");            
+
+            viewModel.loadCompany().done(function(companyJson){
+                console.log("Done loading companies.");                 
+                viewModel.id(companyJson.CompanyID);
+                viewModel.companyname(companyJson.CompanyName);
+                viewModel.web(companyJson.WebPage);
+                viewModel.description(companyJson.Description);
+                viewModel.address(companyJson.Address);
+
+                var uluru = {lat: companyJson.Latitude, lng: companyJson.Longitude};
+
+                var map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 11,
+                  center: uluru
+                });
+                
+                var marker = new google.maps.Marker({
+                  position: uluru,
+                  map: map
+                });
+
+            });
+
+            ko.applyBindings(viewModel);            
+            console.log("Applied bindings");
         }
-
-        VM.prototype.loadCompany = function() {
-            console.log("Loading company...");
-            var opts = {
-                traditional : true,
-                cache       : false,
-                url         : "./api/company/11",
-                type        : "GET",
-                dataType    : "json"
-            };
-
-            return $.ajax(opts); //returns a promise
-        }
-
-        var viewModel = new VM();
-        console.log("Created VM");            
-
-        viewModel.loadCompany().done(function(companyJson){
-            console.log("Done loading companies.");                 
-            viewModel.id(companyJson.CompanyID);
-            viewModel.companyname(companyJson.CompanyName);
-            viewModel.web(companyJson.WebPage);
-            viewModel.description(companyJson.Description);
-            viewModel.address(companyJson.Address);
-        });
-
-        ko.applyBindings(viewModel, document.getElementById('ko'));            
-        console.log("Applied bindings");
     </script>
+
+    <% String apiKey = conf.getProperty("apiKey"); %>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%=apiKey%>&callback=initMap"></script>
 
     </body>
 </html>

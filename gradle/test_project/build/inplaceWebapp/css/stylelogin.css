@@ -2,6 +2,37 @@ body {
     padding-top: 90px;
 }
 
+
+p1 {
+font-size: small;
+font-family: helvectia, geneva, arial, sun-sans, sans serif;
+color: red;
+}
+
+
+.image-preview-input {
+    position: relative;
+    overflow: hidden;
+	margin: 0px;    
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;    
+}
+.image-preview-input input[type=file] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+.image-preview-input-title {
+    margin-left:2px;
+}
+
 .panel-login {
 	border-color: #ccc;
 	background-color: #fff ;
@@ -97,6 +128,24 @@ body {
 }
 .btn-loginc:hover,
 .btn-loginc:focus {
+	color: #fff;
+	background-color:#008080;
+	border-color:#761c19
+}
+
+.btn-registerc {
+	background-color: #009CA9;
+	outline: none;
+	color: #fff;
+	font-size: 14px;
+	height: auto;
+	font-weight: normal;
+	padding: 14px 0;
+	text-transform: uppercase;
+	border-color: #d9534f;
+}
+.btn-registerc:hover,
+.btn-registerc:focus {
 	color: #fff;
 	background-color:#008080;
 	border-color:#761c19
