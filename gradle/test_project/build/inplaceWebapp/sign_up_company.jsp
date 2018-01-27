@@ -13,7 +13,6 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
 	<!-- Latest compiled JavaScript -->
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<script src="js/login.js"></script>
 	<script src="js/uploadimage.js"></script>
 	<script src="js/validateparent.js"></script>
 	<script src="js/validatecompany.js"></script>
@@ -21,27 +20,6 @@
 <link rel="stylesheet" href="css/stylelogin.css"> 
 <link rel="stylesheet" href="css/header.css"> 
 
-<style>
-.panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
-	height: 35px;
-	border: 1px solid #ddd;
-	font-size: 16px;
-	-webkit-transition: all 0.1s linear;
-	-moz-transition: all 0.1s linear;
-	transition: all 0.1s linear;
-}
-
-.panel-login>.panel-heading {
-	color: #F34226  ;
-	background-color: #ecf0f1;
-	border-color: #fff;
-	text-align:center;
-	font-size: 18px;
-	color: #2c3e50;
-	font-weight: bold;
-}
-
-</style>
 
 </head>
 
@@ -53,20 +31,20 @@
 	<div class="container">
     	<div class="row">
 			<div class="col-md-10 col-md-offset-1">
-				<div class="panel panel-login">
+				<div class="panel panel-register">
 					<div class="panel-heading">
 						<br>
 						 <h>Δημιουργία Λογαριασμού Επιχείρησης</h>
+						<!-- <hr class="style1"> -->
 						<br>
-						<hr>
 					</div>
 					<div class="panel-body">
 						 <div class="row"> 
 							<div class="col-lg-10 col-md-offset-1">
 					
-								<form id="login-form" onsubmit="return validatecompany()" action="company_signup" method="Post" enctype="multipart/form-data" role="form">
+								<form id="login-form" onsubmit="return validatecompany()"  method="Post" enctype="multipart/form-data" role="form">
 								<!-- <form id="login-form" role="form" enctype="multipart/form-data"> -->
-
+									<!-- action="upload_image_company" -->
 									    <div class="form-group usn">
 								    	<label for="username"> <span class="glyphicon glyphicon-user" > </span> UserName</label>
 								      	<input type="text" class="form-control usn-validation form-element" name="usn" id="usn" placeholder="Εισάγετε ένα έγκυρο username" data-validation="false" id="usn-border">
@@ -177,7 +155,7 @@
 											</div>
 										</div>
 									</div>			
-									
+									<span class="error"><p1 id="total_error"></p1></span>
 								</form>
 								
 							</div>

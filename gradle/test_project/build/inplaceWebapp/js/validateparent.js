@@ -321,7 +321,7 @@ $(document).on('blur','.postal-validation',function(){
 	}
 	var content = $(this).val();
 	var address = $(this).parent().siblings().find('.addr-validation').val();
-	var location = address+content;
+	var location = address+" "+content;
 
 	var content = $(this).val();
 	var re=/\b\d{5}\b/g;

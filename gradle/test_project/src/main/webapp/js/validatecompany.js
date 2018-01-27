@@ -66,12 +66,19 @@ function validatecompany(){
 	console.log(password);
 
 	var email = document.getElementById('email').value;
-	var postal = document.getElementById('pass').value;
-	var addr = document.getElementById('pass').value;
-	var afm = document.getElementById('email').value;
-	var tel = document.getElementById('pass').value;
-	var webpage = document.getElementById('pass').value;
-	var compname = document.getElementById('pass').value;
+	console.log(email);
+	var postal = document.getElementById('postal').value;
+	console.log(postal);
+	var addr = document.getElementById('addr').value;
+	console.log(addr);
+	var afm = document.getElementById('afm').value;
+	console.log(afm);
+	var tel = document.getElementById('tel').value;
+	console.log(tel);
+	var webpage = document.getElementById('webpage').value;
+	console.log(webpage);
+	var compname = document.getElementById('compname').value;
+	console.log(compname);
 	var description=document.getElementById('description').value;
 	console.log(description);
 
@@ -104,7 +111,7 @@ function validatecompany(){
 			}
 				
 		});	
-		return true;
+		return false;
 	} 
 	else{
 

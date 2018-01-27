@@ -44,7 +44,7 @@ public class CompanySignupServlet extends HttpServlet {
 			Double lng = Double.parseDouble(request.getParameter("lngg"));
 			// long vcode = Math.round(Math.random() * 89999) + 10000;
 			
-			System.out.println("company signup servlet: description: " + description + "   username: " + username);
+			// System.out.println("company signup servlet: description: " + description + "   username: " + username);
 			
 		     // do some processing here...
 
