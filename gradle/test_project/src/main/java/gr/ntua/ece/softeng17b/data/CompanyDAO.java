@@ -17,19 +17,19 @@ import org.springframework.jdbc.core.JdbcTemplate;
 public class CompanyDAO{
 
 
-	private DataSource dataSource;
+    private DataSource dataSource;
     private JdbcTemplate jdbcTemplate;
 
 
-	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
-	}
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
-	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
-	}
+    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
-	public void insert(Company company){
+    public void insert(Company company){
         String sql = "INSERT INTO companyservice (Username, CompanyName, Address,"
                     + "PostalCode, TelephoneNumber, Email, AFM, Password,"
                     + "BankAccount, WebPage, Description, PhotosFolder, Latitude, Longitude)"
@@ -41,6 +41,11 @@ public class CompanyDAO{
                                         company.Description, company.PhotosFolder, company.Latitude, company.Longitude});  
     }
 
+    public void changeStatus(int id, int newStatus){
+        String sql = "UPDATE companyservice SET status = ? WHERE CompanyID = ?";
+
+        this.jdbcTemplate.update(sql, new Object[] {newStatus, id});   
+    }
 
     public int login(String username, String password) {        
         List<String> db_id = jdbcTemplate.queryForList("select CompanyID from companyservice where (Username = ? && Password = ?)", new Object[] {username, password}, String.class); 

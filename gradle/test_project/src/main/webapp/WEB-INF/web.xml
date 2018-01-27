@@ -39,6 +39,11 @@
     </servlet>
 
     <servlet>
+        <servlet-name>company_change_status</servlet-name>
+        <servlet-class>gr.ntua.ece.softeng17b.servlets.CompanyChangeStatusServlet</servlet-class>
+    </servlet>
+
+    <servlet>
         <servlet-name>login</servlet-name>
         <servlet-class>gr.ntua.ece.softeng17b.servlets.LoginServlet</servlet-class>
     </servlet>
@@ -121,6 +126,11 @@
     <servlet-mapping>
         <servlet-name>parent_change_status</servlet-name>
         <url-pattern>/change_status</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>company_change_status</servlet-name>
+        <url-pattern>/company_change_status</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
