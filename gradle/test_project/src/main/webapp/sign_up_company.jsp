@@ -42,7 +42,7 @@
 						 <div class="row"> 
 							<div class="col-lg-10 col-md-offset-1">
 					
-								<form id="login-form" onsubmit="return validatecompany()"  method="Post" enctype="multipart/form-data" role="form">
+								<form id="login-form" onsubmit="return validatecompany()" action="upload_image_company" method="Post" enctype="multipart/form-data" role="form">
 								<!-- <form id="login-form" role="form" enctype="multipart/form-data"> -->
 									<!-- action="upload_image_company" -->
 									    <div class="form-group usn">
@@ -105,6 +105,12 @@
 								    	<span class="error"><p1 id="tel_error"></p1></span>
 								    </div>
 
+								    <!-- <div class="form-group bankaccount"> 
+								      <label for="bankaccount"><span class="glyphicon glyphicon-piggy-bank"></span> Credit Card Number</label>
+								      <input type="text" class="form-control bank-validation form-element" name="bankaccount" placeholder="Bank Account Number" data-validation="false">
+								      <span class="error"><p1 id="bank_error"></p1></span>
+								    </div>
+ -->
 								    <div class="form-group webpage">
 								      <label for="webpage"><span class="glyphicon glyphicon-bookmark"></span> Webpage</label>
 								      <input type="text" class="form-control" name="webpage" id="webpage"placeholder="Εισάγετε την ιστοσελίδα της εταιρίας">

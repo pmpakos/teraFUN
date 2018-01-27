@@ -107,11 +107,14 @@ function validatecompany(){
 			url:'/app/company_signup',
 
 			success: function(){
+				console.log("insertion done");
+
 				
 			}
 				
 		});	
-		return false;
+		return true;
+		
 	} 
 	else{
 
