@@ -42,27 +42,36 @@ public class LoginServlet extends HttpServlet {
 
 		String username = request.getParameter("usn");
 		String password = request.getParameter("password");
-		int isParent = Integer.parseInt(request.getParameter("isParent"));
+		int flag = Integer.parseInt(request.getParameter("flag"));
+
+		System.out.println(username);
+		System.out.println(password);
+
 
         Configuration conf = Configuration.getInstance();
         DataAccess dataAccess = Configuration.getInstance().getDataAccess();
         int result = 0;
-        if(isParent == 1){
+        if(flag == 0){
+        	AdministratorDAO administrator_dao = new AdministratorDAO();
+			administrator_dao.setDataSource(dataAccess.dataSource);
+			administrator_dao.setJdbcTemplate(dataAccess.jdbcTemplate);
+			result = administrator_dao.login(username, password);
+			System.out.println("elaaaa0");
+        }
+        if(flag == 1){
         	ParentDAO parent_dao = new ParentDAO();
-
 			parent_dao.setDataSource(dataAccess.dataSource);
 			parent_dao.setJdbcTemplate(dataAccess.jdbcTemplate);
-			System.out.println("Eimai kai edw: "+username);
 			result = parent_dao.login(username, password);
+			System.out.println("elaaaa1");
         }
-        else{
+        if(flag ==2){
         	CompanyDAO company_dao = new CompanyDAO();
-
-			company_dao.setDataSource(dataAccess.dataSource);
+        	company_dao.setDataSource(dataAccess.dataSource);
 			company_dao.setJdbcTemplate(dataAccess.jdbcTemplate);
-
 			result = company_dao.login(username, password);
-        }
+    	    System.out.println("elaaaa2");
+    	}
 
         String reply = Integer.toString(result);
 
@@ -70,17 +79,16 @@ public class LoginServlet extends HttpServlet {
         	HttpSession session = request.getSession();
 			session.setAttribute("id", reply);			
 			response.getWriter().append(reply);
+        	System.out.println("To id sou einai: "+reply);
+		    String uname= (String)session.getAttribute("id"); 
+	        System.out.print("Welcome "+ uname);
+
         }
         else{ 
-        	//System.out.println("Eimai kai edw: "+reply);
+        	System.out.println("Eimai kai edw: "+reply);
         	response.getWriter().append("0");
-		}   
+		}   		
 
-		/*
-
-		    String uname= (String)session.getAttribute("id"); 
-            out.print("Welcome "+ uname);%>
-		*/
 	}
 
 }

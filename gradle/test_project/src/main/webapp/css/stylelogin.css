@@ -121,6 +121,23 @@ hr.style1 {
 	box-shadow: none;
 	border-color: #ccc;
 }
+.btn-logina {
+	background-color: #32cd32;
+	outline: none;
+	color: #fff;
+	font-size: 14px;
+	height: auto;
+	font-weight: normal;
+	padding: 14px 0;
+	text-transform: uppercase;
+	border-color: #32cd32;
+}
+.btn-logina:hover,
+.btn-logina:focus {
+	color: #fff;
+	background-color:#4caf50;
+	border-color:#4caf50;
+}
 .btn-loginp {
 	background-color: #d9534f;
 	outline: none;
@@ -135,7 +152,8 @@ hr.style1 {
 .btn-loginp:hover,
 .btn-loginp:focus {
 	color: #fff;
-	background-color:#c9302c;border-color:#761c19
+	background-color:#c9302c;
+	border-color:#c9302c;
 }
 .forgot-password {
 	text-decoration: underline;
@@ -148,7 +166,7 @@ hr.style1 {
 }
 
 .btn-loginc {
-	background-color: #009CA9;
+	background-color: #009ca9;
 	outline: none;
 	color: #fff;
 	font-size: 14px;
@@ -156,13 +174,13 @@ hr.style1 {
 	font-weight: normal;
 	padding: 14px 0;
 	text-transform: uppercase;
-	border-color: #d9534f;
+	border-color: #009ca9;
 }
 .btn-loginc:hover,
 .btn-loginc:focus {
 	color: #fff;
 	background-color:#008080;
-	border-color:#761c19
+	border-color:#008080;
 }
 
 .btn-registerc {

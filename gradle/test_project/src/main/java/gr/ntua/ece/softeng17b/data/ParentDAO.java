@@ -61,7 +61,6 @@ public class ParentDAO{
     }
 
     public int login(String username, String password) {     
-        System.out.println("I'n in Dao usn: "+ username +" pass: "+ password);   
         List<String> db_id = jdbcTemplate.queryForList("select ParentID from parent where (Username = ? and Password = ?)", new Object[] {username, password}, String.class); 
 
         if(db_id.size() == 0){

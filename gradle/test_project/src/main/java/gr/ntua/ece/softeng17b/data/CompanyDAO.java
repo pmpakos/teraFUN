@@ -50,8 +50,6 @@ public class CompanyDAO{
     public int login(String username, String password) {        
         List<String> db_id = jdbcTemplate.queryForList("select CompanyID from companyservice where (Username = ? && Password = ?)", new Object[] {username, password}, String.class); 
 
-        int result = -1;
-
         if(db_id.size() == 0){
            return -1;
         }

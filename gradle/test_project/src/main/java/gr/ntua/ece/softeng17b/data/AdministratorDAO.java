@@ -39,38 +39,48 @@ public class AdministratorDAO{
         return jdbcTemplate.query("SELECT * FROM administrator",new AdministratorRowMapper());
     }
 
-    public Boolean login(String Username, String Password){
-        
-        String sql = "SELECT * "
-                + "FROM administrator WHERE ( (administrator.Username = ?) && (administrator.Password = ? ) )";
+    public int login(String username, String password) {     
+        List<String> db_id = jdbcTemplate.queryForList("select AdminID from administrator where (Username = ? and Password = ?)", new Object[] {username, password}, String.class); 
 
-        Connection conn = null;
-
-        try {
-            conn = dataSource.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, Username);
-            ps.setString(2, Password);
-            ResultSet rs = ps.executeQuery();
-            int flag = 0;
-            if ( rs.next() ) {
-                flag = 1;
-            }
-            rs.close();
-            ps.close();
-            if (flag==1)
-                return true;
-            return false;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            if (conn != null) {
-                try {
-                conn.close();
-                } catch (SQLException e) {}
-            }
+        if(db_id.size() == 0){
+           return -1;
         }
+        
+        return Integer.parseInt(db_id.get(0)); 
     }
+
+    // public Boolean login(String Username, String Password){
+        
+    //     String sql = "SELECT * "
+    //             + "FROM administrator WHERE ( (administrator.Username = ?) && (administrator.Password = ? ) )";
+
+    //     Connection conn = null;
+
+    //     try {
+    //         conn = dataSource.getConnection();
+    //         PreparedStatement ps = conn.prepareStatement(sql);
+    //         ps.setString(1, Username);
+    //         ps.setString(2, Password);
+    //         ResultSet rs = ps.executeQuery();
+    //         int flag = 0;
+    //         if ( rs.next() ) {
+    //             flag = 1;
+    //         }
+    //         rs.close();
+    //         ps.close();
+    //         if (flag==1)
+    //             return true;
+    //         return false;
+    //     } catch (SQLException e) {
+    //         throw new RuntimeException(e);
+    //     } finally {
+    //         if (conn != null) {
+    //             try {
+    //             conn.close();
+    //             } catch (SQLException e) {}
+    //         }
+    //     }
+    // }
     
     public Administrator Details(String Username, String Password){
         

@@ -31,10 +31,10 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-xs-6">
-								<a href="#" class="active" id="login-form-link">Σύνδεση Χρήστη</a>
+								<a href="" class="active" id="login-parent-link">Σύνδεση Χρήστη</a>
 							</div>
 							<div class="col-xs-6">
-								<a href="#" id="register-form-link">Σύνδεση Επιχείρησης</a>
+								<a href="" id="login-company-link">Σύνδεση Επιχείρησης</a>
 							</div>
 						</div>
 						<hr>
@@ -43,19 +43,18 @@
 						<div class="row">
 							<div class="col-lg-12">
 					
-								<form id="login-form" role="form" style="display: block;">
+								<form id="login-parent-form" role="form" style="display: block;">
 		
-									<div class="form-group usn">
-										<label for="usn"> <span class="glyphicon glyphicon-user"> </span>UserName</label>
-										<input type="text" name="usn" id="usn" tabindex="1" class="form-control usn-val form-element" placeholder="Username" value="">
+									<div class="form-group usn1">
+										<label for="usn"> <span class="glyphicon glyphicon-user"> </span> Username</label>
+										<input type="text" name="usn1" id="usn1" tabindex="1" class="form-control usn-val1 form-element" placeholder="Username" value="">
 										<span class="error"><p1 id="usn_error1"></p1></span>
 									</div>
-									<div class="form-group pass">
+									<div class="form-group pass1">
 										<label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-										<input type="password" name="pass" id="password" tabindex="2" class="form-control pass-val form-element" placeholder="Password">
+										<input type="password" name="pass1" id="pass1" tabindex="2" class="form-control pass-val1 form-element" placeholder="Password">
 										<span class="error"><p1 id="pass_error1"></p1></span>
 									</div>
-								
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
@@ -73,17 +72,19 @@
 										</div>
 									</div>
 								</form>
-								<form id="register-form" role="form" style="display: none;">
+
+
+								<form id="login-company-form" role="form" style="display: none;">
 		
-									<div class="form-group usn1">
-										<label for="username"> <span class="glyphicon glyphicon-user"> </span> UserName</label>
-										<input type="text" name="usn1" id="username" tabindex="1" class="form-control usn-val2 form-element" placeholder="Username" value="">
+									<div class="form-group usn2">
+										<label for="usn"> <span class="glyphicon glyphicon-user"> </span> Username</label>
+										<input type="text" name="usn2" id="usn2" tabindex="1" class="form-control usn-val2 form-element" placeholder="Username" value="">
 										<span class="error"><p1 id="usn_error2"></p1></span>
 									</div>
-								
-									<div class="form-group pass1">
+
+									<div class="form-group pass2">
 										<label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-										<input type="password" name="pass1" id="password" tabindex="2" class="form-control pass-val2 form-elementSS" placeholder="Password">
+										<input type="password" name="pass2" id="pass2" tabindex="2" class="form-control pass-val2 form-element" placeholder="Password">
 										<span class="error"><p1 id="pass_error2"></p1></span>
 									</div>
 									
@@ -93,7 +94,7 @@
 												<button type="button" name="loginc-submit" id="loginc-submit" tabindex="4" class="form-control btn btn-loginc"><span>ΣΥΝΔΕΣΗ </span></button>
 											</div>
 										</div>
-									</div>	
+									</div>			
 									
 									<div class="form-group">
 										<div class="row">
@@ -109,6 +110,7 @@
 						</div>
 					</div>
 				</div>
+				<a href="http://localhost:8765/app/login_admin.jsp" class="forgot-password">Σύνδεση ως Διαχειριστής</a>
 			</div>
 		</div>
 	</div>	
