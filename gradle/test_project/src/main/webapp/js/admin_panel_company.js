@@ -59,6 +59,9 @@ viewModel.loadCompanies().done(function(json){
         viewModel.companies.push(company);
     });
 
+
+     
+
     var table = $('#Data').DataTable( {
         "paging": true,
         "iDisplay": 10,
@@ -83,7 +86,7 @@ viewModel.loadCompanies().done(function(json){
           '<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon '+
             'glyphicon-filter"> Φίλτρα</span> <span class="caret"></span></button>'+
           '<ul class="dropdown-menu">'+
-		    '<li> <button id="check0" type="button" class="toggle-vis btn btn-success btn-filter" data-column="0">Id </button> </li>         '+
+            '<li> <button id="check0" type="button" class="toggle-vis btn btn-success btn-filter" data-column="0">Id </button> </li>         '+
             '<li> <button id="check1" type="button" class="toggle-vis btn btn-success btn-filter" data-column="1">Όνομα</button> </li>'+
             '<li> <button id="check2" type="button" class="toggle-vis btn btn-success btn-filter" data-column="2">Διεύθυνση</button> </li>'+
             '<li> <button id="check3" type="button" class="toggle-vis btn btn-success btn-filter" data-column="3">Τ.Κ.</button> </li>'+
@@ -96,7 +99,7 @@ viewModel.loadCompanies().done(function(json){
             '<li> <button id="check10" type="button" class="toggle-vis btn btn-success btn-filter" data-column="10">Πόντοι</button> </li>'+
             '<li> <button id="check11" type="button" class="toggle-vis btn btn-success btn-filter" data-column="11">Αριθμός Κάρτας </button> </li>'+
             '<li> <button id="check12" type="button" class="toggle-vis btn btn-success btn-filter" data-column="12">Status</button> </li>'+
-		  '</ul>'+
+          '</ul>'+
       '</div>'+
     '</div>'+
     '</div>'
@@ -115,25 +118,47 @@ viewModel.loadCompanies().done(function(json){
         // Toggle the visibility
         column.visible( !column.visible() );
     } );
+
         
 });
 
 ko.applyBindings(viewModel, document.getElementById('ko'));            
 
+function format ( description ) {
+    // `d` is the original data object for the row
+    return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
+        '<tr>'+
+            '<td>Description</td>'+
+            '<td>'+description+'</td>'+
+        '</tr>'+
+    '</table>';
+}
+
+
 
 function change_status(id, new_status){
-	console.log('Changing status of '+id+' to :'+new_status);
-	$.ajax({
-		type:"POST",
-		data:{
-			id:id,
-			status:new_status
-		},
-		url:'/app/company_change_status',
-		success: function(){
-			window.location.href=window.location.href
-		}
-			
-	});	
+    console.log('Changing status of '+id+' to :'+new_status);
+    $.ajax({
+        type:"POST",
+        data:{
+            id:id,
+            status:new_status
+        },
+        url:'/app/company_change_status',
+        success: function(){
+            window.location.href=window.location.href
+        }
+            
+    }); 
+
+}
+
+function show_description(name,description){
+    //console.log(description);
+    swal({title: name,text: description, button: false});
+    // swal(description);
+
+    
+    buttons: false
 
 }

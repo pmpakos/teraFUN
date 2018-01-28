@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <html>
   <head>
-      <title>TeraFun. Where the fun begins!</title>
+      <title>Companies Admin Panel | teraFUN</title>
       <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="css/dataTables.min.css"/>
@@ -66,7 +66,10 @@
                         
                         <td>
                           <!-- shit to be done here -->
-                          <span data-bind="text:description"></span>
+                          <!-- <span data-bind="text:description"></span> -->
+                          <button id="description" data-bind="click: function(data, event) { show_description(name,description, data,  event) }" type="button" class="btn btn-info btn-admin">Περιγραφή</button>
+
+
                         </td> 
                         
                         <td> <span data-bind="text:afm"></span> </td>                        
@@ -83,6 +86,9 @@
             </table>
         </div>
 
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="./static/bootstrap/js/bootstrap.min.js"></script>
@@ -90,6 +96,6 @@
     <script src="./js/DataTable.js"></script>
     <script src="./js/DataTable.bootstrap4.js"></script>
     <script src="js/admin_panel_company.js"></script>
-    
+
     </body>
 </html>
