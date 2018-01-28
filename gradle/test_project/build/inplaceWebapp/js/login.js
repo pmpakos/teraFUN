@@ -261,3 +261,16 @@ $(document).on('click','.btn-loginc',function(){
 	}
 });
 
+/////////////////////
+
+
+$(document).on('click','.fpass1',function(){
+	console.log(1);
+	localStorage.setItem("flag",1);
+
+});
+
+$(document).on('click','.fpass2',function(){
+	console.log(2);
+	localStorage.setItem("flag",2);
+});

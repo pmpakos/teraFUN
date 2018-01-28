@@ -47,6 +47,13 @@ public class CompanyDAO{
         this.jdbcTemplate.update(sql, new Object[] {newStatus, id});   
     }
 
+    public String getPassword(String email) {     
+        List<String> db_pssw = jdbcTemplate.queryForList("select Password from companyservice where (Email = ?)", new Object[] {email}, String.class);
+        
+        System.out.println(db_pssw.get(0)); 
+        return db_pssw.get(0); 
+    }
+
     public int login(String username, String password) {        
         List<String> db_id = jdbcTemplate.queryForList("select CompanyID from companyservice where (Username = ? && Password = ?)", new Object[] {username, password}, String.class); 
 

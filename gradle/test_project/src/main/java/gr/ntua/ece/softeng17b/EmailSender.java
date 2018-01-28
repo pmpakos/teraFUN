@@ -72,7 +72,31 @@ public class EmailSender{
 				"<br><br>"+"Παρακαλούμε επιβεβαιώστε ότι εσείς κάνατε την εγγραφή, χρησιμοποιώντας τον ακόλουθο κωδικο επιβεβαιωσης: "+
 				"<br><br>"+"<h2>"+vcode+"</h2>"+
 				"<a href='https://github.com/pmpakos/teraFUN/'>εδώ</a>"+
-				"<br><br><br>"+"Ευχαριστούμε πολυ!"+
+				"<br><br><br>"+"Ευχαριστούμε πολύ!"+
+				"<br>"+"TeraFUN!","text/html; charset=UTF-8");
+			Transport.send(message);
+
+			System.out.println("Done");
+
+		} catch (MessagingException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public static void remindpass (String Recipient,String password){
+		System.out.println(Recipient);
+		try {
+			Session session = basics();
+			Message message = new MimeMessage(session);
+			
+			message.setFrom(new InternetAddress("terafun@outlook.com"));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(Recipient));
+			message.setSubject("Κωδικός Πρόσβασης στην TeraFUN!");
+			message.setContent(
+				"<br>"+"Έγινε προσπάθεια για υπενθύμιση του password σας στην υπηρεσία μας.\n"+
+				"<br>"+"O κωδικός σας είναι: "+
+				"<br><br>"+"<h2>"+password+"</h2>"+
+				"<br><br>"+"Ευχαριστούμε πολύ!"+
 				"<br>"+"TeraFUN!","text/html; charset=UTF-8");
 			Transport.send(message);
 
@@ -97,7 +121,7 @@ public class EmailSender{
 				" είναι ο κωδικός : "+
 				"<br>"+"<h3>"+TicketCode+"</h3>"+
 				"<br><br>"+"Επιδεικνύοντας αυτό θα έχετε πρόσβαση στο συγκεκριμένο event!"+
-				"<br><br><br>"+"Ευχαριστούμε πολυ!"+
+				"<br><br><br>"+"Ευχαριστούμε πολύ!"+
 				"<br>"+"TeraFUN!","text/html; charset=UTF-8");
 
             //now write the PDF content to the output stream
@@ -130,7 +154,7 @@ public class EmailSender{
 			Chunk c3 = new Chunk("\n\n\nείναι ο κωδικός :\n\n\n", courier2);
 			Chunk c4 = new Chunk(TicketCode, courier1);
 			Chunk c5 = new Chunk("\n\n\nΕπιδεικνύοντας αυτό θα έχετε πρόσβαση στο συγκεκριμένο event!\n\n", courier2);
-			Chunk c6 = new Chunk("Ευχαριστούμε πολυ!\nTeraFUN!", courier2);
+			Chunk c6 = new Chunk("Ευχαριστούμε πολύ!\nTeraFUN!", courier2);
 			paragraph.add(c0);
 			paragraph.add(c1);
 			paragraph.add(c2);

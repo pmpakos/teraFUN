@@ -66,7 +66,7 @@
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="text-center">
-													<a href="http://localhost:8765/app/forgot_pass" tabindex="5" class="forgot-password">Forgot Password?</a>
+													<a href="http://localhost:8765/app/forgot_password.jsp" tabindex="5" class="forgot-password fpass1">Forgot Password?</a>
 												</div>
 											</div>
 										</div>
@@ -100,7 +100,7 @@
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="text-center">
-													<a href="http://localhost:8765/app/forgot_pass" tabindex="5" class="forgot-password">Forgot Password?</a>
+													<a href="http://localhost:8765/app/forgot_password.jsp" tabindex="5" class="forgot-password fpass2">Forgot Password?</a>
 												</div>
 											</div>
 										</div>

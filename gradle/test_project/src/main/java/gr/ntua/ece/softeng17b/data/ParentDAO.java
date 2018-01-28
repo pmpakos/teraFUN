@@ -60,6 +60,13 @@ public class ParentDAO{
         }        
     }
 
+    public String getPassword(String email) {     
+        List<String> db_pssw = jdbcTemplate.queryForList("select Password from parent where (Email = ?)", new Object[] {email}, String.class);
+        
+        System.out.println(db_pssw.get(0)); 
+        return db_pssw.get(0);
+    }
+
     public int login(String username, String password) {     
         List<String> db_id = jdbcTemplate.queryForList("select ParentID from parent where (Username = ? and Password = ?)", new Object[] {username, password}, String.class); 
 
