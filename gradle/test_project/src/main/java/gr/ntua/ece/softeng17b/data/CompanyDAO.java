@@ -57,6 +57,25 @@ public class CompanyDAO{
         return Integer.parseInt(db_id.get(0)); 
     }
 
+    public int check_username(String username) {        
+        List<Company> company = jdbcTemplate.query("select * from companyservice where Username = ?", new Object[] {username}, new CompanyRowMapper());
+        if (company.size() == 1)  {
+            return 1;
+        }
+        else {
+            return 0;
+        }        
+    }
+
+    public int check_email(String email) {        
+        List<Company> company = jdbcTemplate.query("select * from companyservice where Email = ?", new Object[] {email}, new CompanyRowMapper());
+        if (company.size() == 1)  {
+            return 1;
+        }
+        else {
+            return 0;
+        }        
+    }
 
     public Optional<Company> getCompany(int id) {        
         List<Company> company = jdbcTemplate.query("select * from companyservice where CompanyID = ?", new Object[] {id}, new CompanyRowMapper());

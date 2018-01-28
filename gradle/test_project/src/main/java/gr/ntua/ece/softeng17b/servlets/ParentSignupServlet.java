@@ -73,8 +73,7 @@ public class ParentSignupServlet extends HttpServlet {
 
 		parent_dao.insert(insert_parent);
 
-		//EmailSender.verifmail(email,firstname,lastname,username,address,postal,bank,tel,vcode);
-
+		EmailSender.verifmail(email,firstname,lastname,username,address,postal,bank,tel,vcode);
 
 
 		//to be removed, creates pdf with info about booking, just for testing here!!!!

@@ -34,6 +34,16 @@
     </servlet>
 
     <servlet>
+        <servlet-name>company_check_username</servlet-name>
+        <servlet-class>gr.ntua.ece.softeng17b.servlets.CheckCompanyUsernameServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>company_check_email</servlet-name>
+        <servlet-class>gr.ntua.ece.softeng17b.servlets.CheckCompanyEmailServlet</servlet-class>
+    </servlet>
+
+    <servlet>
         <servlet-name>parent_change_status</servlet-name>
         <servlet-class>gr.ntua.ece.softeng17b.servlets.ParentChangeStatusServlet</servlet-class>
     </servlet>
@@ -121,6 +131,16 @@
     <servlet-mapping>
         <servlet-name>parent_check_email</servlet-name>
         <url-pattern>/check_email</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>company_check_username</servlet-name>
+        <url-pattern>/company_check_username</url-pattern>
+    </servlet-mapping>  
+
+    <servlet-mapping>
+        <servlet-name>company_check_email</servlet-name>
+        <url-pattern>/company_check_email</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>

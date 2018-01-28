@@ -47,14 +47,14 @@
 									<!-- action="upload_image_company" -->
 									    <div class="form-group usn">
 								    	<label for="username"> <span class="glyphicon glyphicon-user" > </span> UserName</label>
-								      	<input type="text" class="form-control usn-validation form-element" name="usn" id="usn" placeholder="Εισάγετε ένα έγκυρο username" data-validation="false" id="usn-border">
+								      	<input type="text" class="form-control usn-comp-validation form-element" name="usn" id="usn" placeholder="Εισάγετε ένα έγκυρο username" data-validation="false" id="usn-border">
 								      	<span class="error"><p1 id="usn_error"></p1></span>
 								    </div>
 								    
 								  
 								    <div class="form-group email">
 								    	<label for="Email"> <span class="glyphicon glyphicon-envelope"> </span> Email</label>
-								        <input type="email" class="form-control email-validation form-element" name="email" id="email" placeholder="Εισάγετε την διεύθυνση ηλεκτρονικού ταχυδρομίου" data-validation="false">
+								        <input type="email" class="form-control email-comp-validation form-element" name="email" id="email" placeholder="Εισάγετε την διεύθυνση ηλεκτρονικού ταχυδρομίου" data-validation="false">
 								   		<span class="error"><p1 id="email_error"></p1></span>
 									</div>
 

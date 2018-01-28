@@ -19,17 +19,8 @@ import java.util.*;
 
 public class CompanySignupServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-       
-
-
-	 
 	   public void doPost(HttpServletRequest request,    HttpServletResponse response)   throws ServletException, java.io.IOException {
-		   
-		  
 		   // Check that we have a file upload request
-	    
-		  // String password = request.getParameter("password");
-	
 			String username = request.getParameter("usn");
 			String email = request.getParameter("email");
 			String password = request.getParameter("password");

@@ -44,8 +44,8 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		int flag = Integer.parseInt(request.getParameter("flag"));
 
-		System.out.println(username);
-		System.out.println(password);
+		System.out.println("Username: "+username);
+		System.out.println("Password: "+password);
 
 
         Configuration conf = Configuration.getInstance();
@@ -56,33 +56,38 @@ public class LoginServlet extends HttpServlet {
 			administrator_dao.setDataSource(dataAccess.dataSource);
 			administrator_dao.setJdbcTemplate(dataAccess.jdbcTemplate);
 			result = administrator_dao.login(username, password);
-			System.out.println("elaaaa0");
+			System.out.println("San ADMIN!");
         }
         if(flag == 1){
         	ParentDAO parent_dao = new ParentDAO();
 			parent_dao.setDataSource(dataAccess.dataSource);
 			parent_dao.setJdbcTemplate(dataAccess.jdbcTemplate);
 			result = parent_dao.login(username, password);
-			System.out.println("elaaaa1");
+			System.out.println("San PARENT!");
         }
         if(flag ==2){
         	CompanyDAO company_dao = new CompanyDAO();
         	company_dao.setDataSource(dataAccess.dataSource);
 			company_dao.setJdbcTemplate(dataAccess.jdbcTemplate);
 			result = company_dao.login(username, password);
-    	    System.out.println("elaaaa2");
+    	    System.out.println("San COMPANY!");
     	}
 
         String reply = Integer.toString(result);
+        String flaga = Integer.toString(flag);
 
         if(result > 0){
         	HttpSession session = request.getSession();
 			session.setAttribute("id", reply);			
+			session.setAttribute("flag", flaga);			
 			response.getWriter().append(reply);
-        	System.out.println("To id sou einai: "+reply);
-		    String uname= (String)session.getAttribute("id"); 
-	        System.out.print("Welcome "+ uname);
-
+			// response.getWriter().append(flag);
+        	
+  			// System.out.println("To id sou einai: "+reply);
+		    // System.out.println("H kathgoria sou einai: "+flag);
+		    String ididi= (String)session.getAttribute("id"); 
+		    String flagidi= (String)session.getAttribute("flag"); 
+	        System.out.println("Welcome "+ ididi +" pou anhkeis sthn kathgoria : "+ flagidi);
         }
         else{ 
         	System.out.println("Eimai kai edw: "+reply);

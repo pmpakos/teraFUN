@@ -24,7 +24,7 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="signup_parent.jsp">Εγγραφή  <i class="fa fa-user-plus"></i></a></li>
+                        <li><a href="sign_up_parent.jsp">Εγγραφή  <i class="fa fa-user-plus"></i></a></li>
                         <li><a href="login.jsp">Σύνδεση<i class="fa fa-user"></i></a></li>
                     </ul>
                 </div>
