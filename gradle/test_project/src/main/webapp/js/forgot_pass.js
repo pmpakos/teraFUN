@@ -7,8 +7,10 @@ window.onload = console.log(flag);
 $(document).ready(function(){
 	if( flag==1) {
 		document.getElementById('email').style.display='block'
+		document.getElementById('logina-submit1').style.display='block'
 	} else if (flag==2) {
 		document.getElementById('email-comp').style.display='block'
+		document.getElementById('logina-submit2').style.display='block'
 	}    
 	else{
 		document.getElementById('errorrr').style.display='block'
@@ -130,8 +132,8 @@ $(document).on('blur','.email-comp-validation',function(){
 
 
 
-$(document).on('click','.btn-forgot',function(){
-	var email = $(this).parent().parent().parent().siblings('.email').find('input[name=email]').val();
+$(document).on('click','.btn-forgot1',function(){
+	var email = $(this).parent().parent().parent().siblings('.email').find('input[name=email1]').val();
 	console.log(email);
 	var test=validemail;
 	
@@ -145,7 +147,42 @@ $(document).on('click','.btn-forgot',function(){
 			type:"POST",
 			data:{
 				email:email,	
-				flag:flag,
+				flag:1,
+			},
+			url:'/app/forgot_password',
+			success: function(result){
+				if(result == "0"){
+					document.getElementById('usn_error0').innerHTML = "<span style=\"color:red\">" + "To username ή ο κωδικός δεν είναι έγκυρος" + "</span>";
+					document.getElementById("usn0").style.borderColor = "red";
+					document.getElementById("pass0").value = '';
+				}
+				else{
+					//window.location.href='http://localhost:8765/app/index.jsp'
+				}
+				
+			}
+				
+		});	
+	}
+});
+
+
+$(document).on('click','.btn-forgot2',function(){
+	var email = $(this).parent().parent().parent().siblings('.email').find('input[name=email2]').val();
+	console.log(email);
+	var test=validemail;
+	
+	
+	console.log("Valid email?: "+validemail);
+	if(test==0){
+	}
+	else {
+		console.log("Eftasa edw ");
+		$.ajax({
+			type:"POST",
+			data:{
+				email:email,	
+				flag:2,
 			},
 			url:'/app/forgot_password',
 			success: function(result){

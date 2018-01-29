@@ -49,18 +49,23 @@
 									<div class="form-group email">
 								    	<label for="Email"> <span class="glyphicon glyphicon-envelope"> </span> Email</label>
 								    	<!-- psakse stous parents -->
-								        <input style="display:none" type="email" class="form-control email-validation form-element" name="email" id="email" placeholder="Εισάγετε την διεύθυνση ηλεκτρονικού ταχυδρομίου" data-validation="false">
+								        <input style="display:none" type="email" class="form-control email-validation form-element" name="email1" id="email" placeholder="Εισάγετε την διεύθυνση ηλεκτρονικού ταχυδρομίου" data-validation="false">
 								        
 										<!-- psakse stous companies -->
-								        <input style="display:none" type="email" class="form-control email-comp-validation form-element" name="email" id="email-comp" placeholder="Εισάγετε την διεύθυνση ηλεκτρονικού ταχυδρομίου" data-validation="false">
+								        <input style="display:none" type="email" class="form-control email-comp-validation form-element" name="email2" id="email-comp" placeholder="Εισάγετε την διεύθυνση ηλεκτρονικού ταχυδρομίου" data-validation="false">
 								   		
 								   		<span class="error"><p1 id="email_error"></p1></span>
 								   		<span class="error"><p1 style="display:none" id="errorrr">Φαίνεται ότι κατέληξες εδώ κατά λάθος</p1></span>
 									</div>
+
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<button type="button" name="logina-submit" id="logina-submit" tabindex="4" class="form-control btn btn-forgot btn-danger"><span>ΑΠΟΣΤΟΛΗ EMAIL</span></button>
+												<!-- psakse stous parents -->
+												<button  style="display:none" type="button" name="logina-submit" id="logina-submit1" tabindex="4" class="form-control btn btn-forgot1 btn-danger"><span>ΑΠΟΣΤΟΛΗ EMAIL</span></button>
+												
+												<!-- psakse stous companies -->
+												<button  style="display:none" type="button" name="logina-submit" id="logina-submit2" tabindex="4" class="form-control btn btn-forgot2 btn-danger"><span>ΑΠΟΣΤΟΛΗ EMAIL</span></button>
 											</div>
 										</div>
 									</div>
