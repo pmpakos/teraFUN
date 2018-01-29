@@ -14,16 +14,45 @@
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script src="js/login.js"></script>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<style>
+.body1 {
+  background: url('static/balls.jpg');
+  background-color: #cccccc;
+  display: block;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: -1;
+   top: 0;
+
+  background-size:cover;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);   
+}
+</style>
+
+
 <link rel="stylesheet" href="css/stylelogin.css"> 
 <link rel="stylesheet" href="css/header.css"> 
 
 </head>
 
 
+<!-- <body background="static/balls.jpg"> -->
 <body>
 
 
+
 <%@include file="header_unknown.jsp" %>
+
+
+
 	<div class="container">
     	<div class="row">
 			<div class="col-md-6 col-md-offset-3">
@@ -66,7 +95,7 @@
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="text-center">
-													<a href="http://localhost:8765/app/forgot_password.jsp" tabindex="5" class="forgot-password fpass1">Forgot Password?</a>
+													<a href="http://localhost:8765/app/forgot_password.jsp" tabindex="5" class="forgot-password fpass1">Ξεχάσατε τον κωδικό σας;</a>
 												</div>
 											</div>
 										</div>
@@ -100,20 +129,26 @@
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="text-center">
-													<a href="http://localhost:8765/app/forgot_password.jsp" tabindex="5" class="forgot-password fpass2">Forgot Password?</a>
+													<a href="http://localhost:8765/app/forgot_password.jsp" tabindex="5" class="forgot-password fpass2">Ξεχάσατε τον κωδικό σας;</a>
 												</div>
 											</div>
 										</div>
 									</div>
+									<div class="form-group">
+										
+									</div>
+
+
 								</form>
 							</div>
 						</div>
 					</div>
+
 				</div>
-				<a href="http://localhost:8765/app/login_admin.jsp" class="forgot-password">Σύνδεση ως Διαχειριστής</a>
-			</div>
+				<a href="http://localhost:8765/app/login_admin.jsp" class="login-admin">Σύνδεση ως Διαχειριστής</a>
 		</div>
 	</div>	
 
+<div class="body1"></div>
 </body>
 </html>

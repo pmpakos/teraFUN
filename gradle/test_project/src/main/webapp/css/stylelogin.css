@@ -10,6 +10,7 @@ color: red;
 }
 
 
+
 .image-preview-input {
     position: relative;
     overflow: hidden;
@@ -163,6 +164,16 @@ hr.style1 {
 .forgot-password:focus {
 	text-decoration: underline;
 	color: #666;
+}
+
+.login-admin {
+	text-decoration: underline;
+	color:  #333333;
+}
+.login-admin:hover,
+.login-admin:focus {
+	text-decoration: underline;
+	color: #000000;
 }
 
 .btn-loginc {

@@ -20,7 +20,27 @@
 <link rel="stylesheet" href="css/stylelogin.css"> 
 <link rel="stylesheet" href="css/header.css"> 
 
+<style>
+.body1 {
+  background: url('static/vector.jpg');
+  background-color: #cccccc;
+  display: block;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: -1;
+   top: 0;
 
+  background-size:cover;
+    /*-webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);   */
+}
+</style>
 </head>
 
 
@@ -28,6 +48,8 @@
 
 
 <%@include file="header.jsp" %>
+<br>
+<br>
 	<div class="container">
     	<div class="row">
 			<div class="col-md-10 col-md-offset-1">
@@ -37,11 +59,12 @@
 						 <h>Δημιουργία Λογαριασμού Επιχείρησης</h>
 						<!-- <hr class="style1"> -->
 						<br>
+					</br>
 					</div>
 					<div class="panel-body">
 						 <div class="row"> 
 							<div class="col-lg-10 col-md-offset-1">
-					
+								<br>
 								<form id="login-form" onsubmit="return validatecompany()" action="upload_image_company" method="Post" enctype="multipart/form-data" role="form">
 								<!-- <form id="login-form" role="form" enctype="multipart/form-data"> -->
 									<!-- action="upload_image_company" -->
@@ -162,6 +185,8 @@
 										</div>
 									</div>			
 									<span class="error"><p1 id="total_error"></p1></span>
+									<br>
+									<br>
 								</form>
 								
 							</div>
@@ -195,6 +220,7 @@
  <script async defer
      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJxFd20F7bBF7yY7hdjPcw0UybXJXiPYE">
     </script>
+    <div class="body1"></div>
 
 </body>
 </html>

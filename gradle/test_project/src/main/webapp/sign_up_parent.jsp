@@ -23,12 +23,34 @@
 	
 
   <style type="text/css">
+
+
   body { padding-top: 70px; }
 
 p1 {
 font-size: small;
 font-family: helvectia, geneva, arial, sun-sans, sans serif;
 color: red;
+}
+
+.body1 {
+  background: url('static/balls.jpg');
+  background-color: #cccccc;
+  display: block;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: -1;
+   top: 0;
+
+  background-size:cover;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);   
 }
 
 .validation
@@ -206,7 +228,7 @@ color: red;
 
     <div class="form-group bankaccount"> 
       <label for="bankaccount"><span class="glyphicon glyphicon-piggy-bank"></span> Credit Card Number</label>
-      <input type="text" class="form-control bank-validation form-element" name="bankaccount" placeholder="Bank Account Number" data-validation="false">
+      <input type="text" class="form-control bank-validation form-element" name="bankaccount" placeholder="Credit Card Number" data-validation="false">
       <span class="error"><p1 id="bank_error"></p1></span>
     </div>
 
@@ -222,6 +244,7 @@ color: red;
 </div>
 </div>
 
+
   <div class="form-group">
       <span class="error"><p1 id="final_error"></p1></span>
   </div>
@@ -229,7 +252,8 @@ color: red;
     
 	
   </div>
-
+<br>
+<br>
   <div class="modal-footer">
 
           <!-- Message from serverside (basanth)-->
@@ -257,7 +281,7 @@ color: red;
         </div>
     </div>
 </div>
-
+<div class="body1"></div>
  <script async defer
      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJxFd20F7bBF7yY7hdjPcw0UybXJXiPYE">
     </script>
