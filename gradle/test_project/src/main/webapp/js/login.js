@@ -168,7 +168,9 @@ $(document).on('click','.btn-logina',function(){
 					document.getElementById("pass0").value = '';
 				}
 				else{
-					//window.location.href='http://localhost:8765/app/index.jsp'
+					localStorage.setItem("flag",0);
+					localStorage.setItem("id",result);
+					window.location.href='http://localhost:8765/app/sample.jsp'
 				}
 				
 			}
@@ -210,7 +212,9 @@ $(document).on('click','.btn-loginp',function(){
 					document.getElementById('pass2').value = "";
 				}
 				else{
-					//window.location.href='http://localhost:8765/app/index.jsp'
+					localStorage.setItem("flag",1);
+					localStorage.setItem("id",result);
+					window.location.href='http://localhost:8765/app/sample.jsp'
 				}
 				
 			}
@@ -252,7 +256,9 @@ $(document).on('click','.btn-loginc',function(){
 					document.getElementById('pass1').value = "";
 				}
 				else{
-					//window.location.href='http://localhost:8765/app/index.jsp'
+					localStorage.setItem("flag",2);
+					localStorage.setItem("id",result);
+					window.location.href='http://localhost:8765/app/sample.jsp'
 				}
 				
 			}
