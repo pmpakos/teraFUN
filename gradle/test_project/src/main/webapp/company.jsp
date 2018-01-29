@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="gr.ntua.ece.softeng17b.conf.*" %>
-<% int ID = 3; %>
+<% int ID = 9; %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -100,7 +100,7 @@
             
                 <div class="col-lg-4">
                     <div class="thumbnail">
-                        <img src="static/logo.png">
+                        <img data-bind="attr:{src: PhotosFolder}">
                     </div>
                 </div>
                 <div class="col-lg-4"></div>
@@ -171,7 +171,8 @@
                 this.companyname = ko.observable(); 
                 this.web = ko.observable(); 
                 this.description =  ko.observable(); 
-                this.address =  ko.observable();    
+                this.address =  ko.observable();
+                this.PhotosFolder = ko.observable();    
             }
 
             VM.prototype.loadCompany = function() {
@@ -198,11 +199,12 @@
                 viewModel.web(companyJson.WebPage);
                 viewModel.description(companyJson.Description);
                 viewModel.address(companyJson.Address);
+                viewModel.PhotosFolder(companyJson.PhotosFolder+'user.png');
 
                 var uluru = {lat: companyJson.Latitude, lng: companyJson.Longitude};
 
                 var map = new google.maps.Map(document.getElementById('map'), {
-                  zoom: 11,
+                  zoom: 15,
                   center: uluru
                 });
                 
