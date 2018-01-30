@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.9
+-- version 4.5.4.1deb2ubuntu2
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Jan 29, 2018 at 11:26 μμ
--- Server version: 5.6.14
--- PHP Version: 5.5.6
+-- Φιλοξενητής: localhost
+-- Χρόνος δημιουργίας: 30 Ιαν 2018 στις 12:33:37
+-- Έκδοση διακομιστή: 5.7.21-0ubuntu0.16.04.1
+-- Έκδοση PHP: 7.2.1-1+ubuntu16.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,31 +14,29 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `teraFUN`
+-- Βάση δεδομένων: `teraFUN`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `administrator`
+-- Δομή πίνακα για τον πίνακα `administrator`
 --
 
-CREATE TABLE IF NOT EXISTS `administrator` (
-  `AdminID` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `administrator` (
+  `AdminID` int(10) NOT NULL,
   `Username` varchar(25) NOT NULL,
   `FirstName` varchar(25) NOT NULL,
   `LastName` varchar(25) NOT NULL,
   `PersonalEmail` varchar(25) NOT NULL,
-  `Password` varchar(25) NOT NULL,
-  PRIMARY KEY (`AdminID`),
-  UNIQUE KEY `Username` (`Username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+  `Password` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `administrator`
+-- Άδειασμα δεδομένων του πίνακα `administrator`
 --
 
 INSERT INTO `administrator` (`AdminID`, `Username`, `FirstName`, `LastName`, `PersonalEmail`, `Password`) VALUES
@@ -53,11 +51,11 @@ INSERT INTO `administrator` (`AdminID`, `Username`, `FirstName`, `LastName`, `Pe
 -- --------------------------------------------------------
 
 --
--- Table structure for table `adminprofile`
+-- Δομή πίνακα για τον πίνακα `adminprofile`
 --
 
-CREATE TABLE IF NOT EXISTS `adminprofile` (
-  `AdminProfileID` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `adminprofile` (
+  `AdminProfileID` int(10) NOT NULL,
   `TotalAmount` int(10) NOT NULL,
   `Email` varchar(25) NOT NULL,
   `NameOfTeraFUN` varchar(25) NOT NULL DEFAULT 'teraFUN',
@@ -65,12 +63,11 @@ CREATE TABLE IF NOT EXISTS `adminprofile` (
   `PostalCode` int(5) NOT NULL,
   `TelephoneNumber` bigint(10) NOT NULL,
   `Description` text NOT NULL,
-  `BankAccount` bigint(16) NOT NULL,
-  PRIMARY KEY (`AdminProfileID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `BankAccount` bigint(16) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `adminprofile`
+-- Άδειασμα δεδομένων του πίνακα `adminprofile`
 --
 
 INSERT INTO `adminprofile` (`AdminProfileID`, `TotalAmount`, `Email`, `NameOfTeraFUN`, `Address`, `PostalCode`, `TelephoneNumber`, `Description`, `BankAccount`) VALUES
@@ -79,29 +76,26 @@ INSERT INTO `adminprofile` (`AdminProfileID`, `TotalAmount`, `Email`, `NameOfTer
 -- --------------------------------------------------------
 
 --
--- Table structure for table `booking`
+-- Δομή πίνακα για τον πίνακα `booking`
 --
 
-CREATE TABLE IF NOT EXISTS `booking` (
-  `BookingID` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `booking` (
+  `BookingID` int(10) NOT NULL,
   `ParentID` int(10) NOT NULL,
   `EventID` int(10) NOT NULL,
   `BookDate` date NOT NULL,
   `NumberOfTickets` int(10) NOT NULL,
-  `Code` varchar(5) NOT NULL,
-  PRIMARY KEY (`BookingID`),
-  KEY `EventID` (`EventID`),
-  KEY `ParentID` (`ParentID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `Code` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `companyservice`
+-- Δομή πίνακα για τον πίνακα `companyservice`
 --
 
-CREATE TABLE IF NOT EXISTS `companyservice` (
-  `CompanyID` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `companyservice` (
+  `CompanyID` int(10) NOT NULL,
   `Username` varchar(25) NOT NULL,
   `CompanyName` varchar(25) NOT NULL,
   `Address` varchar(50) NOT NULL,
@@ -117,14 +111,11 @@ CREATE TABLE IF NOT EXISTS `companyservice` (
   `Points` int(10) NOT NULL DEFAULT '0',
   `PhotosFolder` text,
   `Latitude` decimal(20,14) NOT NULL,
-  `Longitude` decimal(20,14) NOT NULL,
-  PRIMARY KEY (`CompanyID`),
-  UNIQUE KEY `Username` (`Username`),
-  UNIQUE KEY `CompanyName` (`CompanyName`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+  `Longitude` decimal(20,14) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `companyservice`
+-- Άδειασμα δεδομένων του πίνακα `companyservice`
 --
 
 INSERT INTO `companyservice` (`CompanyID`, `Username`, `CompanyName`, `Address`, `PostalCode`, `TelephoneNumber`, `Email`, `AFM`, `Password`, `BankAccount`, `WebPage`, `Description`, `Status`, `Points`, `PhotosFolder`, `Latitude`, `Longitude`) VALUES
@@ -144,11 +135,11 @@ INSERT INTO `companyservice` (`CompanyID`, `Username`, `CompanyName`, `Address`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `event`
+-- Δομή πίνακα για τον πίνακα `event`
 --
 
-CREATE TABLE IF NOT EXISTS `event` (
-  `EventID` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `event` (
+  `EventID` int(10) NOT NULL,
   `CompanyID` int(10) NOT NULL,
   `Name` varchar(50) NOT NULL,
   `Address` varchar(50) NOT NULL,
@@ -171,33 +162,31 @@ CREATE TABLE IF NOT EXISTS `event` (
   `Sport` int(1) NOT NULL,
   `Education` int(1) NOT NULL,
   `Team` int(1) NOT NULL,
-  `TagDescription` text NOT NULL,
-  PRIMARY KEY (`EventID`),
-  KEY `CompanyID` (`CompanyID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+  `TagDescription` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `event`
+-- Άδειασμα δεδομένων του πίνακα `event`
 --
 
 INSERT INTO `event` (`EventID`, `CompanyID`, `Name`, `Address`, `Date`, `Hour`, `TicketCounter`, `IncomingCash`, `Cost`, `Description`, `PhotosFolder`, `IsOffer`, `Visits`, `Latitude`, `Longitude`, `MaxCapacity`, `Indoor`, `MinAge`, `MaxAge`, `Fun`, `Sport`, `Education`, `Team`, `TagDescription`) VALUES
-(1, 5, 'Πάρτυ Αποκριών', 'Αδριανείου 44, Ελληνορώσων', '2018-02-24', '11:00', 0, 0, 50, 'Ελάτε να γιορτάσουμε τις απόκριες στην myPLAYce. Φορέστε τις πιο δημιουργικές στολές και δηλώστε συμμετοχή στο διαγωνισμό μας! Ο νικητής κερδίζει δωρεάν είσοδο στον παιδότοπο του myPLAYce για έναν μήνα! Μη λείψει κανείς!', NULL, 0, 0, '38.00001700000000', '23.77339800000000', 25, 1, 3, 12, 1, 0, 0, 1, 'Παιδότοπος Απόκριες Παιχνίδι Διασκέδαση Φεβρουάριος Παιδί Οικονομικό Διαγωνισμός'),
-(2, 12, 'Έναρξη τμήματος Profficiency', 'Βερελή 60, Άνω Γλυφάδα', '2018-02-01', '17:00', 0, 0, 0, 'Ελάτε στην fun2learn για να προετοιμάσετε το παιδί σας σωστά για το πτυχίο proficiency! Ελάτε να γνωρίσετε το έμπειρο προσωπικό μας και να εγγραφείτε καθώς τα μαθήματα ξεκινούν αμέσως!', NULL, 0, 0, '37.88389200000000', '23.75923300000000', 30, 1, 10, 18, 0, 0, 1, 0, 'Αγγλικά Proficiency Cambridge Michigan Φροντιστήριο Ξένων Γλωσσών Εκπαίδευση'),
-(5, 9, 'Έναρξη τμημάτων kung fu για παιδιά', 'Χαριλάου Τρικούπη 17, Γλυφάδα', '2018-04-01', '11:30', 0, 0, 200, 'Έλατα να αθληθείτε στον ΑΘλητικό Σύλλογο Κραταιός. Εδώ τα παιδιά σας μπορούν να εκπαιδευτούν στις τεχνικές kung fu παρέχοντας την καλύτερη δυνατή ομάδα δασκάλων στην Αθήνα. Γραφτείτε τώρα για το πρώτο τμήμα kung fu για παιδιά που ξεκινάει τον Απρίλιο.', NULL, 0, 0, '37.88485600000000', '23.74683000000000', 12, 1, 6, 14, 1, 1, 1, 1, 'Αθλητισμός Παιδεία kung fu Μηνιαίο Τμήμα Πολεμικές Τέχνες'),
-(6, 10, 'Σεμινάριο fu jow για τους μικρούς μας φίλους', 'Αριστοτέλους 18, Πολιτεία, Κηφισιά', '2018-04-12', '19:00', 0, 0, 75, 'Όντας πιστοί στο ραντεβού μας με τη συνεχή προσπάθεια ένταξης παιδιών στην ορθή αντιμετώπιση των πολεμικών τεχνών το Fu Jow Κηφισιάς διοργανώνει σεμινάριο για τη χρήση του fu jow στο σχολείο. ', NULL, 0, 0, '38.08666200000000', '23.83272800000000', 30, 1, 5, 18, 0, 1, 1, 0, 'Πολεμικές Τέχνες Σεμινάριο Fu Jow'),
-(7, 3, 'Η κα. Αστροφυσική και τα όνειρα των αστεριών', 'Σταυροπούλου 33 & Σπαρτής, Πλ. Αμερικής', '2018-02-10', '15:00', 0, 0, 50, '«Η κα Αστροφυσική και τα όνειρα των αστεριών» γράφτηκε για να παρουσιαστεί μια διασκεδαστική και ενδιαφέρουσα παράσταση γνώσης για την επιστήμη της Αστρονομίας και της Αστροφυσικής για τους μικρούς αλλά και τους μεγάλους φίλους.\r\n\r\nΜια ευφάνταστη παράσταση που θα δίνει τη δυνατότητα στο μαθητή να εμπλακεί με τη θεατρική δράση προσφέροντας του γνώση και αναζήτηση για τις βαθμίδες της εκπαίδευσης των θετικών επιστημών αλλά και της φιλοσοφίας διευρύνοντας τον ορίζοντα της γνώσης του μαθητή μέσω διαφόρων εννοιών της επιστήμης παραστατικά δοσμένες αλλά και μέσω προβολής εικόνων από το σύμπαν καθώς και κινούμενων σχεδίων για την κατανόηση του ηλιακού μας συστήματος και του πλανήτη μας.\r\n\r\nΜε πρωτότυπη μουσική σύμφωνη και αρμονική με τη θεματική του έργου η «κα Αστροφυσική και τα όνειρα των αστεριών»  και επαγγελματίες ηθοποιούς με μεγάλη προϋπηρεσία, επαγγελματική πορεία  στο καλό θέατρο, καλό παιδικό θέατρο και στο παιδί.', NULL, 0, 0, '38.00333300000000', '23.72997100000000', 150, 1, 3, 18, 1, 0, 0, 0, 'Θέατρο Παράσταση Παιδική Αλεξία Πετροπούλου Αστρονομία'),
-(8, 3, 'Sci-fi θέατρο "Το απίθανο ταξίδι"', 'Αμοργού 20, Αθήνα 112 56', '2018-02-15', '17:00', 0, 0, 75, 'Sci-fi θέατρο έχετε ξαναδεί; Να, που ήρθε η ώρα! Η Μικρή Σκηνή της Στέγης γίνεται κινηματογραφικό πλατό και μια παράσταση για όλη την οικογένεια μας ταξιδεύει στον χρόνο, στην εποχή του βωβού κινηματογράφου, τότε που ο Γάλλος πρωτοπόρος σκηνοθέτης και ταχυδακτυλουργός Ζωρζ Μελιές γύριζε την πρώτη ταινία επιστημονικής φαντασίας, Ταξίδι στο Φεγγάρι (1902). \r\n\r\nΑυτός είναι και ο "αόρατος" πρωταγωνιστής της μαγικής παράστασης που στήνει ο διακεκριμένος κινηματογραφιστής Άγγελος Φραντζής, με έναν τριμελή θίασο, ζωντανή μουσική, ψηφιακές προβολές, κινηματογραφικά εφέ, χορό και κίνηση. \r\n\r\nΘέατρο ή σινεμά; Επιστημονική φαντασία ή περιπέτεια ενηλικίωσης; \r\nΤο απίθανο ταξίδι είναι, πάνω απ’ όλα, ένας ύμνος στην "απίθανη" δύναμη της φαντασίας. ', NULL, 0, 0, '38.00812200000000', '23.73668700000000', 80, 1, 8, 18, 1, 0, 1, 0, 'Θέατρο Παράσταση Παιδική Sci-fi Παιδί, Παιδική παράσταση, Παιδιά Δημοτικού (6 έως και 12 ετών), Έφηβοι (13 έως και 17 ετών)'),
-(9, 5, 'Εργαστήριο "Μια Αποκριά, μια ιστορία"', 'Αδριανείου 44, Ελληνορώσων', '2018-04-14', '12:00', 0, 0, 60, 'Διαδραστικό εκπαιδευτικό πρόγραμμα από τη myPlace και τη Δημοτική Βιβλιοθήκη Καλλιθέας \r\n\r\nΗ εταιρεία myPlayce, σε συνεργασία με τη Δημοτική Βιβλιοθήκη Καλλιθέας, παρουσιάζει ένα διαδραστικό εκπαιδευτικό πρόγραμμα, με θέμα τις Απόκριες, το Σάββατο 3 Φεβρουαρίου (ώρα 11:30), στη Δημοτική Βιβλιοθήκη Καλλιθέας (Ανδρομάχης 86Α & Αλκμήνης, Καλλιθέα). \r\n\r\nΤο εκπαιδευτικό πρόγραμμα, που έχει σχεδιάσει η θεατρολόγος Μαρία Νομικού και υλοποιεί η ομάδα θεάτρου Δον Κιχώτες, έχει στόχο να μεταφέρει σε μικρούς και μεγάλους την ιστορία της αποκριάς από την Αρχαία Ελλάδα έως τις μέρες μας.', NULL, 0, 0, '38.00001700000000', '23.77339800000000', 15, 1, 6, 12, 1, 0, 1, 1, 'ΠΑΙΔΙΑ ΔΗΜΟΤΙΚΟΥ (6 ΕΩΣ ΚΑΙ 12 ΕΤΩΝ), ΠΑΙΔΙΚΕΣ ΑΠΟΚΡΙΑΤΙΚΕΣ ΕΚΔΗΛΩΣΕΙΣ, ΔΩΡΕΑΝ ΠΑΙΔΙΚΕΣ ΕΚΔΗΛΩΣΕΙΣ'),
-(10, 5, 'Εργαστήριο "Μια Αποκριά, μια ιστορία"', 'Αδριανείου 44, Ελληνορώσων', '2018-04-21', '12:00', 0, 0, 60, 'Διαδραστικό εκπαιδευτικό πρόγραμμα από τη myPlace και τη Δημοτική Βιβλιοθήκη Καλλιθέας \r\n\r\nΗ εταιρεία myPlayce, σε συνεργασία με τη Δημοτική Βιβλιοθήκη Καλλιθέας, παρουσιάζει ένα διαδραστικό εκπαιδευτικό πρόγραμμα, με θέμα τις Απόκριες, το Σάββατο 3 Φεβρουαρίου (ώρα 11:30), στη Δημοτική Βιβλιοθήκη Καλλιθέας (Ανδρομάχης 86Α & Αλκμήνης, Καλλιθέα). \r\n\r\nΤο εκπαιδευτικό πρόγραμμα, που έχει σχεδιάσει η θεατρολόγος Μαρία Νομικού και υλοποιεί η ομάδα θεάτρου Δον Κιχώτες, έχει στόχο να μεταφέρει σε μικρούς και μεγάλους την ιστορία της αποκριάς από την Αρχαία Ελλάδα έως τις μέρες μας.', NULL, 0, 0, '38.00001700000000', '23.77339800000000', 15, 1, 6, 12, 1, 0, 1, 1, 'ΠΑΙΔΙΑ ΔΗΜΟΤΙΚΟΥ (6 ΕΩΣ ΚΑΙ 12 ΕΤΩΝ), ΠΑΙΔΙΚΕΣ ΑΠΟΚΡΙΑΤΙΚΕΣ ΕΚΔΗΛΩΣΕΙΣ, ΔΩΡΕΑΝ ΠΑΙΔΙΚΕΣ ΕΚΔΗΛΩΣΕΙΣ');
+(1, 5, 'Πάρτυ Αποκριών', 'Αδριανείου 44, Ελληνορώσων', '2018-02-24', '11:00', 0, 0, 50, 'Ελάτε να γιορτάσουμε τις απόκριες στην myPLAYce. Φορέστε τις πιο δημιουργικές στολές και δηλώστε συμμετοχή στο διαγωνισμό μας! Ο νικητής κερδίζει δωρεάν είσοδο στον παιδότοπο του myPLAYce για έναν μήνα! Μη λείψει κανείς!', '/src/main/webapp/images/events/event1', 0, 0, '38.00001700000000', '23.77339800000000', 25, 1, 3, 12, 1, 0, 0, 1, 'Παιδότοπος Απόκριες Παιχνίδι Διασκέδαση Φεβρουάριος Παιδί Οικονομικό Διαγωνισμός'),
+(2, 12, 'Έναρξη τμήματος Profficiency', 'Βερελή 60, Άνω Γλυφάδα', '2018-02-01', '17:00', 0, 0, 0, 'Ελάτε στην fun2learn για να προετοιμάσετε το παιδί σας σωστά για το πτυχίο proficiency! Ελάτε να γνωρίσετε το έμπειρο προσωπικό μας και να εγγραφείτε καθώς τα μαθήματα ξεκινούν αμέσως!', '/src/main/webapp/images/events/event2', 0, 0, '37.88389200000000', '23.75923300000000', 30, 1, 10, 18, 0, 0, 1, 0, 'Αγγλικά Proficiency Cambridge Michigan Φροντιστήριο Ξένων Γλωσσών Εκπαίδευση'),
+(5, 9, 'Έναρξη τμημάτων kung fu για παιδιά', 'Χαριλάου Τρικούπη 17, Γλυφάδα', '2018-04-01', '11:30', 0, 0, 200, 'Έλατα να αθληθείτε στον ΑΘλητικό Σύλλογο Κραταιός. Εδώ τα παιδιά σας μπορούν να εκπαιδευτούν στις τεχνικές kung fu παρέχοντας την καλύτερη δυνατή ομάδα δασκάλων στην Αθήνα. Γραφτείτε τώρα για το πρώτο τμήμα kung fu για παιδιά που ξεκινάει τον Απρίλιο.', '/src/main/webapp/images/events/event5', 0, 0, '37.88485600000000', '23.74683000000000', 12, 1, 6, 14, 1, 1, 1, 1, 'Αθλητισμός Παιδεία kung fu Μηνιαίο Τμήμα Πολεμικές Τέχνες'),
+(6, 10, 'Σεμινάριο fu jow για τους μικρούς μας φίλους', 'Αριστοτέλους 18, Πολιτεία, Κηφισιά', '2018-04-12', '19:00', 0, 0, 75, 'Όντας πιστοί στο ραντεβού μας με τη συνεχή προσπάθεια ένταξης παιδιών στην ορθή αντιμετώπιση των πολεμικών τεχνών το Fu Jow Κηφισιάς διοργανώνει σεμινάριο για τη χρήση του fu jow στο σχολείο. ', '/src/main/webapp/images/events/event6', 0, 0, '38.08666200000000', '23.83272800000000', 30, 1, 5, 18, 0, 1, 1, 0, 'Πολεμικές Τέχνες Σεμινάριο Fu Jow'),
+(7, 3, 'Η κα. Αστροφυσική και τα όνειρα των αστεριών', 'Σταυροπούλου 33 & Σπαρτής, Πλ. Αμερικής', '2018-02-10', '15:00', 0, 0, 50, '«Η κα Αστροφυσική και τα όνειρα των αστεριών» γράφτηκε για να παρουσιαστεί μια διασκεδαστική και ενδιαφέρουσα παράσταση γνώσης για την επιστήμη της Αστρονομίας και της Αστροφυσικής για τους μικρούς αλλά και τους μεγάλους φίλους.\r\n\r\nΜια ευφάνταστη παράσταση που θα δίνει τη δυνατότητα στο μαθητή να εμπλακεί με τη θεατρική δράση προσφέροντας του γνώση και αναζήτηση για τις βαθμίδες της εκπαίδευσης των θετικών επιστημών αλλά και της φιλοσοφίας διευρύνοντας τον ορίζοντα της γνώσης του μαθητή μέσω διαφόρων εννοιών της επιστήμης παραστατικά δοσμένες αλλά και μέσω προβολής εικόνων από το σύμπαν καθώς και κινούμενων σχεδίων για την κατανόηση του ηλιακού μας συστήματος και του πλανήτη μας.\r\n\r\nΜε πρωτότυπη μουσική σύμφωνη και αρμονική με τη θεματική του έργου η «κα Αστροφυσική και τα όνειρα των αστεριών»  και επαγγελματίες ηθοποιούς με μεγάλη προϋπηρεσία, επαγγελματική πορεία  στο καλό θέατρο, καλό παιδικό θέατρο και στο παιδί.', '/src/main/webapp/images/events/event7', 0, 0, '38.00333300000000', '23.72997100000000', 150, 1, 3, 18, 1, 0, 0, 0, 'Θέατρο Παράσταση Παιδική Αλεξία Πετροπούλου Αστρονομία'),
+(8, 3, 'Sci-fi θέατρο "Το απίθανο ταξίδι"', 'Αμοργού 20, Αθήνα 112 56', '2018-02-15', '17:00', 0, 0, 75, 'Sci-fi θέατρο έχετε ξαναδεί; Να, που ήρθε η ώρα! Η Μικρή Σκηνή της Στέγης γίνεται κινηματογραφικό πλατό και μια παράσταση για όλη την οικογένεια μας ταξιδεύει στον χρόνο, στην εποχή του βωβού κινηματογράφου, τότε που ο Γάλλος πρωτοπόρος σκηνοθέτης και ταχυδακτυλουργός Ζωρζ Μελιές γύριζε την πρώτη ταινία επιστημονικής φαντασίας, Ταξίδι στο Φεγγάρι (1902). \r\n\r\nΑυτός είναι και ο "αόρατος" πρωταγωνιστής της μαγικής παράστασης που στήνει ο διακεκριμένος κινηματογραφιστής Άγγελος Φραντζής, με έναν τριμελή θίασο, ζωντανή μουσική, ψηφιακές προβολές, κινηματογραφικά εφέ, χορό και κίνηση. \r\n\r\nΘέατρο ή σινεμά; Επιστημονική φαντασία ή περιπέτεια ενηλικίωσης; \r\nΤο απίθανο ταξίδι είναι, πάνω απ’ όλα, ένας ύμνος στην "απίθανη" δύναμη της φαντασίας. ', '/src/main/webapp/images/events/event8', 0, 0, '38.00812200000000', '23.73668700000000', 80, 1, 8, 18, 1, 0, 1, 0, 'Θέατρο Παράσταση Παιδική Sci-fi Παιδί, Παιδική παράσταση, Παιδιά Δημοτικού (6 έως και 12 ετών), Έφηβοι (13 έως και 17 ετών)'),
+(9, 5, 'Εργαστήριο "Μια Αποκριά, μια ιστορία"', 'Αδριανείου 44, Ελληνορώσων', '2018-04-14', '12:00', 0, 0, 60, 'Διαδραστικό εκπαιδευτικό πρόγραμμα από τη myPlace και τη Δημοτική Βιβλιοθήκη Καλλιθέας \r\n\r\nΗ εταιρεία myPlayce, σε συνεργασία με τη Δημοτική Βιβλιοθήκη Καλλιθέας, παρουσιάζει ένα διαδραστικό εκπαιδευτικό πρόγραμμα, με θέμα τις Απόκριες, το Σάββατο 3 Φεβρουαρίου (ώρα 11:30), στη Δημοτική Βιβλιοθήκη Καλλιθέας (Ανδρομάχης 86Α & Αλκμήνης, Καλλιθέα). \r\n\r\nΤο εκπαιδευτικό πρόγραμμα, που έχει σχεδιάσει η θεατρολόγος Μαρία Νομικού και υλοποιεί η ομάδα θεάτρου Δον Κιχώτες, έχει στόχο να μεταφέρει σε μικρούς και μεγάλους την ιστορία της αποκριάς από την Αρχαία Ελλάδα έως τις μέρες μας.', '/src/main/webapp/images/events/event9', 0, 0, '38.00001700000000', '23.77339800000000', 15, 1, 6, 12, 1, 0, 1, 1, 'ΠΑΙΔΙΑ ΔΗΜΟΤΙΚΟΥ (6 ΕΩΣ ΚΑΙ 12 ΕΤΩΝ), ΠΑΙΔΙΚΕΣ ΑΠΟΚΡΙΑΤΙΚΕΣ ΕΚΔΗΛΩΣΕΙΣ, ΔΩΡΕΑΝ ΠΑΙΔΙΚΕΣ ΕΚΔΗΛΩΣΕΙΣ'),
+(10, 5, 'Εργαστήριο "Μια Αποκριά, μια ιστορία"', 'Αδριανείου 44, Ελληνορώσων', '2018-04-21', '12:00', 0, 0, 60, 'Διαδραστικό εκπαιδευτικό πρόγραμμα από τη myPlace και τη Δημοτική Βιβλιοθήκη Καλλιθέας \r\n\r\nΗ εταιρεία myPlayce, σε συνεργασία με τη Δημοτική Βιβλιοθήκη Καλλιθέας, παρουσιάζει ένα διαδραστικό εκπαιδευτικό πρόγραμμα, με θέμα τις Απόκριες, το Σάββατο 3 Φεβρουαρίου (ώρα 11:30), στη Δημοτική Βιβλιοθήκη Καλλιθέας (Ανδρομάχης 86Α & Αλκμήνης, Καλλιθέα). \r\n\r\nΤο εκπαιδευτικό πρόγραμμα, που έχει σχεδιάσει η θεατρολόγος Μαρία Νομικού και υλοποιεί η ομάδα θεάτρου Δον Κιχώτες, έχει στόχο να μεταφέρει σε μικρούς και μεγάλους την ιστορία της αποκριάς από την Αρχαία Ελλάδα έως τις μέρες μας.', '/src/main/webapp/images/events/event10', 0, 0, '38.00001700000000', '23.77339800000000', 15, 1, 6, 12, 1, 0, 1, 1, 'ΠΑΙΔΙΑ ΔΗΜΟΤΙΚΟΥ (6 ΕΩΣ ΚΑΙ 12 ΕΤΩΝ), ΠΑΙΔΙΚΕΣ ΑΠΟΚΡΙΑΤΙΚΕΣ ΕΚΔΗΛΩΣΕΙΣ, ΔΩΡΕΑΝ ΠΑΙΔΙΚΕΣ ΕΚΔΗΛΩΣΕΙΣ');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `parent`
+-- Δομή πίνακα για τον πίνακα `parent`
 --
 
-CREATE TABLE IF NOT EXISTS `parent` (
-  `ParentID` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `parent` (
+  `ParentID` int(10) NOT NULL,
   `Username` varchar(25) NOT NULL,
   `FirstName` varchar(25) NOT NULL,
   `LastName` varchar(25) NOT NULL,
@@ -212,13 +201,11 @@ CREATE TABLE IF NOT EXISTS `parent` (
   `BankAccount` bigint(16) NOT NULL,
   `Latitude` decimal(20,14) NOT NULL,
   `Longitude` decimal(20,14) NOT NULL,
-  `VerificationCode` bigint(5) NOT NULL,
-  PRIMARY KEY (`ParentID`),
-  UNIQUE KEY `Username` (`Username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
+  `VerificationCode` bigint(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `parent`
+-- Άδειασμα δεδομένων του πίνακα `parent`
 --
 
 INSERT INTO `parent` (`ParentID`, `Username`, `FirstName`, `LastName`, `Address`, `PostalCode`, `TelephoneNumber`, `Email`, `Password`, `Status`, `CounterEvents`, `Points`, `BankAccount`, `Latitude`, `Longitude`, `VerificationCode`) VALUES
@@ -236,18 +223,99 @@ INSERT INTO `parent` (`ParentID`, `Username`, `FirstName`, `LastName`, `Address`
 (17, 'kdot', 'Kendrick', 'Lamar', 'Filolaou 4', 16121, 2107010892, 'kdot@compton.com', '12345', 0, 0, 0, 1234123412341234, '37.96317180000000', '23.74637559999997', 67482);
 
 --
--- Constraints for dumped tables
+-- Ευρετήρια για άχρηστους πίνακες
 --
 
 --
--- Constraints for table `booking`
+-- Ευρετήρια για πίνακα `administrator`
+--
+ALTER TABLE `administrator`
+  ADD PRIMARY KEY (`AdminID`),
+  ADD UNIQUE KEY `Username` (`Username`);
+
+--
+-- Ευρετήρια για πίνακα `adminprofile`
+--
+ALTER TABLE `adminprofile`
+  ADD PRIMARY KEY (`AdminProfileID`);
+
+--
+-- Ευρετήρια για πίνακα `booking`
+--
+ALTER TABLE `booking`
+  ADD PRIMARY KEY (`BookingID`),
+  ADD KEY `EventID` (`EventID`),
+  ADD KEY `ParentID` (`ParentID`);
+
+--
+-- Ευρετήρια για πίνακα `companyservice`
+--
+ALTER TABLE `companyservice`
+  ADD PRIMARY KEY (`CompanyID`),
+  ADD UNIQUE KEY `Username` (`Username`),
+  ADD UNIQUE KEY `CompanyName` (`CompanyName`);
+
+--
+-- Ευρετήρια για πίνακα `event`
+--
+ALTER TABLE `event`
+  ADD PRIMARY KEY (`EventID`),
+  ADD KEY `CompanyID` (`CompanyID`);
+
+--
+-- Ευρετήρια για πίνακα `parent`
+--
+ALTER TABLE `parent`
+  ADD PRIMARY KEY (`ParentID`),
+  ADD UNIQUE KEY `Username` (`Username`);
+
+--
+-- AUTO_INCREMENT για άχρηστους πίνακες
+--
+
+--
+-- AUTO_INCREMENT για πίνακα `administrator`
+--
+ALTER TABLE `administrator`
+  MODIFY `AdminID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT για πίνακα `adminprofile`
+--
+ALTER TABLE `adminprofile`
+  MODIFY `AdminProfileID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT για πίνακα `booking`
+--
+ALTER TABLE `booking`
+  MODIFY `BookingID` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT για πίνακα `companyservice`
+--
+ALTER TABLE `companyservice`
+  MODIFY `CompanyID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+--
+-- AUTO_INCREMENT για πίνακα `event`
+--
+ALTER TABLE `event`
+  MODIFY `EventID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT για πίνακα `parent`
+--
+ALTER TABLE `parent`
+  MODIFY `ParentID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+--
+-- Περιορισμοί για άχρηστους πίνακες
+--
+
+--
+-- Περιορισμοί για πίνακα `booking`
 --
 ALTER TABLE `booking`
   ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`EventID`) REFERENCES `event` (`EventID`),
   ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`ParentID`) REFERENCES `parent` (`ParentID`);
 
 --
--- Constraints for table `event`
+-- Περιορισμοί για πίνακα `event`
 --
 ALTER TABLE `event`
   ADD CONSTRAINT `event_ibfk_1` FOREIGN KEY (`CompanyID`) REFERENCES `companyservice` (`CompanyID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
