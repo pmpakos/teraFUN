@@ -33,7 +33,7 @@
   z-index: -1;
    top: 0;
 
-  background-size:cover;
+  /*background-size:cover;*/
     /*-webkit-filter: blur(5px);
     -moz-filter: blur(5px);
     -o-filter: blur(5px);
@@ -161,7 +161,7 @@
                                                         <div class="btn btn-default image-preview-input">
                                                             <span class="glyphicon glyphicon-folder-open"></span>
                                                             <span class="image-preview-input-title">Browse</span>
-                                                            <input type="file" name="file" multiple/> <!-- rename it -->
+                                                            <input type="file" name="file" id="file" multiple/> <!-- rename it -->
                                                         </div>
                                                     </span>
                                                 </div><!-- /input-group image-preview [TO HERE]--> 

@@ -1,5 +1,6 @@
 validcompname=0;
 validafm=0;
+sync=0;
 
 $(document).on('blur','.compname-validation',function(){
 	var content = $(this).val();
@@ -202,11 +203,13 @@ function validatecompany(){
 	console.log(compname);
 	var description=document.getElementById('description').value;
 	console.log(description);
+	var filename=document.getElementById('file').files[0].name;
+	console.log(filename);
 
-	var test=agree&validcompname&validpass1&validpass&validusn&validemail&validaddr&validpostal&validtel&validafm;
-	console.log(test);
-
-	console.log(test); 
+	 var test=agree&validcompname&validpass1&validpass&validusn&validemail&validaddr&validpostal&validtel&validafm;
+	 console.log(test);
+	// var test=agree&validusn;
+	// console.log(test); 
 	if(test){
 		document.getElementById('total_error').innerHTML = "";
 		$.ajax({
@@ -223,17 +226,19 @@ function validatecompany(){
 				afm:afm,
 				latt:latt,
 				lngg:lngg,
-				description:description
+				description:description,
+				filename:filename
 			},
+			// async: false,
 			url:'/app/company_signup',
-
 			success: function(){
 				console.log("insertion done");
-
-				
+				// sync=1;	
 			}
 				
 		});	
+		
+		// console.log("synchronous ajax");
 		return true;
 		
 	} 

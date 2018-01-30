@@ -21,7 +21,6 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import gr.ntua.ece.softeng17b.data.FileUploadComp;
 
 import javax.servlet.http.*;
-
 /**
  * Servlet implementation class UploadImageCompanyServlet
  */
@@ -79,7 +78,6 @@ public class UploadImageCompanyServlet extends HttpServlet {
 	    		  else{
 	    			  //String path = getServletContext().getRealPath("/");
 	    			  String fieldName = item.getFieldName();
-	    			  System.out.println(fieldName);
 	    			  String fileName = item.getName();
 	    			  String path = new java.io.File( "." ).getCanonicalPath();
 	    			  if (FileUploadComp.processFile(path,item,fileName,username))
