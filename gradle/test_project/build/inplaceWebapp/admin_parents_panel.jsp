@@ -9,30 +9,30 @@
       <link rel="stylesheet" href="css/dataTables.min.css"/>
       <link rel="stylesheet" href="css/header.css"> 
 
-    <style type="text/css">
-     body { padding-top: 10px; } 
-    .toolbar {
-      float: left;
-    }
-    .btn-admin {
-        width:140px;
-      }
-    .btn-filter {
-        width:100%;
-      }
-      h1{
-        margin-top: 80px;
-        width: 100%;
+        <style type="text/css">
+         body { padding-top: 10px; } 
+        .toolbar {
+          float: left;
+        }
+        .btn-admin {
+            width:140px;
+          }
+        .btn-filter {
+            width:100%;
+          }
+          h1{
+            margin-top: 80px;
+            width: 100%;
 
-        font-family: 'Open Sans', sans-serif;
-      }
-    </style>
+            font-family: 'Open Sans', sans-serif;
+          }
+        </style>
 
-    <head>
-        <%@include file="header.jsp" %>
+
     </head>
 
     <body>
+<%@include file="header_admin.jsp" %>
       <div id="ko">
             <h1> <span data-bind="text:parents().length"></span> Parents </h1>
             <table id="Data" class="table table-striped table-bordered" data-bind="visible: parents().length > 0">

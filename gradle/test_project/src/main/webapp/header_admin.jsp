@@ -20,13 +20,13 @@
                     <ul class="nav navbar-nav">
                         <li><a href="#"> Αναζήτηση </a></li>              
                         <li><a href="#"> Επικοινωνία </a></li>
-                        <li><a href="#"> Πληροφορίες</a></li> 
+                        <li><a href="#"> Πληροφορίες </a></li> 
                         <li><a href="#"> Ερωτήσεις </a></li>                 
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Πορτοφόλι  <i class="fa fa-eur"></i></a></li>
-				        <li><a href="#about">Προφίλ  <i class="fa fa-user"></i></a></li>
+                        <!-- <li><a href="sign_up_parent.jsp">Εγγραφή  <i class="fa fa-user-plus"></i></a></li> -->
+                        <li><a href="#about">Προφίλ <i class="fa fa-user"></i></a></li>
                     </ul>
                 </div>
             </div>

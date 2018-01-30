@@ -29,10 +29,10 @@
         </style>
 
    
-        <%@include file="header.jsp" %>
     </head>
 
     <body>
+<%@include file="header_admin.jsp" %>
       <div id="ko">
             <h1> <span data-bind="text:companies().length"></span> Companies </h1>
             <table id="Data" class="table table-striped table-bordered" data-bind="visible: companies().length > 0">

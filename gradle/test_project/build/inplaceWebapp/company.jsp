@@ -51,37 +51,8 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-            
-                <a href="basics.html" class="navbar-brand"><img src="static/logo.png"  class="img-responsive" alt=""/></a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-nav-demo">
-                <ul class="nav navbar-nav">
-                    <li><a href="basics.html">Αναζήτηση</a></li>
-                    <li><a href="#"> Επικοινωνία   </a></li>
-                    <li><a href="#"> Πληροφορίες   </a></li>
-                    <li><a href="#"> Ερωτήσεις   </a></li>
-                                        
-                
-                
+    <%@include file="header_company.jsp" %>
 
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Εγγραφή  <i class="fa fa-user-plus"></i></a></li>
-                        <li><a href="#about">Σύνδεση  <i class="fa fa-user"></i></a></li>
-                </ul>
-                
-            </div>
-        </div>
-    </nav>
 
 
         <div class="container" id="ko">
