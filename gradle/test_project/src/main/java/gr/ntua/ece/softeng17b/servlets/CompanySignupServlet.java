@@ -33,14 +33,15 @@ public class CompanySignupServlet extends HttpServlet {
 			int afm =  Integer.parseInt(request.getParameter("afm"));
 			Double lat = Double.parseDouble(request.getParameter("latt"));
 			Double lng = Double.parseDouble(request.getParameter("lngg"));
+			String filename = request.getParameter("filename");
 			// long vcode = Math.round(Math.random() * 89999) + 10000;
-			
+			filename = "images/user_profiles/"+username+"/"+filename;
 			System.out.println("CompanySignupServlet: inserting company with username: " + username);
 			
 		     // do some processing here...
 
 		    Company insert_company = new Company(0, username,compname, 
-							address, postal, tel, email, afm, password, 0, webpage, description, 0, 0, username, lat, lng);
+							address, postal, tel, email, afm, password, 0, webpage, description, 0, 0, filename, lat, lng);
 
 
 	        Configuration conf = Configuration.getInstance();
