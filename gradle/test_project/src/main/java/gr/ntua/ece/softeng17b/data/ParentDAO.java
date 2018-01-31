@@ -50,6 +50,14 @@ public class ParentDAO{
     }
 
 
+   public void updatePoints(int id, int points){
+        String sql = "UPDATE parent SET points = ? WHERE ParentID = ?";
+
+        List<String> db_points = jdbcTemplate.queryForList("select Points from parent where (ParentID = ?)", new Object[] {id}, String.class); 
+
+        this.jdbcTemplate.update(sql, new Object[] {points + Integer.parseInt(db_points.get(0)), id}); 
+    }
+
     public Optional<Parent> getParent(int id) {        
         List<Parent> parent = jdbcTemplate.query("select * from parent where ParentID = ?", new Object[] {id}, new ParentRowMapper());
         if (parent.size() == 1)  {
