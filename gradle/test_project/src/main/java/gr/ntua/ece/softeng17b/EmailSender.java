@@ -30,6 +30,10 @@ import com.itextpdf.text.DocumentException;
 
 import gr.ntua.ece.softeng17b.data.*;
 
+
+import java.io.IOException;
+import java.io.File;
+
 public class EmailSender{
 	private Properties emailPorperties;
 
@@ -142,34 +146,28 @@ public class EmailSender{
 	        document.addKeywords("iText, email");
 	        document.addAuthor("TeraFUN");
 	        document.addCreator("TeraFUN");
-	        Paragraph paragraph = new Paragraph();
-	        
-	        //////
-			Font courier1 = new Font(FontFamily.UNDEFINED, 16f, Font.BOLD);
-			Font courier2 = new Font(FontFamily.UNDEFINED, 12f);
+	
+			try{
+		        try{
+				    String path2 = new java.io.File( "." ).getCanonicalPath();
+				    String path = path2+"/src/main/webapp/static/arial.ttf";    		
+					BaseFont fonty = BaseFont.createFont(path , "Cp1253" , true); 	
+		       		Font myfonty1 = new Font(fonty, 16, Font.BOLD); 
+		       		Font myfonty2 = new Font(fonty, 12, Font.NORMAL); 
+					
+					document.add(new Paragraph("\n\nΕυχαριστούμε που χρησιμοποιήσατε την TeraFUN για την κράτησή σας!\n\n", myfonty1));
+				    document.add(new Paragraph("Το εισιτήριο σας για το event:\n\n\n", myfonty2));
+				    document.add(new Paragraph(EventName, myfonty1));
+				    document.add(new Paragraph("\n\n\nείναι ο κωδικός :\n\n\n", myfonty2));
+				    document.add(new Paragraph(TicketCode, myfonty1));
+				    document.add(new Paragraph("\n\n\nΕπιδεικνύοντας αυτό θα έχετε πρόσβαση στο συγκεκριμένο event!\n\n", myfonty2));
+				    document.add(new Paragraph("Ευχαριστούμε πολύ!\nTeraFUN!", myfonty2));   	
+			    }catch (DocumentException e) {
+					throw new RuntimeException(e);
+				}
 
-			Chunk c0 = new Chunk("\n\nΕυχαριστούμε που χρησιμοποιήσατε την TeraFUN για την κράτησή σας!\n\n", courier1);
-			Chunk c1 = new Chunk("Το εισιτήριο σας για το event:\n\n\n", courier2);
-			Chunk c2 = new Chunk(EventName, courier1);
-			Chunk c3 = new Chunk("\n\n\nείναι ο κωδικός :\n\n\n", courier2);
-			Chunk c4 = new Chunk(TicketCode, courier1);
-			Chunk c5 = new Chunk("\n\n\nΕπιδεικνύοντας αυτό θα έχετε πρόσβαση στο συγκεκριμένο event!\n\n", courier2);
-			Chunk c6 = new Chunk("Ευχαριστούμε πολύ!\nTeraFUN!", courier2);
-			paragraph.add(c0);
-			paragraph.add(c1);
-			paragraph.add(c2);
-			paragraph.add(c3);
-			paragraph.add(c4);
-			paragraph.add(c5);
-			paragraph.add(c6);
-
-			
-			//////
-	        try{
-		        document.add(paragraph);
-	        	
-		    }catch (DocumentException e) {
-				throw new RuntimeException(e);
+			}catch(IOException fue){
+				fue.printStackTrace();
 			}
  	        document.close();
 
