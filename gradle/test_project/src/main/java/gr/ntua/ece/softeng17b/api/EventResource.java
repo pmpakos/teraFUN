@@ -5,7 +5,6 @@ import gr.ntua.ece.softeng17b.data.DataAccess;
 import gr.ntua.ece.softeng17b.data.Event;
 import gr.ntua.ece.softeng17b.data.EventDAO;
 
-
 import org.restlet.resource.ServerResource;
 import org.restlet.representation.Representation;
 import org.restlet.resource.ResourceException;

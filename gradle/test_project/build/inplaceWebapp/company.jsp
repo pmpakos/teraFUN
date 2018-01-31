@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="gr.ntua.ece.softeng17b.conf.*" %>
-<% int ID = 9; %>
+<%@ page import="gr.ntua.ece.softeng17b.FileChecker" %>
+<%  int ID = 9; %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -171,7 +172,8 @@
                 viewModel.description(companyJson.Description);
                 viewModel.address(companyJson.Address);
                 viewModel.PhotosFolder(companyJson.PhotosFolder+'user.png');
-
+                
+                <%  System.out.println(FileChecker.main("/src/main/webapp/images/user_profiles/krataios/")); %>
                 var uluru = {lat: companyJson.Latitude, lng: companyJson.Longitude};
 
                 var map = new google.maps.Map(document.getElementById('map'), {
