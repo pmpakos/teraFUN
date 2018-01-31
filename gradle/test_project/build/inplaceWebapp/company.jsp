@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="gr.ntua.ece.softeng17b.conf.*" %>
 <%@ page import="gr.ntua.ece.softeng17b.FileChecker" %>
-<%  int ID = 9; %>
+<%  int ID = 17; %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,10 +35,15 @@
     .form-inline{
     margin-top:20px;
     }
-    img {
-    width: 200px; 
-    max-height: 200px;
-    object-fit: cover;
+    .img1 {
+        max-width: 100%; 
+        max-height: 100%;
+        object-fit: cover;
+    }
+
+    .portrait {
+        height: 200px;
+        width: 400px;
     }
 
 
@@ -71,8 +76,8 @@
             <div class="row">
             
                 <div class="col-lg-4">
-                    <div class="thumbnail">
-                        <img data-bind="attr:{src: PhotosFolder}">
+                    <div class="portrait">
+                        <img class=img1 data-bind="attr:{src: PhotosFolder}">
                     </div>
                 </div>
                 <div class="col-lg-4"></div>
@@ -171,7 +176,7 @@
                 viewModel.web(companyJson.WebPage);
                 viewModel.description(companyJson.Description);
                 viewModel.address(companyJson.Address);
-                viewModel.PhotosFolder(companyJson.PhotosFolder+'user.png');
+                viewModel.PhotosFolder(companyJson.PhotosFolder);
                 
                 <%  System.out.println(FileChecker.main("/src/main/webapp/images/user_profiles/krataios/")); %>
                 var uluru = {lat: companyJson.Latitude, lng: companyJson.Longitude};
