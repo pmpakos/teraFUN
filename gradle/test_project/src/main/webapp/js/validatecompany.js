@@ -38,7 +38,7 @@ $(document).on('blur','.afm-validation',function(){
 		validafm = false;
 		
 		document.getElementById('afm_error').innerHTML = 'Συμπληρώστε αυτό το πεδίο';
-	}else if(validafm == 0){
+	}else if(validafm == 0 || (content.length!=9)){
 		
 		document.getElementById('afm_error').innerHTML = 'Παρακαλώ εισάγετε το 9ψήφιο ΑΦΜ της εταιρίας χωρίς κενά';
 		
@@ -203,8 +203,18 @@ function validatecompany(){
 	console.log(compname);
 	var description=document.getElementById('description').value;
 	console.log(description);
-	var filename=document.getElementById('file').files[0].name;
-	console.log(filename);
+	var fileflag=document.getElementById('file').value;
+	console.log(fileflag);
+	if(fileflag){
+		var filename=document.getElementById('file').files[0].name;
+		console.log(filename);
+	}
+	else{
+		document.getElementById('total_error').innerHTML = 'Πρέπει να ανεβάσετε μία φωτογραφία';
+		return false;
+	}
+	//var filename=document.getElementById('file').files[0].name;
+	//console.log(filename);
 
 	 var test=agree&validcompname&validpass1&validpass&validusn&validemail&validaddr&validpostal&validtel&validafm;
 	 console.log(test);

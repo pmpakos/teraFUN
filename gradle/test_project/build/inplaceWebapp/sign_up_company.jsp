@@ -66,8 +66,10 @@
 							<div class="col-lg-10 col-md-offset-1">
 								<br>
 								<form id="login-form" onsubmit="return validatecompany()" action="upload_image_company" method="Post" enctype="multipart/form-data" role="form">
+
 								<!-- <form id="login-form" role="form" enctype="multipart/form-data"> -->
 									<!-- action="upload_image_company" -->
+
 									    <div class="form-group usn">
 								    	<label for="username"> <span class="glyphicon glyphicon-user" > </span> UserName</label>
 								      	<input type="text" class="form-control usn-comp-validation form-element" name="usn" id="usn" placeholder="Εισάγετε ένα έγκυρο username" data-validation="false" id="usn-border">
@@ -161,7 +163,7 @@
                                                         <div class="btn btn-default image-preview-input">
                                                             <span class="glyphicon glyphicon-folder-open"></span>
                                                             <span class="image-preview-input-title">Browse</span>
-                                                            <input type="file" name="file" id="file" multiple/> <!-- rename it -->
+                                                            <input type="file" name="file" id="file"/> <!-- rename it -->
                                                         </div>
                                                     </span>
                                                 </div><!-- /input-group image-preview [TO HERE]--> 

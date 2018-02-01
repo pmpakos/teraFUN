@@ -337,7 +337,7 @@ $(document).on('blur','.postal-validation',function(){
 		console.log("Enter address first");
 		document.getElementById('addr_error').innerHTML = 'Συμπληρώστε αυτό το πεδίο';
 	}
-	else if(validpostal ==0){
+	else if(validpostal ==0 || (content.length!=5)){
 		
 		document.getElementById('postal_error').innerHTML = 'Ο ταχυδρομικός κωδικός πρέπει να περιέχει 5 αριθμούς χωρίς κενά';
 		
@@ -385,12 +385,11 @@ $(document).on('blur','.tel-validation',function(){
 	var re=/\b\d{10}\b/g;
 	validtel = re.test(content);
 	
-
 	if(content.length == 0){
 		validtel = false;
 	
 		document.getElementById('tel_error').innerHTML = 'Συμπληρώστε αυτό το πεδίο';
-	}else if(validtel == 0){
+	}else if(validtel == 0 || (content.length!=10)){
 	
 		document.getElementById('tel_error').innerHTML = 'Το τηλέφωνο επικοινωνίας πρέπει να περιέχει μόνο αριθμούς χωρίς κενά';
 		
@@ -422,7 +421,7 @@ $(document).on('blur','.bank-validation',function(){
 		validbank = false;
 		
 		document.getElementById('bank_error').innerHTML = 'Συμπληρώστε αυτό το πεδίο';
-	}else if(validbank == 0){
+	}else if(validbank == 0 || (content.length!=16)){
 		
 		document.getElementById('bank_error').innerHTML = 'Παρακαλώ εισάγετε τον 16ψήφιο αριθμού της κάρτας σας χωρίς κενά';
 		
