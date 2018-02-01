@@ -30,14 +30,14 @@ public class Event {
 	String TagDescription;
 	
 		
-	public Event( int ID, int foreignID, String Name, String Address, Date DateEvent,
+	public Event( int ID, int CompanyID, String Name, String Address, Date DateEvent,
 			String Hour, int TicketCounter, int IncomingCash, int Cost, String Description, 
 			String PhotosFolder, int IsOffer, int Visits, double Latitude, double Longitude,
 			int MaxCapacity, int Indoor, int MinAge, int MaxAge, int Fun, int Sport, 
 			int Education, int Team, String TagDescription){
 		
 		this.EventID = ID;
-		this.CompanyID = foreignID;
+		this.CompanyID = CompanyID;
 		this.Name = Name;
 		this.Address = Address;
 		this.DateEvent = DateEvent;
