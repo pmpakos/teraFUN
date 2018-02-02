@@ -18,7 +18,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="bs-nav-demo">
                     <ul class="nav navbar-nav">
-                        <li><a href="#"> Αναζήτηση </a></li>              
+                        <li><a href="search.jsp"> Αναζήτηση </a></li>              
                         <li><a href="#"> Επικοινωνία </a></li>
                         <li><a href="#"> Πληροφορίες</a></li> 
                         <li><a href="#"> Ερωτήσεις </a></li>                 
