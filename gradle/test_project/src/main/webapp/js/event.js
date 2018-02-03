@@ -44,13 +44,20 @@ jQuery().ready(function() {
       }
     });
     
-    $(".open3").click(function() {
+    // $(".open3").click(function() {
+    //   if (v.form()) {
+    //     $("#loader").show();
+    //      setTimeout(function(){
+    //        $("#basicform").html('<h2>Thanks for your time.</h2>');
+    //      }, 1000);
+    //     return false;
+    //   }
+    // });
+
+ $(".open3").click(function() {
       if (v.form()) {
-        $("#loader").show();
-         setTimeout(function(){
-           $("#basicform").html('<h2>Thanks for your time.</h2>');
-         }, 1000);
-        return false;
+        $(".frm").hide("fast");
+        $("#sf4").show("slow");
       }
     });
     
@@ -65,3 +72,38 @@ jQuery().ready(function() {
     });
 
   });
+
+$(function () {
+
+  $('#datetimepicker1').datetimepicker({ format: 'DD/MM/YYYY', minDate:  moment().millisecond(0).second(0).minute(0).hour(0)});
+});
+    
+$(document).on('click','.search_date-validation',function(event){
+  event.preventDefault();
+    $('#datetimepicker1').data("DateTimePicker").show();
+    document.getElementById('inputID').readOnly = true;
+});
+
+$(document).on('blur','.search_date-validation',function(event){
+
+    document.getElementById('inputID').readOnly = false;
+});
+
+$(document).on('click','.clear-button',function(){
+
+  $('#text_search').val('');
+  document.getElementById('inputID').readOnly = false;
+  $('#inputID').val('');
+  $('#age').val('');
+  $('#distance').val('');
+  $('select').prop('selectedIndex', 0);
+  document.getElementById("c1").checked = false;
+  document.getElementById("c2").checked = false;
+  document.getElementById("c3").checked = false;
+  document.getElementById("c4").checked = false;
+  fun=0;
+  indoor=0;
+  outdoor=0;
+  education=0;
+
+});
