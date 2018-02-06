@@ -123,6 +123,11 @@
 	</div>
 
 	<script>
+	
+	$(function () {
+
+	$('#datetimepicker1').datetimepicker({ format: 'DD/MM/YYYY', minDate:  moment().millisecond(0).second(0).minute(0).hour(0)});
+});
 		$("[data-toggle=hover]").popover({
 			container: 'body'
 		});
