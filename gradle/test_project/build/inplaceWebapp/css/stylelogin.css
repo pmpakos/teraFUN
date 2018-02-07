@@ -122,6 +122,11 @@ hr.style1 {
 	box-shadow: none;
 	border-color: #ccc;
 }
+
+
+
+
+
 .btn-logina {
 	background-color: #32cd32;
 	outline: none;
@@ -165,6 +170,12 @@ hr.style1 {
 	text-decoration: underline;
 	color: #666;
 }
+
+.details{
+	
+	color: #888;
+}
+
 
 .login-admin {
 	text-decoration: underline;
@@ -212,3 +223,14 @@ hr.style1 {
 	border-color:#008080;
 }
 
+
+
+
+
+.btn-next{color:#fff;background-color:#009CA9;border-color:#009CA9}
+.btn-next.focus,.btn-next:focus{color:#fff;background-color:#008080;border-color:#008080}
+.btn-next:hover{color:#fff;background-color:#008080;border-color:#008080}
+
+.btn-prev{color:#fff;background-color:#204060;border-color:#204060}
+.btn-prev.focus,.btn-prev:focus{color:#fff;background-color:#132639;border-color:#132639}
+.btn-prev:hover{color:#fff;background-color:#132639;border-color:#132639}

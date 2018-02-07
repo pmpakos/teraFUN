@@ -33,7 +33,7 @@
   
 <!-- Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
-  
+  <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
 
   <link href="https://fonts.googleapis.com/css?family=GFS+Neohellenic:400i" rel="stylesheet">
@@ -92,9 +92,10 @@
 
 
 h2 {
-  font: 400 50px/0.8  'GFS Neohellenic', sans-serif;
+  /*font:   'GFS Neohellenic', sans-serif;*/
+  font: 400 40px/0.8 'Didact Gothic', sans-serif;
   color: #204060;
-  text-shadow: 4px 4px 3px rgba(0,0,0,0.1); 
+  /*text-shadow: 4px 4px 3px rgba(0,0,0,0); */
   text-align: center;
 }
 
@@ -111,13 +112,15 @@ p {
 </head>
 
 <body>
+
+
    <%@include file="header_company.jsp" %>   
    <div class="col-md-8 col-md-offset-2">
     <div class="panel panel-eventoutside">
       <div class="panel-body">
         <br>
 
-      	<h2>Δημιουργία εκδήλωσης σε τέσσερα βήματα!</h2>
+      	<h2>Δημιουργία εκδήλωσης σε 4 βήματα</h2>
         <br>
 
       <div class="container">
@@ -129,11 +132,12 @@ p {
             <!-- <h3 class="panel-title">Complete this form in quick 3 steps!</h3> -->
           <!-- </div> -->
           <div class="panel-body">
-            <form name="basicform" id="basicform" method="post" action="upload_image_company" enctype="multipart/form-data" role="form">
-              
+            <form name="basicform"  onsubmit="return checknumber()" id="basicform" method="post"  enctype="multipart/form-data" role="form">
+
+              <!-- action="upload_image_company" -->
               <div id="sf1" class="frm">
                 <fieldset>
-                  <legend>Step 1 of 4</legend>
+                  <legend>Βήμα 1 από 4</legend>
 
 
                   <div class="form-group eventname">
@@ -154,19 +158,19 @@ p {
                       <textarea class="form-control" id="description" ></textarea>
                   </div>
                 </div>
-
+                  <div class="row">
                   <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
-                      <button class="btn btn-primary open1" type="button">Επόμενο <span class="fa fa-arrow-right"></span></button> 
+                      <button class="btn btn-next open1" type="button">Επόμενο <span class="fa fa-arrow-right"></span></button> 
                     </div>
                   </div>
-
+                </div>
                 </fieldset>
               </div>
 
               <div id="sf2" class="frm" style="display: none;">
                 <fieldset>
-                  <legend>Step 2 of 4</legend>
+                  <legend>Βήμα 2 από 4</legend>
 
                    
                   <div class= "row col-xs-10"><p>Πού γίνεται η εκδήλωση;</p></div>
@@ -191,8 +195,8 @@ p {
                     </div> 
                     </div>
 
-                     <div class= "row col-lg-12"><p>Πότε;</p></div>
-                  <div class="input-group date form-group search_date " id='datetimepicker1'>
+                     <div class= "row col-xs-12"><p>Πότε;</p></div>
+                  <div class="input-group date form-group search_date col-xs-8" id='datetimepicker1'>
                     <input type="text" class="form-control search_date-validation form-element" id="inputID" name="search_date" placeholder="Επιλέξτε Ημερομηνία" data-validation="false">
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
@@ -207,55 +211,54 @@ p {
                           
               <label style="padding-left: 0;" for="text"><p>Έναρξη:</p></label>
                       <select class="form-control" id="sel1">
-                                    <option>12:00am</option>
-                                    <option> 12:30am</option>
-                                    <option>1:00am</option>
-                                    <option>1:30am</option>
-                                    <option>2:00am</option>
-                                    <option>2:30am</option>
-                                    <option>3:00am</option>
-                                    <option>3:30am</option>
-                                    <option>4:00am</option>
-                                    <option>4:30am</option>
-                                    <option>5:00am</option>
-                                    <option>5:30am</option>
-                                    <option>6:00am</option>
-                                    <option>6:30am</option>
-                                    <option>7:00am</option>
-                                    <option>7:30am</option>
-                                    <option>8:00am</option>
-                                    <option>8:30am</option>
-                                    <option>9:00am</option>
-                                    <option>9:30am</option>
-                                    <option>10:00am</option>
-                                    <option>10:30am</option>
-                                    <option>11:00am</option>
-                                    <option>11:30am</option>
-                                    <option>12:00pm</option>
-                                    <option>12:30pm</option>
-                                    <option>1:00pm</option>
-                                    <option>1:30pm</option>
-                                    <option>2:00pm</option>
-                                    <option>2:30pm</option>
-                                    <option>3:00pm</option>
-                                    <option>3:30pm</option>
-                                    <option>4:00pm</option>
-                                    <option>4:30pm</option>
-                                    <option>5:00pm</option>
-                                    <option>5:30pm</option>
-                                    <option>6:00pm</option>
-                                    <option>6:30pm</option>
-                                    <option>7:00pm</option>
-                                    <option>7:30pm</option>
-                                    <option>8:00pm</option>
-                                    <option>8:30pm</option>
-                                    <option>9:00pm</option>
-                                    <option>9:30pm</option>
-                                    <option>10:00pm</option>
-                                    <option>10:30pm</option>
-                                    <option>11:00pm</option>
-                                    <option>11:30pm</option>
-
+                                      <option>12:00πμ</option>
+                                    <option> 12:30πμ</option>
+                                    <option>1:00πμ</option>
+                                    <option>1:30πμ</option>
+                                    <option>2:00πμ</option>
+                                    <option>2:30πμ</option>
+                                    <option>3:00πμ</option>
+                                    <option>3:30πμ</option>
+                                    <option>4:00πμ</option>
+                                    <option>4:30πμ</option>
+                                    <option>5:00πμ</option>
+                                    <option>5:30πμ</option>
+                                    <option>6:00πμ</option>
+                                    <option>6:30πμ</option>
+                                    <option>7:00πμ</option>
+                                    <option>7:30πμ</option>
+                                    <option>8:00πμ</option>
+                                    <option>8:30πμ</option>
+                                    <option>9:00πμ</option>
+                                    <option>9:30πμ</option>
+                                    <option>10:00πμ</option>
+                                    <option>10:30πμ</option>
+                                    <option>11:00πμ</option>
+                                    <option>11:30πμ</option>
+                                    <option>12:00μμ</option>
+                                    <option>12:30μμ</option>
+                                    <option>1:00μμ</option>
+                                    <option>1:30μμ</option>
+                                    <option>2:00μμ</option>
+                                    <option>2:30μμ</option>
+                                    <option>3:00μμ</option>
+                                    <option>3:30μμ</option>
+                                    <option>4:00μμ</option>
+                                    <option>4:30μμ</option>
+                                    <option>5:00μμ</option>
+                                    <option>5:30μμ</option>
+                                    <option>6:00μμ</option>
+                                    <option>6:30μμ</option>
+                                    <option>7:00μμ</option>
+                                    <option>7:30μμ</option>
+                                    <option>8:00μμ</option>
+                                    <option>8:30μμ</option>
+                                    <option>9:00μμ</option>
+                                    <option>9:30μμ</option>
+                                    <option>10:00μμ</option>
+                                    <option>10:30μμ</option>
+                                    <option>11:00μμ</option>
+                                    <option>11:30μμ</option>
                      </select>
                     </div>
                   
@@ -266,55 +269,54 @@ p {
                   <label style="padding-left: 0;" for="text"><p>Λήξη:</p></label>
                     
                       <select class="form-control" id="sel2">
-                                     <option>12:00am</option>
-                                    <option> 12:30am</option>
-                                    <option>1:00am</option>
-                                    <option>1:30am</option>
-                                    <option>2:00am</option>
-                                    <option>2:30am</option>
-                                    <option>3:00am</option>
-                                    <option>3:30am</option>
-                                    <option>4:00am</option>
-                                    <option>4:30am</option>
-                                    <option>5:00am</option>
-                                    <option>5:30am</option>
-                                    <option>6:00am</option>
-                                    <option>6:30am</option>
-                                    <option>7:00am</option>
-                                    <option>7:30am</option>
-                                    <option>8:00am</option>
-                                    <option>8:30am</option>
-                                    <option>9:00am</option>
-                                    <option>9:30am</option>
-                                    <option>10:00am</option>
-                                    <option>10:30am</option>
-                                    <option>11:00am</option>
-                                    <option>11:30am</option>
-                                    <option>12:00pm</option>
-                                    <option>12:30pm</option>
-                                    <option>1:00pm</option>
-                                    <option>1:30pm</option>
-                                    <option>2:00pm</option>
-                                    <option>2:30pm</option>
-                                    <option>3:00pm</option>
-                                    <option>3:30pm</option>
-                                    <option>4:00pm</option>
-                                    <option>4:30pm</option>
-                                    <option>5:00pm</option>
-                                    <option>5:30pm</option>
-                                    <option>6:00pm</option>
-                                    <option>6:30pm</option>
-                                    <option>7:00pm</option>
-                                    <option>7:30pm</option>
-                                    <option>8:00pm</option>
-                                    <option>8:30pm</option>
-                                    <option>9:00pm</option>
-                                    <option>9:30pm</option>
-                                    <option>10:00pm</option>
-                                    <option>10:30pm</option>
-                                    <option>11:00pm</option>
-                                    <option>11:30pm</option>
-
+                                    <option>12:00πμ</option>
+                                    <option> 12:30πμ</option>
+                                    <option>1:00πμ</option>
+                                    <option>1:30πμ</option>
+                                    <option>2:00πμ</option>
+                                    <option>2:30πμ</option>
+                                    <option>3:00πμ</option>
+                                    <option>3:30πμ</option>
+                                    <option>4:00πμ</option>
+                                    <option>4:30πμ</option>
+                                    <option>5:00πμ</option>
+                                    <option>5:30πμ</option>
+                                    <option>6:00πμ</option>
+                                    <option>6:30πμ</option>
+                                    <option>7:00πμ</option>
+                                    <option>7:30πμ</option>
+                                    <option>8:00πμ</option>
+                                    <option>8:30πμ</option>
+                                    <option>9:00πμ</option>
+                                    <option>9:30πμ</option>
+                                    <option>10:00πμ</option>
+                                    <option>10:30πμ</option>
+                                    <option>11:00πμ</option>
+                                    <option>11:30πμ</option>
+                                    <option>12:00μμ</option>
+                                    <option>12:30μμ</option>
+                                    <option>1:00μμ</option>
+                                    <option>1:30μμ</option>
+                                    <option>2:00μμ</option>
+                                    <option>2:30μμ</option>
+                                    <option>3:00μμ</option>
+                                    <option>3:30μμ</option>
+                                    <option>4:00μμ</option>
+                                    <option>4:30μμ</option>
+                                    <option>5:00μμ</option>
+                                    <option>5:30μμ</option>
+                                    <option>6:00μμ</option>
+                                    <option>6:30μμ</option>
+                                    <option>7:00μμ</option>
+                                    <option>7:30μμ</option>
+                                    <option>8:00μμ</option>
+                                    <option>8:30μμ</option>
+                                    <option>9:00μμ</option>
+                                    <option>9:30μμ</option>
+                                    <option>10:00μμ</option>
+                                    <option>10:30μμ</option>
+                                    <option>11:00μμ</option>
+                                    <option>11:30μμ</option>
                      </select>
                     </div>
                   </div>
@@ -323,15 +325,16 @@ p {
                      <div class="form-group price col-xs-8">
                         
 
-                      <label for="addr"><p>Πόσο κοστίζει το ατομικό εισητίριο;</p></label> 
+                      <label for="addr"><p>Πόσο κοστίζει το ατομικό εισιτήριο;</p></label> 
                       <input type="text" class="form-control price-validation form-element" id="addr" name="addr" placeholder="Γράψτε την τιμή σε ευρώ π.χ 30,50" data-validation="false">
                     <span class="error"><p1 id="addr_error"></p1></span>
                     </div>
                     </div>  
+                    <div class="row">
                   
                          <div class="form-group finishhour col-xs-4">
                           
-                          <div class="row">
+                          
                   <label style="padding-left: 0;" for="text"><p>Είναι σε προσφορά;</p></label>
                     
                       <select class="form-control" id="sel2">
@@ -341,6 +344,7 @@ p {
 
                      </select>
                     </div>
+                    <br>
                   </div>
                
 
@@ -357,21 +361,22 @@ p {
                   
 
                   <div class="clearfix" style="height: 10px;clear: both;"></div> -->
-                    <br>
+                  <div class="row">
+                    
                   </br>
                   <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
-                      <button class="btn btn-warning back2" type="button"><span class="fa fa-arrow-left"></span> Back</button> 
-                      <button class="btn btn-primary open2" type="button">Next <span class="fa fa-arrow-right"></span></button> 
+                      <button class="btn btn-prev back2" type="button"><span class="fa fa-arrow-left"></span> Προηγούμενο</button> 
+                      <button class="btn btn-next open2" type="button">Επόμενο <span class="fa fa-arrow-right"></span></button> 
                     </div>
                   </div>
-
+                </div>
                 </fieldset>
               </div>
 
               <div id="sf3" class="frm" style="display: none;">
                 <fieldset>
-                  <legend>Step 3 of 4</legend>
+                  <legend>Βήμα 3 από 4</legend>
 
                     <div class= "row col-xs-10"><p><br/></p></div>
                   
@@ -453,23 +458,55 @@ p {
                       </div>
 
                       <div class= "row col-xs-10"><p><br/></p></div>
+                      
                   <div class="form-group">
+                    <div class="row">
                     <div class="col-lg-10 col-lg-offset-2">
-                      <button class="btn btn-warning back3" type="button"><span class="fa fa-arrow-left"></span> Back</button> 
-                      <button class="btn btn-primary open3" type="button">Next <span class="fa fa-arrow-right"></span></button> 
+                      <button class="btn btn-prev back3" type="button"><span class="fa fa-arrow-left"></span> Προηγούμενο</button> 
+                     
+                      <button class="btn btn-next open3" type="button">Αποθήκευση και συνέχεια με τις φωτογραφίες <span class="fa fa-arrow-right"></span></button> 
+                       <span class="error"><p1>(*)</p1></span>
                     </div>
                   </div>
+
+                 
+                  </div>
+                  <div class= "row col-xs-10"><p><br/></p></div>
+
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="text-center">
+                          <span class="error"><p1>(*)</p1></span>
+                          <span class="details">Πατώντας το κουμπί συνέχεια δεν θα μπορείτε να τροποποιήσετε τα στοιχεία που δώσατε για την εκδήλωση</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
 
                 </fieldset>
               </div>
 
               <div id="sf4" class="frm" style="display: none;">
                 <fieldset>
-                  <legend>Step 4 of 4</legend>
+                  <legend>Βήμα 4 από 4</legend>
 
-                  <div class="col-lg-8">  
+                  <div class="col-xs-12">  
                               <label for="pic"> <p>Διαλέξτε έως 5 φωτογραφίες για την εκδήλωση σας!</p></label>
+
+                                     <div class="form-group">
+                                        <div class="row">
+                                          
+                                             <div class="col-xs-12">  
+                                              
+                                              <span class="details">Από τις φωτογραφίες που θα επιλέξετε, η πρώτη θα αποτελεί την φωτογραφία προφίλ της εκδήλωσης</span>
+                                            
+                                          </div>
+                                        </div>
+                                      </div>
                                                       <!-- image-preview-filename input [CUT FROM HERE]-->
+                                                      <div class="col-xs-6">
                                                       <div class="input-group image-preview">
                                                         
                                                           <input type="value" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
@@ -482,32 +519,39 @@ p {
                                                               <div class="btn btn-default image-preview-input">
                                                                   <span class="glyphicon glyphicon-folder-open"></span>
                                                                   <span class="image-preview-input-title">Browse</span>
-                                                                  <input type="file" name="file" id="file"/> <!-- rename it -->
+                                                                  <input type="file" name="file" id="file" multiple/> <!-- rename it -->
                                                               </div>
                                                           </span>
-                                                      </div><!-- /input-group image-preview [TO HERE]--> 
-                                                  <!-- </div> -->
+                                                      </div>
+                                                    </div>
                         </div>
                         <br>
-                      <div class= "row col-xs-10"><p><br/></p></div>
+
+                 
+
+
+                      <div class= "row col-xs-12"><p><br/></p></div>
+
                   <!-- <div class="form-group"> -->
                     <!-- <div class="col-lg-10 col-lg-offset-2"> -->
-                     <!--  <button class="btn btn-warning back3" type="button"><span class="fa fa-arrow-left"></span> Back</button>  -->
-                      <!-- <button class="btn btn-primary open3" type="button">Submit </button>  -->
-                      <div class="row">
+                     <!--  <button class="btn btn-prev back3" type="button"><span class="fa fa-arrow-left"></span> Back</button>  -->
+                      <!-- <button class="btn btn-next open3" type="button">Submit </button>  -->
+                      
                       <div class="form-group">
+                        <div class="row">
                           <!-- <div class="row"> -->
-                            <div class="col-sm-6 col-sm-offset-3">
-                              <input type="submit"  class="form-control btn btn-registerc" value="submit" />
+                            <div class="col-xs-6 col-xs-offset-1">
+                              <input type="submit"  class="form-control btn btn-next" value="Αποθήκευση Φωτογραφιών" />
                               <!-- <button type="button" name="registerc-submit" id="registerc-submit" tabindex="4" class="form-control btn btn-loginp"><span>ΔΗΜΙΟΥΡΓΙΑ ΛΟΓΑΡΙΑΣΜΟΥ </span></button> -->
                             </div>
                           </div>
                         </div>
                         <!-- </div>       -->
                       <!-- <img src='static/spinner.gif' alt="" id="loader" style="display: none"> -->
-                    </div>
+                    
                   <!-- </div> -->
-
+                  <span class="error"><p1 id="total_error"></p1></span>
+                  </div>
           </fieldset>
         </div>
       </form>

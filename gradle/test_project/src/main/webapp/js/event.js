@@ -107,3 +107,23 @@ $(document).on('click','.clear-button',function(){
   education=0;
 
 });
+
+
+function checknumber(){
+  // var number=4;
+ var $fileUpload = $("input[type='file']");
+ var number=parseInt($fileUpload.get(0).files.length);
+  console.log(number);
+        if (number==0){
+          document.getElementById('total_error').innerHTML = 'Πρέπει να ανεβάσετε μία φωτογραφία';
+      return false;
+        }
+        else if (number>5){
+          document.getElementById('total_error').innerHTML = 'Μπορείτε να ανεβάσετε το μέχρι 5 φωτογραφίες';
+      return false;
+    }
+    else{
+      document.getElementById('total_error').innerHTML = '';
+      return false;
+    }
+}
