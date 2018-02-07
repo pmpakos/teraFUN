@@ -1,23 +1,23 @@
 var dict = {
-  Mon: "Δευτέρα",
-  Tue: "Τρίτη",
-  Wen: "Τετάρτη",
-  Thu: "Πέμπτη",
-  Fri: "Παρασκευή",
-  Sat: "Σάββατο",
-  Sun: "Κυριακή",
-  Jan: "Ιανουαρίου",
-  Feb: "Φερβουαρίου",
-  Mar: "Μαρτίου",
-  Apr: "Απριλίου",
+  Mon: "Δευ.",
+  Tue: "Τρ.",
+  Wen: "Τετ.",
+  Thu: "Πέμ.",
+  Fri: "Παρ.",
+  Sat: "Σάβ.",
+  Sun: "Κυρ.",
+  Jan: "Ιαν.",
+  Feb: "Φεβ.",
+  Mar: "Μαρ.",
+  Apr: "Απρ.",
   May: "Μαΐου",
-  Jun: "Ιουνίου",
-  Jul: "Ιουλίου",
-  Aug: "Αυγούστου",
-  Sep: "Σεμπτεμβρίου",
-  Oct: "Οκτωβρίου",
-  Nov: "Νοεμβρίου",
-  Dec: "Δεκεμβρίου"
+  Jun: "Ιουν.",
+  Jul: "Ιουλ.",
+  Aug: "Αυγ.",
+  Sep: "Σεπτ.",
+  Oct: "Οκτ.",
+  Nov: "Νοε.",
+  Dec: "Δεκ."
   // etc.
 };
 
@@ -66,12 +66,13 @@ function init() {
     }
     
 
-    var Event = function(id, name, description, full_description, hour, longitude, latitude, date, sort) {
+    var Event = function(id, name, description, full_description, hour, cost, longitude, latitude, date, sort) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.full_description = full_description;
         this.hour = hour;
+        this.cost = cost;
         this.Longitude = longitude;
         this.Latitude = latitude;
         this.date = date;
@@ -154,7 +155,10 @@ function init() {
             
             var parts = init_date.toString().split(" ");
             var date = "";
-            var date = dict[parts[0]]+", "+parts[2]+" "+dict[parts[1]]+" "+parts[3];
+            if(parts[2].startsWith("0")){
+                parts[2] = parts[2].substring(1,2);
+            }
+            var date = dict[parts[0]]+" "+parts[2]+" "+dict[parts[1]]+" "+parts[3];
             var rank_date = 10000*init_date.getFullYear()+init_date.getMonth()*100+init_date.getDate()*1;
             
             var event_description = eventJson.Description.replace(/(([^\s]+\s\s*){30}).*/,"$1...:)");
@@ -166,6 +170,7 @@ function init() {
                 event_description = event_description.substring(0,ind+3); 
             }
 
+            var cost = eventJson.Cost+" Πόντοι";
 
             var event = new Event(
                 eventJson.EventID,
@@ -173,6 +178,7 @@ function init() {
                 event_description,
                 eventJson.Description,
                 eventJson.Hour,
+                cost,
                 eventJson.Longitude,
                 eventJson.Latitude,
                 date,

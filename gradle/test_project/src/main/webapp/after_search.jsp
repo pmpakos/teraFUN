@@ -59,6 +59,7 @@
                             <ul class="meta-search">
                                 <li><i class="glyphicon glyphicon-calendar"></i> <span data-bind="text:date"></span></li>
                                 <li><i class="glyphicon glyphicon-time"></i> <span data-bind="text:hour"></span></li>
+                                <li style="font-weight:bold; border:2px solid #00cc00; display: inline; padding-right: 8px;"><i class="glyphicon glyphicon-piggy-bank"></i> <span data-bind="text:cost"></span></li>
                                 <li>    
                                     <label class="container1">
                                         <input type="checkbox" checked="checked" data-bind="checked: showInMap">
