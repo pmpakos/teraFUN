@@ -27,36 +27,8 @@
         <link rel="stylesheet" href="css/dataTables.min.css"/>
         <link rel="stylesheet" href="css/header.css"> 
 
-        <link rel="stylesheet" href="css/search.css">
-        <script src="js/search.js"></script>
+        <link rel="stylesheet" href="css/after_search.css">
 
-    <style>
-        .parent {
-          display: flex;
-        }
-        .resize {
-            width: 150px;
-            height: 70%;
-        }
-        .gmap {
-            margin-top: 150px;
-            float:right;
-            height: 500px;
-            width: 45%;
-        }
-        .table_results{
-            float: left;
-            height: 400px;
-            width: 60%;
-        }
-
-        .dataTables_wrapper .dataTables_filter {
-            float: left;
-            text-align: left;
-            right: 90%;
-        }
-
-        </style>
     </head>
 
     <body>
@@ -66,50 +38,48 @@
 
 
         <div class="parent">
-        <div class="table_results" id="ko" style="margin-top: 150px;">
-                <table id="Data" class="table cell-border table-bordered" data-bind="visible:events().length > 0">
-                <h1> <span data-bind="text:events().length"></span> Αποτελέσματα </h1>
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col" rowspan="2">Αποτελέσματα</th>
-                            <th scope="col" rowspan="2">Ημερομηνία</th>
-                            <th scope="col" rowspan="2">Ημερομηνία</th>
-                            <th scope="col">Προβολή στο χάρτη</th>
-                        </tr>
-                        <tr>
-                            <th>
-                                <label class="custom-control custom-checkbox">
-                                    <input type="checkbox" checked="checked" data-bind="checked: selectAll" class="custom-control-input">
-                                    <span class="custom-control-indicator"></span>
-                                </label>
-                            </th>
-                        </tr>
+            <div class="container" style="margin-top:80px; border-bottom: 1px solid #ccc;">
+                <h1>Αποτελέσματα αναζήτησης</h1>
+                <hgroup class="mb20">
+                    
+                    <h2 class="lead" style="float:left">Βρέθηκαν<strong class="text-danger"> <span data-bind="text:events().length"></span> </strong>εκδηλώσεις</h2>
+                    <label class="container1">Eμφάνιση Όλων των εκδηλώσεων στον χάρτη
+                        <input type="checkbox" checked="checked" data-bind="checked: selectAll" class="custom-control-input">
+                        <span class="checkmark"></span>
+                    </label>
+                                    
+                </hgroup>
 
-                        
-                    </thead>  
-                    <tbody data-bind="foreach:events">
-                        <tr>
-                            <td width="500" height="100">
-                                <span style="padding-right:3px; padding-top: 3px; display:inline-block;">
-                                <img class="resize" src="static/logo.png"></img>
-                                </span>
-                                <span style="font-weight: bold;" data-bind="text:name"></span>
-                                <button type="button" class="btn btn-info btn-sm" style="vertical-align:bottom;">Μάθε Περισσότερα</button>
-                                <button type="button" class="btn btn-success"  style="float: right;">Κλείσε θέση τώρα!</button>
-                            </td>
+                <section class="col-xs-12 col-sm-6 col-md-12 pre-scrollable" data-bind="foreach:events">
+                    <article class="search-result row">
+                        <div class="col-xs-12 col-sm-12 col-md-3">
+                            <a href="#" title="Lorem ipsum" class="thumbnail"><img src="static/logo.png" alt="Lorem ipsum" /></a>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-2">
+                            <ul class="meta-search">
+                                <li><i class="glyphicon glyphicon-calendar"></i> <span data-bind="text:date"></span></li>
+                                <li><i class="glyphicon glyphicon-time"></i> <span data-bind="text:hour"></span></li>
+                                <li>    
+                                    <label class="container1">
+                                        <input type="checkbox" checked="checked" data-bind="checked: showInMap">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
+                            <h3><span data-bind="text:name"></span></h3>
+                            <p data-bind="text:description"></p>                        
+                            <button type="button" class="btn btn-info btn-sm" style="vertical-align:bottom;">Μάθε Περισσότερα</button>
+                            <button type="button" class="btn btn-success" style="float: right;">Κλείσε θέση τώρα!</button>
+                        </div>
+                        <span class="clearfix borda"></span>
+                    </article>       
 
-                            <td width="200"> <span data-bind="text:date"></span> </td>
-                            <td> <span data-bind="text:sort_date"></span> </td>
-                            <td width="100">
-                            <label class="custom-control custom-checkbox">
-                                <input type="checkbox" checked="checked" data-bind="checked: showInMap" class="custom-control-input" >
-                                <span class="custom-control-indicator"></span>
-                            </label> 
-                        </td>
-                        </tr>                   
-                    </tbody>
-                </table>
-        </div>
+                </section>
+            </div>
+
+
         <div id="map" class="gmap"></div>
         </div>
 

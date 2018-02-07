@@ -1,6 +1,3 @@
-$(document).ready(function() {
-    $('#example').DataTable();
-} );
 var dict = {
   Mon: "Δευτέρα",
   Tue: "Τρίτη",
@@ -69,9 +66,12 @@ function init() {
     }
     
 
-    var Event = function(id, name, longitude, latitude, date, sort) {
+    var Event = function(id, name, description, full_description, hour, longitude, latitude, date, sort) {
         this.id = id;
         this.name = name;
+        this.description = description;
+        this.full_description = full_description;
+        this.hour = hour;
         this.Longitude = longitude;
         this.Latitude = latitude;
         this.date = date;
@@ -156,11 +156,23 @@ function init() {
             var date = "";
             var date = dict[parts[0]]+", "+parts[2]+" "+dict[parts[1]]+" "+parts[3];
             var rank_date = 10000*init_date.getFullYear()+init_date.getMonth()*100+init_date.getDate()*1;
-            // format display date (e.g. 04/10/2012)
+            
+            var event_description = eventJson.Description.replace(/(([^\s]+\s\s*){30}).*/,"$1...:)");
+            var ind = event_description.indexOf("...:)");
+            if(ind == -1){
+                event_description = eventJson.Description;
+            }
+            else{
+                event_description = event_description.substring(0,ind+3); 
+            }
+
 
             var event = new Event(
                 eventJson.EventID,
                 eventJson.Name,
+                event_description,
+                eventJson.Description,
+                eventJson.Hour,
                 eventJson.Longitude,
                 eventJson.Latitude,
                 date,
@@ -170,23 +182,18 @@ function init() {
             viewModel.events.push(event);
         });
 
-    var table = $('#Data').DataTable( {
-            "paging": false,
-            "scrollY": "400px", 
-            "bScrollCollapse": true,
-            "searching": true,
-            "bInfo" : false,
-
-            "columns": [
-                { "visible": true },
-                { "visible": true, "orderData": 2  },
-                { "visible": false},
-                { "visible": true, "sorting":false }
-            ],
-        } );
-
+        viewModel.events.sortByProperty("sort_date");
     });
-
+    ko.observableArray.fn.sortByProperty = function(prop) {
+        this.sort(function(obj1, obj2) {
+            if (obj1[prop] == obj2[prop]) 
+                return 0;
+            else if (obj1[prop] < obj2[prop]) 
+                return -1 ;
+            else 
+                return 1;
+        });
+    }
     ko.applyBindings(viewModel, document.getElementById('ko'));            
     console.log("Applied bindings");
 
