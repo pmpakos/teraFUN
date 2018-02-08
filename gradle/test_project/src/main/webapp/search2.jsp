@@ -26,7 +26,7 @@
 
 <style>
 .body1 {
-  background: url('static/logo.png');
+  background: url('static/block.jpg');
   background-color: #cccccc;
   display: block;
   height: 100%;
