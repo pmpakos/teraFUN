@@ -130,6 +130,6 @@ $(document).on('click','.search-button',function(){
 		alert("Μη έγκυρη εισαγωγή πεδίων.");
 	}
 	else{
-		alert("ΘΑ ΤΟ ΨΑΞΩ ΣΕ ΛΙΓΟ ΑΣΕ ΜΕ!!!");
+		window.location.href='http://localhost:8765/app/after_search.jsp?text_search='+text_search+'&date='+date+'&ticket='+ticket+'&age='+age+'&distance='+distance
 	}
 });

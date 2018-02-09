@@ -52,6 +52,12 @@ public class EventDAO{
         }        
     }
 
+
+    public List<Event> searchAll(String text_search){
+      
+        return jdbcTemplate.query("SELECT * FROM event WHERE MATCH (TagDescription) AGAINST(? IN BOOLEAN MODE)", new Object[] {text_search}, new EventRowMapper());
+    }
+
     public List<Event> getAll(){
         return jdbcTemplate.query("SELECT * FROM event",new EventRowMapper());
     }
