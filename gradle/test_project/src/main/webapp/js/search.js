@@ -4,7 +4,8 @@ fun=0;
 indoor=0;
 outdoor=0;
 education=0;
-
+team_spirit=0;
+sports=0;
 
 
 $(function () {
@@ -92,6 +93,12 @@ $(document).on('click','.search-button',function(){
 	if($('#c4').is(":checked")){
 		education=1;
 	}
+	if($('#c5').is(":checked")){
+		sports=1;
+	}
+	if($('#c6').is(":checked")){
+		team_spirit=1;
+	}
 
 	var text_search = document.getElementById("text_search").value;
 	console.log("Search: "+text_search);
@@ -112,7 +119,7 @@ $(document).on('click','.search-button',function(){
 	console.log("Distance: "+distance);
 
 
-	console.log(" Out: "+outdoor+" In: "+indoor+" Fun: "+fun+" Edu: "+education);
+	console.log(" Out: "+outdoor+" In: "+indoor+" Fun: "+fun+" Edu: "+education+"Sports: "+ sports+" TeamSpirit: "+team_spirit);
 
 	empty_in1 = (text_search.length>0)? 0: 1;
 	empty_in2 = (date.length>0)? 0: 1;
@@ -130,6 +137,6 @@ $(document).on('click','.search-button',function(){
 		alert("Μη έγκυρη εισαγωγή πεδίων.");
 	}
 	else{
-		window.location.href='http://localhost:8765/app/after_search.jsp?text_search='+text_search+'&date='+date+'&ticket='+ticket+'&age='+age+'&distance='+distance
+		window.location.href='http://localhost:8765/app/after_search.jsp?text_search='+text_search+'&date='+date+'&ticket='+ticket+'&age='+age+'&distance='+distance+'&sports='+sports+'&team_spirit='+team_spirit
 	}
 });

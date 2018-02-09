@@ -1,10 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="gr.ntua.ece.softeng17b.conf.*" %>
-<% String text_search = request.getParameter("text_search");%>
-<% String date = request.getParameter("date");%>
-<% String ticket = request.getParameter("ticket");%>
-<% String age = request.getParameter("age");%>
-<% String distance = request.getParameter("distance");%>
+
+<%  
+    String id;
+    if(session.getAttribute("id") == null || session.getAttribute("id").equals("")){
+        id ="";
+    }
+    else{
+        id = (String)session.getAttribute("id");
+    }
+
+    String text_search = request.getParameter("text_search");
+    String date = request.getParameter("date");
+    String ticket = request.getParameter("ticket");
+    String age = request.getParameter("age");
+    String distance = request.getParameter("distance");
+        
+
+    id="4";
+ %>
+
+
 <!DOCTYPE html>
 <% //FOr example the search is being done by Πέτρος Μανταλίδης with given lat, long
 
@@ -130,41 +146,15 @@ function sortByDate(a,b){
 
 
 
-
-
-var lat = 38.04043200000000;
-var lng = 23.76853800000000;
-var distance = 10;
-
 function init() {
                 
-    var uluru = {lat: lat, lng: lng};
+    var uluru = {lat: 37.974534, lng: 23.734660};
     var infowindow = new google.maps.InfoWindow();
     var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
+        zoom: 11,
         center: uluru,
         
     });
-
-    var marker = new google.maps.Marker({
-      position: uluru,
-      map: map,
-      icon: {
-        url: "images/markers/home-icon.svg",
-        scaledSize: new google.maps.Size(32, 32),
-    }
-    });
-
-    if(distance>0){
-        var circle = new google.maps.Circle({
-            map: map,
-            radius: distance*1000,    // 10 miles in metres
-            fillColor: ' #99ccff',
-            fillOpacity: 0.35,
-            strokeColor: '#004d99'
-        });
-        circle.bindTo('center', marker, 'position');
-    }
     
 
     var Event = function(id, name, description, full_description, hour, cost, longitude, latitude, date, sort) {
@@ -229,17 +219,19 @@ function init() {
         });           
     }
 
+    var text_search = "<%=text_search%>";
+    var date = "<%=date%>";
+    var ticket = "<%=ticket%>";
+    var age = "<%=age%>";
+    var distance = "<%=distance%>";
+    var id = "<%=id%>";
+
     VM.prototype.loadEvents = function() {
         console.log("Loading events...");
-        var text_search = "<%=text_search%>";
-        var date = "<%=date%>";
-        var ticket = "<%=ticket%>";
-        var age = "<%=age%>";
-        var distance = "<%=distance%>";
         var opts = {
             traditional : true,
             cache       : false,
-            url         : "./api/search?text_search="+text_search+"&date="+date+"&ticket="+ticket+"&age="+age+"&distance="+distance,
+            url         : "./api/search?text_search="+text_search+"&date="+date+"&ticket="+ticket+"&age="+age+"&distance="+distance+"&id="+id,
             type        : "GET",
             dataType    : "json"
         };
@@ -255,43 +247,70 @@ function init() {
 
         json.results.forEach(function(eventJson){
 
-            // parse JSON formatted date to javascript date object
-            var init_date =new Date(eventJson.DateEvent);
 
-            
-            var parts = init_date.toString().split(" ");
-            var date = "";
-            if(parts[2].startsWith("0")){
-                parts[2] = parts[2].substring(1,2);
-            }
-            var date = dict[parts[0]]+" "+parts[2]+" "+dict[parts[1]]+" "+parts[3];
-            var rank_date = 10000*init_date.getFullYear()+init_date.getMonth()*100+init_date.getDate()*1;
-            
-            var event_description = eventJson.Description.replace(/(([^\s]+\s\s*){30}).*/,"$1...:)");
-            var ind = event_description.indexOf("...:)");
-            if(ind == -1){
-                event_description = eventJson.Description;
+            if(eventJson.EventID == -1){
+                uluru = {lat: eventJson.Latitude, lng: eventJson.Longitude};
+                var marker = new google.maps.Marker({
+                    position: uluru,
+                    map: map,
+                    icon: {
+                        url: "images/markers/home-icon.svg",
+                        scaledSize: new google.maps.Size(32, 32),
+                    }   
+                });
+                if(distance>0){
+                    var circle = new google.maps.Circle({
+                        map: map,
+                        radius: distance*1000,    // 10 miles in metres
+                        fillColor: ' #99ccff',
+                        fillOpacity: 0.35,
+                        strokeColor: '#004d99'
+                    });
+                    circle.bindTo('center', marker, 'position');
+                }
+                map.setCenter(uluru);
             }
             else{
-                event_description = event_description.substring(0,ind+3); 
+
+
+                // parse JSON formatted date to javascript date object
+                var init_date =new Date(eventJson.DateEvent);
+
+                
+                var parts = init_date.toString().split(" ");
+                var date = "";
+                if(parts[2].startsWith("0")){
+                    parts[2] = parts[2].substring(1,2);
+                }
+                var date = dict[parts[0]]+" "+parts[2]+" "+dict[parts[1]]+" "+parts[3];
+                var rank_date = 10000*init_date.getFullYear()+init_date.getMonth()*100+init_date.getDate()*1;
+                
+                var event_description = eventJson.Description.replace(/(([^\s]+\s\s*){30}).*/,"$1...:)");
+                var ind = event_description.indexOf("...:)");
+                if(ind == -1){
+                    event_description = eventJson.Description;
+                }
+                else{
+                    event_description = event_description.substring(0,ind+3); 
+                }
+
+                var cost = eventJson.Cost+" Πόντοι";
+
+                var event = new Event(
+                    eventJson.EventID,
+                    eventJson.Name,
+                    event_description,
+                    eventJson.Description,
+                    eventJson.Hour,
+                    cost,
+                    eventJson.Longitude,
+                    eventJson.Latitude,
+                    date,
+                    rank_date
+                    );
+                console.log(event);
+                viewModel.events.push(event);
             }
-
-            var cost = eventJson.Cost+" Πόντοι";
-
-            var event = new Event(
-                eventJson.EventID,
-                eventJson.Name,
-                event_description,
-                eventJson.Description,
-                eventJson.Hour,
-                cost,
-                eventJson.Longitude,
-                eventJson.Latitude,
-                date,
-                rank_date
-                );
-            console.log(event);
-            viewModel.events.push(event);
         });
 
         viewModel.events.sortByProperty("sort_date");

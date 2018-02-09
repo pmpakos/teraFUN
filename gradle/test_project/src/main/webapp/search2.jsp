@@ -144,6 +144,12 @@ p {
 		                    <span class="custom-control-indicator"></span>Εσωτερικός χώρος
 		                </label>
 					</li>
+					<li>
+						<label class="custom-control custom-checkbox">
+		                    <input type="checkbox" name="5" id="c5" class="custom-control-input">
+		                    <span class="custom-control-indicator"></span>Aθλητισμός
+		                </label>
+					</li>
 				</ul>
 
 				<ul class="checkboxes">
@@ -159,6 +165,12 @@ p {
 			                    <span class="custom-control-indicator"></span>Εκπαίδευση
 			            </label>
 		            </li>
+		            <li>
+						<label class="custom-control custom-checkbox">
+		                    <input type="checkbox" name="2" id="c6" class="custom-control-input">
+		                    <span class="custom-control-indicator"></span>Ομαδικό πνεύμα
+		                </label>
+					</li>
 				</ul>
 			</div>
     

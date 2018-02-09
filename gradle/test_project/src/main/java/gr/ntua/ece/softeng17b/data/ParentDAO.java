@@ -68,6 +68,17 @@ public class ParentDAO{
         }        
     }
 
+    public Optional<Parent> getHome(int id) {        
+        List<Parent> parent = jdbcTemplate.query("select Latitude,Longitude from parent where ParentID = ?", new Object[] {id}, new ParentRowMapper());
+        if (parent.size() == 1)  {
+            return Optional.of(parent.get(0));
+        }
+        else {
+            return Optional.empty();
+        }        
+    }
+
+
     public String getPassword(String email) {     
         List<String> db_pssw = jdbcTemplate.queryForList("select Password from parent where (Email = ?)", new Object[] {email}, String.class);
         

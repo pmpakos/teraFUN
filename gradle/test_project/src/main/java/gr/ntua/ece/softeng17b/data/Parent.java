@@ -61,4 +61,12 @@ public class Parent {
 	public String getPassword(){
 		return this.Password;
 	}
+
+	public double getLatitude(){
+		return this.Latitude;
+	}
+
+	public double getLongitude(){
+		return this.Longitude;
+	}
 }

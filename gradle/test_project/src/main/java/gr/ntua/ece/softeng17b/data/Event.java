@@ -61,6 +61,13 @@ public class Event {
 		this.Team = Team;
 		this.TagDescription = TagDescription;
 	}
+
+	public Event(double Latitude, double Longitude){
+		this.EventID = -1;
+		this.Name = "";
+		this.Latitude = Latitude;
+		this.Longitude = Longitude;
+	}
 	
 	public int getEventID(){
 		return this.EventID;
