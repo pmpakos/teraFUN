@@ -232,10 +232,14 @@ function init() {
     VM.prototype.loadEvents = function() {
         console.log("Loading events...");
         var text_search = "<%=text_search%>";
+        var date = "<%=date%>";
+        var ticket = "<%=ticket%>";
+        var age = "<%=age%>";
+        var distance = "<%=distance%>";
         var opts = {
             traditional : true,
             cache       : false,
-            url         : "./api/search?text_search="+text_search,
+            url         : "./api/search?text_search="+text_search+"&date="+date+"&ticket="+ticket+"&age="+age+"&distance="+distance,
             type        : "GET",
             dataType    : "json"
         };

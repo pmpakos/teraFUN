@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import java.util.Date;
+
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -53,9 +55,14 @@ public class EventDAO{
     }
 
 
-    public List<Event> searchAll(String text_search){
+    public List<Event> searchAll(String text_search, String date, String ticket, String age, String distance){
       
-        return jdbcTemplate.query("SELECT * FROM event WHERE MATCH (TagDescription) AGAINST(? IN BOOLEAN MODE)", new Object[] {text_search}, new EventRowMapper());
+        int check_ticket = Integer.parseInt(ticket);
+        int check_age = Integer.parseInt(age);
+        int check_distance = Integer.parseInt(distance);
+       // Date check_date = formatter.parse(date);
+
+        return jdbcTemplate.query("SELECT * FROM event WHERE ( ? >= MinAge and ? <= MaxAge and MATCH (TagDescription) AGAINST(? IN BOOLEAN MODE))", new Object[] {check_age, check_age, text_search}, new EventRowMapper());
     }
 
     public List<Event> getAll(){
