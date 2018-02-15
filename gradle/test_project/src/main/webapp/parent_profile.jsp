@@ -46,8 +46,29 @@
         width: 400px;
     }
     .table{
-        font-size: 30px;
+        font-size: 20px;
     }
+
+    .body1 {
+  background: url('static/balls.jpg');
+  background-color: #cccccc;
+  display: block;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: -1;
+   top: 0;
+
+  background-size:cover;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);   
+}
+
 
 
   </style>
@@ -64,26 +85,20 @@
 
 
 
-        <div class="container" id="ko">
+        <div class="container" style="text-align: center" id="ko">
         <div class="jumbotron">
 
-        <h1> Το προφίλ μου  <i class="fa fa-user"></i> </h1> <button type="button" class="btn btn-primary btn-lg ">Αποσύνδεση</button>
+        <h2> Το προφίλ μου  <i class="fa fa-user"></i> </h2> <button type="button" class="btn btn-primary btn-lg ">Αποσύνδεση</button>
 
         <table class="table table-striped ">
         
     
   
   <tbody>
+    
     <tr>
       
-      <td >Όνομα Χρήστη</td>
-      <td></td>
-      <td><span data-bind="text:username"></span></td>
-      
-    </tr>
-    <tr>
-      
-      <td>Όνομα</td>
+      <td><span class="glyphicon glyphicon-user"></span> Όνομα</td>
       <td></td>
       <td><span data-bind="text:first"></span></td>
       
@@ -91,41 +106,57 @@
     
     <tr>
       
-      <td>Επίθετο</td>
+      <td><span class="glyphicon glyphicon-user"></span> Επίθετο</td>
       <td></td>
       <td><span data-bind="text:last"></span></td>
      </tr>
+
      <tr>
       
-      <td>Διεύθυνση</td>
+      <td ><span class="glyphicon glyphicon-user"></span> Όνομα Χρήστη</td>
+      <td></td>
+      <td><span data-bind="text:username"></span></td>
+      
+    </tr>
+
+     <tr>
+      
+      <td><span class="glyphicon glyphicon-envelope"> </span> E-mail</td>
+      <td></td>
+      <td><span data-bind="text:mail"></span></td>
+      </tr>
+
+     <tr>
+      
+      <td><span class="glyphicon glyphicon-home"></span> Διεύθυνση</td>
       <td></td>
       <td><span data-bind="text:address"></span></td>
       </tr>
      <tr>
       
-      <td>Ταχυδρομικός κώδικας</td>
+      <td><span class="glyphicon glyphicon-map-marker"></span> Ταχυδρομικός κώδικας</td>
       <td></td>
       <td><span data-bind="text:postal"></span></td>
       </tr>
      <tr>
       
-      <td>Τηλέφωνο</td>
+      <td><span class="glyphicon glyphicon-phone-alt"></span> Τηλέφωνο</td>
       <td></td>
       <td><span data-bind="text:tel"></span></td>
       </tr>
-     <tr>
-      
-      <td>E-mail</td>
+
+
+      <tr>
+      <td><span class="glyphicon glyphicon-piggy-bank"></span> Αριθμός Κάρτας</td>
       <td></td>
-      <td><span data-bind="text:mail"></span></td>
+      <td><span data-bind="text:credit"></span></td>
       
     </tr>
   </tbody>
 </table>
 
     <button type="button" class="btn btn-primary btn-lg btn-block">Επεξεργασία Προφίλ</button>
-    <div class="row"></div>
-    <div></div>
+    
 
 
        
@@ -169,6 +200,7 @@
                 this.postal= ko.observable();
                 this.address= ko.observable();
                 this.tel= ko.observable();
+                this.credit=ko.observable();
                    
             }
 
@@ -199,6 +231,7 @@
                 viewModel.postal(parentJson.PostalCode);
                 viewModel.username(parentJson.Username);
                 viewModel.address(parentJson.Address);
+                viewModel.credit(parentJson.BankAccount)
 
 
                 
@@ -215,4 +248,5 @@
     <script> initMap(); </script>
 
     </body>
+    <div class="body1"></div>
 </html>
