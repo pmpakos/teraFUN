@@ -126,10 +126,11 @@ $(document).on('click','.search-button',function(){
 	empty_in4 = (age.length>0)? 0: 1;
 	empty_in5 = (distance.length>0)? 0: 1;
 
-	if(empty_in1*empty_in2*empty_in4*empty_in5 > 0){
-		alert("Συμπληρώστε πεδίο προς αναζήτηση.");
-	}
-	else if (valid_age==1){
+	//if(empty_in1*empty_in2*empty_in4*empty_in5 > 0){
+	//	alert("Συμπληρώστε πεδίο προς αναζήτηση.");
+	//}
+	
+	if (valid_age==1){
 		
 		alert("Μη έγκυρη εισαγωγή πεδίων.");
 	}
@@ -137,6 +138,6 @@ $(document).on('click','.search-button',function(){
 		alert("Μη έγκυρη εισαγωγή πεδίων.");
 	}
 	else{
-		window.location.href='http://localhost:8765/app/after_search.jsp?text_search='+text_search+'&date='+date+'&ticket='+ticket+'&age='+age+'&distance='+distance+'&sports='+sports+'&team_spirit='+team_spirit
+		window.location.href='http://localhost:8765/app/after_search.jsp?text_search='+text_search+'&date='+date+'&ticket='+ticket+'&age='+age+'&distance='+distance+'&sports='+sports+'&team_spirit='+team_spirit+'&fun='+fun+'&education='+education
 	}
 });

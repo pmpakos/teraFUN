@@ -55,14 +55,52 @@ public class EventDAO{
     }
 
 
-    public List<Event> searchAll(String text_search, String date, String ticket, String age, String distance){
+    public List<Event> searchAll(String text_search, String date, String ticket, String age, String distance, String sports, String team_spirit, String fun, String education){
       
-        int check_ticket = Integer.parseInt(ticket);
-        int check_age = Integer.parseInt(age);
-        int check_distance = Integer.parseInt(distance);
-       // Date check_date = formatter.parse(date);
 
-        return jdbcTemplate.query("SELECT * FROM event WHERE ( ? >= MinAge and ? <= MaxAge and MATCH (TagDescription) AGAINST(? IN BOOLEAN MODE))", new Object[] {check_age, check_age, text_search}, new EventRowMapper());
+
+        int check_ticket = Integer.parseInt(ticket); 
+        int check_text=0, check_age, check_date, check_sports, check_team, check_fun, check_education;
+
+        //if (date.equals("")) check_date=-1;
+       //else check_date=Integer.parseInt(date);
+
+        if (text_search.equals("")) check_text=-1;
+       
+
+        if (age.equals("")) check_age=-1;
+        else check_age=Integer.parseInt(age);
+
+        if (sports.equals("")) check_sports=-1;
+        else check_sports=Integer.parseInt(sports);
+
+        if (team_spirit.equals("")) check_team=-1;
+        else check_team=Integer.parseInt(team_spirit);
+
+
+        if (fun.equals("")) check_fun=-1;
+        else check_fun=Integer.parseInt(fun);
+
+        if (education.equals("")) check_education=-1;
+        else check_education=Integer.parseInt(education);
+
+        String sql = "SELECT * FROM event WHERE (  )";
+       
+        String sql_text, sql_date, sql_ticket, sql_age, sql_sports, sql_team, sql_fun, sql_education;
+
+        sql_text = "( MATCH (TagDescription) AGAINST(? IN NATURAL LANGUAGE MODE) OR (? = -1) )";
+        sql_date = "";
+        sql_ticket = "(? <=(MaxCapacity-TicketCounter)";
+        sql_age = "(? >= MinAge and ? <= MaxAge) OR ? = -1)";
+        sql_sports = "";
+        sql_team = "";
+        sql_fun = "";
+        sql_education = "";
+
+        sql = sql_age +" and "+ sql_ticket +  " and " + sql_text;
+
+        return jdbcTemplate.query("SELECT * FROM event WHERE ("+ sql + ")", new Object[] {check_age, check_age, check_age, check_ticket, text_search, check_text}, new EventRowMapper());
+        //WITH QUERY EXPANSION
     }
 
     public List<Event> getAll(){

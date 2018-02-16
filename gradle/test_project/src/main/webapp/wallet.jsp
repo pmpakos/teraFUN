@@ -158,10 +158,10 @@
       <h3> <div class="panel-heading"><br>Διαθέσιμο υπόλοιπο : <span data-bind="text:points"></span> πόντοι<br></div> </h3>
       <div class="panel-body">
   -->
-        <label> <h3> Προσθήκη πόντων  </h3> </label> 
+        <label> <h3> Προσθήκη πόντων : </h3> </label> 
   <!-- Trigger the modal with a button -->
   
-         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Αναλογία Χρημάτων - Πόντων</button>
+      
         
          <br>
               <!--  <form id="login-form" onsubmit="return validatebankaccount()" action="upload_image_company" method="Post" enctype="multipart/form-data" role="form">
@@ -178,7 +178,7 @@
   <div class="row">
       <div class="form-group name col-xs-8">
         <label for="name"><span class="glyphicon"></span>Όνομα κατόχου</label>
-        <input type="text" class="form-control name-validation form-element" name="name" placeholder="π.χ. PANOS LAMARIOS" data-validation="false">
+        <input type="text" class="form-control name-validation form-element" name="name" placeholder="π.χ. THEODOROS GALIDIS" data-validation="false">
       <span class="error"><p1 id="name_error"></p1></span>
       </div>
     </div>
@@ -216,7 +216,7 @@
 
         <div class="row">
            <div class="form-group points col-xs-8">
-            <label for="points"><span class="glyphicon"></span>Πόντοι προς αγορά :</label>
+            <label for="points"><span class="glyphicon"></span>Πόντοι προς αγορά :</label><h5> Η αναλογία είναι 1.00 ευρώ = 10 πόντοι (η μετατροπή γίνεται αυτόματα)</h5> 
             <input type="text" class="form-control points-validation form-element" name="points" placeholder="Εισάγετε τους πόντους" data-validation="false">
              <span class="error"><p1 id="points_error"></p1></span>
            </div>

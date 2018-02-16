@@ -15,7 +15,11 @@
     String ticket = request.getParameter("ticket");
     String age = request.getParameter("age");
     String distance = request.getParameter("distance");
-        
+   
+    String sports = request.getParameter("sports");
+    String team_spirit = request.getParameter("team_spirit");
+    String fun = request.getParameter("fun");    
+    String education = request.getParameter("education");
 
     id="4";
  %>
@@ -219,19 +223,25 @@ function init() {
         });           
     }
 
-    var text_search = "<%=text_search%>";
-    var date = "<%=date%>";
-    var ticket = "<%=ticket%>";
-    var age = "<%=age%>";
-    var distance = "<%=distance%>";
-    var id = "<%=id%>";
-
+  
     VM.prototype.loadEvents = function() {
         console.log("Loading events...");
+        var text_search = "<%=text_search%>";
+        var date = "<%=date%>";
+        var ticket = "<%=ticket%>";
+        var age = "<%=age%>";
+        var distance = "<%=distance%>";
+        var sports = "<%=sports%>";
+        var team_spirit = "<%=team_spirit%>";
+        var fun = "<%=fun%>";
+        var education = "<%=education%>";
+
+        var id = "<%=id%>";
+
         var opts = {
             traditional : true,
             cache       : false,
-            url         : "./api/search?text_search="+text_search+"&date="+date+"&ticket="+ticket+"&age="+age+"&distance="+distance+"&id="+id,
+            url         : "./api/search?text_search="+text_search+"&date="+date+"&ticket="+ticket+"&age="+age+"&distance="+distance+"&id="+id+'&sports='+sports+'&team_spirit='+team_spirit+'&fun='+fun+'&education='+education,
             type        : "GET",
             dataType    : "json"
         };
