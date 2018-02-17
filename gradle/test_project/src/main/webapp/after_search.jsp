@@ -16,10 +16,10 @@
     String age = request.getParameter("age");
     String distance = request.getParameter("distance");
    
-    String sports = request.getParameter("sports");
-    String team_spirit = request.getParameter("team_spirit");
-    String fun = request.getParameter("fun");    
-    String education = request.getParameter("education");
+    String kind = request.getParameter("kind");
+    String team = request.getParameter("team");
+    String indoor = request.getParameter("indoor");    
+    String offer = request.getParameter("offer");
 
     id="4";
  %>
@@ -231,17 +231,17 @@ function init() {
         var ticket = "<%=ticket%>";
         var age = "<%=age%>";
         var distance = "<%=distance%>";
-        var sports = "<%=sports%>";
-        var team_spirit = "<%=team_spirit%>";
-        var fun = "<%=fun%>";
-        var education = "<%=education%>";
+        var kind = "<%=kind%>";
+        var team = "<%=team%>";
+        var indoor = "<%=indoor%>";
+        var offer = "<%=offer%>";
 
         var id = "<%=id%>";
 
         var opts = {
             traditional : true,
             cache       : false,
-            url         : "./api/search?text_search="+text_search+"&date="+date+"&ticket="+ticket+"&age="+age+"&distance="+distance+"&id="+id+'&sports='+sports+'&team_spirit='+team_spirit+'&fun='+fun+'&education='+education,
+            url         : "./api/search?text_search="+text_search+"&date="+date+"&ticket="+ticket+"&age="+age+"&distance="+distance+"&id="+id+'&kind='+kind+'&team='+team+'&indoor='+indoor+'&offer='+offer,
             type        : "GET",
             dataType    : "json"
         };

@@ -81,6 +81,7 @@ $(document).on('blur','.age',function(event){
 
 
 $(document).on('click','.search-button',function(){
+	/*
 	if($('#c1').is(":checked")){
 		outdoor=1;
 	}
@@ -98,7 +99,7 @@ $(document).on('click','.search-button',function(){
 	}
 	if($('#c6').is(":checked")){
 		team_spirit=1;
-	}
+	}*/
 
 	var text_search = document.getElementById("text_search").value;
 	console.log("Search: "+text_search);
@@ -111,6 +112,19 @@ $(document).on('click','.search-button',function(){
 	console.log("No. Tickets: "+ticket);
 
 
+	var e1 = document.getElementById("kind");
+	var kind = e1.options[e1.selectedIndex].value;
+	//console.log("No. Tickets: "+ticket);
+	var e2 = document.getElementById("team");
+	var team = e2.options[e2.selectedIndex].value;
+	//console.log("No. Tickets: "+ticket);
+	var e3 = document.getElementById("indoor");
+	var indoor = e3.options[e3.selectedIndex].value;
+	//console.log("No. Tickets: "+ticket);
+	var e4 = document.getElementById("offer");
+	var offer = e4.options[e4.selectedIndex].value;
+	//console.log("No. Tickets: "+ticket);
+
 	var age = document.getElementById("age").value;
 	console.log("Age: "+age);
 
@@ -119,7 +133,7 @@ $(document).on('click','.search-button',function(){
 	console.log("Distance: "+distance);
 
 
-	console.log(" Out: "+outdoor+" In: "+indoor+" Fun: "+fun+" Edu: "+education+"Sports: "+ sports+" TeamSpirit: "+team_spirit);
+	//console.log(" Out: "+outdoor+" In: "+indoor+" Fun: "+fun+" Edu: "+education+"Sports: "+ sports+" TeamSpirit: "+team_spirit);
 
 	empty_in1 = (text_search.length>0)? 0: 1;
 	empty_in2 = (date.length>0)? 0: 1;
@@ -138,6 +152,6 @@ $(document).on('click','.search-button',function(){
 		alert("Μη έγκυρη εισαγωγή πεδίων.");
 	}
 	else{
-		window.location.href='http://localhost:8765/app/after_search.jsp?text_search='+text_search+'&date='+date+'&ticket='+ticket+'&age='+age+'&distance='+distance+'&sports='+sports+'&team_spirit='+team_spirit+'&fun='+fun+'&education='+education
+		window.location.href='http://localhost:8765/app/after_search.jsp?text_search='+text_search+'&date='+date+'&ticket='+ticket+'&age='+age+'&distance='+distance+'&kind='+kind+'&team='+team+'&indoor='+indoor+'&offer='+offer
 	}
 });

@@ -55,12 +55,14 @@ public class EventDAO{
     }
 
 
-    public List<Event> searchAll(String text_search, String date, String ticket, String age, String distance, String sports, String team_spirit, String fun, String education){
+    public List<Event> searchAll(String text_search, String date, String ticket, String age, String distance, String kind, String team, String indoor, String offer){
       
 
+       
+        String sql, sql_text, sql_date, sql_ticket, sql_age, sql_kind, sql_team, sql_indoor, sql_offer;
 
         int check_ticket = Integer.parseInt(ticket); 
-        int check_text=0, check_age, check_date, check_sports, check_team, check_fun, check_education;
+        int check_text=0, check_age, check_date, check_kind, check_team, check_indoor, check_offer;
 
         //if (date.equals("")) check_date=-1;
        //else check_date=Integer.parseInt(date);
@@ -71,33 +73,30 @@ public class EventDAO{
         if (age.equals("")) check_age=-1;
         else check_age=Integer.parseInt(age);
 
-        if (sports.equals("")) check_sports=-1;
-        else check_sports=Integer.parseInt(sports);
+        if (kind.equals("")) sql_kind = "(TRUE)";
+        else if(kind.equals("Άθληση")) sql_kind = "( Sport = 1)";
+        else sql_kind= "(Education = 1)";
 
-        if (team_spirit.equals("")) check_team=-1;
-        else check_team=Integer.parseInt(team_spirit);
+        if (team.equals("")) sql_team = "(TRUE)";
+        else if (team.equals("Ομαδικό")) sql_team = "(Team = 1)";
+        else sql_team = "(Team = 0)";
 
+        if (indoor.equals("")) sql_indoor = "(TRUE)";
+        else if (indoor.equals("Εσωτερικός")) sql_indoor = "( Indoor = 1)";
+        else sql_indoor = "( Indoor = 0)";
 
-        if (fun.equals("")) check_fun=-1;
-        else check_fun=Integer.parseInt(fun);
+        if (offer.equals("")) sql_offer = "(TRUE)";
+        else if (offer.equals("Ναι")) sql_offer = "( IsOffer = 1)";
+        else sql_offer = "( IsOffer = 0)";
 
-        if (education.equals("")) check_education=-1;
-        else check_education=Integer.parseInt(education);
-
-        String sql = "SELECT * FROM event WHERE (  )";
-       
-        String sql_text, sql_date, sql_ticket, sql_age, sql_sports, sql_team, sql_fun, sql_education;
-
+        
         sql_text = "( MATCH (TagDescription) AGAINST(? IN NATURAL LANGUAGE MODE) OR (? = -1) )";
         sql_date = "";
         sql_ticket = "(? <=(MaxCapacity-TicketCounter)";
         sql_age = "(? >= MinAge and ? <= MaxAge) OR ? = -1)";
-        sql_sports = "";
-        sql_team = "";
-        sql_fun = "";
-        sql_education = "";
+        
 
-        sql = sql_age +" and "+ sql_ticket +  " and " + sql_text;
+        sql = sql_age +" and "+ sql_ticket + " and " + sql_text+ " and " + sql_kind+ " and " + sql_team+ " and " + sql_indoor + " and " + sql_offer;
 
         return jdbcTemplate.query("SELECT * FROM event WHERE ("+ sql + ")", new Object[] {check_age, check_age, check_age, check_ticket, text_search, check_text}, new EventRowMapper());
         //WITH QUERY EXPANSION

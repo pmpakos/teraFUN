@@ -26,10 +26,10 @@ public class SearchResource extends ServerResource {
 		String ticket = getQueryValue("ticket");
 		String age = getQueryValue("age");
 		String distance = getQueryValue("distance");
-		String sports = getQueryValue("sports");
-		String team_spirit = getQueryValue("team_spirit");
-		String fun = getQueryValue("fun");
-		String education = getQueryValue("education");
+		String kind = getQueryValue("kind");
+		String team = getQueryValue("team");
+		String indoor = getQueryValue("indoor");
+		String offer = getQueryValue("offer");
 		String id = getQueryValue("id");
 		
 
@@ -38,7 +38,7 @@ public class SearchResource extends ServerResource {
 		event_dao.setDataSource(dataAccess.dataSource);
 		event_dao.setJdbcTemplate(dataAccess.jdbcTemplate);
 		
-		List<Event> events = event_dao.searchAll(text_search, date, ticket, age, distance, sports, team_spirit, fun,education);
+		List<Event> events = event_dao.searchAll(text_search, date, ticket, age, distance, kind, team, indoor, offer);
 		
 		if(!(id.equals(""))){
 			

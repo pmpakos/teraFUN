@@ -3,8 +3,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Search | teraFUN</title>
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
@@ -100,7 +103,7 @@ p {
 	       		</span>
 		    	<span class="error"><p1 id="search_date_error"></p1></span>
 	    	</div> 
-  	 
+  	 <br>
 		    <div class="row">
 				<div class="form-group tickets col-xs-3">
 			        <label style="padding-left: 0;" for="text"><p>Εισιτήρια:</p></label>
@@ -130,13 +133,68 @@ p {
 
 	   		</div>
 
+<br>
+
+<div class="row">
+
+
+<div class="form-group kind col-xs-3">
+			        <label style="padding-left: 0;" for="text"><p>Είδος:</p></label>
+					<select class="form-control" id="kind">
+						<option></option>
+						<option>Άθληση</option>
+						<option>Εκπαίδευση</option>
+						</select>
+				</div>
+
+<div class="form-group team col-xs-3">
+			        <label style="padding-left: 0;" for="text"><p>Ομαδικότητα:</p></label>
+					<select class="form-control" id="team">
+						<option></option>
+						<option>Ομαδικό</option>
+						<option>Ατομικό</option>
+						</select>
+				</div>
+
+
+<div class="form-group indoor col-xs-3">
+			        <label style="padding-left: 0;" for="text"><p>Χώρος:</p></label>
+					<select class="form-control" id="indoor">
+						<option></option>
+						<option>Εσωτερικός</option>
+						<option>Εξωτερικός</option>
+						</select>
+				</div>
+
+<div class="form-group offer col-xs-3">
+			        <label style="padding-left: 0;" for="text"><p>Προσφορά:</p></label>
+					<select class="form-control" id="offer">
+						<option></option>
+						<option>Ναι</option>
+						<option>Όχι</option>
+						</select>
+				</div>
+
+</div>
+
+
+
+
+<!--
+
 		    <div class="form-check location">
+
+
 				<ul class="checkboxes">
 					<li>
+
+   
+						
 						<label class="custom-control custom-checkbox">
-		                    <input type="checkbox" name="1" id="c1" class="custom-control-input">
+		                    <input type="radio" name="1" id="c1" class="custom-control-input">
 		                    <span class="custom-control-indicator"></span>Εξωτερικός χώρος
 		                </label>
+		            
 					</li>
 					<li>
 						<label class="custom-control custom-checkbox">
@@ -174,7 +232,7 @@ p {
 				</ul>
 			</div>
     
-
+-->
 		  	<div class="form-group btn1" style="float: left;">
 				<button type="button" class="btn btn-danger clear-button"><span class="glyphicon glyphicon-remove"></span>&nbsp; Καθαρισμός </button>
 			</div> 	 
