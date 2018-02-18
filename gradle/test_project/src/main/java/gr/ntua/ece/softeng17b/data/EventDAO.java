@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Optional;
 
 import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -61,14 +63,33 @@ public class EventDAO{
        
         String sql, sql_text, sql_date, sql_ticket, sql_age, sql_kind, sql_team, sql_indoor, sql_offer;
 
+        //Date new_date=null;
+
         int check_ticket = Integer.parseInt(ticket); 
-        int check_text=0, check_age, check_date, check_kind, check_team, check_indoor, check_offer;
+        int check_text=0, check_age, check_date=0, check_kind, check_team, check_indoor, check_offer;
 
         //if (date.equals("")) check_date=-1;
        //else check_date=Integer.parseInt(date);
-
+       
         if (text_search.equals("")) check_text=-1;
        
+        if (date.equals("")) check_date = -1;
+   // Date date2 = new Date();
+
+        
+        /*else{
+            try{
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            new_date = formatter.parse(date);
+            } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
+        }*/
+ //System.out.println("DATE IS:"+new_date +" AND CHECK IS:"+check_date);
+
+
 
         if (age.equals("")) check_age=-1;
         else check_age=Integer.parseInt(age);
@@ -91,14 +112,16 @@ public class EventDAO{
 
         
         sql_text = "( MATCH (TagDescription) AGAINST(? IN NATURAL LANGUAGE MODE) OR (? = -1) )";
-        sql_date = "";
+        
         sql_ticket = "(? <=(MaxCapacity-TicketCounter)";
         sql_age = "(? >= MinAge and ? <= MaxAge) OR ? = -1)";
+        sql_date = "( (DATE_FORMAT(?, '%Y-%m-%d') <= DateEvent) OR ? = -1 )";
+       // sql_date = "( (date2 > DateEvent) OR ? = -1 )";
         
 
-        sql = sql_age +" and "+ sql_ticket + " and " + sql_text+ " and " + sql_kind+ " and " + sql_team+ " and " + sql_indoor + " and " + sql_offer;
+        sql = sql_date + " and " +sql_age +" and "+ sql_ticket + " and " + sql_text+ " and " + sql_kind+ " and " + sql_team+ " and " + sql_indoor + " and " + sql_offer;
 
-        return jdbcTemplate.query("SELECT * FROM event WHERE ("+ sql + ")", new Object[] {check_age, check_age, check_age, check_ticket, text_search, check_text}, new EventRowMapper());
+        return jdbcTemplate.query("SELECT * FROM event WHERE ("+ sql + ")", new Object[] {date, check_date, check_age, check_age, check_age, check_ticket, text_search, check_text}, new EventRowMapper());
         //WITH QUERY EXPANSION
     }
 
