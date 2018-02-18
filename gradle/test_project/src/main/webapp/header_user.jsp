@@ -18,14 +18,14 @@
                 </div>
                 <div class="collapse navbar-collapse" id="bs-nav-demo">
                     <ul class="nav navbar-nav">
-                        <li><a href="search.jsp"> Αναζήτηση </a></li>              
+                        <li><a href="search2.jsp"> Αναζήτηση </a></li>              
                         <li><a href="#"> Επικοινωνία </a></li>
-                        <li><a href="#"> Πληροφορίες</a></li> 
-                        <li><a href="#"> Ερωτήσεις </a></li>                 
+                        <li><a href="about_us_user.jsp"> Σχετικά με εμάς</a></li> 
+                        <li><a href="faq_user.jsp"> Συχνές ερωτήσεις </a></li>                 
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Πορτοφόλι  <i class="fa fa-eur"></i></a></li>
+                        <li><a href="wallet.jsp">Πορτοφόλι  <i class="fa fa-eur"></i></a></li>
 				        <li><a href="#about">Προφίλ  <i class="fa fa-user"></i></a></li>
                     </ul>
                 </div>

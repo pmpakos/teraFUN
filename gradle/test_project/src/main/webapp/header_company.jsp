@@ -25,7 +25,7 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Πορτοφόλι <i class="fa fa-eur"></i></a></li>
+                        
 			            <li><a href="#about">Προφίλ <i class="fa fa-user"></i></a></li>
                     </ul>
                 </div>
