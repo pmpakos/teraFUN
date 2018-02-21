@@ -96,7 +96,7 @@ p {
 		  		<span class="error"><p1 id="search_text-error"></p1></span>
     		</div>
     	
-	    	<div class="input-group date form-group search_date " id='datetimepicker1'>
+	    	<div class="input-group date form-group search_date dropdown" id='datetimepicker1'>
 		      	<input type="text" class="form-control search_date-validation form-element" id="inputID" name="search_date" placeholder="Επιλέξτε Ημερομηνία" data-validation="false">
 		      	<span class="input-group-addon">
 	            	<span class="glyphicon glyphicon-calendar"></span>

@@ -95,7 +95,7 @@
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="text-center">
-													<a href="http://localhost:8765/app/forgot_password.jsp" tabindex="5" class="forgot-password fpass1">Ξεχάσατε τον κωδικό σας;</a>
+													<a href="https://localhost:8765/app/forgot_password.jsp" tabindex="5" class="forgot-password fpass1">Ξεχάσατε τον κωδικό σας;</a>
 												</div>
 											</div>
 										</div>
@@ -129,7 +129,7 @@
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="text-center">
-													<a href="http://localhost:8765/app/forgot_password.jsp" tabindex="5" class="forgot-password fpass2">Ξεχάσατε τον κωδικό σας;</a>
+													<a href="https://localhost:8765/app/forgot_password.jsp" tabindex="5" class="forgot-password fpass2">Ξεχάσατε τον κωδικό σας;</a>
 												</div>
 											</div>
 										</div>
@@ -145,7 +145,7 @@
 					</div>
 
 				</div>
-				<a href="http://localhost:8765/app/login_admin.jsp" class="login-admin">Σύνδεση ως Διαχειριστής</a>
+				<a href="https://localhost:8765/app/login_admin.jsp" class="login-admin">Σύνδεση ως Διαχειριστής</a>
 		</div>
 	</div>	
 

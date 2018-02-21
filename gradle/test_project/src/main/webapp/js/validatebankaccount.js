@@ -190,7 +190,7 @@ $(document).on('click','.final-btn',function(){
 			},
 			url:'/app/wallet_update',
 			success: function(){
-				window.location.href='http://localhost:8765/app/wallet.jsp'
+				window.location.href='https://localhost:8765/app/wallet.jsp'
 			}
 				
 		});	

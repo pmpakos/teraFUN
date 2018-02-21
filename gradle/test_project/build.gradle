@@ -56,9 +56,9 @@ dependencies {
 }
 
 gretty {
-    httpEnabled = true
-    httpsEnabled = false
-    httpPort = 8765
+    httpsEnabled = true
+    httpEnabled = false
+    httpsPort = 8765
     contextPath = 'app'
     scanInterval = 1 //disable hot deployment
     managedClassReload=true

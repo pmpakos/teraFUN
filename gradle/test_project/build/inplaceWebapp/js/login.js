@@ -170,7 +170,7 @@ $(document).on('click','.btn-logina',function(){
 				else{
 					localStorage.setItem("flag",0);
 					localStorage.setItem("id",result);
-					window.location.href='http://localhost:8765/app/sample.jsp'
+					window.location.href='https://localhost:8765/app/sample.jsp'
 				}
 				
 			}
@@ -214,7 +214,7 @@ $(document).on('click','.btn-loginp',function(){
 				else{
 					localStorage.setItem("flag",1);
 					localStorage.setItem("id",result);
-					window.location.href='http://localhost:8765/app/sample.jsp'
+					window.location.href='https://localhost:8765/app/sample.jsp'
 				}
 				
 			}
@@ -258,7 +258,7 @@ $(document).on('click','.btn-loginc',function(){
 				else{
 					localStorage.setItem("flag",2);
 					localStorage.setItem("id",result);
-					window.location.href='http://localhost:8765/app/sample.jsp'
+					window.location.href='https://localhost:8765/app/sample.jsp'
 				}
 				
 			}
