@@ -31,6 +31,8 @@ public class RestApi extends Application {
 		//GET, POST
 		router.attach("/events", EventsResource.class);
 
+		//GET, POST
+		router.attach("/events/{id}", HistoryEventResource.class);
 
 		//GET, POST
 		router.attach("/search", SearchResource.class);

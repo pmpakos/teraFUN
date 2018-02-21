@@ -214,7 +214,7 @@
                      </div>
                     <div class="form-group">
                     <div class="col-xs-10">   
-                      <button type="button" class="btn btn-block final-btn form-control btn btn-registerc""> Επιβεβαίωση αγοράς </button>
+                      <button type="button" class="btn btn-block final-btn form-control btn btn-registerc"> Επιβεβαίωση αγοράς </button>
                     </div>
                   </div>
                 </div>

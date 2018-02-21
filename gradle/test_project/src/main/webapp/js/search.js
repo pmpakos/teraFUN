@@ -10,7 +10,14 @@ sports=0;
 
 $(function () {
 
-	$('#datetimepicker1').datetimepicker({ format: 'DD/MM/YYYY', minDate:  moment().millisecond(0).second(0).minute(0).hour(0)});
+	$('#datetimepicker1').datetimepicker({
+		format: 'DD/MM/YYYY', 
+		minDate:  moment().millisecond(0).second(0).minute(0).hour(0),
+		widgetPositioning:{
+					        horizontal: 'auto',
+					        vertical: 'bottom'
+                    	  }
+	});
 });
 		
 $(document).on('click','.search_date-validation',function(event){
