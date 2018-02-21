@@ -66,15 +66,15 @@
 			    	<span class="error"><p1 id="age_error"></p1></span>
 			    </div>
 
-			    <div class="form-group distance col-xs-5">
+			    <!--<div class="form-group distance col-xs-5">
 			     	<label style="padding-left: 0;" for="distance"><span class="glyphicon glyphicon-road"></span>Απόσταση</label>
 			     	<button style="float: right;" type="button" class="btn btn-info btn-xs" data-toggle="hover" data-trigger="focus" title="Απόσταση" data-content="Συμπληρώστε το πεδίο απόσταση (χιλιόμετρα) προκειμένου να ορίσετε την απόσταση των δραστηριοτήτων από τη διεύθυνση σας. Η μέγιστη δυνατή απόσταση είναι 70 χλμ.">
 
-					<span class="glyphicon glyphicon-info-sign"></span>&nbsp; Info </button>
+					<span class="glyphicon glyphicon-info-sign"></span>Info </button>
 					<input  style="float: left; " type="text" class="form-control distance form-element" id="distance" name="distance" placeholder="Xιλιόμετρα" data-validation="false">
 			    	<span class="error"><p1 id="distance_error"></p1></span>
 
-			    </div>
+			    </div>-->
 
 	   		</div>
 

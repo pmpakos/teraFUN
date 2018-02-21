@@ -30,7 +30,7 @@ $(document).on('click','.clear-button',function(){
 	document.getElementById('inputID').readOnly = false;
 	$('#inputID').val('');
 	$('#age').val('');
-	$('#distance').val('');
+	//$('#distance').val('');
 	$('select').prop('selectedIndex', 0);
 	document.getElementById("c1").checked = false;
 	document.getElementById("c2").checked = false;
@@ -43,7 +43,7 @@ $(document).on('click','.clear-button',function(){
 
 });
 
-$(document).on('blur','.distance',function(event){
+/*$(document).on('blur','.distance',function(event){
 	var content = $(this).val();
 	invalidArray = content.match(/[-a-zA-Zα-ωΑ-Ω]/g);
 	
@@ -58,7 +58,7 @@ $(document).on('blur','.distance',function(event){
 		$('#distance').val('');
 	}
 
-});
+});*/
 
 
 
@@ -129,8 +129,8 @@ $(document).on('click','.search-button',function(){
 	console.log("Age: "+age);
 
 
-	var distance = document.getElementById("distance").value;
-	console.log("Distance: "+distance);
+	//var distance = document.getElementById("distance").value;
+//	console.log("Distance: "+distance);
 
 
 	//console.log(" Out: "+outdoor+" In: "+indoor+" Fun: "+fun+" Edu: "+education+"Sports: "+ sports+" TeamSpirit: "+team_spirit);
@@ -138,7 +138,7 @@ $(document).on('click','.search-button',function(){
 	empty_in1 = (text_search.length>0)? 0: 1;
 	empty_in2 = (date.length>0)? 0: 1;
 	empty_in4 = (age.length>0)? 0: 1;
-	empty_in5 = (distance.length>0)? 0: 1;
+//	empty_in5 = (distance.length>0)? 0: 1;
 
 	//if(empty_in1*empty_in2*empty_in4*empty_in5 > 0){
 	//	alert("Συμπληρώστε πεδίο προς αναζήτηση.");
@@ -152,6 +152,6 @@ $(document).on('click','.search-button',function(){
 		alert("Μη έγκυρη εισαγωγή πεδίων.");
 	}
 	else{
-		window.location.href='http://localhost:8765/app/after_search.jsp?text_search='+text_search+'&date='+date+'&ticket='+ticket+'&age='+age+'&distance='+distance+'&kind='+kind+'&team='+team+'&indoor='+indoor+'&offer='+offer
+		window.location.href='http://localhost:8765/app/after_search.jsp?text_search='+text_search+'&date='+date+'&ticket='+ticket+'&age='+age+'&kind='+kind+'&team='+team+'&indoor='+indoor+'&offer='+offer
 	}
 });
