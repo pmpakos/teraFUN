@@ -1,4 +1,4 @@
-@import "http://fonts.googleapis.com/css?family=Roboto:300,400,500,700";
+@import "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700";
 
 /* Demo only */
 body {
@@ -61,7 +61,7 @@ hgroup label {font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; col
 .container1 {
     display: block;
     position: relative;
-    padding-left: 18px;
+    padding-left: 50px;
     margin-bottom: 5px;
     cursor: pointer;
     font-size: 14px;

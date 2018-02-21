@@ -21,7 +21,7 @@
     String indoor = request.getParameter("indoor");    
     String offer = request.getParameter("offer");
 
-    id="4";
+    id="9";
 
  %>
 
@@ -68,10 +68,10 @@
                 <h1>Αποτελέσματα αναζήτησης</h1>
                 <hgroup class="mb20">
                     
-                    <h2 class="lead" style="float:left">Βρέθηκαν<strong class="text-danger"> <span data-bind="text:events().length"></span> </strong>εκδηλώσεις</h2>
-                    <label class="container1" >Eμφάνιση όλων των εκδηλώσεων
+                    <h2 class="lead" style="float:left">Βρέθηκαν συνολικά<strong class="text-danger"> <span data-bind="text:events().length"></span> </strong> <span data-bind="visible:events().length>1">εκδηλώσεις</span> <span data-bind="visible:events().length<2">εκδήλωση</span></h2>
+                    <label class="container1">Eμφάνιση όλων των εκδηλώσεων
                         <input type="checkbox" checked="checked" data-bind="checked: selectAll" class="custom-control-input">
-                        <span class="checkmark"></span>
+                        <span class="checkmark " style="margin-left: 32px;"></span>
                     </label>
                     <div class="button-group" style="float:right; margin-top:6px; margin-bottom:6px;" data-bind="visible: showMe">
                         <button type="button"  data-toggle="dropdown" class="btn btn-default dropdown-toggle">
@@ -99,19 +99,20 @@
                                 <li><i class="glyphicon glyphicon-calendar"></i> <span data-bind="text:date"></span></li>
                                 <li><i class="glyphicon glyphicon-time"></i> <span data-bind="text:hour"></span></li>
                                 <li style="font-weight:bold;"><i class="glyphicon glyphicon-piggy-bank"></i> <span data-bind="text:cost"></span></li>
-                                <li>    
+                                <!--<li>    
                                     <label class="container1">
                                         <input type="checkbox" checked="checked" data-bind="checked: showInMap">
                                         <span class="checkmark"></span>
                                     </label>
-                                </li>
+                                </li>-->
                             </ul>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
                             <h3><span data-bind="text:name"></span></h3>
                             <p data-bind="text:description"></p>                        
                             <button type="button" class="btn btn-info btn-sm" style="vertical-align:bottom;">Μάθε Περισσότερα</button>
-                            <button type="button" class="btn btn-success" style="float: right;">Κλείσε θέση τώρα!</button>
+                            <button data-bind="visible: $parent.showMe" type="button" class="btn btn-success" style="float: right;">Κλείσε θέση τώρα!</button>
+                            <button onclick="location.href = 'sign_up_parent.jsp';" data-bind="visible: $parent.notShow" type="button" class="btn btn-warning" style="float: right;" data-toggle="tooltip" title="Γίνε μέλος για να κάνεις κράτηση!">Κάνε εγγραφή τώρα!</button>
                         </div>
                         <span class="clearfix borda"></span>
                     </article>       
@@ -120,7 +121,7 @@
             </div>
 
 
-        <div id="map" class="gmap"></div>
+            <div id="map" class="gmap"></div>
         </div>
 
 
@@ -163,7 +164,11 @@
                 b = b.rank;
                 return a>b?1:(a<b?-1:0);
             };
-
+            
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip(); 
+            });
+            
             $('[id^="check"]').click(function () {
                 if($(this).hasClass('btn-default')){
                     $('[id^="check"]').removeClass('btn-info').addClass('btn-default');
@@ -234,6 +239,7 @@
                     var that = this;
                     this.events = ko.observableArray();
                     this.showMe = ko.observable(false);
+                    this.notShow = ko.observable(true);
                     this.selectAll = ko.computed({
                         read : function() {
                             // Get selected when dependent children are selected
@@ -351,6 +357,7 @@
 
                         if(eventJson.EventID == -1){
                             viewModel.showMe(true);
+                            viewModel.notShow(false);
                             home_lat = eventJson.Latitude;
                             home_lon = eventJson.Longitude;
                             uluru = {lat: eventJson.Latitude, lng: eventJson.Longitude};
