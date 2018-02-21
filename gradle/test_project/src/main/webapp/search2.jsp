@@ -143,6 +143,7 @@ p {
 					<select class="form-control" id="kind">
 						<option></option>
 						<option>Άθληση</option>
+						<option>Διασκέδαση</option>
 						<option>Εκπαίδευση</option>
 						</select>
 				</div>
