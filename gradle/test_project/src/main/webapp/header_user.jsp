@@ -8,22 +8,20 @@
             <div class="container">
                 <div class="navbar-header">
                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-                
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                     <a href="index.html" class="navbar-brand"><img src="static/logo.png"  class="img-responsive" alt=""/></a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-nav-demo">
                     <ul class="nav navbar-nav">
                         <li><a href="search2.jsp"> Αναζήτηση </a></li>              
-                        <li><a href="#"> Επικοινωνία </a></li>
+                        <li><a href="contact_user.jsp"> Επικοινωνία </a></li>
                         <li><a href="about_us_user.jsp"> Σχετικά με εμάς</a></li> 
                         <li><a href="faq_user.jsp"> Συχνές ερωτήσεις </a></li>                 
                     </ul>
-
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="wallet.jsp">Πορτοφόλι  <i class="fa fa-eur"></i></a></li>
 				        <li><a href="#about">Προφίλ  <i class="fa fa-user"></i></a></li>

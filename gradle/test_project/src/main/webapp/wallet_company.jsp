@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Wallet | teraFun</title>
+<title>Wallet Company | teraFun</title>
 
 
   <!-- Latest compiled and minified CSS -->
@@ -149,12 +149,10 @@
 <!-- <body background="static/balls.jpg"> -->
 <body>
 
-<%@include file="header_user.jsp" %>
+<%@include file="header_company.jsp" %>
 
 <div class="container" id="ko">
-
     <div class="container">
-
       <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <div class="panel panel-register">
@@ -164,18 +162,18 @@
           <div class="panel-body">
              <div class="row"> 
               <div class="col-lg-12 col-md-offset-1">
-                <h4>Διαθέσιμο υπόλοιπο : <span data-bind="text:points"></span> πόντοι </h4>
-                <div class="row">
+                <h4>Σύνολο κερδών : <span data-bind="text:points"></span> πόντοι </h4>
+<!--                <div class="row">
                   <div class='divider centered col-md-10'></div>
                 </div>
                 <br>
-        <h4> Προσθήκη πόντων </h4>
+         <h4> Προσθήκη πόντων </h4>
           <div class="form-body"> 
             <form id="registrationForm" role='form'>
                 <div class="row">
                  <div class="form-group name col-xs-8">
                   <label> Αριθμός λογαριασμού : </label> 
-                   <span data-bind="text:bankaccount"></span>
+                    <span data-bind="text:bankaccount"></span>
                  </div>
                </div>
             <div class="row">
@@ -224,6 +222,7 @@
             </form>
 
         </div>
+ -->      
       </div>
     </div>
 
@@ -277,18 +276,17 @@
     <script>
         function init() {    
             var VM = function(){
-               // this.id = ko.observable();
-                this.bankaccount = ko.observable(); 
+                // this.bankaccount = ko.observable(); 
                 this.points =  ko.observable(); 
             }
 
-            VM.prototype.loadParent = function() {
-                console.log("Loading parent...");
+            VM.prototype.loadCompany = function() {
+                console.log("Loading company...");
                 var ID = <%=ID%>;
                 var opts = {
                     traditional : true,
                     cache       : false,
-                    url         : "./api/parent/"+ID,
+                    url         : "./api/company/"+ID,
                     type        : "GET",
                     dataType    : "json"
                 };
@@ -299,11 +297,10 @@
             var viewModel = new VM();
             console.log("Created VM");            
 
-            viewModel.loadParent().done(function(parentJson){
-                console.log("Done loading parent.");                 
-                //viewModel.id(parentJson.ParentID);
-                viewModel.bankaccount(parentJson.BankAccount);
-                viewModel.points(parentJson.Points);
+            viewModel.loadCompany().done(function(companyJson){
+                console.log("Done loading company.");                 
+                // viewModel.bankaccount(companytJson.BankAccount);
+                viewModel.points(companyJson.Points);
        
 
             });
