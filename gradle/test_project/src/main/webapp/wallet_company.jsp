@@ -154,14 +154,14 @@
 <div class="container" id="ko">
     <div class="container">
       <div class="row">
-      <div class="col-md-6 col-md-offset-3">
+      <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
         <div class="panel panel-register">
           <div class="panel-heading">
              <h>Πορτοφόλι</h>
           </div>
           <div class="panel-body">
              <div class="row"> 
-              <div class="col-lg-12 col-md-offset-1">
+              <div class="col-lg-12 col-md-offset-1 col-sm-offset-1"> 
                 <h4>Σύνολο κερδών : <span data-bind="text:points"></span> πόντοι </h4>
 <!--                <div class="row">
                   <div class='divider centered col-md-10'></div>

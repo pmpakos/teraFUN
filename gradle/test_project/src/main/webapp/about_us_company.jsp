@@ -14,7 +14,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-  <title>TeraFun About Us</title>
+  <title>About Us| teraFUN</title>
   <style type="text/css">
     body { padding-top: 70px; }
     .jumbotron {
