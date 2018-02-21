@@ -74,6 +74,17 @@ public class EventDAO{
         if (text_search.equals("")) check_text=-1;
        
         if (date.equals("")) check_date = -1;
+        else{
+
+            String day, month, year;
+            String parts[];
+            parts=date.split("/");
+            day = parts[0];
+            month = parts[1];
+            year = parts[2];
+            date = year + "-" + month + "-" + day;
+            System.out.println(date);
+        }
    // Date date2 = new Date();
 
         
@@ -96,7 +107,8 @@ public class EventDAO{
 
         if (kind.equals("")) sql_kind = "(TRUE)";
         else if(kind.equals("Άθληση")) sql_kind = "( Sport = 1)";
-        else sql_kind= "(Education = 1)";
+        else if(kind.equals("Εκπαίδευση")) sql_kind= "(Education = 1)";
+        else sql_kind = "( Fun = 1)";
 
         if (team.equals("")) sql_team = "(TRUE)";
         else if (team.equals("Ομαδικό")) sql_team = "(Team = 1)";
@@ -113,15 +125,16 @@ public class EventDAO{
         
         sql_text = "( MATCH (TagDescription) AGAINST(? IN NATURAL LANGUAGE MODE) OR (? = -1) )";
         
-        sql_ticket = "(? <=(MaxCapacity-TicketCounter)";
-        sql_age = "(? >= MinAge and ? <= MaxAge) OR ? = -1)";
-        sql_date = "( (DATE_FORMAT(?, '%Y-%m-%d') <= DateEvent) OR ? = -1 )";
+        sql_ticket = "(? <=(MaxCapacity-TicketCounter))";
+        sql_age = "((? >= MinAge and ? <= MaxAge) OR ? = -1)";
+        sql_date = "( (DATE_FORMAT(DateEvent, '%Y-%m-%d') >= ?) OR (? = -1) )";
+       // sql_date = "( (DATE_FORMAT(DateEvent, '%d/%m/%Y') >= ?) OR ? = -1 )";
        // sql_date = "( (date2 > DateEvent) OR ? = -1 )";
         
 
-        sql = /*sql_date +" and "+*/ sql_age +" and "+ sql_ticket + " and " + sql_text+ " and " + sql_kind+ " and " + sql_team+ " and " + sql_indoor + " and " + sql_offer;
+        sql =  sql_date + " and " + sql_age +" and "+ sql_ticket + " and " + sql_text+ " and " + sql_kind+ " and " + sql_team+ " and " + sql_indoor + " and " + sql_offer;
 
-        return jdbcTemplate.query("SELECT * FROM event WHERE ("+ sql + ")", new Object[] {/*date, check_date, */check_age, check_age, check_age, check_ticket, text_search, check_text}, new EventRowMapper());
+        return jdbcTemplate.query("SELECT * FROM event WHERE ("+ sql + ")", new Object[] { date, check_date, check_age, check_age, check_age, check_ticket, text_search, check_text}, new EventRowMapper());
 
         //WITH QUERY EXPANSION
     }
