@@ -109,17 +109,22 @@
 									      <input type="text" class="form-control afm-validation form-element" name="afm" id="afm" placeholder="Εισάγετε το ΑΦΜ" data-validation="false">
 									      <span class="error"><p1 id="afm_error"></p1></span>
 								    </div>
+								    <div class="form-group bankaccount"> 
+									      <label for="bankaccount"><span class="glyphicon glyphicon-piggy-bank"></span> Αριθμός Τραπεζικού Λογαριασμού</label>
+									      <input type="text" class="form-control bankcomp-validation form-element" name="bankaccountcomp" id="bank" placeholder="Πληκτρολογείστε τον τραπεζικό σας λογαριασμό" data-validation="false">
+									      <span class="error"><p1 id="bank_errorcomp"></p1></span>
+									    </div>
 								    
 									<div class="row">
 									      <div class="form-group addr col-xs-6">
-										      <label for="addr"><span class="glyphicon glyphicon-home"></span> Διέυθυνση</label>
-										      <input type="text" class="form-control addr-validation form-element" id="addr" name="addr" placeholder="Εισάγετε διεύθυνση" data-validation="false">
+										      <label for="addr"><span class="glyphicon glyphicon-home"></span> Διεύθυνση</label>
+										      <input type="text" class="form-control addr-validation form-element" id="addr" name="addr" placeholder="Εισάγετε την διεύθυνση της εταιρίας" data-validation="false">
 											  <span class="error"><p1 id="addr_error"></p1></span>
 									    </div>  
 
 									    <div class="form-group postal col-xs-6">
 										      <label for="postal"><span class="glyphicon glyphicon-map-marker"></span> Ταχυδρομικός Κώδικας</label>
-										      <input type="text" class="form-control postal-validation form-element" id="postal" name="postal"  placeholder="Εισάγετε τον τκ" data-validation="false">
+										      <input type="text" class="form-control postal-validation form-element" id="postal" name="postal"  placeholder="Εισάγετε τον ταχυδρομικό κώδικα" data-validation="false">
 										      <span class="error"><p1 id="postal_error"></p1></span>
 								    	</div> 
 								    </div>
@@ -138,7 +143,7 @@
  -->
 								    <div class="form-group webpage">
 								      <label for="webpage"><span class="glyphicon glyphicon-bookmark"></span> Webpage</label>
-								      <input type="text" class="form-control" name="webpage" id="webpage"placeholder="Εισάγετε την ιστοσελίδα της εταιρίας">
+								      <input type="text" class="form-control" name="webpage" id="webpage"placeholder="Εισάγετε ιστοσελίδα της εταιρίας">
 								    </div>
 
 								    <div class="form-group">

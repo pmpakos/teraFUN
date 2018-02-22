@@ -1,3 +1,5 @@
+ var ID = <%=ID%>;
+
  function initMap() {    
             var VM = function(){
                 this.id = ko.observable();
@@ -57,7 +59,7 @@
         }
 
         $(document).ready(function(){
-     var ID = <%=ID%>;
+     
      var l1= "<div class='item'> <img src='"     
      var l2="'> </div>"
 

@@ -169,12 +169,12 @@ color: red;
   	 
   	 	<div class="row">
   	 	<div class="form-group fname col-xs-6">
-      	<label for="fname"><span class="glyphicon glyphicon-user"></span>First Name</label>
+      	<label for="fname"><span class="glyphicon glyphicon-user"></span>Όνομα</label>
       	<input type="text" class="form-control fname-validation form-element" name="fname" placeholder="First Name" data-validation="false">
 	  	<span class="error"><p1 id="fname_error"></p1></span>
     	</div>
     	<div class="form-group lname col-xs-6">
-      	<label for="lname"><span class="glyphicon glyphicon-user"></span> Last Name</label>
+      	<label for="lname"><span class="glyphicon glyphicon-user"></span> Επώνυμο</label>
       	<input type="text" class="form-control lname-validation form-element" name="lname" placeholder="Last Name" data-validation="false">
     	<span class="error"><p1 id="lname_error"></p1></span>
     	</div>  	 
@@ -182,25 +182,25 @@ color: red;
   	 
     <div class="form-group usn">
     	<label for="username"> <span class="glyphicon glyphicon-user" > </span> UserName</label>
-      <input type="text" class="form-control usn-validation form-element" name="usn" placeholder="Enter a valid Username" data-validation="false" id="usn-border">
+      <input type="text" class="form-control usn-validation form-element" name="usn" placeholder="Εισάγετε ένα username" data-validation="false" id="usn-border">
       <span class="error"><p1 id="usn_error"></p1></span>
     </div>
     
   
     <div class="form-group email">
     	<label for="Email"> <span class="glyphicon glyphicon-envelope"> </span> Email</label>
-        <input type="email" class="form-control email-validation form-element" name="email" aria-describedby="emailHelp" placeholder="Enter your email address" data-validation="false">
+        <input type="email" class="form-control email-validation form-element" name="email" aria-describedby="emailHelp" placeholder="Εισάγετε το  email σας" data-validation="false">
    		<span class="error"><p1 id="email_error"></p1></span>
 	</div>
 	 <div class="row">
 	<div class="form-group password col-xs-6">
-        <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-		<input  type="password" class="form-control password-validation form-element" id="pass" name="password" placeholder="Password" data-validation="false">
+        <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Κωδικός Πρόσβασης</label>
+		<input  type="password" class="form-control password-validation form-element" id="pass" name="password" placeholder="Εισάγετε κωδικό πρόσβασης" data-validation="false">
   		<span class="error"><p1 id="pass1_error"></p1></span>
     </div>
     <div class="form-group confirm-password col-xs-6">
-     	<label for="confirm-password"><span class="glyphicon glyphicon-eye-open"></span> Confirm Password</label>
-		<input  type="password" class="form-control password-confirmation form-element" id="pass1" name="password1" placeholder="Confirm Password" data-validation="false">
+     	<label for="confirm-password"><span class="glyphicon glyphicon-eye-open"></span> Επαλήθευση Κωδικού</label>
+		<input  type="password" class="form-control password-confirmation form-element" id="pass1" name="password1" placeholder="Επαληθεύστε τον κωδικό που δώσατε" data-validation="false">
     	<span class="error"><p1 id="pass2_error"></p1></span>
     </div>
     </div>
@@ -208,27 +208,27 @@ color: red;
     
 	<div class="row">
       <div class="form-group addr col-xs-6">
-      <label for="addr"><span class="glyphicon glyphicon-home"></span> Address</label>
-      <input type="text" class="form-control addr-validation form-element" id="addr" name="addr" placeholder="Address" data-validation="false">
+      <label for="addr"><span class="glyphicon glyphicon-home"></span> Οδός</label>
+      <input type="text" class="form-control addr-validation form-element" id="addr" name="addr" placeholder="Εισάγετε την οδό σας" data-validation="false">
 	  <span class="error"><p1 id="addr_error"></p1></span>
     </div>  
 
     <div class="form-group postal col-xs-6">
-      <label for="postal"><span class="glyphicon glyphicon-map-marker"></span> Postal Code</label>
-      <input type="text" class="form-control postal-validation form-element" id="postal" name="postal"  placeholder="Postal Code" data-validation="false">
+      <label for="postal"><span class="glyphicon glyphicon-map-marker"></span> Ταχυδρομικός Κώδικας</label>
+      <input type="text" class="form-control postal-validation form-element" id="postal" name="postal"  placeholder="Εισάγετε τον ταχυδρομικό σας κώδικα" data-validation="false">
       <span class="error"><p1 id="postal_error"></p1></span>
     </div> 
     </div>
 
     <div class="form-group tel">
-      <label for="tel"><span class="glyphicon glyphicon-phone-alt"></span> Contact Number</label>
-      <input type="text" class="form-control tel-validation form-elementl" name="tel" placeholder="Contact Number" data-validation="false">
+      <label for="tel"><span class="glyphicon glyphicon-phone-alt"></span> Τηλέφωνο Επικοινωνίας</label>
+      <input type="text" class="form-control tel-validation form-elementl" name="tel" placeholder="Εισάγετε το τηλέφωνο σας" data-validation="false">
     	<span class="error"><p1 id="tel_error"></p1></span>
     </div>
 
     <div class="form-group bankaccount"> 
-      <label for="bankaccount"><span class="glyphicon glyphicon-piggy-bank"></span> Credit Card Number</label>
-      <input type="text" class="form-control bank-validation form-element" name="bankaccount" placeholder="Credit Card Number" data-validation="false">
+      <label for="bankaccount"><span class="glyphicon glyphicon-piggy-bank"></span> Αριθμός Κάρτας</label>
+      <input type="text" class="form-control bank-validation form-element" name="bankaccount" placeholder="Πληκτρολογείστε τον 16-ψήφιο αριθμό της κάρτας σας" data-validation="false">
       <span class="error"><p1 id="bank_error"></p1></span>
     </div>
 
@@ -240,7 +240,7 @@ color: red;
     </div>
  <div class="form-group">
 <div class="col-sm-6 col-sm-offset-3">   
-	<button type="button" class="btn btn-block submit-btn signup-btn"><span class="glyphicon glyphicon-pencil"></span>&nbsp; Signup </button>
+	<button type="button" class="btn btn-block submit-btn signup-btn"><span class="glyphicon glyphicon-pencil"></span>&nbsp; ΕΓΓΡΑΦΗ </button>
 </div>
 </div>
 

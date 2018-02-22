@@ -1,6 +1,6 @@
 validcompname=0;
 validafm=0;
-sync=0;
+
 
 $(document).on('blur','.compname-validation',function(){
 	var content = $(this).val();
@@ -59,7 +59,32 @@ $(document).on('blur','.afm-validation',function(){
 
 });
 
+$(document).on('blur','.bankcomp-validation',function(){
+	var content = $(this).val();
+	
+	validbank = re.test(content);
+	
 
+	if(content.length == 0){
+		validbank = false;
+		
+		document.getElementById('bank_errorcomp').innerHTML = 'Συμπληρώστε αυτό το πεδίο';
+	}
+	else{
+
+		document.getElementById('bank_errorcomp').innerHTML = "";
+		
+	}
+	
+	if(validbank){
+		$(this).css('border','');
+		$(this).attr('data-validation',true);
+	}else{
+    	$(this).css('border','1px solid red');
+    	$(this).attr('data-validation',false);
+    }
+
+});
 
 
 
@@ -195,6 +220,8 @@ function validatecompany(){
 	console.log(addr);
 	var afm = document.getElementById('afm').value;
 	console.log(afm);
+	var bank=document.getElementById('bank').value;
+
 	var tel = document.getElementById('tel').value;
 	console.log(tel);
 	var webpage = document.getElementById('webpage').value;
@@ -216,7 +243,7 @@ function validatecompany(){
 	//var filename=document.getElementById('file').files[0].name;
 	//console.log(filename);
 
-	 var test=agree&validcompname&validpass1&validpass&validusn&validemail&validaddr&validpostal&validtel&validafm;
+	 var test=agree&validbank&validcompname&validpass1&validpass&validusn&validemail&validaddr&validpostal&validtel&validafm;
 	 console.log(test);
 	// var test=agree&validusn;
 	// console.log(test); 
@@ -234,6 +261,7 @@ function validatecompany(){
 				addr:addr,
 				tel:tel,
 				afm:afm,
+				bank:bank,
 				latt:latt,
 				lngg:lngg,
 				description:description,
@@ -254,7 +282,7 @@ function validatecompany(){
 	} 
 	else{
 
-		document.getElementById('total_error').innerHTML = 'Πρέπει να συμπληρώσετε τα υποχρεωτικά πεδία και να συμφωνήσετε με τους όρους και τις προϋποθέσεις';
+		document.getElementById('total_error').innerHTML = 'Πρέπει να συμπληρώσετε τα όλα πεδία και να συμφωνήσετε με τους όρους και τις προϋποθέσεις';
 		return false; 	
 	} 
 }
