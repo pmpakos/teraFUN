@@ -6,17 +6,18 @@ body {
 }
 
 .parent {
-  display: flex;
+    display: flex;
+    overflow:hidden;
+    width: 100%;
 }
 .resize {
     width: 150px;
     height: 70%;
 }
 .gmap {
-    margin-top: 160px;
     float:right;
     height: 500px;
-    width: 45%;
+    width: 40%;
 }
 
 .pre-scrollable {
@@ -73,7 +74,6 @@ hgroup label {font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; col
 
 /* Hide the browser's default checkbox */
 .container input {
-    position: absolute;
     opacity: 0;
     cursor: pointer;
 }
@@ -122,3 +122,4 @@ hgroup label {font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; col
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+

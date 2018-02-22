@@ -37,8 +37,9 @@
 
 
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
+        
         <!-- Latest compiled JavaScript -->
         <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
         <link href="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
@@ -58,9 +59,8 @@
 
 <%@include file="header.jsp" %>
 
-
-        <div class="parent">
-            <div class="container" style="margin-top:80px; border-bottom: 1px solid #ccc;">
+        <div class="parent" style="margin-top:20px;">
+            <div class="container" style="border-bottom: 1px solid #ccc; max-width: 60%;">
                 <h1>Αποτελέσματα αναζήτησης</h1>
                 <hgroup class="mb20">
                     
@@ -86,31 +86,33 @@
             
                 </hgroup>
 
-                <section class="col-xs-12 col-sm-6 col-md-12 pre-scrollable" data-bind="foreach:events">
+                <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pre-scrollable" data-bind="foreach:events">
                     <article class="search-result row" data-bind="visible: isVisible">
-                        <div class="col-xs-12 col-sm-12 col-md-3">
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                             <a href="#" title="Lorem ipsum" class="thumbnail"><img src="static/logo.png" alt="Lorem ipsum" /></a>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-2">
-                            <ul class="meta-search">
-                                <li><i class="glyphicon glyphicon-calendar"></i> <span data-bind="text:date"></span></li>
-                                <li><i class="glyphicon glyphicon-time"></i> <span data-bind="text:hour"></span></li>
-                                <li style="font-weight:bold;"><i class="glyphicon glyphicon-piggy-bank"></i> <span data-bind="text:cost"></span></li>
-                                <!--<li>    
-                                    <label class="container1">
-                                        <input type="checkbox" checked="checked" data-bind="checked: showInMap">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </li>-->
-                            </ul>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-                            <h3><span data-bind="text:name"></span></h3>
-                            <p data-bind="text:description"></p>                        
-                            <button type="button" class="btn btn-info btn-sm" style="vertical-align:bottom;">Μάθε Περισσότερα</button>
-                            <button data-bind="visible: $parent.showMe" type="button" class="btn btn-success" style="float: right;">Κλείσε θέση τώρα!</button>
-                            <button onclick="location.href = 'sign_up_parent.jsp';" data-bind="visible: $parent.notShow" type="button" class="btn btn-warning" style="float: right;" data-toggle="tooltip" title="Γίνε μέλος για να κάνεις κράτηση!">Κάνε εγγραφή τώρα!</button>
-                        </div>
+                        
+                            <div class="col-xs-3 col-sm-3 col-md-4 col-lg-3">
+                                <ul class="meta-search">
+                                    <li><i class="glyphicon glyphicon-calendar"></i> <span data-bind="text:date"></span></li>
+                                    <li><i class="glyphicon glyphicon-time"></i> <span data-bind="text:hour"></span></li>
+                                    <li><i class="glyphicon glyphicon-hourglass"></i> <span data-bind="text:duration"></span></li>
+                                    <li style="font-weight:bold;"><i class="glyphicon glyphicon-piggy-bank"></i> <span data-bind="text:cost"></span></li>
+                                    <!--<li>    
+                                        <label class="container1">
+                                            <input type="checkbox" checked="checked" data-bind="checked: showInMap">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </li>-->
+                                </ul>
+                            </div>
+                            <div class="col-xs-7 col-sm-7 col-md-6 col-lg-7 excerpet">
+                                <h3><span data-bind="text:name"></span></h3>
+                                <p data-bind="text:description"></p>                        
+                                <button type="button" class="btn btn-info btn-sm" style="vertical-align:bottom;">Μάθε Περισσότερα</button>
+                                <button id="mybtn" href="#myModal" data-bind="visible: $parent.showMe" type="button" class="btn btn-success" style="float: right;" data-toggle="modal">Κλείσε θέση τώρα!</button>
+                                <button onclick="location.href = 'sign_up_parent.jsp';" data-bind="visible: $parent.notShow" type="button" class="btn btn-warning" style="float: right;" data-toggle="tooltip" title="Γίνε μέλος για να κάνεις κράτηση!">Κάνε εγγραφή τώρα!</button>
+                            </div>
                         <span class="clearfix borda"></span>
                     </article>       
 
@@ -119,6 +121,26 @@
 
 
             <div id="map" class="gmap"></div>
+        </div>
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button style="float: right;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" style="float:left;" id="myModalLabel">Αγορά Εισιτηρίου | teraFUN</h5>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Ακύρωση</button>
+                <button id="proceed" type="button" class="btn btn-primary">Επιβεβαίωση πληρωμής</button>
+              </div>
+            </div>
+          </div>
         </div>
 
 
@@ -130,11 +152,52 @@
         <script src="./js/DataTable.bootstrap4.js"></script>
        
         <script>
+
+            // Get the modal
+            var modal = document.getElementById('myModal');
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("mybtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            var proceed = document.getElementById("proceed");
+
+
+            proceed.onclick = function() {
+                var r = confirm("Είστε σίγουρος/η πως θέλετε να προχωρήσετε με την πληρωμή;");
+                if(r == true){
+                    console.log("Θα το πληρώσεις!");
+                }
+                else{
+                    ;
+                }
+            };
+
+            // When the user clicks on the button, open the modal 
+            btn.onclick = function() {
+                modal.style.display = "block";
+            };
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            };
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            };
+
+
             distance = 0;
             var dict = {
                 Mon: "Δευ.",
                 Tue: "Τρ.",
-                Wen: "Τετ.",
+                Wed: "Τετ.",
                 Thu: "Πέμ.",
                 Fri: "Παρ.",
                 Sat: "Σάβ.",
@@ -197,12 +260,13 @@
                 });
                 
 
-                var Event = function(id, name, description, full_description, hour, cost, longitude, latitude, date, sort) {
+                var Event = function(id, name, description, full_description, hour, duration, cost, longitude, latitude, date, sort) {
                     this.id = id;
                     this.name = name;
                     this.description = description;
                     this.full_description = full_description;
                     this.hour = hour;
+                    this.duration = duration;
                     this.cost = cost;
                     this.Longitude = longitude;
                     this.Latitude = latitude;
@@ -389,6 +453,7 @@
                             if(parts[2].startsWith("0")){
                                 parts[2] = parts[2].substring(1,2);
                             }
+                            console.log("Ημέρα "+parts[0]);
                             var date = dict[parts[0]]+" "+parts[2]+" "+dict[parts[1]]+" "+parts[3];
                             var rank_date = 10000*init_date.getFullYear()+init_date.getMonth()*100+init_date.getDate()*1;
                             
@@ -409,6 +474,7 @@
                                 event_description,
                                 eventJson.Description,
                                 eventJson.Hour,
+                                eventJson.Duration+" λεπτά",
                                 cost,
                                 eventJson.Longitude,
                                 eventJson.Latitude,
