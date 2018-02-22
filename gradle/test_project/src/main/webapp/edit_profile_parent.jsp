@@ -5,12 +5,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Edit Profile | teraFUN </title>
+	<title>Επεξεργασία Προφίλ | teraFUN </title>
 	
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
 
-	<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
@@ -151,7 +151,7 @@ color: red;
 <body>
 
 
-    <%@include file="header.jsp" %>
+    <%@include file="header_unknown.jsp" %>
  
  
 <div class="container">
@@ -160,11 +160,11 @@ color: red;
 			
 			
 			   
-  <div class="jumbotron">
+  <div class="jumbotron" style="display: none;" data-bind="visible: true">
   
 	          
   <h2 style="text-align: center"> 
-<span data-bind="text:username"></span>
+  Username: <span data-bind="text:username"></span>
   <h3 style="text-align: center"> Επεξεργασία Στοιχείων </h3>
   </h2>
 		   
@@ -173,6 +173,7 @@ color: red;
   	 
   	 	<div class="row">
   	 	<div class="form-group fname col-xs-6">
+        <input type="hidden" name="username" data-bind="value:username"/>
       	<label for="fname"><span class="glyphicon glyphicon-user"></span>Όνομα</label>
       	<input type="text" class="form-control fname-validation form-element" name="fname" data-bind="value: first, attr: {placeholder: 'Όνομα'}" data-validation="false">
 	  	<span class="error"><p1 id="fname_error"></p1></span>
@@ -188,7 +189,7 @@ color: red;
   
     <div class="form-group email">
     	<label for="Email"> <span class="glyphicon glyphicon-envelope"> </span> E-mail</label>
-        <input type="email" class="form-control email-validation form-element" name="email" aria-describedby="emailHelp" data-bind="value: mail, attr: {placeholder: 'E-mail'}" data-validation="false">
+        <input type="email" class="form-control current_email-validation form-element" name="email" aria-describedby="emailHelp" data-bind="value: mail, attr: {placeholder: 'E-mail'}" data-validation="false">
    		<span class="error"><p1 id="email_error"></p1></span>
 	</div>
 	 <div class="row">
@@ -227,7 +228,8 @@ color: red;
 
     <div class="form-group bankaccount"> 
       <label for="bankaccount"><span class="glyphicon glyphicon-piggy-bank"></span> Αριθμός Κάρτας</label>
-      <input type="text" class="form-control bank-validation form-element" name="bankaccount" data-bind="value: credit, attr: {placeholder: 'Αριθμός Κάρτας>
+      <input type="text" class="form-control bank-validation form-element" name="bankaccount" data-bind="value: credit, attr: {placeholder: 'Αριθμός Κάρτας'}">
+      <span class="error"><p1 id="bank_error"></p1></span>
     </div>
 
   <br>
@@ -236,7 +238,7 @@ color: red;
 <div class="col-sm-6 col-sm-offset-3">   
 <br>
 </br>
-	<button type="button" class="btn btn-block submit-btn signup-btn"><span class="glyphicon glyphicon-pencil"></span>&nbsp; Ενημέρωση Στοιχείων </button>
+	<button type="button" class="btn btn-block submit-btn update-btn"><span class="glyphicon glyphicon-pencil"></span>&nbsp; Ενημερωση Στοιχειων </button>
 </div>
 </div>
 
@@ -321,13 +323,13 @@ color: red;
     </script>
 
 
-    <!-- <script src="https://code.jquery.com/jquery-2.1.4.js"></script> -->
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script> -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <!-- <script src="./static/bootstrap/js/bootstrap.min.js"></script> -->
+    <script src="./static/bootstrap/js/bootstrap.min.js"></script>
     <script src="./static/knockout-3.4.2.js"></script>
 
 
@@ -377,6 +379,11 @@ color: red;
                 viewModel.address(parentJson.Address);
                 viewModel.credit(parentJson.BankAccount)
                 viewModel.password(parentJson.Password)
+
+
+                
+                
+                
 
             });
 

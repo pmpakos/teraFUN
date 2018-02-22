@@ -42,6 +42,18 @@ public class ParentDAO{
                                         parent.Latitude, parent.Longitude, parent.VerificationCode});   
     }
 
+    public void update(Parent parent){
+        String sql = "UPDATE parent SET FirstName = ?, LastName = ?,"
+                    + "Address = ?, PostalCode = ?, TelephoneNumber = ?, Email = ?, Password = ?,"
+                    + "BankAccount = ?, Latitude = ?, Longitude = ?"
+                    + "WHERE Username = ?";
+
+        this.jdbcTemplate.update(sql, new Object[] {parent.FirstName, parent.LastName, 
+                                        parent.Address, parent.PostalCode, parent.TelephoneNumber,
+                                        parent.Email, parent.Password, parent.BankAccount,
+                                        parent.Latitude, parent.Longitude, parent.Username});   
+    }
+
 
     public void changeStatus(int id, int newStatus){
         String sql = "UPDATE parent SET status = ? WHERE ParentID = ?";
@@ -107,13 +119,13 @@ public class ParentDAO{
         }        
     }
 
-    public int check_email(String email) {        
+    public String check_email(String email) {        
         List<Parent> parent = jdbcTemplate.query("select * from parent where Email = ?", new Object[] {email}, new ParentRowMapper());
         if (parent.size() == 1)  {
-            return 1;
+            return parent.get(0).Username;
         }
         else {
-            return 0;
+            return "";
         }        
     }
     

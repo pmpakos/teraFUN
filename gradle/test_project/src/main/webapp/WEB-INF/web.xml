@@ -24,6 +24,11 @@
     </servlet>
 
     <servlet>
+        <servlet-name>parent_update</servlet-name>
+        <servlet-class>gr.ntua.ece.softeng17b.servlets.ParentUpdateServlet</servlet-class>
+    </servlet>
+
+    <servlet>
         <servlet-name>wallet_update_form</servlet-name>
         <servlet-class>gr.ntua.ece.softeng17b.servlets.WalletUpdateServlet</servlet-class>
     </servlet>
@@ -131,6 +136,11 @@
     <servlet-mapping>
         <servlet-name>parent_signup_form</servlet-name>
         <url-pattern>/parent_signup</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>parent_update</servlet-name>
+        <url-pattern>/parent_update</url-pattern>
     </servlet-mapping>    
 
     <servlet-mapping>
