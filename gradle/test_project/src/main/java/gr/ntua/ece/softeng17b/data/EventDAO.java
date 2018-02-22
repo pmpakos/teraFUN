@@ -56,8 +56,14 @@ public class EventDAO{
         }        
     }
 
-    public List<Event> getEventsOfCompany(int id){
+    public List<Event> getPastEventsOfCompany(int id){
              return jdbcTemplate.query("SELECT * FROM event WHERE (CompanyID = ? and DateEvent < CURDATE())", new Object[] {id}, new EventRowMapper());
+
+
+    }
+
+     public List<Event> getActiveEventsOfCompany(int id){
+             return jdbcTemplate.query("SELECT * FROM event WHERE (CompanyID = ? and DateEvent >= CURDATE())", new Object[] {id}, new EventRowMapper());
 
 
     }

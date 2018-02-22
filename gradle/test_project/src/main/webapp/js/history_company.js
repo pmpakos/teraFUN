@@ -19,7 +19,7 @@ VM.prototype.loadEvents = function() {
     var opts = {
         traditional : true,
         cache       : false,
-        url         : "./api/events/"+ID,
+        url         : "./api/past_events_company/"+ID,
         type        : "GET",
         dataType    : "json"
     };
