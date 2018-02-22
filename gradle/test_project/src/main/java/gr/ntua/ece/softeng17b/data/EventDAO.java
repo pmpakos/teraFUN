@@ -80,6 +80,20 @@ public class EventDAO{
 
     }
 
+
+     public List<Event> getMonthReport(int id){
+             return jdbcTemplate.query("SELECT * FROM event WHERE (CompanyID = ? and DateEvent < CURDATE() and DateEvent >= CURDATE() -30)", new Object[] {id}, new EventRowMapper());
+
+
+    }
+
+     public List<Event> getTotalVisits(int id){
+             return jdbcTemplate.query("SELECT * FROM event WHERE (CompanyID = ? )", new Object[] {id}, new EventRowMapper());
+
+
+    }
+
+
     public List<Event> searchAll(String text_search, String date, String ticket, String age, String distance, String kind, String team, String indoor, String offer){
       
 

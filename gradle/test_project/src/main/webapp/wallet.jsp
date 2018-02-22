@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Wallet | teraFun</title>
+<title>Πορτοφόλι | teraFun</title>
 
 
   <!-- Latest compiled and minified CSS -->

@@ -66,8 +66,9 @@ public class ParentDAO{
         String sql = "UPDATE parent SET points = ? WHERE ParentID = ?";
 
         List<String> db_points = jdbcTemplate.queryForList("select Points from parent where (ParentID = ?)", new Object[] {id}, String.class); 
-
-        this.jdbcTemplate.update(sql, new Object[] {points + Integer.parseInt(db_points.get(0)), id}); 
+        int temp = points + Integer.parseInt(db_points.get(0));
+        if(points >= 10) temp = temp + points/10;
+        this.jdbcTemplate.update(sql, new Object[] {temp, id}); 
     }
 
     public Optional<Parent> getParent(int id) {        

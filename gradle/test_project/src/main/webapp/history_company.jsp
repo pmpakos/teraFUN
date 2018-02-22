@@ -43,9 +43,9 @@
                     <tr>
                         <th scope="col">Όνομα </th>
                         <th scope="col">Ημερομηνία </th>
-                        <th scope="col">Πλήθος Κρατήσεων </th>
-                        <th scope="col">Έσοδα </th>
-                        <th scope="col">Επισκέψεις </th>
+                        <th scope="col">Διεύθυνση </th>
+                        <th scope="col">Συνολικά Εισιτήρια </th>
+                        <th scope="col">Έσοδα σε ευρώ </th>
                         <th scope="col">Περιγραφή </th>
                     </tr>
                 </thead>  
@@ -53,9 +53,9 @@
                     <tr>
                         <td> <span data-bind="text:name"></span> </td>
                         <td> <span data-bind="text:date"></span> </td>
+                        <td> <span data-bind="text:address"></span> </td>
                         <td> <span data-bind="text:ticket_counter"></span> </td>
                         <td> <span data-bind="text:income"></span> </td>
-                        <td> <span data-bind="text:visits"></span> </td>
                                               
                         <td>
                           <!-- shit to be done here -->

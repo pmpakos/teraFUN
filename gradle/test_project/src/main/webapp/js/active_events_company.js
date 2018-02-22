@@ -1,10 +1,10 @@
 
-var Event = function(name, date, ticket_counter, income, visits, description) {
+var Event = function(name, date, address, ticket_counter, income, description) {
     this.name = name;
     this.date = date;
+    this.address = address;
     this.ticket_counter = ticket_counter;
     this.income = income;
-    this.visits = visits; 
     this.description = description;
 }
 
@@ -38,9 +38,9 @@ viewModel.loadEvents().done(function(json){
         var event = new Event(
 			eventJson.Name,
 			eventJson.DateEvent,
+            eventJson.Address,
 			eventJson.TicketCounter,
 			eventJson.IncomingCash,
-			eventJson.Visits,
 			eventJson.Description
             );
         console.log(event);
