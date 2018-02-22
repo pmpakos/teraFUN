@@ -41,6 +41,19 @@ public class CompanyDAO{
                                         company.Description, company.PhotosFolder, company.Latitude, company.Longitude});  
     }
 
+    public void update(Company company){
+        String sql = "UPDATE company SET CompanyName = ?, "
+                    + "Address = ?, PostalCode = ?, TelephoneNumber = ?, Email = ?, Password = ?,"
+                    + "BankAccount = ?, WebPage=?, Description=?, Latitude = ?, Longitude = ?"
+                    + "WHERE Username = ?";
+
+        this.jdbcTemplate.update(sql, new Object[] {company.CompanyName, company.Address, 
+                                        company.PostalCode, company.TelephoneNumber, company.Email,
+                                        company.Password, company.BankAccount, company.WebPage,
+                                        company.Description, company.Latitude, company.Longitude, company.Username});   
+    }
+
+
     public void changeStatus(int id, int newStatus){
         String sql = "UPDATE companyservice SET status = ? WHERE CompanyID = ?";
 
