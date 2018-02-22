@@ -68,6 +68,17 @@ public class EventDAO{
 
     }
 
+    public List<Event> getPastEventsOfParent(int id){
+            return jdbcTemplate.query("SELECT * FROM event, booking, parent WHERE ((event.EventID = booking.EventID) and (booking.ParentID = parent.ParentID) and (parent.ParentID = ?) and (event.DateEvent < CURDATE()))", new Object[] {id}, new EventRowMapper());
+
+
+    }
+
+    public List<Event> getActiveEventsOfParent(int id){
+            return jdbcTemplate.query("SELECT * FROM event, booking, parent WHERE ((event.EventID = booking.EventID) and (booking.ParentID = parent.ParentID) and (parent.ParentID = ?) and (event.DateEvent >= CURDATE()))", new Object[] {id}, new EventRowMapper());
+
+
+    }
 
     public List<Event> searchAll(String text_search, String date, String ticket, String age, String distance, String kind, String team, String indoor, String offer){
       
