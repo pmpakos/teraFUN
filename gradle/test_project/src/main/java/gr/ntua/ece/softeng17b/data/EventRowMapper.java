@@ -17,6 +17,7 @@ class EventRowMapper implements RowMapper<Event>  {
         String Address = rs.getString("Address");
         Date DateEvent = rs.getDate("DateEvent");
         String Hour = rs.getString("Hour");
+        int Duration = rs.getInt("Duration");
         int TicketCounter = rs.getInt("TicketCounter");
         int IncomingCash = rs.getInt("IncomingCash");
         int Cost = rs.getInt("Cost");
@@ -37,7 +38,7 @@ class EventRowMapper implements RowMapper<Event>  {
         String TagDescription = rs.getString("TagDescription");
 
         return new Event(EventID, CompanyID, Name, Address, DateEvent,
-                            Hour, TicketCounter, IncomingCash, Cost, Description, PhotosFolder,
+                            Hour, Duration, TicketCounter, IncomingCash, Cost, Description, PhotosFolder,
                             IsOffer, Visits, Latitude, Longitude, MaxCapacity, Indoor,
                             MinAge, MaxAge, Fun, Sport, Education, Team, 
                             TagDescription);

@@ -35,12 +35,12 @@ public class EventDAO{
 	public void insert(Event event){
         
         String sql = "INSERT INTO event (Name, Address,"
-                    + "DateEvent, Hour, Cost, Description, PhotosFolder, IsOffer, Latitude,"
+                    + "DateEvent, Hour, Duration, Cost, Description, PhotosFolder, IsOffer, Latitude,"
                     + "Longitude, MaxCapacity, Indoor, MinAge, MaxAge, Fun, Sport, Education, Team, TagDescription)"
-                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         this.jdbcTemplate.update(sql, new Object[] {event.Name, event.Address, event.DateEvent,
-            event.Hour, event.Cost, event.Description, event.PhotosFolder, event.IsOffer,
+            event.Hour, event.Duration, event.Cost, event.Description, event.PhotosFolder, event.IsOffer,
             event.Latitude, event.Longitude, event.MaxCapacity, event.Indoor, event.MinAge, 
             event.MaxAge, event.Fun, event.Sport, event.Education, event.Team, 
             event.TagDescription});   

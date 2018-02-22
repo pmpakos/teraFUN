@@ -10,6 +10,7 @@ public class Event {
 	String Address;
 	Date DateEvent;
 	String Hour;
+	int Duration;
 	int TicketCounter;
 	int IncomingCash;
 	int Cost;
@@ -31,7 +32,7 @@ public class Event {
 	
 		
 	public Event( int ID, int CompanyID, String Name, String Address, Date DateEvent,
-			String Hour, int TicketCounter, int IncomingCash, int Cost, String Description, 
+			String Hour, int Duration, int TicketCounter, int IncomingCash, int Cost, String Description, 
 			String PhotosFolder, int IsOffer, int Visits, double Latitude, double Longitude,
 			int MaxCapacity, int Indoor, int MinAge, int MaxAge, int Fun, int Sport, 
 			int Education, int Team, String TagDescription){
@@ -42,6 +43,7 @@ public class Event {
 		this.Address = Address;
 		this.DateEvent = DateEvent;
 		this.Hour = Hour;
+		this.Duration = Duration;
 		this.TicketCounter = TicketCounter;
 		this.IncomingCash = IncomingCash;
 		this.Cost = Cost;
