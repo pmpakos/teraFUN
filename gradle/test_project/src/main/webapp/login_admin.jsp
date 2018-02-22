@@ -6,24 +6,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login Admin | teraFUN</title>
 
-
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
 	<!-- Latest compiled JavaScript -->
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
 	<script src="js/login.js"></script>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/stylelogin.css"> 
 <link rel="stylesheet" href="css/header.css"> 
 
 </head>
-
-
 <body>
-
-
-<%@include file="header_unknown.jsp" %>
+<%@include file="header.jsp" %>
 	<div class="container">
     	<div class="row">
 			<div class="col-md-6 col-md-offset-3">

@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 <link rel="stylesheet" href="css/header.css"> 
 <link rel="stylesheet" href="css/stylelogin.css"> 
 
@@ -26,12 +25,12 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-nav-demo">
                 <ul class="nav navbar-nav">
-                    <li><a href="admin_parents_panel.jsp"> Γονείς </a></li>
-                    <li><a href="admin_companies_panel.jsp"> Εταιρίες </a></li> 
-                    <li><a href="admin_bank.jsp"> Τράπεζα </a></li>                
+                    <li><a href="admin_parents_panel.jsp"><i class="fa fa-user"></i>  Γονείς </a></li>
+                    <li><a href="admin_companies_panel.jsp"><i class="fa fa-building"></i>  Εταιρίες </a></li> 
+                    <li><a href="admin_bank.jsp"><i class="fa fa-eur"></i>  Τράπεζα </a></li>                
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="">Αποσύνδεση  <i class="fa fa-power-off"></i></a></li>
+                    <li><a href=""> Αποσύνδεση  <i class="fa fa-power-off"></i></a></li>
                 </ul>
             </div>
         </div>

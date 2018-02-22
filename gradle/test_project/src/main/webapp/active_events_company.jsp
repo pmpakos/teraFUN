@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <html>
   <head>
-      <title>Past Events | teraFUN</title>
+      <title>Active Events | teraFUN</title>
       <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="css/dataTables.min.css"/>
@@ -34,7 +34,7 @@
     </head>
 
     <body>
-<%@include file="header_company.jsp" %>
+<%@include file="header.jsp" %>
       <div class="container">
       <div id="ko">
             <h1> <span data-bind="text:events().length"></span> Εκδηλώσεις </h1>

@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
   <!-- Latest compiled JavaScript -->
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
  <script src="js/validatebankaccount.js"></script>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
@@ -149,7 +149,7 @@
 <!-- <body background="static/balls.jpg"> -->
 <body>
 
-<%@include file="header_company.jsp" %>
+<%@include file="header.jsp" %>
 
 <div class="container" id="ko">
     <div class="container">
@@ -262,13 +262,13 @@
 <div class="body1"></div>
 
 
-    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-2.1.4.js"></script> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="./static/bootstrap/js/bootstrap.min.js"></script>
+    <!-- <script src="./static/bootstrap/js/bootstrap.min.js"></script> -->
     <script src="./static/knockout-3.4.2.js"></script>
 
   <% Configuration conf = Configuration.getInstance(); %>
@@ -312,13 +312,6 @@
 
   
     <script> init();</script>
-
-
-
-
-
-
-
 
 </body>
 </html>

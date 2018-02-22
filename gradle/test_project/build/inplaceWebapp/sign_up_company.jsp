@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
 	<!-- Latest compiled JavaScript -->
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
 	<script src="js/uploadimage.js"></script>
 	<script src="js/validateparent.js"></script>
 	<script src="js/validatecompany.js"></script>
@@ -47,7 +47,7 @@
 <body>
 
 
-<%@include file="header_unknown.jsp" %>
+<%@include file="header.jsp" %>
 <br>
 <br>
 	<div class="container">

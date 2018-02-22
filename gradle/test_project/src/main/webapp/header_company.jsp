@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 <link rel="stylesheet" href="css/header.css"> 
 <link rel="stylesheet" href="css/stylelogin.css"> 
 
@@ -26,31 +25,31 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-nav-demo">
                 <ul class="nav navbar-nav">
-                    <li><a href="create_event.jsp"> Δημιουργία Event </a></li>
+                    <li><a href="create_event.jsp"> Δημιουργία Event  <i class="fa fa-plus"></i></a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" style="background-color:#2c3e50;"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Πληροφορίες</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="nav-link dropdown-toggle" style="background-color:#2c3e50;"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Πληροφορίες  <i class="fa fa-info"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#2c3e50; width:250px" >
                             <ul class="nav navbar-nav "  >
-                                <li><a href="contact_company.jsp" ><font color="2c3e50">Επικοινωνία </font></a></li>
-                                <li><a href="about_us_company.jsp"><font color="2c3e50">Σχετικά με εμάς</font></a></li> 
-                                <li><a href="faq_company.jsp"><font color="2c3e50">Συχνές ερωτήσεις</font></a></li>   
+                                <li style="background-color:#2c3e50;"><a href="contact.jsp" ><i class="fa fa-envelope"></i>  Επικοινωνία </a></li>
+                                <li style="background-color:#2c3e50;"><a href="about_us.jsp"><i class="fa fa-users"></i>  Σχετικά με εμάς </a></li> 
+                                <li style="background-color:#2c3e50;"><a href="faq.jsp"><i class="fa fa-question-circle"></i>  Συχνές ερωτήσεις </a></li>   
                             </ul>
                         </div>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="wallet_company.jsp">Πορτοφόλι  <i class="fa fa-eur"></i></a></li>
+                    <li><a href="wallet_company.jsp"> Πορτοφόλι  <i class="fa fa-eur"></i></a></li>
                     <!-- <li><a href="company_profile.jsp">Προφίλ  <i class="fa fa-user"></i></a></li> -->
                     
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" style="background-color:#2c3e50;"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ο λογαριασμός μου <i class="fa fa-user"></i></a>
+                        <a class="nav-link dropdown-toggle" style="background-color:#2c3e50;"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Ο λογαριασμός μου <i class="fa fa-user"></i></a>
 
                          <!-- <a class="nav-link dropdown-toggle" style="background-color:#2c3e50;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span data-bind="text:username"> </span><i class="fa fa-user"></i></a> -->
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#2c3e50;" >
                             <ul class="nav navbar-nav">
-                                <li><a href="company_profile.jsp" ><font color="2c3e50">Προφίλ</font></a></li>
+                                <li style="background-color:#2c3e50;"><a href="company_profile.jsp" ><i class="fa fa-edit"></i>  Προφίλ </a></li>
                     <!-- prepei na proste8ei edw koumpi gia log out me sugkekrimeno action na sumvainei otan auto patietai -->
-                                <li><a href=""><font color="2c3e50">Αποσύνδεση</font></a></li> 
+                                <li style="background-color:#2c3e50;"><a href=""><i class="fa fa-power-off">  Αποσύνδεση </i></a></li> 
                             </ul>
                         </div>
                     </li>

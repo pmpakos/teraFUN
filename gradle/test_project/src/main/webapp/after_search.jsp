@@ -2,12 +2,13 @@
 <%@ page import="gr.ntua.ece.softeng17b.conf.*" %>
 
 <%  
-    String id;
+    // o monos logos pou einai id2 einai giati uparxei logw tou header.jsp hdh orismenh h metavlhth me onoma "id"
+    String id2;
     if(session.getAttribute("id") == null || session.getAttribute("id").equals("")){
-        id ="";
+        id2 ="";
     }
     else{
-        id = (String)session.getAttribute("id");
+        id2 = (String)session.getAttribute("id");
     }
 
     String text_search = request.getParameter("text_search");
@@ -21,16 +22,12 @@
     String indoor = request.getParameter("indoor");    
     String offer = request.getParameter("offer");
 
-    id="9";
+    id2="9";
 
  %>
 
-
 <!DOCTYPE html>
 <% //FOr example the search is being done by Πέτρος Μανταλίδης with given lat, long
-
-    
-
  %>
 <html>
     <head>
@@ -43,12 +40,12 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
         <!-- Latest compiled JavaScript -->
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
         <link href="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
 
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
          <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
-        <link rel="stylesheet" href="css/header.css"> 
+        <!-- <link rel="stylesheet" href="css/header.css">  -->
         <script src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
         <link rel="stylesheet" href="css/dataTables.min.css"/>
         <link rel="stylesheet" href="css/header.css"> 
@@ -59,8 +56,7 @@
 
     <body>
 
-
-        <%@include file="header_user.jsp" %>
+<%@include file="header.jsp" %>
 
 
         <div class="parent">
@@ -78,7 +74,8 @@
                             <span class="glyphicon glyphicon-road"> Απόσταση</span>
                             <span class="caret"></span>
                         </button>
-                        <ul class="dropdown-menu">
+
+                        <ul class="dropdown-menu" style="position:relative">
                             <li> <button id="check0" type="button" class="btn btn-default" data-bind="click: filter.bind(this, '5')" style="width:100%;"><span style="font-weight:bold;">5 χλμ.</span></button> </li> 
                             <li> <button id="check1" type="button" class="btn btn-default" data-bind="click: filter.bind(this, '15')" style="width:100%;"><span style="font-weight:bold;">15 χλμ.</span></button> </li>
                             <li> <button id="check2" type="button" class="btn btn-default" data-bind="click: filter.bind(this, '25')" style="width:100%;"><span style="font-weight:bold;">25 χλμ.</span></button> </li>
@@ -125,10 +122,9 @@
         </div>
 
 
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+        <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 
-        <script src="./static/bootstrap/js/bootstrap.min.js"></script>
         <script src="./static/knockout-3.4.2.js"></script>
         <script src="./js/DataTable.js"></script>
         <script src="./js/DataTable.bootstrap4.js"></script>
@@ -333,7 +329,7 @@
                     var indoor = "<%=indoor%>";
                     var offer = "<%=offer%>";
 
-                    var id = "<%=id%>";
+                    var id = "<%=id2%>";
 
                     var opts = {
                         traditional : true,

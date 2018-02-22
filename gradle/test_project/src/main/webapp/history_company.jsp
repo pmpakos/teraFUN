@@ -34,7 +34,7 @@
     </head>
 
     <body>
-<%@include file="header_company.jsp" %>
+<%@include file="header.jsp" %>
       <div class="container">
       <div id="ko">
             <h1> <span data-bind="text:events().length"></span> Εκδηλώσεις </h1>
@@ -73,7 +73,7 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="./static/bootstrap/js/bootstrap.min.js"></script>
+    <!-- <script src="./static/bootstrap/js/bootstrap.min.js"></script> -->
     <script src="./static/knockout-3.4.2.js"></script>
     <script src="./js/DataTable.js"></script>
     <script src="./js/DataTable.bootstrap4.js"></script>
