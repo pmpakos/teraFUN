@@ -11,11 +11,8 @@ validpass1=0;
 agree=0;
 latt=0;
 lngg=0;
-
-
-
+mymail=1;
 $(document).ready(function() {
-
 	$('#agreeButton, #disagreeButton').on('click', function() {
         var whichButton = $(this).attr('id');
         console.log(whichButton);
@@ -199,7 +196,7 @@ $(document).on('blur','.email-validation',function(){
 			url:'/app/check_email',
 			success: function(email_check){
 				console.log("Result is: "+email_check);
-				if (email_check == "true"){
+				if (email_check.length>0){
 					validemail=0;
 					document.getElementById('email_error').innerHTML = "To email αυτό χρησιμοποιείται ήδη";
 				}
@@ -226,6 +223,67 @@ $(document).on('blur','.email-validation',function(){
     
   }
 });
+
+$(document).on('blur','.current_email-validation',function(){
+	var content = $(this).val();
+	var usn1 = $(this).parent().siblings('.row').find('input[name=username]').val();
+	validemail=2;
+	var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	validemail = re.test(content);
+
+
+	if(content.length == 0){
+		validemail = 0;
+		mymail=0;
+		document.getElementById('email_error').innerHTML = 'Συμπληρώστε αυτό το πεδίο';
+
+	}else if(!validemail){
+		validemail = 0;
+		mymail=0;
+		document.getElementById('email_error').innerHTML = 'Συμπληρώστε μία έγκυρη διεύθυνση ηλεκτρονικού ταχυδρομίου';
+		
+	}
+	else{
+		$.ajax({
+			type:"POST",
+			data:{
+				email:content,},
+			url:'/app/check_email',
+			success: function(email_check){
+				console.log("Result is: "+email_check);
+				if (email_check == usn1){
+					mymail=1;
+				}
+				else if(email_check.length >0){
+					mymail=0;
+					validemail=0;
+					document.getElementById('email_error').innerHTML = "To email αυτό χρησιμοποιείται ήδη";
+				}
+				else{
+					mymail=1;
+					document.getElementById('email_error').innerHTML = "";
+					validemail=1;
+					document.getElementById('email_error').innerHTML = "<span style=\"color:green\">" + "Έγκυρο email" + "</span>";
+					//document.getElementById('email-border').style.borderColor = "green";
+				}
+			}
+		});
+	}
+	
+	
+	
+	if(validemail){
+    $(this).css('border','');
+    $(this).attr('data-validation',true);
+
+  }else{
+    $(this).css('border','1px solid red');
+    $(this).attr('data-validation',false);
+  
+    
+  }
+});
+
 
 
 $(document).on('blur','.fname-validation',function(){
@@ -503,7 +561,99 @@ $(document).on('click','.signup-btn',function(){
 				
 		});	
 	}
-	});
+});
+
+$(document).on('click','.update-btn',function(){
+	console.log("ΕΔΩ ΕΙΜΑΙ!");
+	var usn = $(this).parent().parent().siblings('.row').find('input[name=username]').val();
+	console.log(usn);
+	var email = $(this).parent().parent().siblings('.email').find('input[name=email]').val();
+	console.log(email);
+	var password = $(this).parent().parent().siblings('.row').find('input[name=password]').val();
+	console.log(password);
+	var password1 = $(this).parent().parent().siblings('.row').find('input[name=password1]').val();
+	console.log(password1);
+	var fname=$(this).parent().parent().siblings('.row').find('input[name=fname]').val();
+	console.log(fname);
+	var lname=$(this).parent().parent().siblings('.row').find('input[name=lname]').val();
+	console.log(lname);
+	var postal=$(this).parent().parent().siblings('.row').find('input[name=postal]').val();
+	console.log(postal);
+	var addr=$(this).parent().parent().siblings('.row').find('input[name=addr]').val();
+	console.log(addr);
+	var tel=$(this).parent().parent().siblings('.tel').find('input[name=tel]').val();
+	console.log(tel);
+	var bank=$(this).parent().parent().siblings('.bankaccount').find('input[name=bankaccount]').val();
+	console.log(bank);
+	validusn=1;
+	if(mymail==1){
+		validemail=1;
+		console.log(1);
+	}
+	console.log(password+", "+password1);
+	if(password.localeCompare(password1)==0 && password.length>0){
+		validpass1=1;
+		validpass=1;
+		console.log(2);
+	}
+	if(fname != ""){
+		validfname=1;
+		console.log(3);
+	}
+	if(lname!=""){
+		validlname=1;
+		console.log(4);
+	}
+	if(postal != ""){
+		validpostal =1;
+		console.log(5);
+	}
+	if(addr!=""){
+		validaddr=1;
+		console.log(6);
+	}
+	if(tel != "" && tel.length==10){
+		validtel=1;
+		console.log(7);
+	}
+	if(bank!="" && bank.length==16){
+		validbank=1;
+		console.log(8);
+	}
+
+
+	var test=validlname&validfname&validpass1&validpass&validusn&validemail&validaddr&validpostal&validtel&validbank;
+	if(test==0){
+		var mes='Παρακαλώ συμπληρώστε όλα τα πεδία';
+     	$(this).closest('.form-body').siblings('.modal-footer').find('.message').html(mes);	
+        $(this).closest('.form-body').siblings('.modal-footer').find('.message').css('color','red');
+	}
+	else {
+		var mes="";
+		$(this).closest('.form-body').siblings('.modal-footer').find('.message').html(mes);
+		$.ajax({
+			type:"POST",
+			data:{
+				usn:usn,
+				email:email,
+				password:password,
+				fname:fname,
+				lname:lname,
+				postal:postal,
+				addr:addr,
+				tel:tel,
+				bank:bank,
+				latt:latt,
+				lngg:lngg
+			},
+			url:'/app/parent_update',
+			success: function(){
+				window.location.href='https://localhost:8765/app/parent.jsp'
+			}
+				
+		});	
+	}
+});
 
 
 

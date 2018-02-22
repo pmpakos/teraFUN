@@ -200,7 +200,7 @@ color: red;
     </div>
     <div class="form-group confirm-password col-xs-6">
      	<label for="confirm-password"><span class="glyphicon glyphicon-eye-open"></span> Επιβεβαίωση Κωδικού </label>
-		<input  type="password" class="form-control password-confirmation form-element" id="pass1" name="password1" name="password" data-bind="value: password, attr: {placeholder: 'Επιβεβαίωση Κωδικού'}" data-validation="false">
+		<input  type="password" class="form-control password-confirmation form-element" id="pass1" name="password1" name="password" data-bind="value: password2, attr: {placeholder: 'Επιβεβαίωση Κωδικού'}" data-validation="false">
     	<span class="error"><p1 id="pass2_error"></p1></span>
     </div>
     </div>
@@ -238,7 +238,7 @@ color: red;
 <div class="col-sm-6 col-sm-offset-3">   
 <br>
 </br>
-	<button type="button" class="btn btn-block submit-btn update-btn"><span class="glyphicon glyphicon-pencil"></span>&nbsp; Ενημερωση Στοιχειων </button>
+	<button type="button" class="btn btn-block btn-danger submit-btn update-btn"><span class="glyphicon glyphicon-pencil"></span>&nbsp; Ενημέρωση Στοιχείων </button>
 </div>
 </div>
 
@@ -347,6 +347,7 @@ color: red;
                 this.tel= ko.observable();
                 this.credit=ko.observable();
                 this.password=ko.observable();
+                this.password2=ko.observable();
                    
             }
 
@@ -377,8 +378,9 @@ color: red;
                 viewModel.postal(parentJson.PostalCode);
                 viewModel.username(parentJson.Username);
                 viewModel.address(parentJson.Address);
-                viewModel.credit(parentJson.BankAccount)
-                viewModel.password(parentJson.Password)
+                viewModel.credit(parentJson.BankAccount);
+                viewModel.password(parentJson.Password);
+                viewModel.password2(parentJson.Password);
 
 
                 

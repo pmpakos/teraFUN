@@ -19,7 +19,7 @@ class CompanyRowMapper implements RowMapper<Company>  {
         String Email = rs.getString("Email");
         int AFM = rs.getInt("AFM");
         String Password = rs.getString("Password");
-        long BankAccount = rs.getLong("BankAccount");
+        String BankAccount = rs.getString("BankAccount");
         String WebPage = rs.getString("WebPage");
         String Description = rs.getString("Description");
         int Status = rs.getInt("Status");

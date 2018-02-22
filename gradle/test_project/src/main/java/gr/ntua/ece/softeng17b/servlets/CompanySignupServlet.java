@@ -31,7 +31,7 @@ public class CompanySignupServlet extends HttpServlet {
 			int postal = Integer.parseInt(request.getParameter("postal"));
 			long tel = Long.parseLong(request.getParameter("tel"));
 			int afm =  Integer.parseInt(request.getParameter("afm"));
-			//String bank = request.getParameter("bank");
+			String bank = request.getParameter("bank");
 
 			Double lat = Double.parseDouble(request.getParameter("latt"));
 			Double lng = Double.parseDouble(request.getParameter("lngg"));
@@ -43,7 +43,7 @@ public class CompanySignupServlet extends HttpServlet {
 		     // do some processing here...
 
 		    Company insert_company = new Company(0, username,compname, 
-							address, postal, tel, email, afm, password, 0, webpage, description, 0,0,filename, lat, lng);
+							address, postal, tel, email, afm, password, bank, webpage, description, 0,0,filename, lat, lng);
 
 
 	        Configuration conf = Configuration.getInstance();

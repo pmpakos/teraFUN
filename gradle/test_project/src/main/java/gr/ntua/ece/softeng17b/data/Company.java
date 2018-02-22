@@ -11,7 +11,7 @@ public class Company {
 	String Email;
 	int AFM;
 	String Password;
-	long BankAccount;
+	String BankAccount;
 	String WebPage;
 	String Description;
 	int Status;
@@ -23,7 +23,7 @@ public class Company {
 	
 	public Company (int ID, String Username, String CompanyName, String Address,
 	int PostalCode,	long TelephoneNumber, String Email, int AFM, String Password,
-	long BankAccount, String WebPage, String Description, int Status, int Points,
+	String BankAccount, String WebPage, String Description, int Status, int Points,
 	String PhotosFolder, double Latitude, double Longitude){
 		
 		this.CompanyID = ID;
