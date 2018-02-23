@@ -73,4 +73,8 @@ public class Parent {
 	public double getLongitude(){
 		return this.Longitude;
 	}
+
+	public int getStatus(){
+		return this.Status;
+	}
 }

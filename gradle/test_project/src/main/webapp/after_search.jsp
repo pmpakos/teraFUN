@@ -22,7 +22,7 @@
     String indoor = request.getParameter("indoor");    
     String offer = request.getParameter("offer");
 
-    id2="9";
+    id2="1";
 
  %>
 
@@ -60,16 +60,20 @@
 <%@include file="header.jsp" %>
 
         <div class="alert alert-success alert-dismissable success">
-            <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
+            <button type="button" class="close" data-hide="alert" aria-hidden="true" style="position: absolute; width: 60%; z-index: 0">&times;</button>
                     Η αγορά έγινε επιτυχώς! Το εισιτήριό σου έχει σταλεί στο email.
         </div>
         <div class="alert alert-danger alert-dismissable fail1">
-            <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
+            <button type="button" class="close" data-hide="alert" aria-hidden="true" style="position: absolute; width: 60%; z-index: 0">&times;</button>
                     Ουψ! Δεν υπάρχουν τόσες διαθέσιμες θέσεις για την εκδήλωση.
         </div>
         <div class="alert alert-danger alert-dismissable fail2" style="position: absolute; width: 60%; z-index: 0">
             <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
                     Οι πόντοι που διαθέτεις δεν επαρκούν!
+        </div>
+        <div class="alert alert-danger alert-dismissable fail3" style="position: absolute; width: 60%; z-index: 0">
+            <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
+                    Συναλλαγή ανεπιτυχής! Για την αγορά εισιτηρίου είναι απαραίτητη η πληρωμή της συνδρομής!
         </div>
         <div class="parent" style="margin-top:20px;">
             <div class="container" style="border-bottom: 1px solid #ccc; max-width: 60%;">
@@ -99,7 +103,6 @@
                 </hgroup>
 
                 <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pre-scrollable" data-bind="foreach:events">
-                <input type="hidden" id="eventID" data-bind="value:id"/>
                     <article class="search-result row" data-bind="visible: isVisible">
                         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-3">
                             <div class="portrait">
@@ -125,7 +128,7 @@
                                 <h3><span data-bind="text:name"></span></h3>
                                 <p data-bind="text:description"></p>                        
                                 <button type="button" class="btn btn-info btn-sm" style="vertical-align:bottom;">Μάθε Περισσότερα</button>
-                                <button id="mybtn" href="#myModal" data-bind="visible: $parent.showMe" type="button" class="btn btn-success" style="float: right;" data-toggle="modal">Κλείσε θέση τώρα!</button>
+                                <button id="mybtn" href="#myModal" data-bind="visible: $parent.showMe, value: id" type="button" class="btn btn-success" style="float: right;" data-toggle="modal" onclick="set(this.value)">Κλείσε θέση τώρα!</button>
                                 <button onclick="location.href = 'sign_up_parent.jsp';" data-bind="visible: $parent.notShow" type="button" class="btn btn-warning" style="float: right;" data-toggle="tooltip" title="Γίνε μέλος για να κάνεις κράτηση!">Κάνε εγγραφή τώρα!</button>
                             </div>
                         <span class="clearfix borda"></span>
@@ -139,7 +142,7 @@
         </div>
 
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
+            <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <button style="float: right;" type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -148,14 +151,14 @@
                 <h5 class="modal-title" style="float:left;" id="myModalLabel">Αγορά Εισιτηρίου | teraFUN</h5>
               </div>
               <div class="modal-body">
-                ...
+                <input type="hidden" id="eventID" name="eventID"/>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Ακύρωση</button>
                 <button id="proceed" type="button" class="btn btn-primary">Επιβεβαίωση πληρωμής</button>
               </div>
             </div>
-          </div>
+            </div>
         </div>
 
 
@@ -168,6 +171,10 @@
        
         <script>
 
+            function set(clicked_id) {
+                var eventId = clicked_id;
+                $(".modal-body #eventID").val( eventId );
+            }
 
             $("[data-hide]").on("click", function(){
                 $(this).closest("." + $(this).attr("data-hide")).hide();
@@ -216,6 +223,10 @@
                                 $("#myModal").modal("hide"); 
                                 $('.fail1').show(); 
                             }
+                            else if(reply == "Pay"){
+                                $("#myModal").modal("hide"); 
+                                $('.fail3').show(); 
+                            }
                             else{
                                 $("#myModal").modal("hide"); 
                                 $('.fail2').show();
@@ -227,11 +238,6 @@
                 else{
                     $("#myModal").modal("hide"); 
                 }
-            };
-
-            // When the user clicks on the button, open the modal 
-            btn.onclick = function() {
-                modal.style.display = "block";
             };
 
             // When the user clicks on <span> (x), close the modal

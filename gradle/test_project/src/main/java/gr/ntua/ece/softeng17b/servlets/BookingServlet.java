@@ -100,7 +100,11 @@ public class BookingServlet extends HttpServlet {
 			response.getWriter().append("Fail");
 			return;
 		}
-
+		
+		if(parent.getStatus() == 1){
+			response.getWriter().append("Pay");
+			return;
+		}
 		if(tickets + event.getTicketCounter() > event.getMaxCapacity()){
 			response.getWriter().append("Tickets");
 			return;
@@ -109,7 +113,7 @@ public class BookingServlet extends HttpServlet {
 		booking_dao.insert(insert_booking);
 		
 		//System.out.println("Ticket code : "+ticket_code + "To mister "+parent.getEmail());
-		EmailSender.ticketattachment(parent.getEmail(),ticket_code,event.getName());
+		//EmailSender.ticketattachment(parent.getEmail(),ticket_code,event.getName());
 		response.getWriter().append("Success");
 		
 		
