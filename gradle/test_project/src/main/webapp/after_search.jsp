@@ -22,7 +22,8 @@
     String indoor = request.getParameter("indoor");    
     String offer = request.getParameter("offer");
 
-    id2="1";
+    id2="3";
+    System.out.println(id2);
 
  %>
 
@@ -58,33 +59,29 @@
     <body>
 
 <%@include file="header.jsp" %>
-
-        <div class="alert alert-success alert-dismissable success">
-            <button type="button" class="close" data-hide="alert" aria-hidden="true" style="position: absolute; width: 60%; z-index: 0">&times;</button>
+        
+        <div class="alert alert-success alert-dismissible success" style="position: absolute; width: 60%; z-index: 0">
+            <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
                     Η αγορά έγινε επιτυχώς! Το εισιτήριό σου έχει σταλεί στο email.
         </div>
-        <div class="alert alert-danger alert-dismissable fail1">
-            <button type="button" class="close" data-hide="alert" aria-hidden="true" style="position: absolute; width: 60%; z-index: 0">&times;</button>
+        <div class="alert alert-danger alert-dismissible fail1" style="position: absolute; width: 60%; z-index: 0">
+            <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
                     Ουψ! Δεν υπάρχουν τόσες διαθέσιμες θέσεις για την εκδήλωση.
         </div>
-        <div class="alert alert-danger alert-dismissable fail2" style="position: absolute; width: 60%; z-index: 0">
+        <div class="alert alert-danger alert-dismissible fail2" style="position: absolute; width: 60%; z-index: 0">
             <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
                     Οι πόντοι που διαθέτεις δεν επαρκούν!
         </div>
-        <div class="alert alert-danger alert-dismissable fail3" style="position: absolute; width: 60%; z-index: 0">
+        <div class="alert alert-danger alert-dismissible fail3" style="position: absolute; width: 60%; z-index: 0">
             <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
                     Συναλλαγή ανεπιτυχής! Για την αγορά εισιτηρίου είναι απαραίτητη η πληρωμή της συνδρομής!
         </div>
-        <div class="parent" style="margin-top:20px;">
+        <div class="parent" style="margin-top:20px; display: none;" data-bind="visible: true"">
             <div class="container" style="border-bottom: 1px solid #ccc; max-width: 60%;">
                 <h1>Αποτελέσματα αναζήτησης</h1>
                 <hgroup class="mb20">
                     
-                    <h2 class="lead" style="float:left">Βρέθηκαν συνολικά<strong class="text-danger"> <span data-bind="text:events().length"></span> </strong> <span data-bind="visible:events().length>1">εκδηλώσεις</span> <span data-bind="visible:events().length<2">εκδήλωση</span><span data-bind="visible:events().length<1">: Δεν βρέθηκαν αποτελέσματα για την αναζήτησή σου. <a href="search.jsp">Ξαναπροσπάθησε!</a></span></h2>
-                    <label class="container1" data-bind="visible:events().length>0">Eμφάνιση όλων των εκδηλώσεων
-                        <input type="checkbox" checked="checked" data-bind="checked: selectAll" class="custom-control-input">
-                        <span class="checkmark " style="margin-left: 32px;"></span>
-                    </label>
+                    <h2 class="lead" style="float:left">Εμφανίζονται  <strong class="text-danger"> <span data-bind="text:calculate"></span> </strong>από συνολικά<strong class="text-danger"> <span data-bind="text:events().length"></span> </strong> <span data-bind="visible:events().length>1">εκδηλώσεις</span> <span data-bind="visible:events().length<2">εκδήλωση</span><span data-bind="visible:events().length<1">: Δεν βρέθηκαν αποτελέσματα για την αναζήτησή σου. <a href="search.jsp">Ξαναπροσπάθησε!</a></span></h2>
                     <div class="btn-group" style="float:right; margin-top:6px; margin-bottom:6px;" data-bind="visible: showMe && events().length>0" aria-haspopup="true">
                         <button type="button"  data-toggle="dropdown" class="btn btn-default dropdown-toggle">
                             <span class="glyphicon glyphicon-road"> Απόσταση</span>
@@ -92,11 +89,31 @@
                         </button>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li> <button id="check0" type="button" class="btn btn-default" data-bind="click: filter.bind(this, '5')" style="width:100%;"><span style="font-weight:bold;">5 χλμ.</span></button> </li> 
-                            <li> <button id="check1" type="button" class="btn btn-default" data-bind="click: filter.bind(this, '15')" style="width:100%;"><span style="font-weight:bold;">15 χλμ.</span></button> </li>
-                            <li> <button id="check2" type="button" class="btn btn-default" data-bind="click: filter.bind(this, '25')" style="width:100%;"><span style="font-weight:bold;">25 χλμ.</span></button> </li>
-                            <li> <button id="check3" type="button" class="btn btn-default" data-bind="click: filter.bind(this, '40')" style="width:100%;"><span style="font-weight:bold;">40 χλμ.</span></button> </li>
-                            <li> <button id="check4" type="button" class="btn btn-info" data-bind="click: filter.bind(this, '75')"><span style="font-weight:bold;">Κανένας Περιορισμός</span></button> </li>
+                            <li>
+                                <button id="check0" type="button" class="btn btn-default" data-bind="click: filter.bind(this, '5')" style="width:100%;">
+                                    <span style="font-weight:bold;">5 χλμ.</span>
+                                </button> 
+                            </li> 
+                            <li> 
+                                <button id="check1" type="button" class="btn btn-default" data-bind="click: filter.bind(this, '15')" style="width:100%;">
+                                    <span style="font-weight:bold;">15 χλμ.</span>
+                                </button> 
+                            </li>
+                            <li> 
+                                <button id="check2" type="button" class="btn btn-default" data-bind="click: filter.bind(this, '25')" style="width:100%;">
+                                    <span style="font-weight:bold;">25 χλμ.</span>
+                                </button> 
+                            </li>
+                            <li> 
+                                <button id="check3" type="button" class="btn btn-default" data-bind="click: filter.bind(this, '40')" style="width:100%;">
+                                    <span style="font-weight:bold;">40 χλμ.</span>
+                                </button> 
+                            </li>
+                            <li> 
+                                <button id="check4" type="button" class="btn btn-info" data-bind="click: filter.bind(this, '75')">
+                                    <span style="font-weight:bold;">Κανένας Περιορισμός</span>
+                                </button> 
+                            </li>
                         </ul>
                     </div>
             
@@ -191,7 +208,6 @@
 
             var proceed = document.getElementById("proceed");
 
-
             proceed.onclick = function() {
                 var r = confirm("Είστε σίγουρος/η πως θέλετε να προχωρήσετε με την πληρωμή;");
                 if(r == true){
@@ -215,9 +231,15 @@
                         },
                         url:'/app/booking',
                         success: function(reply){
+                            $('.fail3').hide();
+                            $('.fail2').hide();
+                            $('.fail1').hide();
+                            $('.success').hide();
                             if(reply == "Success"){
                                 $("#myModal").modal("hide"); 
-                                $('.success').show();  
+                                $(".success").fadeTo(2000, 500).slideUp(500, function(){
+                                    $(".success").slideUp(500);
+                                });
                             }
                             else if(reply == "Tickets"){
                                 $("#myModal").modal("hide"); 
@@ -243,6 +265,7 @@
             // When the user clicks on <span> (x), close the modal
             span.onclick = function() {
                 modal.style.display = "none";
+                $('.fail3').hide();
                 $('.fail2').hide();
                 $('.fail1').hide();
                 $('.success').hide();
@@ -297,7 +320,6 @@
                     $(this).addClass('btn-info');
                 }
             });
-
 
             /*function toRadians(x){
                 return (Math.PI/180)*x;
@@ -364,7 +386,17 @@
                     this.events = ko.observableArray();
                     this.showMe = ko.observable(false);
                     this.notShow = ko.observable(true);
-                    this.selectAll = ko.computed({
+                    this.calculate = ko.computed(function () {
+                        var counter=0;
+                        var eventsArray = that.events();
+                        eventsArray.forEach(function (event){
+                            if(event.isVisible()){
+                                counter++;
+                            }       
+                        });
+                        return counter;
+                    });
+                    /*this.selectAll = ko.computed({
                         read : function() {
                             // Get selected when dependent children are selected
                             var someSelected = true;
@@ -378,10 +410,10 @@
                             return someSelected;
                         },
                         write : function(newState) {
-                            $('[id^="check"]').click(function () {
-                                $('[id^="check"]').removeClass('btn-info').addClass('btn-default');
-                                $('[id="check4"]').addClass('btn-info');
-                            });
+                            
+                            $('[id^="check"]').removeClass('btn-info').addClass('btn-default');
+                            $('[id="check4"]').addClass('btn-info');
+                            
                             // If checked / unchecked, propagate this change to children. This isn't called if we're only
                             // only checking the group checkbox because of a change to a dependent.
                             var eventsArray = that.events();
@@ -390,7 +422,7 @@
                                 event.isVisible(true);
                             });
                         }
-                    });
+                    });*/
 
                     this.filter = function(str){
                         //console.log(str);
@@ -441,7 +473,7 @@
                                 }
                             });
                         }
-
+                        viewModel.calculate();
                     };           
                 }
 

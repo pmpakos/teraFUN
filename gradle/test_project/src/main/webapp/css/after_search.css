@@ -15,6 +15,7 @@ body {
     overflow:hidden;
     width: 100%;
     padding-top:14px;
+    min-height: 500px;
 }
 .resize {
     width: 150px;
