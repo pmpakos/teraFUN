@@ -2,6 +2,7 @@ package gr.ntua.ece.softeng17b.data;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Date;
 
 import org.springframework.jdbc.core.RowMapper;
 
@@ -10,12 +11,15 @@ class BookingRowMapper implements RowMapper<Booking>  {
 	@Override
     public Booking mapRow(ResultSet rs, int rowNum) throws SQLException {
         
-        int id = rs.getInt("BookingID");
-      
-        System.out.println(id);
+        int bookid = rs.getInt("BookingID");
+      	int parentid = rs.getInt("ParentID");
+      	int eventid = rs.getInt("EventID");
+      	int tickets = rs.getInt("NumberOfTickets");
+      	Date date = rs.getDate("BookDate");
+      	String code = rs.getString("Code");
 
         return new Booking(
-                    id, 0,0,null,0,""
+                    bookid, parentid,eventid,date,tickets,code
                 );
     }
 }

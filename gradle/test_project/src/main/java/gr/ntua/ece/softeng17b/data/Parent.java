@@ -57,6 +57,10 @@ public class Parent {
 	public String getEmail(){
 		return this.Email;
 	}
+
+	public int getPoints(){
+		return this.Points;
+	}
 	
 	public String getPassword(){
 		return this.Password;

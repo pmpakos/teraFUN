@@ -59,6 +59,18 @@
 
 <%@include file="header.jsp" %>
 
+        <div class="alert alert-success alert-dismissable success">
+            <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
+                    Η αγορά έγινε επιτυχώς! Το εισιτήριό σου έχει σταλεί στο email.
+        </div>
+        <div class="alert alert-danger alert-dismissable fail1">
+            <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
+                    Ουψ! Δεν υπάρχουν τόσες διαθέσιμες θέσεις για την εκδήλωση.
+        </div>
+        <div class="alert alert-danger alert-dismissable fail2" style="position: absolute; width: 60%; z-index: 0">
+            <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
+                    Οι πόντοι που διαθέτεις δεν επαρκούν!
+        </div>
         <div class="parent" style="margin-top:20px;">
             <div class="container" style="border-bottom: 1px solid #ccc; max-width: 60%;">
                 <h1>Αποτελέσματα αναζήτησης</h1>
@@ -69,13 +81,13 @@
                         <input type="checkbox" checked="checked" data-bind="checked: selectAll" class="custom-control-input">
                         <span class="checkmark " style="margin-left: 32px;"></span>
                     </label>
-                    <div class="button-group" style="float:right; margin-top:6px; margin-bottom:6px;" data-bind="visible: showMe">
+                    <div class="btn-group" style="float:right; margin-top:6px; margin-bottom:6px;" data-bind="visible: showMe" aria-haspopup="true">
                         <button type="button"  data-toggle="dropdown" class="btn btn-default dropdown-toggle">
                             <span class="glyphicon glyphicon-road"> Απόσταση</span>
                             <span class="caret"></span>
                         </button>
 
-                        <ul class="dropdown-menu" style="position:relative">
+                        <ul class="dropdown-menu" role="menu">
                             <li> <button id="check0" type="button" class="btn btn-default" data-bind="click: filter.bind(this, '5')" style="width:100%;"><span style="font-weight:bold;">5 χλμ.</span></button> </li> 
                             <li> <button id="check1" type="button" class="btn btn-default" data-bind="click: filter.bind(this, '15')" style="width:100%;"><span style="font-weight:bold;">15 χλμ.</span></button> </li>
                             <li> <button id="check2" type="button" class="btn btn-default" data-bind="click: filter.bind(this, '25')" style="width:100%;"><span style="font-weight:bold;">25 χλμ.</span></button> </li>
@@ -87,12 +99,13 @@
                 </hgroup>
 
                 <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pre-scrollable" data-bind="foreach:events">
+                <input type="hidden" id="eventID" data-bind="value:id"/>
                     <article class="search-result row" data-bind="visible: isVisible">
-                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-3">
                             <a href="#" title="Lorem ipsum" class="thumbnail"><img src="static/logo.png" alt="Lorem ipsum" /></a>
                         </div>
                         
-                            <div class="col-xs-3 col-sm-3 col-md-4 col-lg-3">
+                            <div class="col-xs-3 col-sm-4 col-md-5 col-lg-2">
                                 <ul class="meta-search">
                                     <li><i class="glyphicon glyphicon-calendar"></i> <span data-bind="text:date"></span></li>
                                     <li><i class="glyphicon glyphicon-time"></i> <span data-bind="text:hour"></span></li>
@@ -106,7 +119,7 @@
                                     </li>-->
                                 </ul>
                             </div>
-                            <div class="col-xs-7 col-sm-7 col-md-6 col-lg-7 excerpet">
+                            <div class="col-xs-7 col-sm-6 col-md-5 col-lg-7 excerpet">
                                 <h3><span data-bind="text:name"></span></h3>
                                 <p data-bind="text:description"></p>                        
                                 <button type="button" class="btn btn-info btn-sm" style="vertical-align:bottom;">Μάθε Περισσότερα</button>
@@ -153,6 +166,11 @@
        
         <script>
 
+
+            $("[data-hide]").on("click", function(){
+                $(this).closest("." + $(this).attr("data-hide")).hide();
+            });
+
             // Get the modal
             var modal = document.getElementById('myModal');
 
@@ -169,9 +187,43 @@
                 var r = confirm("Είστε σίγουρος/η πως θέλετε να προχωρήσετε με την πληρωμή;");
                 if(r == true){
                     console.log("Θα το πληρώσεις!");
+                    var parentID = "<%=id2%>";
+                    console.log(parentID);
+                    var eventID =  document.getElementById('eventID').value;
+                    console.log(eventID+" !!! to pio shmantiko");
+                    var ticket_number = "<%=ticket%>";
+                    console.log(ticket_number);
+                    var date= "<%=date%>";
+                    console.log(date);
+                    //Ready to create the booking
+                    $.ajax({
+                        type:"POST",
+                        data:{
+                            parentID:parentID,
+                            eventID:eventID,
+                            tickets:ticket_number,
+                            date:date
+                        },
+                        url:'/app/booking',
+                        success: function(reply){
+                            if(reply == "Success"){
+                                $("#myModal").modal("hide"); 
+                                $('.success').show();  
+                            }
+                            else if(reply == "Tickets"){
+                                $("#myModal").modal("hide"); 
+                                $('.fail1').show(); 
+                            }
+                            else{
+                                $("#myModal").modal("hide"); 
+                                $('.fail2').show();
+                            }
+                        }
+                            
+                    }); 
                 }
                 else{
-                    ;
+                    $("#myModal").modal("hide"); 
                 }
             };
 
@@ -183,6 +235,9 @@
             // When the user clicks on <span> (x), close the modal
             span.onclick = function() {
                 modal.style.display = "none";
+                $('.fail2').hide();
+                $('.fail1').hide();
+                $('.success').hide();
             };
 
             // When the user clicks anywhere outside of the modal, close it

@@ -29,18 +29,12 @@ public class BookingDAO{
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
-	int BookingID;
-	int ParentID;
-	int EventID;
-	Date BookDate;
-	int NumberOfTickets;
-	String Code;
-
     public void insert(Booking booking){
          String sql = "INSERT INTO booking (ParentID, EventID, BookDate,"
-                    + "NumberOfTickets, Code"
+                    + "NumberOfTickets, Code)"
                     + "VALUES (?, ?, ?, ?, ?)";
 
+        
         this.jdbcTemplate.update(sql, new Object[] {booking.ParentID, booking.EventID, booking.BookDate, 
                                         booking.NumberOfTickets, booking.Code});
     }

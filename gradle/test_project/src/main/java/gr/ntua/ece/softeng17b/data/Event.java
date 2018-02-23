@@ -78,5 +78,15 @@ public class Event {
 	public String getName(){
 		return this.Name;
 	}
+	public int getCost(){
+		return this.Cost;
+	}
+	public int getTicketCounter(){
+		return this.TicketCounter;
+	}
+
+	public int getMaxCapacity(){
+		return this.MaxCapacity;
+	}
 	
 }
