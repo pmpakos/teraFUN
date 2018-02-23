@@ -23,7 +23,7 @@ body {
 .gmap {
     margin-top:30px;
     float:right;
-    height: auto;
+    min-height: 300px
     max-height:500px;
     width: 40%;
 }
@@ -41,7 +41,22 @@ h1 { font: 500 normal 1.625em "Roboto",Arial,Verdana,sans-serif; color: #2a3644;
 hgroup h2.lead { font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; color: #2a3644; margin-top:10px; padding-bottom: 5px; display:inline;}
 hgroup label {font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; color: #2a3644; margin-top:14px; margin-left:230px; padding-bottom: 5px; display:inline;}
 
-.search-result .thumbnail { border-radius: 0 !important; }
+.search-result .thumbnail {
+  position: relative;
+  width: 150px;
+  height: 140px;
+  overflow: hidden;
+}
+.search-result .thumbnail img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
 .search-result:first-child { margin-top: 0 !important; }
 .search-result { margin-top: 20px; }
 .search-result .col-md-2 { border-right: 1px dotted #ccc; min-height: 140px; }

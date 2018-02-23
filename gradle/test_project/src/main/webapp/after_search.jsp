@@ -76,12 +76,12 @@
                 <h1>Αποτελέσματα αναζήτησης</h1>
                 <hgroup class="mb20">
                     
-                    <h2 class="lead" style="float:left">Βρέθηκαν συνολικά<strong class="text-danger"> <span data-bind="text:events().length"></span> </strong> <span data-bind="visible:events().length>1">εκδηλώσεις</span> <span data-bind="visible:events().length<2">εκδήλωση</span></h2>
-                    <label class="container1">Eμφάνιση όλων των εκδηλώσεων
+                    <h2 class="lead" style="float:left">Βρέθηκαν συνολικά<strong class="text-danger"> <span data-bind="text:events().length"></span> </strong> <span data-bind="visible:events().length>1">εκδηλώσεις</span> <span data-bind="visible:events().length<2">εκδήλωση</span><span data-bind="visible:events().length<1">: Δεν βρέθηκαν αποτελέσματα για την αναζήτησή σου. <a href="search.jsp">Ξαναπροσπάθησε!</a></span></h2>
+                    <label class="container1" data-bind="visible:events().length>0">Eμφάνιση όλων των εκδηλώσεων
                         <input type="checkbox" checked="checked" data-bind="checked: selectAll" class="custom-control-input">
                         <span class="checkmark " style="margin-left: 32px;"></span>
                     </label>
-                    <div class="btn-group" style="float:right; margin-top:6px; margin-bottom:6px;" data-bind="visible: showMe" aria-haspopup="true">
+                    <div class="btn-group" style="float:right; margin-top:6px; margin-bottom:6px;" data-bind="visible: showMe && events().length>0" aria-haspopup="true">
                         <button type="button"  data-toggle="dropdown" class="btn btn-default dropdown-toggle">
                             <span class="glyphicon glyphicon-road"> Απόσταση</span>
                             <span class="caret"></span>
@@ -102,7 +102,9 @@
                 <input type="hidden" id="eventID" data-bind="value:id"/>
                     <article class="search-result row" data-bind="visible: isVisible">
                         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-3">
-                            <a href="#" title="Lorem ipsum" class="thumbnail"><img src="static/logo.png" alt="Lorem ipsum" /></a>
+                            <div class="portrait">
+                                <a href="#" title="Lorem ipsum" class="thumbnail"><img class=img1 data-bind="attr:{src: photo}"></a>
+                            </div>
                         </div>
                         
                             <div class="col-xs-3 col-sm-4 col-md-5 col-lg-2">
@@ -133,7 +135,7 @@
             </div>
 
 
-            <div id="map" class="gmap"></div>
+            <div id="map" class="gmap" data-bind="visible: events().length>0 "></div>
         </div>
 
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -315,7 +317,7 @@
                 });
                 
 
-                var Event = function(id, name, description, full_description, hour, duration, cost, longitude, latitude, date, sort) {
+                var Event = function(id, name, description, full_description, hour, duration, cost, photo, longitude, latitude, date, sort) {
                     this.id = id;
                     this.name = name;
                     this.description = description;
@@ -323,6 +325,7 @@
                     this.hour = hour;
                     this.duration = duration;
                     this.cost = cost;
+                    this.photo = photo;
                     this.Longitude = longitude;
                     this.Latitude = latitude;
                     this.date = date;
@@ -461,6 +464,7 @@
                     return $.ajax(opts); //returns a promise
                 }
 
+                
                 var viewModel = new VM();
                 console.log("Created VM");            
 
@@ -531,6 +535,7 @@
                                 eventJson.Hour,
                                 eventJson.Duration+" λεπτά",
                                 cost,
+                                eventJson.PhotosFolder,
                                 eventJson.Longitude,
                                 eventJson.Latitude,
                                 date,
