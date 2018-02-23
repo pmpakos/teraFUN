@@ -2,7 +2,7 @@
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
-		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
     <display-name>App</display-name>
@@ -101,6 +101,11 @@
     <servlet>
         <servlet-name>company_signup_form</servlet-name>
         <servlet-class>gr.ntua.ece.softeng17b.servlets.CompanySignupServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>create_event_form</servlet-name>
+        <servlet-class>gr.ntua.ece.softeng17b.servlets.CreateEventServlet</servlet-class>
     </servlet>
 
 
@@ -228,6 +233,11 @@
         <servlet-name>company_signup_form</servlet-name>
         <url-pattern>/company_signup</url-pattern>
     </servlet-mapping>  
+
+    <servlet-mapping>
+        <servlet-name>create_event_form</servlet-name>
+        <url-pattern>/create_event</url-pattern>
+    </servlet-mapping> 
     
      <servlet-mapping>
         <servlet-name>upload_image_company</servlet-name>
