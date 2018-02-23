@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -28,25 +27,22 @@
   <script src="js/search.js"></script>  
 <!-- Our css files -->
   <link rel="stylesheet" href="css/search.css">
-	<link rel="stylesheet" href="css/stylelogin.css"> 
-	<link rel="stylesheet" href="css/header.css"> 
+  <link rel="stylesheet" href="css/stylelogin.css"> 
+  <link rel="stylesheet" href="css/header.css"> 
   
 <!-- Fonts -->
-  <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+ 
   <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
-  <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+ 
 
   <link href="https://fonts.googleapis.com/css?family=GFS+Neohellenic:400i" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=GFS+Neohellenic" rel="stylesheet">
 
 <style>
-
-
 .panel-eventoutside{border-color:#fff}
 .panel-eventoutside>.panel-heading{color:#fff;background-color:#337ab7;border-color:#337ab7}
 .panel-eventoutside>.panel-heading+.panel-collapse>.panel-body{border-top-color:#337ab7}
 .panel-eventoutside>.panel-heading .badge{color:#337ab7;background-color:#fff}
-
   ul#stepForm, ul#stepForm li {
     margin: 0;
     padding: 0;
@@ -56,8 +52,6 @@
   } 
   label{margin-top: 10px;}
   .help-inline-error{color:red;}
-
-
 </style>
 
 <style type="text/css">
@@ -72,7 +66,6 @@
   right: 0;
   z-index: -1;
    top: 0;
-
   background-size:cover;
     -webkit-filter: blur(5px);
     -moz-filter: blur(5px);
@@ -80,17 +73,12 @@
     -ms-filter: blur(5px);
     filter: blur(5px);   
 }
-
 /*h2 {
   font: 400 90px/0.8 'Great Vibes', Helvetica, sans-serif;
   color: #ccc;
   text-shadow: 4px 4px 3px rgba(0,0,0,0.1); 
   text-align: center;
-
 }*/
-
-
-
 h2 {
   /*font:   'GFS Neohellenic', sans-serif;*/
   font: 400 40px/0.8 'Didact Gothic', sans-serif;
@@ -98,29 +86,25 @@ h2 {
   /*text-shadow: 4px 4px 3px rgba(0,0,0,0); */
   text-align: center;
 }
-
-
 p {
-
   font: 400 20px/0.8  'GFS Neohellenic', sans-serif;
   color: #204060;
   /*text-shadow: 4px 4px 3px rgba(0,0,0,0.1); */
   /*text-align: center;*/
 }
-
 </style>
 </head>
 
 <body>
 
 
-   <%@include file="header_company.jsp" %>   
+
    <div class="col-md-8 col-md-offset-2">
     <div class="panel panel-eventoutside">
       <div class="panel-body">
         <br>
 
-      	<h2>Δημιουργία εκδήλωσης σε 4 βήματα</h2>
+        <h2>Δημιουργία εκδήλωσης σε 4 βήματα</h2>
         <br>
 
       <div class="container">
@@ -146,18 +130,23 @@ p {
                       <label class="control-label" for="eventname"><p>Δώστε ένα όνομα για την εκδήλωση σας</p> </label>
                          
                         <!-- <div class="col-lg-6"> -->
-                          <input type="text" class="form-control fname-validation form-element" name="usn" id="usn" placeholder="Είσάγετε το όνομα του event" data-validation="false">
-                          <span class="error"><p1 id="usn_error"></p1></span>
+                          <input type="text" class="form-control eventname-validation form-element" name="eventname" id="eventname" placeholder="Είσάγετε το όνομα της εκδήλωσης">
+                          <span class="error"><p1 id="eventname_error"></p1></span>
                          </div> 
                        </div>
                   
-                  <div class="clearfix" style="height: 10px;clear: both;"></div>
+                  
                   <div class="col-xs-10">
                   <div class="form-group">
+                    
                       <label for="description"><p>Γράψτε μία περιγραφή της εκδήλωσης</p></label>
-                      <textarea class="form-control" id="description" ></textarea>
+                      <textarea class="form-control desc-validation" id="description" ></textarea>
+                       <span class="error"><p1 id="desc_error"></p1></span>
                   </div>
+
                 </div>
+
+                <div class="clearfix" style="height: 10px;clear: both;"></div>
                   <div class="row">
                   <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
@@ -176,20 +165,15 @@ p {
                   <div class= "row col-xs-10"><p>Πού γίνεται η εκδήλωση;</p></div>
 
                     <div class="row">
-                      
-                      
-                        
+                       
                       <div class="form-group addr col-xs-6">
                         
-
-                      <!-- <label for="addr"></label> -->
-                      <input type="text" class="form-control addr-validation form-element" id="addr" name="addr" placeholder="Οδός" data-validation="false">
+                      <input type="text" class="form-control addr-validation form-element" id="addr" name="addr" placeholder="Διεύθυνση" data-validation="false">
                     <span class="error"><p1 id="addr_error"></p1></span>
                     </div>  
 
                     <div class="form-group postal col-xs-6">
                    
-                      <!-- <label for="postal"></label> -->
                       <input type="text" class="form-control postal-validation form-element" id="postal" name="postal"  placeholder="Ταχυδρομικός Κώδικας" data-validation="false">
                       <span class="error"><p1 id="postal_error"></p1></span>
                     </div> 
@@ -325,9 +309,9 @@ p {
                      <div class="form-group price col-xs-8">
                         
 
-                      <label for="addr"><p>Πόσο κοστίζει το ατομικό εισιτήριο;</p></label> 
-                      <input type="text" class="form-control price-validation form-element" id="addr" name="addr" placeholder="Γράψτε την τιμή σε ευρώ π.χ 30,50" data-validation="false">
-                    <span class="error"><p1 id="addr_error"></p1></span>
+                      <label for="price"><p>Πόσο κοστίζει το ατομικό εισιτήριο;</p></label> 
+                      <input type="text" class="form-control price-validation form-element" id="price" name="price" placeholder="Τιμή σε πόντους(1 ευρώ = 10 πόντοι)" data-validation="false">
+                    <span class="error"><p1 id="price_error"></p1></span>
                     </div>
                     </div>  
                     <div class="row">
@@ -337,7 +321,7 @@ p {
                           
                   <label style="padding-left: 0;" for="text"><p>Είναι σε προσφορά;</p></label>
                     
-                      <select class="form-control" id="sel2">
+                      <select class="form-control" id="sel3">
                                      <option>ναι</option>
                                     <option>όχι</option>
                               
@@ -355,11 +339,8 @@ p {
                       <input type="text" placeholder="Your Email" id="uemail" name="uemail" class="form-control" autocomplete="off">
                     </div>
                   </div>
-
                   <div class="clearfix" style="height: 10px;clear: both;"></div>
-
                   
-
                   <div class="clearfix" style="height: 10px;clear: both;"></div> -->
                   <div class="row">
                     
@@ -378,42 +359,43 @@ p {
                 <fieldset>
                   <legend>Βήμα 3 από 4</legend>
 
-                    <div class= "row col-xs-10"><p><br/></p></div>
-                  
-                  <div class= "row col-xs-10"><p>Γράψτε μας τον μέγιστο αριθμό καθώς και το εύρος των ηλικιών των παιδιών που μπορούν να έρθουν στην εκδηλωσή σας<br/></p></div>
-                  <div class= "row col-xs-10"><p><br/></p></div>
+                    
+                   <div class="form-group a1 col-xs-10 col-sm-10 col-md-10">
+                  <p>Γράψτε μας τον μέγιστο αριθμό καθώς και το εύρος των ηλικιών των παιδιών που μπορούν να έρθουν στην εκδηλωσή σας</p>
+                </div>
+                  <!-- <div class= "row col-xs-10"><p><br/></p></div> -->
                   
                       
                         
-                      <div class="form-group addr col-xs-4">
-                        
+                      <div class="form-group col-xs-4 col-sm-4 col-md-4 ">
+                    
 
                       <!-- <label for="addr"></label> -->
-                      <input type="text" class="form-control addr-validation form-element" id="addr" name="addr" placeholder="Χωρητικότητα" data-validation="false">
-                    <span class="error"><p1 id="addr_error"></p1></span>
+                      <input type="text" class="form-control cap-validation form-element" id="cap" name="cap" placeholder="Χωρητικότητα">
+                    <span class="error"><p1 id="cap_error"></p1></span>
                     </div>  
 
-                    <div class="form-group addr col-xs-4">
+                    <div class="form-group col-xs-4 col-sm-4 col-md-4">
                         
 
                       <!-- <label for="addr"></label> -->
-                      <input type="text" class="form-control addr-validation form-element" id="addr" name="addr" placeholder="Ελάχιστη ηλικία" data-validation="false">
-                    <span class="error"><p1 id="addr_error"></p1></span>
+                      <input type="text" class="form-control min-validation form-element" id="min" name="min" placeholder="Ελάχιστη ηλικία">
+                    <span class="error"><p1 id="min_error"></p1></span>
                     </div>  
 
-                      <div class="form-group addr col-xs-4">
+                      <div class="form-group col-xs-4 col-sm-4 col-md-4">
                         
 
                       <!-- <label for="addr"></label> -->
-                      <input type="text" class="form-control addr-validation form-element" id="addr" name="addr" placeholder="Μέγιστη ηλικία" data-validation="false">
-                    <span class="error"><p1 id="addr_error"></p1></span>
+                      <input type="text" class="form-control max-validation form-element" id="max" name="max" placeholder="Μέγιστη ηλικία" data-validation="false">
+                    <span class="error"><p1 id="max_error"></p1></span>
                     </div>  
                     
                     <div class= "row col-xs-10"><p><br/></p></div>
                      <div class= "row col-xs-10"><p>Επιλέξτε όσες επιλογές από τις παρακάτω χαρακτηρίζουν την εκδήλωση σας</p></div>
                     <br>
 
-                     <div class="form-check location">
+                     <div class="form-check location1">
                         <ul class="checkboxes">
                           <li>
                             <label class="custom-control custom-checkbox">
@@ -427,9 +409,9 @@ p {
                                         <span class="custom-control-indicator"></span>Εσωτερικός χώρος
                                     </label>
                           </li>
-                        </ul>
+                       
 
-                        <ul class="checkboxes">
+                        
                           <li>
                             <label class="custom-control custom-checkbox">
                                         <input type="checkbox" name="3" id="c3" class="custom-control-input">
@@ -465,13 +447,14 @@ p {
                       <button class="btn btn-prev back3" type="button"><span class="fa fa-arrow-left"></span> Προηγούμενο</button> 
                      
                       <button class="btn btn-next open3" type="button">Αποθήκευση και συνέχεια με τις φωτογραφίες <span class="fa fa-arrow-right"></span></button> 
-                       <span class="error"><p1>(*)</p1></span>
+                       <!-- <span class="error"><p1>(*)</p1></span> -->
                     </div>
                   </div>
 
                  
                   </div>
-                  <div class= "row col-xs-10"><p><br/></p></div>
+                  <span class="error"><p1 id="total_error1"></p1></span>
+                 <!--  <div class= "row col-xs-10"><p><br/></p></div>
 
                   <div class="form-group">
                     <div class="row">
@@ -482,7 +465,7 @@ p {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
 
 
                 </fieldset>

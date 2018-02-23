@@ -103,6 +103,11 @@
         <servlet-class>gr.ntua.ece.softeng17b.servlets.CompanySignupServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>create_event_form</servlet-name>
+        <servlet-class>gr.ntua.ece.softeng17b.servlets.CreateEventServlet</servlet-class>
+    </servlet>
+
 
     <servlet>
         <servlet-name>velocity</servlet-name>
@@ -228,6 +233,11 @@
         <servlet-name>company_signup_form</servlet-name>
         <url-pattern>/company_signup</url-pattern>
     </servlet-mapping>  
+
+    <servlet-mapping>
+        <servlet-name>create_event_form</servlet-name>
+        <url-pattern>/create_event</url-pattern>
+    </servlet-mapping> 
     
      <servlet-mapping>
         <servlet-name>upload_image_company</servlet-name>
