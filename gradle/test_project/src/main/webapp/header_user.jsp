@@ -49,7 +49,7 @@
                             <ul class="nav navbar-nav">
                                 <li style="background-color:#2c3e50;"><a href="parent_profile.jsp" ><i class="fa fa-edit"></i>  Προφίλ </a></li>
                     <!-- prepei na proste8ei edw koumpi gia log out me sugkekrimeno action na sumvainei otan auto patietai -->
-                                <li><a href=""><i class="fa fa-power-off"></i>  Αποσύνδεση </a></li> 
+                                <li><a href="" onclick="return theFunction();"><i class="fa fa-power-off"></i>  Αποσύνδεση </a></li>
                             </ul>
                         </div>
                     </li>
@@ -107,4 +107,19 @@
     <script> initMap(); </script>
  -->
 </head>
+<script type="text/javascript">
+    function theFunction () {
+        console.log("Eftasa edw ");
+        $.ajax({
+            type:"POST",
+            data:{
+            },
+            url:'/app/logout',
+            success: function(result){
+                window.location.href='https://localhost:8765/app/home_unknown.jsp'
+            }
+        }); 
+    }
+</script>
+
 </html>

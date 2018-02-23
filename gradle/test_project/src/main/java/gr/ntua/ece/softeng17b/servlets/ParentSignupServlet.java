@@ -74,20 +74,6 @@ public class ParentSignupServlet extends HttpServlet {
 		parent_dao.insert(insert_parent);
 
 		EmailSender.verifmail(email,firstname,lastname,username,address,postal,bank,tel,vcode);
-
-
-		//to be removed, creates pdf with info about booking, just for testing here!!!!
-        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-        StringBuilder salt = new StringBuilder();
-        Random rnd = new Random();
-        while (salt.length() < 5) { // length of the random string.
-            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
-            salt.append(SALTCHARS.charAt(index));
-        }
-        String ticket_code = salt.toString();
-		System.out.println("Ticket code : "+ticket_code);
-		String event_name = "Paidomazwma";
-		EmailSender.ticketattachment(email,ticket_code,event_name);
 	}
 
 }

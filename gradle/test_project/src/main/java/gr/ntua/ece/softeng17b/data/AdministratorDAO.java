@@ -49,6 +49,16 @@ public class AdministratorDAO{
         return Integer.parseInt(db_id.get(0)); 
     }
 
+    public Optional<Administrator> getAdministrator(int id) {        
+        List<Administrator> administrator = jdbcTemplate.query("select * from administrator where AdminID = ?", new Object[] {id}, new AdministratorRowMapper());
+        if (administrator.size() == 1)  {
+            return Optional.of(administrator.get(0));
+        }
+        else {
+            return Optional.empty();
+        }        
+    }
+
     // public Boolean login(String Username, String Password){
         
     //     String sql = "SELECT * "

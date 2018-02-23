@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="gr.ntua.ece.softeng17b.conf.*" %>
+<%  int ID = 1; %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,43 +17,27 @@
         </style>
     </head>
 
-    <body>
-
-        <div class="container" id="ko">
-            <h1>
-                <span data-bind="text:administrators().length"></span> Administrators
-            </h1>
-            <table class="table" data-bind="visible: administrators().length > 0">
-                <thead class="thead-light">
-                    <tr>
-                        <th scope="col">
-                            Όνομα
-                        </th>
-                        <th scope="col">
-                            Eπώνυμοooooo
-                        </th>
-                        <th scope="col">         
-                            Id                   
-                        </th>
-                    </tr>
-                </thead>  
-                <tbody data-bind="foreach:administrators">
-                    <tr>
-                        <td>
-                            <span data-bind="text:firstname"></span>
-                        </td>
-                        <td>
-                            <span data-bind="text:lastname"></span>
-                        </td>
-                        <td>
-                            <span data-bind="text:id"></span>
-                        </td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-            <div class="gmap" id="map">
-        </div>
+<body>
+<div class="container" style="text-align: center" id="ko">
+    <div class="jumbotron">
+        <table class="table table-striped ">
+            <tbody>
+                <tr>
+                    <td><span class="glyphicon glyphicon-user"></span> Όνομα</td>
+                    <td><span data-bind="text:first"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="glyphicon glyphicon-user"></span> Username</td>
+                    <td><span data-bind="text:username"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="glyphicon glyphicon-user"></span> Epwnumo</td>
+                    <td><span data-bind="text:last"></span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
@@ -63,32 +48,20 @@
     <% Configuration conf = Configuration.getInstance(); %>
 
     <script>
-        function init() {
-            
-          
-          //  var map = new google.maps.Map(document.getElementById('map'), {
-          //      zoom: 13,
-          //      center: ece
-          //  });
-
-          //  console.log("Created map");
-             
-            var Administrator = function(id, firstname, lastname) {
-                this.id = id;
-                this.firstname = firstname;
-                this.lastname = lastname;
-            }
-
+        function initMap() {    
             var VM = function(){
-                this.administrators = ko.observableArray();            
+                this.username = ko.observable(); 
+                this.first = ko.observable();
+                this.last= ko.observable();                   
             }
 
-            VM.prototype.loadAdministrators = function() {
-                console.log("Loading administrators...");
+            VM.prototype.loadAdministrator = function() {
+                console.log("Loading administrator...");
+                var ID = <%=ID%>;
                 var opts = {
                     traditional : true,
                     cache       : false,
-                    url         : "./api/administrators",
+                    url         : "./api/administrator/"+ID,
                     type        : "GET",
                     dataType    : "json"
                 };
@@ -99,28 +72,19 @@
             var viewModel = new VM();
             console.log("Created VM");            
 
-            viewModel.loadAdministrators().done(function(json){
+            viewModel.loadAdministrator().done(function(administratorJson){
                 console.log("Done loading administrators.");                 
-
-                json.results.forEach(function(administratorJson){             
-                    var administrator = new Administrator(
-                        administratorJson.AdminID,
-                        administratorJson.FirstName,
-                        administratorJson.LastName
-                        );
-                    console.log(administrator);
-                    viewModel.administrators.push(administrator);
-                });
+                viewModel.first(administratorJson.FirstName);
+                viewModel.last(administratorJson.LastName);
+                viewModel.username(administratorJson.Username);
             });
 
-            ko.applyBindings(viewModel, document.getElementById('ko'));            
+            ko.applyBindings(viewModel);            
             console.log("Applied bindings");
         }
-
     </script>
 
-   
-    <script> init(); </script>
+    <script> initMap(); </script>
 
     </body>
 </html>

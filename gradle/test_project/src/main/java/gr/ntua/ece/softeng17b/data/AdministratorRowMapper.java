@@ -10,17 +10,20 @@ class AdministratorRowMapper implements RowMapper<Administrator>  {
 	@Override
     public Administrator mapRow(ResultSet rs, int rowNum) throws SQLException {
         
-        int id = rs.getInt("AdminID");
-        String firstname = rs.getString("FirstName");
-        String lastname = rs.getString("LastName");
+        int AdminID = rs.getInt("AdminID");
+        String Username = rs.getString("Username");
+        String FirstName = rs.getString("FirstName");
+        String LastName = rs.getString("LastName");
+        String PersonalEmail = rs.getString("PersonalEmail");
+        String Password = rs.getString("Password");
 
-        System.out.println(id);
+        System.out.println(AdminID);
 
         return new Administrator(
-                    id, "",
-                    firstname,
-                    lastname,
-                    "",""
-                );
+                    AdminID, Username,
+                    FirstName,
+                    LastName,
+                    PersonalEmail,Password
+        );
     }
 }
