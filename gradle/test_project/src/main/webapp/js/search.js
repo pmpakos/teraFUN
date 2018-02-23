@@ -6,6 +6,7 @@ outdoor=0;
 education=0;
 team_spirit=0;
 sports=0;
+validdate=0;
 
 
 $(function () {
@@ -29,6 +30,7 @@ $(document).on('click','.search_date-validation',function(event){
 $(document).on('blur','.search_date-validation',function(event){
 
     document.getElementById('inputID').readOnly = false;
+    validdate=1;
 });
 
 $(document).on('click','.clear-button',function(){

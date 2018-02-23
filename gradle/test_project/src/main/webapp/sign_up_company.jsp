@@ -99,13 +99,13 @@
 									
 								  	 	
 							    	<div class="form-group compname">
-								      	<label for="compname"><span class="glyphicon glyphicon-user"></span> Όνομα Εταιρίας</label>
-								      	<input type="text" class="form-control compname-validation form-element" name="compname" id="compname" placeholder="Εισάγετε το όνομα της εταιρίας" data-validation="false">
+								      	<label for="compname"><span class="glyphicon glyphicon-user"></span> Όνομα Εταιρείας</label>
+								      	<input type="text" class="form-control compname-validation form-element" name="compname" id="compname" placeholder="Εισάγετε το όνομα της εταιρείας" data-validation="false">
 								    	<span class="error"><p1 id="compname_error"></p1></span>
 							    	</div>  	 
 								  
 								   <div class="form-group afm"> 
-									      <label for="afm"><span class="glyphicon glyphicon-briefcase"></span> ΑΦΜ εταιρίας</label>
+									      <label for="afm"><span class="glyphicon glyphicon-briefcase"></span> ΑΦΜ εταιρείας</label>
 									      <input type="text" class="form-control afm-validation form-element" name="afm" id="afm" placeholder="Εισάγετε το ΑΦΜ" data-validation="false">
 									      <span class="error"><p1 id="afm_error"></p1></span>
 								    </div>
@@ -118,7 +118,7 @@
 									<div class="row">
 									      <div class="form-group addr col-xs-6">
 										      <label for="addr"><span class="glyphicon glyphicon-home"></span> Διεύθυνση</label>
-										      <input type="text" class="form-control addr-validation form-element" id="addr" name="addr" placeholder="Εισάγετε την διεύθυνση της εταιρίας" data-validation="false">
+										      <input type="text" class="form-control addr-validation form-element" id="addr" name="addr" placeholder="Εισάγετε την διεύθυνση της εταιρείας" data-validation="false">
 											  <span class="error"><p1 id="addr_error"></p1></span>
 									    </div>  
 
@@ -131,7 +131,7 @@
 
 								    <div class="form-group tel">
 								      <label for="tel"><span class="glyphicon glyphicon-phone-alt"></span> Τηλέφωνο Επικοινωνίας</label>
-								      <input type="text" class="form-control tel-validation form-elementl" name="tel" id="tel" placeholder="Εισάγετε το τηλέφωνο της εταιρίας" data-validation="false">
+								      <input type="text" class="form-control tel-validation form-elementl" name="tel" id="tel" placeholder="Εισάγετε το τηλέφωνο της εταιρείας" data-validation="false">
 								    	<span class="error"><p1 id="tel_error"></p1></span>
 								    </div>
 
@@ -143,18 +143,18 @@
  -->
 								    <div class="form-group webpage">
 								      <label for="webpage"><span class="glyphicon glyphicon-bookmark"></span> Webpage</label>
-								      <input type="text" class="form-control" name="webpage" id="webpage"placeholder="Εισάγετε ιστοσελίδα της εταιρίας">
+								      <input type="text" class="form-control" name="webpage" id="webpage"placeholder="Εισάγετε ιστοσελίδα της εταιρείας">
 								    </div>
 
 								    <div class="form-group">
-									    <label for="description"><span class="glyphicon glyphicon-pencil"></span>Περιγραφή της Εταιρίας</label>
+									    <label for="description"><span class="glyphicon glyphicon-pencil"></span>Περιγραφή της Εταιρείας</label>
 									    <textarea class="form-control" id="description" ></textarea>
 									</div>
 
 									<div class="row"> 	
 									 <!-- <div class="form-group image-preview"> -->
 									 	  <div class="col-lg-8">  
-									 	  	<label for="pic"><span class="glyphicon glyphicon-picture"></span> Φωτογραφία Εταιρίας</label>
+									 	  	<label for="pic"><span class="glyphicon glyphicon-picture"></span> Φωτογραφία Εταιρείας</label>
                                                 <!-- image-preview-filename input [CUT FROM HERE]-->
                                                 <div class="input-group image-preview">
                                                 	

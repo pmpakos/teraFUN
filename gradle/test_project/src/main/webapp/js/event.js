@@ -5,6 +5,8 @@ validprice=0;
 validmin=0;
 validmax=0;
 validcap=0;
+validtag=0;
+
 
 $(document).on('blur','.eventname-validation',function(){
   var content = $(this).val();
@@ -139,6 +141,34 @@ $(document).on('blur','.cap-validation',function(){
   }
 });
 
+$(document).on('blur','.dur-validation',function(){
+  var content = $(this).val();
+  
+  var re=/^\d+$/;
+  validdur= re.test(content);
+  
+
+  if(content.length == 0){
+    validdur = 0;
+  
+    document.getElementById('dur_error').innerHTML = 'Συμπληρώστε αυτό το πεδίο';
+  }else if(validdur==0){
+
+    document.getElementById('dur_error').innerHTML = 'Μόνο αριθμούς';
+  }
+  else{
+    document.getElementById('dur_error').innerHTML = "";
+    
+  }
+
+  if(validdur){
+      $(this).css('border','');
+     
+  }else{
+      $(this).css('border','1px solid red');
+  }
+});
+
 $(document).on('blur','.desc-validation',function(){
   var content = $(this).val();
   validdesc=1;
@@ -151,6 +181,25 @@ $(document).on('blur','.desc-validation',function(){
   }
 
   if(validdesc){
+      $(this).css('border','');
+     
+  }else{
+      $(this).css('border','1px solid red');
+  }
+});
+
+$(document).on('blur','.tag-validation',function(){
+  var content = $(this).val();
+  validtag=1;
+
+  if(content.length == 0){
+    validtag = 0;
+    document.getElementById('tag_error').innerHTML = 'Συμπληρώστε αυτό το πεδίο';
+  }else{
+    document.getElementById('tag_error').innerHTML = "";  
+  }
+
+  if(validtag){
       $(this).css('border','');
      
   }else{
@@ -220,6 +269,8 @@ jQuery().ready(function(){
       console.log(name);
       var desc = document.getElementById('description').value;
       console.log(desc);
+      var tag = document.getElementById('tag').value;
+      console.log(tag);
       var date = document.getElementById('inputID').value;
       console.log(date);
       var postal = document.getElementById('postal').value;
@@ -228,8 +279,8 @@ jQuery().ready(function(){
       console.log(addr);
       var start = document.getElementById('sel1').value;
       console.log(start);
-      var stop=document.getElementById('sel2').value;
-      console.log(stop);
+      var dur=document.getElementById('dur').value;
+      console.log(dur);
       var price = document.getElementById('price').value;
       console.log(price);
       var offer = document.getElementById('sel3').value;
@@ -240,8 +291,8 @@ jQuery().ready(function(){
       console.log(max);
       var cap = document.getElementById('cap').value;
       console.log(cap);
-      var out = document.getElementById('c1').checked;
-      console.log(out);
+      // var out = document.getElementById('c1').checked;
+      // console.log(out);
       var ind = document.getElementById('c2').checked;
       console.log(ind);
       var fun = document.getElementById('c3').checked;
@@ -253,28 +304,44 @@ jQuery().ready(function(){
       var team = document.getElementById('c6').checked;
       console.log(team);
 
-   var test=validname&validdesc&validaddr&validpostal&validprice&validmax&validmin&validcap&validdate;
+      console.log(validname);
+      console.log(validdesc);
+      console.log(validaddr);
+      console.log(validpostal);
+      
+      console.log(validprice);
+      console.log(validmax);
+      console.log(validmin);
+      console.log(validcap);
+      console.log(validdur);
+
+
+   var test=validtag&validname&validdesc&validaddr&validpostal&validprice&validmax&validmin&validcap&validdate&validdur;
    console.log(test);
   // var test=agree&validusn;
   // console.log(test); 
   if(test){
     document.getElementById('total_error1').innerHTML = "";
+    var compid=1;
+    //var compid=get_comp_id_from_session();
     $.ajax({
       type:"POST",
       data:{
+        compid:compid,
         name:name,
         desc:desc,
+        tag:tag,
         date:date,
         postal:postal,
         addr:addr,
         start:start,
-        stop: stop,
+        dur:dur,
         price:price,
         offer:offer,
         min:min,
         max:max,
         cap:cap,
-        out:out,
+        // out:out,
         ind:ind,
         fun:fun,
         lea:lea,
@@ -294,7 +361,7 @@ jQuery().ready(function(){
     if (v.form()) {
         $(".frm").hide("fast");
         $("#sf4").show("slow");
-      }}
+      }
 
     
   } 
@@ -318,41 +385,6 @@ jQuery().ready(function(){
 
   });
 
-$(function () {
-
-  $('#datetimepicker1').datetimepicker({ format: 'DD/MM/YYYY', minDate:  moment().millisecond(0).second(0).minute(0).hour(0)});
-});
-    
-$(document).on('click','.search_date-validation',function(event){
-  event.preventDefault();
-    $('#datetimepicker1').data("DateTimePicker").show();
-    document.getElementById('inputID').readOnly = true;
-});
-
-$(document).on('blur','.search_date-validation',function(event){
-
-    document.getElementById('inputID').readOnly = false;
-});
-
-$(document).on('click','.clear-button',function(){
-
-  $('#text_search').val('');
-  document.getElementById('inputID').readOnly = false;
-  $('#inputID').val('');
-  $('#age').val('');
-  $('#distance').val('');
-  $('select').prop('selectedIndex', 0);
-  document.getElementById("c1").checked = false;
-  document.getElementById("c2").checked = false;
-  document.getElementById("c3").checked = false;
-  document.getElementById("c4").checked = false;
-  fun=0;
-  indoor=0;
-  outdoor=0;
-  education=0;
-
-});
-
 
 function checknumber(){
   // var number=4;
@@ -363,8 +395,8 @@ function checknumber(){
           document.getElementById('total_error').innerHTML = 'Πρέπει να ανεβάσετε μία φωτογραφία';
       return false;
         }
-        else if (number>5){
-          document.getElementById('total_error').innerHTML = 'Μπορείτε να ανεβάσετε το μέχρι 5 φωτογραφίες';
+        else if (number>10){
+          document.getElementById('total_error').innerHTML = 'Μπορείτε να ανεβάσετε μέχρι 10 φωτογραφίες';
       return false;
     }
     else{
@@ -372,5 +404,6 @@ function checknumber(){
       return false;
     }
 }
+
 
 

@@ -248,60 +248,12 @@ p {
                   
                   
                          <div class="form-group finishhour col-xs-4">
+                          <label for="dur"><p>Διάρκεια:</p></label> 
+                            <input type="text" class="form-control dur-validation form-element" id="dur" name="dur" placeholder="Λεπτά" data-validation="false">
+                          <span class="error"><p1 id="dur_error"></p1></span>
                           
                           
-                  <label style="padding-left: 0;" for="text"><p>Λήξη:</p></label>
-                    
-                      <select class="form-control" id="sel2">
-                                    <option>12:00πμ</option>
-                                    <option> 12:30πμ</option>
-                                    <option>1:00πμ</option>
-                                    <option>1:30πμ</option>
-                                    <option>2:00πμ</option>
-                                    <option>2:30πμ</option>
-                                    <option>3:00πμ</option>
-                                    <option>3:30πμ</option>
-                                    <option>4:00πμ</option>
-                                    <option>4:30πμ</option>
-                                    <option>5:00πμ</option>
-                                    <option>5:30πμ</option>
-                                    <option>6:00πμ</option>
-                                    <option>6:30πμ</option>
-                                    <option>7:00πμ</option>
-                                    <option>7:30πμ</option>
-                                    <option>8:00πμ</option>
-                                    <option>8:30πμ</option>
-                                    <option>9:00πμ</option>
-                                    <option>9:30πμ</option>
-                                    <option>10:00πμ</option>
-                                    <option>10:30πμ</option>
-                                    <option>11:00πμ</option>
-                                    <option>11:30πμ</option>
-                                    <option>12:00μμ</option>
-                                    <option>12:30μμ</option>
-                                    <option>1:00μμ</option>
-                                    <option>1:30μμ</option>
-                                    <option>2:00μμ</option>
-                                    <option>2:30μμ</option>
-                                    <option>3:00μμ</option>
-                                    <option>3:30μμ</option>
-                                    <option>4:00μμ</option>
-                                    <option>4:30μμ</option>
-                                    <option>5:00μμ</option>
-                                    <option>5:30μμ</option>
-                                    <option>6:00μμ</option>
-                                    <option>6:30μμ</option>
-                                    <option>7:00μμ</option>
-                                    <option>7:30μμ</option>
-                                    <option>8:00μμ</option>
-                                    <option>8:30μμ</option>
-                                    <option>9:00μμ</option>
-                                    <option>9:30μμ</option>
-                                    <option>10:00μμ</option>
-                                    <option>10:30μμ</option>
-                                    <option>11:00μμ</option>
-                                    <option>11:30μμ</option>
-                     </select>
+                 
                     </div>
                   </div>
                
@@ -397,12 +349,12 @@ p {
 
                      <div class="form-check location1">
                         <ul class="checkboxes">
-                          <li>
+                         <!--  <li>
                             <label class="custom-control custom-checkbox">
                                         <input type="checkbox" name="1" id="c1" class="custom-control-input">
                                         <span class="custom-control-indicator"></span>Εξωτερικός χώρος
                                     </label>
-                          </li>
+                          </li> -->
                           <li>
                             <label class="custom-control custom-checkbox">
                                         <input type="checkbox" name="2" id="c2" class="custom-control-input">
@@ -438,6 +390,16 @@ p {
                                 </li>
                         </ul>
                       </div>
+
+                         <div class="col-xs-10">
+                  <div class="form-group">
+                    
+                      <label for="tag"><p>Γράψτε λέξεις-φράσεις κλειδιά για την εκδήλωση προκειμένου να γίνεται η αναζήτηση από τους χρήστες</p></label>
+                      <textarea class="form-control tag-validation" id="tag" ></textarea>
+                       <span class="error"><p1 id="tag_error"></p1></span>
+                  </div>
+
+                </div>
 
                       <div class= "row col-xs-10"><p><br/></p></div>
                       
@@ -476,7 +438,7 @@ p {
                   <legend>Βήμα 4 από 4</legend>
 
                   <div class="col-xs-12">  
-                              <label for="pic"> <p>Διαλέξτε έως 5 φωτογραφίες για την εκδήλωση σας!</p></label>
+                              <label for="pic"> <p>Διαλέξτε έως 10 φωτογραφίες για την εκδήλωση σας!</p></label>
 
                                      <div class="form-group">
                                         <div class="row">
