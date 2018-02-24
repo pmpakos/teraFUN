@@ -167,8 +167,15 @@
                 </button>
                 <h5 class="modal-title" style="float:left;" id="myModalLabel">Αγορά Εισιτηρίου | teraFUN</h5>
               </div>
-              <div class="modal-body">
+              <div class="modal-body" id="mbody">
                 <input type="hidden" id="eventID" name="eventID"/>
+                <div class="modal-portrait">
+                    <a class="thumbnail"><img id="modal-img"></a>
+                    <p id="p1"><strong>Εκδήλωση: </strong></p>
+                    <p id="p2"><strong>Πότε: </strong></p>
+                    <p id="p3"><strong>Πού: </strong></p>
+                    <p id="p4"><strong>Κόστος: </strong></p>
+                </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Ακύρωση</button>
@@ -188,10 +195,7 @@
        
         <script>
 
-            function set(clicked_id) {
-                var eventId = clicked_id;
-                $(".modal-body #eventID").val( eventId );
-            }
+            
 
             $("[data-hide]").on("click", function(){
                 $(this).closest("." + $(this).attr("data-hide")).hide();
@@ -278,6 +282,20 @@
                 }
             };
 
+            $("#myModal").on("hidden.bs.modal", function () {
+                myDiv = document.getElementById("p1");
+                myDiv.removeChild(myDiv.childNodes[1]);
+
+                myDiv = document.getElementById("p2");
+                myDiv.removeChild(myDiv.childNodes[1]);
+
+                myDiv = document.getElementById("p3");
+                myDiv.removeChild(myDiv.childNodes[1]);
+
+                myDiv = document.getElementById("p4");
+                myDiv.removeChild(myDiv.childNodes[1]);                
+            });
+
 
             distance = 0;
             var dict = {
@@ -300,6 +318,28 @@
                 Oct: "Οκτ.",
                 Nov: "Νοε.",
                 Dec: "Δεκ."
+                // etc.
+            };
+            var dictfull = {
+                Mon: "Δευτέρα",
+                Tue: "Τρίτη",
+                Wed: "Τετάρτη",
+                Thu: "Πέμπτη",
+                Fri: "Παρασκευή",
+                Sat: "Σάββατο",
+                Sun: "Κυριακή",
+                Jan: "Ιανουαρίου",
+                Feb: "Φεβρουαρίου",
+                Mar: "Μαρτίου",
+                Apr: "Απριλίου",
+                May: "Μαΐου",
+                Jun: "Ιουνίου",
+                Jul: "Ιουλίου",
+                Aug: "Αυγούστου",
+                Sep: "Σεπτεμβρίου",
+                Oct: "Οκτωβρίου",
+                Nov: "Νοεμβρίου",
+                Dec: "Δεκεμβρίου"
                 // etc.
             };
             home_lat = 0;
@@ -333,7 +373,7 @@
             };*/
 
 
-
+            var viewModel;
             function init() {
                             
                 var uluru = {lat: 37.974534, lng: 23.734660};
@@ -345,10 +385,11 @@
                 });
                 
 
-                var Event = function(id, name, description, full_description, hour, duration, cost, photo, longitude, latitude, date, sort) {
+                var Event = function(id, name, description,  address, full_description, hour, duration, cost, photo, longitude, latitude, date, date_full, sort) {
                     this.id = id;
                     this.name = name;
                     this.description = description;
+                    this.address = address;
                     this.full_description = full_description;
                     this.hour = hour;
                     this.duration = duration;
@@ -357,6 +398,7 @@
                     this.Longitude = longitude;
                     this.Latitude = latitude;
                     this.date = date;
+                    this.date_full = date_full;
                     this.sort_date = sort;
                     this.isVisible = ko.observable(true);
                     this.marker = new google.maps.Marker({
@@ -503,7 +545,7 @@
                 }
 
                 
-                var viewModel = new VM();
+                viewModel = new VM();
                 console.log("Created VM");            
 
                 viewModel.loadEvents().done(function(json){
@@ -552,6 +594,7 @@
                             }
                             console.log("Ημέρα "+parts[0]);
                             var date = dict[parts[0]]+" "+parts[2]+" "+dict[parts[1]]+" "+parts[3];
+                            var date_full = dictfull[parts[0]]+", "+parts[2]+" "+dictfull[parts[1]]+" "+parts[3];
                             var rank_date = 10000*init_date.getFullYear()+init_date.getMonth()*100+init_date.getDate()*1;
                             
                             var event_description = eventJson.Description.replace(/(([^\s]+\s\s*){30}).*/,"$1...:)");
@@ -569,6 +612,7 @@
                                 eventJson.EventID,
                                 eventJson.Name,
                                 event_description,
+                                eventJson.Address,
                                 eventJson.Description,
                                 eventJson.Hour,
                                 eventJson.Duration+" λεπτά",
@@ -577,6 +621,7 @@
                                 eventJson.Longitude,
                                 eventJson.Latitude,
                                 date,
+                                date_full,
                                 rank_date
                                 );
                             console.log(event);
@@ -600,6 +645,55 @@
                 ko.applyBindings(viewModel, document.getElementById('ko'));            
                 console.log("Applied bindings");
 
+            }
+            function set(clicked_id) {
+                var eventId = clicked_id;
+                $(".modal-body #eventID").val( eventId );
+                var eventsArray = viewModel.events();
+                var event1;
+                eventsArray.forEach(function (event){
+                    if(event.id == eventId){
+                        event1 = event;
+                    }
+                });
+                
+                document.getElementById("modal-img").src =  event1.photo;
+                var myDiv = document.getElementById("p1");
+                var paragraph = document.createElement("span");
+                var txt = document.createTextNode(event1.name);
+                paragraph.appendChild(txt);
+                myDiv.append(paragraph);
+
+                myDiv = document.getElementById("p2");
+                paragraph = document.createElement("span");
+                txt = document.createTextNode(event1.date_full +" και ώρα "+event1.hour);
+                paragraph.appendChild(txt);
+                myDiv.append(paragraph);
+
+                myDiv = document.getElementById("p3");
+                paragraph = document.createElement("span");
+                txt = document.createTextNode(event1.address);
+                paragraph.appendChild(txt);
+                myDiv.append(paragraph);
+
+                var ticket = "<%=ticket%>";
+                var help = "";
+                if(ticket>1){
+                    help=" Εισιτήρια = ";
+                }
+                else{
+                    help=" Εισιτήριο = ";
+                }
+                myDiv = document.getElementById("p4");
+                paragraph = document.createElement("span");
+                txt = document.createTextNode(event1.cost+" x "+ ticket+help);
+                paragraph.appendChild(txt);
+                var temp = document.createElement("strong");
+                var sum = parseInt(ticket)*parseInt(event1.cost);
+                txt =  document.createTextNode(sum+" Πόντοι");
+                temp.appendChild(txt);
+                paragraph.appendChild(temp);
+                myDiv.append(paragraph);
             }
         </script>
 
