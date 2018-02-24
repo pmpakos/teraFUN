@@ -77,6 +77,16 @@ public class CompanyDAO{
         return Integer.parseInt(db_id.get(0)); 
     }
 
+    public int checkStatus(int id) {        
+        List<String> db_status = jdbcTemplate.queryForList("select Status from companyservice where (CompanyID = ?)", new Object[] {id}, String.class); 
+
+        if(db_status.size() == 0){
+           return -1;
+        }
+        
+        return Integer.parseInt(db_status.get(0)); 
+    }
+
     public int check_username(String username) {        
         List<Company> company = jdbcTemplate.query("select * from companyservice where Username = ?", new Object[] {username}, new CompanyRowMapper());
         if (company.size() == 1)  {

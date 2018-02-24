@@ -50,7 +50,7 @@ public class LoginServlet extends HttpServlet {
 
         Configuration conf = Configuration.getInstance();
         DataAccess dataAccess = Configuration.getInstance().getDataAccess();
-        int result = 0;
+        int result = 0,status=-1;
         if(flag == 0){
         	AdministratorDAO administrator_dao = new AdministratorDAO();
 			administrator_dao.setDataSource(dataAccess.dataSource);
@@ -63,6 +63,16 @@ public class LoginServlet extends HttpServlet {
 			parent_dao.setDataSource(dataAccess.dataSource);
 			parent_dao.setJdbcTemplate(dataAccess.jdbcTemplate);
 			result = parent_dao.login(username, password);
+
+        	ParentDAO parent_dao2 = new ParentDAO();
+        	parent_dao2.setDataSource(dataAccess.dataSource);
+			parent_dao2.setJdbcTemplate(dataAccess.jdbcTemplate);
+			status = parent_dao2.checkStatus(result);
+			/*
+        	parent_dao.setDataSource(dataAccess.dataSource);
+			parent_dao.setJdbcTemplate(dataAccess.jdbcTemplate);
+			status = parent_dao.checkStatus(result);
+			*/
 			System.out.println("San PARENT!");
         }
         if(flag ==2){
@@ -70,27 +80,41 @@ public class LoginServlet extends HttpServlet {
         	company_dao.setDataSource(dataAccess.dataSource);
 			company_dao.setJdbcTemplate(dataAccess.jdbcTemplate);
 			result = company_dao.login(username, password);
+
+        	CompanyDAO company_dao2 = new CompanyDAO();
+        	company_dao2.setDataSource(dataAccess.dataSource);
+			company_dao2.setJdbcTemplate(dataAccess.jdbcTemplate);
+			status = company_dao2.checkStatus(result);
+        	/*
+        	company_dao.setDataSource(dataAccess.dataSource);
+			company_dao.setJdbcTemplate(dataAccess.jdbcTemplate);
+			status = company_dao.checkStatus(result);
+			*/
     	    System.out.println("San COMPANY!");
     	}
 
         String reply = Integer.toString(result);
         String flaga = Integer.toString(flag);
+        String statusa = Integer.toString(status);
 
         if(result > 0){
         	HttpSession session = request.getSession();
-			session.setAttribute("id", reply);			
-			session.setAttribute("flag", flaga);			
+			session.setAttribute("id", reply);
+			session.setAttribute("flag", flaga);
+			session.setAttribute("status", statusa);
+			response.getWriter().append(statusa);
 			response.getWriter().append(reply);
-			// response.getWriter().append(flag);
         	
   			// System.out.println("To id sou einai: "+reply);
 		    // System.out.println("H kathgoria sou einai: "+flag);
 		    String ididi= (String)session.getAttribute("id"); 
 		    String flagidi= (String)session.getAttribute("flag"); 
-	        System.out.println("Welcome "+ ididi +" pou anhkeis sthn kathgoria : "+ flagidi);
+		    String statusidi= (String)session.getAttribute("status"); 
+	        System.out.println("Welcome "+ ididi +" pou anhkeis sthn kathgoria : "+ flagidi + " kai exeis status : "+ statusidi);
         }
         else{ 
         	System.out.println("Eimai kai edw: "+reply);
+        	response.getWriter().append("0");
         	response.getWriter().append("0");
 		}   		
 

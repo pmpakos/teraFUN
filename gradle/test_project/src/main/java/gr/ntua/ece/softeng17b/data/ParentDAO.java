@@ -110,6 +110,27 @@ public class ParentDAO{
     }
 
 
+    public int validate(String username, String ver_code) {     
+        List<String> db_id = jdbcTemplate.queryForList("select ParentID from parent where (Username = ? and VerificationCode = ?)", new Object[] {username, ver_code}, String.class); 
+
+        if(db_id.size() == 0){
+           return -1;
+        }
+        
+        return Integer.parseInt(db_id.get(0)); 
+    }
+
+    public int checkStatus(int id) {     
+        List<String> db_status = jdbcTemplate.queryForList("select Status from parent where (ParentID = ?)", new Object[] {id}, String.class); 
+
+        if(db_status.size() == 0){
+           return -1;
+        }
+        
+        return Integer.parseInt(db_status.get(0)); 
+    }
+
+
     public int check_username(String username) {        
         List<Parent> parent = jdbcTemplate.query("select * from parent where Username = ?", new Object[] {username}, new ParentRowMapper());
         if (parent.size() == 1)  {

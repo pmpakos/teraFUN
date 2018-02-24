@@ -25,7 +25,7 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-nav-demo">
                 <ul class="nav navbar-nav">
-                    <li><a href="search2.jsp"> Αναζήτηση  <i class="fa fa-search"></i></a></li>              
+                    <li><a href="search.jsp"> Αναζήτηση  <i class="fa fa-search"></i></a></li>              
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" style="background-color:#2c3e50;"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Πληροφορίες  <i class="fa fa-info"></i></a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#2c3e50; width:250px" >

@@ -161,6 +161,25 @@ hr.style1 {
 	background-color:#c9302c;
 	border-color:#c9302c;
 }
+
+.btn-validp {
+	background-color: #d9534f;
+	outline: none;
+	color: #fff;
+	font-size: 14px;
+	height: auto;
+	font-weight: normal;
+	padding: 14px 0;
+	text-transform: uppercase;
+	border-color: #d9534f;
+}
+.btn-validp:hover,
+.btn-validp:focus {
+	color: #fff;
+	background-color:#c9302c;
+	border-color:#c9302c;
+}
+
 .forgot-password {
 	text-decoration: underline;
 	color: #888;

@@ -25,6 +25,8 @@ validusn1=0;
 validpass2=0;
 validusn2=0;
 
+validpass3=0;
+validusn3=0;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -83,6 +85,25 @@ $(document).on('blur','.pass-val2',function(){
 
 });
 
+$(document).on('blur','.pass-val3',function(){
+	var content = $(this).val();
+	validpass3=1;
+	
+	if(content.length == 0){
+		validpass3=0;
+		document.getElementById('pass_error3').innerHTML = "<span style=\"color:red\">" + "Συμπληρώστε αυτό το πεδίο";
+	}
+	
+	if(validpass3){
+	    $(this).css('border','');
+	    document.getElementById('pass_error3').innerHTML = "";
+	}else{
+		$(this).css('border','1px solid red');
+	}
+
+});
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 $(document).on('blur','.usn-val0',function(){
@@ -136,6 +157,22 @@ $(document).on('blur','.usn-val2',function(){
 	}
 });
 
+$(document).on('blur','.usn-val3',function(){
+	var content = $(this).val();
+	validusn3=1;
+
+	if(content.length == 0){
+		validusn3=0;
+		document.getElementById('usn_error3').innerHTML = "<span style=\"color:red\">" + "Συμπληρώστε αυτό το πεδίο";
+	}
+	
+	if(validusn3){
+		$(this).css('border','');
+		document.getElementById('usn_error3').innerHTML = "";
+	}else{
+		$(this).css('border','1px solid red');
+	}
+});
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -161,15 +198,17 @@ $(document).on('click','.btn-logina',function(){
 				flag:0
 			},
 			url:'/app/login',
-			success: function(result){
-				if(result == "0"){
+			success: function(result){ //result[0] is status (of companies and parents),rest is ID of user/company/admin
+				console.log('to status einai:'+result[0]);
+				var id_a = result.slice(1);
+				console.log('to id einai:'+id_a);
+
+				if(id_a == "0"){
 					document.getElementById('usn_error0').innerHTML = "<span style=\"color:red\">" + "To username ή ο κωδικός δεν είναι έγκυρος" + "</span>";
 					document.getElementById("usn0").style.borderColor = "red";
 					document.getElementById("pass0").value = '';
 				}
 				else{
-					localStorage.setItem("flag",0);
-					localStorage.setItem("id",result);
 					window.location.href='https://localhost:8765/app/home_admin.jsp'
 				}
 				
@@ -201,8 +240,12 @@ $(document).on('click','.btn-loginp',function(){
 				flag:1
 			},
 			url:'/app/login',
-			success: function(result){
-				if(result == "0"){
+			success: function(result){ //result[0] is status (of companies and parents),rest is ID of user/company/admin
+				console.log('to status einai:'+result[0]);
+				var id_p = result.slice(1);
+				console.log('to id einai:'+id_p);
+
+				if(id_p == "0"){
 					document.getElementById('usn_error1').innerHTML = "<span style=\"color:red\">" + "To username ή ο κωδικός δεν είναι έγκυρος" + "</span>";
 					document.getElementById("usn1").style.borderColor = "red";
 					document.getElementById("pass1").value = '';
@@ -212,9 +255,33 @@ $(document).on('click','.btn-loginp',function(){
 					document.getElementById('pass2').value = "";
 				}
 				else{
-					localStorage.setItem("flag",1);
-					localStorage.setItem("id",result);
-					window.location.href='https://localhost:8765/app/home_user.jsp'
+					if(result[0]==0){
+						console.log("Eftasa edw 1");
+				        $.ajax({
+				            type:"POST",
+				            data:{
+				            },
+				            url:'/app/logout',
+				            success: function(result){
+								window.location.href='https://localhost:8765/app/verification_parent.jsp'
+				            }
+				        }); 
+					}
+					if(result[0]==3){
+						console.log("Eftasa edw 2");
+				        $.ajax({
+				            type:"POST",
+				            data:{
+				            },
+				            url:'/app/logout',
+				            success: function(result){
+								window.location.href='https://localhost:8765/app/blocked.jsp'	
+				            }
+				        });
+					}
+					if(result[0]==1 || result[0]==2){
+						window.location.href='https://localhost:8765/app/home_user.jsp'
+					}
 				}
 				
 			}
@@ -245,8 +312,12 @@ $(document).on('click','.btn-loginc',function(){
 				flag:2
 			},
 			url:'/app/login',
-			success: function(result){
-				if(result == "0"){
+			success: function(result){ //result[0] is status (of companies and parents),rest is ID of user/company/admin
+				console.log('to status einai:'+result[0]);
+				var id_c = result.slice(1);
+				console.log('to id einai:'+id_c);
+
+				if(id_c == "0"){
 					document.getElementById('usn_error2').innerHTML = "<span style=\"color:red\">" + "To username ή ο κωδικός δεν είναι έγκυρος" + "</span>";
 					document.getElementById("usn2").style.borderColor = "red";
 					document.getElementById("pass2").value = '';
@@ -256,9 +327,33 @@ $(document).on('click','.btn-loginc',function(){
 					document.getElementById('pass1').value = "";
 				}
 				else{
-					localStorage.setItem("flag",2);
-					localStorage.setItem("id",result);
-					window.location.href='https://localhost:8765/app/home_company.jsp'
+					if(result[0]==0){
+						console.log("Eftasa edw 3");
+				        $.ajax({
+				            type:"POST",
+				            data:{
+				            },
+				            url:'/app/logout',
+				            success: function(result){
+				                window.location.href='https://localhost:8765/app/verification_company.jsp'
+				            }
+				        }); 
+					}
+					if(result[0]==2){
+						console.log("Eftasa edw 4");
+				        $.ajax({
+				            type:"POST",
+				            data:{
+				            },
+				            url:'/app/logout',
+				            success: function(result){
+				                window.location.href='https://localhost:8765/app/blocked.jsp'
+				            }
+				        }); 						
+					}
+					if(result[0]==1){
+						window.location.href='https://localhost:8765/app/home_company.jsp'
+					}
 				}
 				
 			}
@@ -267,8 +362,48 @@ $(document).on('click','.btn-loginc',function(){
 	}
 });
 
+
+
 /////////////////////
 
+$(document).on('click','.btn-validp',function(){
+	var usn = $(this).parent().parent().parent().siblings('.usn3').find('input[name=usn3]').val();
+	console.log(usn);
+	var ver_code = $(this).parent().parent().parent().siblings('.pass3').find('input[name=pass3]').val();
+	console.log(ver_code);
+	var test=validpass3&validusn3;
+	
+	
+	console.log("Valid password?: "+validpass3+" | Valid Username?: "+validusn3);
+	if(test==0){
+	}
+	else {
+		console.log("Eftasa edw ");
+		$.ajax({
+			type:"POST",
+			data:{
+				usn:usn,	
+				ver_code:ver_code
+			},
+			url:'/app/validate_parent',
+			success: function(result){
+				if(result == "0"){
+					document.getElementById('usn_error3').innerHTML = "<span style=\"color:red\">" + "To username ή ο κωδικός επαλήθευσης δεν είναι έγκυρος" + "</span>";
+					document.getElementById("usn3").style.borderColor = "red";
+					document.getElementById("pass3").value = '';
+				}
+				else{
+					window.location.href='https://localhost:8765/app/login.jsp'
+				}
+				
+			}
+				
+		});	
+	}
+});
+
+
+/////////////////////
 
 $(document).on('click','.fpass1',function(){
 	console.log(1);
