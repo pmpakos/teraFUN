@@ -42,7 +42,7 @@ public class CompanyDAO{
     }
 
     public void update(Company company){
-        String sql = "UPDATE company SET CompanyName = ?, "
+        String sql = "UPDATE companyservice SET CompanyName = ?, "
                     + "Address = ?, PostalCode = ?, TelephoneNumber = ?, Email = ?, Password = ?,"
                     + "BankAccount = ?, WebPage=?, Description=?, Latitude = ?, Longitude = ?"
                     + "WHERE Username = ?";
