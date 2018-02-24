@@ -42,16 +42,21 @@ class EventRowMapper implements RowMapper<Event>  {
         File folder = new File("src/main/webapp/images/events/event"+EventID);
         File[] listOfFiles = folder.listFiles();
         int flag = 0;
-        for (int i = 0; i < listOfFiles.length; i++) {
-            if (listOfFiles[i].isFile()) {
-                PhotosFolder =  listOfFiles[i].getName();
-                PhotosFolder = "/app/images/events/event"+EventID+"/"+PhotosFolder;
-                flag = 1;
-                break;
+        if(listOfFiles !=null){
+            for (int i = 0; i < listOfFiles.length; i++) {
+                if (listOfFiles[i].isFile()) {
+                    PhotosFolder =  listOfFiles[i].getName();
+                    PhotosFolder = "/app/images/events/event"+EventID+"/"+PhotosFolder;
+                    flag = 1;
+                    break;
+                }
+            }
+            if (flag == 0){
+                //Image not found for this event
+                PhotosFolder = "/app/static/logo.png";
             }
         }
-        if (flag == 0){
-            //Image not found for this event
+        else{
             PhotosFolder = "/app/static/logo.png";
         }
 
