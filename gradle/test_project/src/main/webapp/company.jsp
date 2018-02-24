@@ -52,13 +52,16 @@
         width: 400px;
     }
 
-
-  </style>
-  <style>
-       .gmap {
+   .gmap {
         height: 400px;
+        margin: auto;
         width: 50%;
-       }
+    }
+    .h2 {
+        margin: auto;
+        width: 50%;
+        text-align: center;
+    }
     </style>
 
 </head>
@@ -132,7 +135,7 @@
             
                 
 
-            <h2>Map</h2>
+            <h2 style="text-align: center">Τοποθεσία</h2>
 
             <div id="map" class="gmap"></div>
     
