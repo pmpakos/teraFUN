@@ -70,15 +70,16 @@
 						 <div class="row"> 
 							<div class="col-lg-10 col-md-offset-1">
 								<br>
-								<form id="login-form" onsubmit="return validatecompany()" action="upload_image_company" method="Post" enctype="multipart/form-data" role="form">
+								<!-- <form id="login-form" role="form"> -->
 
-								<!-- <form id="login-form" role="form" enctype="multipart/form-data"> -->
-									<!-- action="upload_image_company" -->
+								 <form id="login-form"  action="upload_image_company" method="Post" enctype="multipart/form-data" role="form">
 
 									    
 								    
 								  
 								    <div class="form-group email">
+								    <input type="hidden" id="usn" data-bind="value:username"/>
+								    <input type="hidden" id="afm" data-bind="value:afm"/>
 								    	<label for="Email"> <span class="glyphicon glyphicon-envelope"> </span> Email</label>
 								        <input type="email" class="form-control email-comp-validation form-element" name="email" id="email" data-bind="value: email, attr: {placeholder: 'Εισάγετε την διεύθυνση ηλεκτρονικού ταχυδρομίου'}"  data-validation="false">
 								   		<span class="error"><p1 id="email_error"></p1></span>
@@ -182,7 +183,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit"  class="form-control btn btn-registerc" value="ΕΝΗΜΕΡΩΣΗ ΣΤΟΙΧΕΙΩΝ" />
+												<input type="button"  class="form-control btn btn-info btn-update1" value="ΕΝΗΜΕΡΩΣΗ ΣΤΟΙΧΕΙΩΝ" />
 												<!-- <button type="button" name="registerc-submit" id="registerc-submit" tabindex="4" class="form-control btn btn-loginp"><span>ΔΗΜΙΟΥΡΓΙΑ ΛΟΓΑΡΙΑΣΜΟΥ </span></button> -->
 											</div>
 										</div>
@@ -229,6 +230,7 @@
                 this.password2 =ko.observable();
                 this.afm=ko.observable();
                 this.bank=ko.observable();
+                this.username=ko.observable();
             }
 
             VM.prototype.loadCompany = function() {
@@ -255,7 +257,7 @@
                 viewModel.web(companyJson.WebPage);
                 viewModel.description(companyJson.Description);
                 viewModel.address(companyJson.Address);
-                viewModel.PhotosFolder(companyJson.PhotosFolder+'user.png');
+                viewModel.PhotosFolder(companyJson.PhotosFolder);
                 viewModel.telephone(companyJson.TelephoneNumber);
                 viewModel.postal(companyJson.PostalCode);
                 viewModel.password(companyJson.Password);
@@ -263,6 +265,8 @@
                 viewModel.email(companyJson.Email);
                 viewModel.afm(companyJson.AFM);
                 viewModel.bank(companyJson.BankAccount);
+                viewModel.username(companyJson.Username);
+
             
                 
                
