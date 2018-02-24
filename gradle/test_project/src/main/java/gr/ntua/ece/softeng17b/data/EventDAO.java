@@ -34,16 +34,28 @@ public class EventDAO{
 
 	public void insert(Event event){
         
-        String sql = "INSERT INTO event (Name, Address,"
-                    + "DateEvent, Hour, Duration, Cost, Description, PhotosFolder, IsOffer, Latitude,"
+        String sql = "INSERT INTO event (CompanyID, Name, Address,"
+                    + "DateEvent, Hour, Duration, TicketCounter, IncomingCash, Cost, Description, PhotosFolder, IsOffer, Visits, Latitude,"
                     + "Longitude, MaxCapacity, Indoor, MinAge, MaxAge, Fun, Sport, Education, Team, TagDescription)"
-                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        this.jdbcTemplate.update(sql, new Object[] {event.Name, event.Address, event.DateEvent,
-            event.Hour, event.Duration, event.Cost, event.Description, event.PhotosFolder, event.IsOffer,
+        this.jdbcTemplate.update(sql, new Object[] {event.CompanyID,event.Name, event.Address, event.DateEvent,
+            event.Hour, event.Duration, event.TicketCounter, event.IncomingCash, event.Cost, event.Description, event.PhotosFolder, event.IsOffer, event.Visits,
             event.Latitude, event.Longitude, event.MaxCapacity, event.Indoor, event.MinAge, 
             event.MaxAge, event.Fun, event.Sport, event.Education, event.Team, 
             event.TagDescription});   
+    }
+
+    public int getId(Event event) {     
+        List<String> db_id = jdbcTemplate.queryForList("select EventID from event where (Name = ? and DateEvent = ? and Hour = ? and Duration = ? and Cost = ? and Latitude = ? and Longitude = ?)", new Object[] {event.Name, event.DateEvent,
+            event.Hour, event.Duration, event.Cost,
+            event.Latitude, event.Longitude}, String.class); 
+
+        if(db_id.size() == 0){
+           return -1;
+        }
+        
+        return Integer.parseInt(db_id.get(0)); 
     }
 
     public Optional<Event> getEvent(int id) {        

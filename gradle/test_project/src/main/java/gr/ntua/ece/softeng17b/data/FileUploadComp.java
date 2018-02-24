@@ -14,7 +14,7 @@ import watermark.WatermarkImage;
 public class FileUploadComp {
 	public static boolean processFile(String path, FileItemStream item, String fieldName, String username){
 		try{
-			File f = new File(path+"/src/main/webapp/images/user_profiles/"+username);
+			File f = new File(path+"/src/main/webapp/images/"+username);
 			if(!f.exists())f.mkdir();
 		
 			File savedFile = new File(f.getAbsolutePath()+File.separator+item.getName());
@@ -28,8 +28,8 @@ public class FileUploadComp {
 			}
 			fos.flush();
 			fos.close();
-			System.out.println(path+"/src/main/webapp/images/user_profiles/"+username+"/"+fieldName);
-			String[] strArray = new String[] {path+"/src/main/webapp/images/user_profiles/"+username+"/"+fieldName};
+			System.out.println(path+"/src/main/webapp/images/"+username+"/"+fieldName);
+			String[] strArray = new String[] {path+"/src/main/webapp/images/"+username+"/"+fieldName};
 			WatermarkImage.main(strArray);
 			System.out.println("ΥΕΑΑΑΑΑ");
 			return true;

@@ -77,10 +77,11 @@ public class UploadImageCompanyServlet extends HttpServlet {
 	    		  }
 	    		  else{
 	    			  //String path = getServletContext().getRealPath("/");
+	    		  	String temp="user_profiles/"+username;
 	    			  String fieldName = item.getFieldName();
 	    			  String fileName = item.getName();
 	    			  String path = new java.io.File( "." ).getCanonicalPath();
-	    			  if (FileUploadComp.processFile(path,item,fileName,username))
+	    			  if (FileUploadComp.processFile(path,item,fileName,temp))
 	    				  response.getWriter().println(fileName+" file success!!!\n");
 	    			  else 
 	    				  response.getWriter().println("pulo");

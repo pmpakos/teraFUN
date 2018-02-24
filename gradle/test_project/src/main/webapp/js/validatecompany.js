@@ -61,8 +61,7 @@ $(document).on('blur','.afm-validation',function(){
 
 $(document).on('blur','.bankcomp-validation',function(){
 	var content = $(this).val();
-	
-	validbank = re.test(content);
+	validbank=true;
 	
 
 	if(content.length == 0){

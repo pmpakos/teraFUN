@@ -104,6 +104,11 @@
     </servlet>
 
     <servlet>
+        <servlet-name>upload_image_event</servlet-name>
+        <servlet-class>gr.ntua.ece.softeng17b.servlets.UploadImageEventServlet</servlet-class>
+    </servlet>
+
+    <servlet>
         <servlet-name>company_signup_form</servlet-name>
         <servlet-class>gr.ntua.ece.softeng17b.servlets.CompanySignupServlet</servlet-class>
     </servlet>
@@ -251,6 +256,11 @@
      <servlet-mapping>
         <servlet-name>upload_image_company</servlet-name>
         <url-pattern>/upload_image_company</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>upload_image_event</servlet-name>
+        <url-pattern>/upload_image_event</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>

@@ -6,6 +6,7 @@ validmin=0;
 validmax=0;
 validcap=0;
 validtag=0;
+validdur=0;
 
 
 $(document).on('blur','.eventname-validation',function(){
@@ -341,7 +342,6 @@ jQuery().ready(function(){
         min:min,
         max:max,
         cap:cap,
-        // out:out,
         ind:ind,
         fun:fun,
         lea:lea,
@@ -351,8 +351,10 @@ jQuery().ready(function(){
         lngg:lngg,
       },
       url:'/app/create_event',
-      success: function(){
+      success: function(returned_id){
         console.log("insertion done");
+        console.log(returned_id);
+        document.getElementById('eventid').value= returned_id;
         //SET ID = ID OF EVENT 
       }
         
@@ -388,6 +390,8 @@ jQuery().ready(function(){
 
 function checknumber(){
   // var number=4;
+  var id= document.getElementById('eventid').value;
+  console.log(id);
  var $fileUpload = $("input[type='file']");
  var number=parseInt($fileUpload.get(0).files.length);
   console.log(number);
@@ -401,7 +405,7 @@ function checknumber(){
     }
     else{
       document.getElementById('total_error').innerHTML = '';
-      return false;
+      return true;
     }
 }
 

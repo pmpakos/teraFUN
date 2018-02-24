@@ -116,7 +116,7 @@ p {
             <!-- <h3 class="panel-title">Complete this form in quick 3 steps!</h3> -->
           <!-- </div> -->
           <div class="panel-body">
-            <form name="basicform"  onsubmit="return checknumber()" id="basicform" method="post"  enctype="multipart/form-data" role="form">
+            <form name="basicform"  onsubmit="return checknumber()" action="upload_image_event" id="basicform" method="post"  enctype="multipart/form-data" role="form">
 
               <!-- action="upload_image_company" -->
               <div id="sf1" class="frm">
@@ -125,6 +125,8 @@ p {
 
 
                   <div class="form-group eventname">
+
+                    <input type="hidden" name="country" id="eventid" value="0">
                      <div class="col-xs-8">
                       
                       <label class="control-label" for="eventname"><p>Δώστε ένα όνομα για την εκδήλωση σας</p> </label>
