@@ -58,6 +58,10 @@ public class CompanyUpdateServlet extends HttpServlet {
 		Double lat = Double.parseDouble(request.getParameter("latt"));
 		Double lng = Double.parseDouble(request.getParameter("lngg"));
 		String filename = request.getParameter("filename");
+		if(filename!="nothing"){
+			filename = "images/user_profiles/"+username+"/"+filename;
+		}
+		System.out.println("CompanyUpdateServlet: inserting company with filename: " + filename);
 		
 	     // do some processing here...
 
@@ -71,8 +75,12 @@ public class CompanyUpdateServlet extends HttpServlet {
 
 		company_dao.setDataSource(dataAccess.dataSource);
 		company_dao.setJdbcTemplate(dataAccess.jdbcTemplate);
-
-		company_dao.update(update_company);
+		if(filename=="nothing"){
+			company_dao.update(update_company);
+		}
+		else{
+			company_dao.updatefile(update_company);
+		}
 	}
 
 }

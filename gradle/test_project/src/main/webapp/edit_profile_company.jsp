@@ -34,12 +34,12 @@
   z-index: -1;
    top: 0;
 
-  /*background-size:cover;*/
-    /*-webkit-filter: blur(5px);
+  background-size:cover;
+    -webkit-filter: blur(5px);
     -moz-filter: blur(5px);
     -o-filter: blur(5px);
     -ms-filter: blur(5px);
-    filter: blur(5px);   */
+    filter: blur(5px);   
 }
 </style>
 </head>
@@ -72,13 +72,19 @@
 								<br>
 								<!-- <form id="login-form" role="form"> -->
 
-								 <form id="login-form"  action="upload_image_company" method="Post" enctype="multipart/form-data" role="form">
+								 <form id="login-form" onsubmit="return updatecompany()" action="upload_image_company" method="Post" enctype="multipart/form-data" role="form">
 
-									    
+								 	<div class="form-group usn">
+								    	<label for="username"> </label>
+								      	<input type="hidden" class="form-control usn-comp-validation form-element" name="usn" id="usn" data-bind="value:username" data-validation="false">
+								    </div>
+								    
+								    <input type="hidden" id="lat" data-bind="value:lat"/>
+								    <input type="hidden" id="lng" data-bind="value:lng"/>
 								    
 								  
 								    <div class="form-group email">
-								    <input type="hidden" id="usn" data-bind="value:username"/>
+								    <!-- <input type="hidden" id="usn" data-bind="value:username"/> -->
 								    <input type="hidden" id="afm" data-bind="value:afm"/>
 								    	<label for="Email"> <span class="glyphicon glyphicon-envelope"> </span> Email</label>
 								        <input type="email" class="form-control email-comp-validation form-element" name="email" id="email" data-bind="value: email, attr: {placeholder: 'Εισάγετε την διεύθυνση ηλεκτρονικού ταχυδρομίου'}"  data-validation="false">
@@ -183,7 +189,8 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="button"  class="form-control btn btn-info btn-update1" value="ΕΝΗΜΕΡΩΣΗ ΣΤΟΙΧΕΙΩΝ" />
+												<!-- <input type="button"  class="form-control btn btn-info btn-update1" value="ΕΝΗΜΕΡΩΣΗ ΣΤΟΙΧΕΙΩΝ" /> -->
+												<input type="submit"  class="form-control btn btn-registerc" value="ΕΝΗΜΕΡΩΣΗ ΣΤΟΙΧΕΙΩΝ" />
 												<!-- <button type="button" name="registerc-submit" id="registerc-submit" tabindex="4" class="form-control btn btn-loginp"><span>ΔΗΜΙΟΥΡΓΙΑ ΛΟΓΑΡΙΑΣΜΟΥ </span></button> -->
 											</div>
 										</div>
@@ -231,6 +238,8 @@
                 this.afm=ko.observable();
                 this.bank=ko.observable();
                 this.username=ko.observable();
+                this.lat=ko.observable();
+                this.lng=ko.observable();
             }
 
             VM.prototype.loadCompany = function() {
@@ -266,6 +275,8 @@
                 viewModel.afm(companyJson.AFM);
                 viewModel.bank(companyJson.BankAccount);
                 viewModel.username(companyJson.Username);
+                viewModel.lat(companyJson.Latitude);
+                viewModel.lng(companyJson.Longitude);
 
             
                 

@@ -46,7 +46,7 @@ public class UploadServlet extends HttpServlet {
 	      
 	      if( !isMultipart )
 	      {
-	         out.println("No Upload This Time");
+	         System.out.println("No Upload This Time");
 	         return;
 	      }
 	      ServletFileUpload upload = new ServletFileUpload();
@@ -64,15 +64,20 @@ public class UploadServlet extends HttpServlet {
 	    		  }
 	    		  else{
 	    			  //String path = getServletContext().getRealPath("/");
+
 	    			  String fieldName = item.getFieldName();
+
 	    			  String fileName = item.getName();
+	    			  System.out.println(fileName);
+	    			  if(fileName!=""){
 	    			  String path = new java.io.File( "." ).getCanonicalPath();
-	    			  //response.getWriter().println(path+"<br/>");
-	    			  if (FileUpload.processFile(path,item,fileName))
+	    			  response.getWriter().println(path+"<br/>");
+	    				if (FileUpload.processFile(path,item,fileName))
 	    				  response.getWriter().println(fileName+" file success!!!\n");
 	    			  else 
 	    				  response.getWriter().println("pulo");
 	    		  }
+	    		}
 	    		  
 	    	  }
 	    	  	

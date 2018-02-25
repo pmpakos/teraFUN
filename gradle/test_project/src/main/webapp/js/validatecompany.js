@@ -1,6 +1,7 @@
 validcompname=0;
 validafm=0;
 mymail2=1;
+validbank=0;
 
 $(document).on('blur','.compname-validation',function(){
 	var content = $(this).val();
@@ -62,8 +63,9 @@ $(document).on('blur','.afm-validation',function(){
 
 $(document).on('blur','.bankcomp-validation',function(){
 	var content = $(this).val();
-	var re=/\b\d{16}\b/g;
-	validbank = re.test(content);
+	//var re=/\b\d{16}\b/g;
+	//validbank = re.test(content);
+	validbank=1;
 	
 
 	if(content.length == 0){
@@ -302,8 +304,8 @@ function validatecompany(){
 		console.log(filename);
 	}
 	else{
-		document.getElementById('total_error').innerHTML = 'Πρέπει να ανεβάσετε μία φωτογραφία';
-		return false;
+		//document.getElementById('total_error').innerHTML = 'Πρέπει να ανεβάσετε μία φωτογραφία';
+		//return false;
 	}
 	//var filename=document.getElementById('file').files[0].name;
 	//console.log(filename);
@@ -352,8 +354,8 @@ function validatecompany(){
 	} 
 }
 
-//function updatecompany(){
-$(document).on('click','.btn-update1',function(){
+function updatecompany(){
+// $(document).on('click','.btn-update1',function(){
 	var usn=document.getElementById('usn').value;
 	console.log(usn);
 	var password = document.getElementById('pass').value;
@@ -381,6 +383,7 @@ $(document).on('click','.btn-update1',function(){
 	console.log(description);
 	var fileflag=document.getElementById('file').value;
 	console.log(fileflag);
+
 	// if(fileflag){
 		// var filename=document.getElementById('file').files[0].name;
 	// 	console.log(filename);
@@ -389,7 +392,7 @@ $(document).on('click','.btn-update1',function(){
 	// 	document.getElementById('total_error').innerHTML = 'Πρέπει να ανεβάσετε μία φωτογραφία';
 	// 	return false;
 	// }
-	var filename="";
+	var filename="nothing";
 	if(document.getElementById('file').files[0]){
 		filename=document.getElementById('file').files[0].name;
 	}
@@ -428,6 +431,15 @@ $(document).on('click','.btn-update1',function(){
 		validbank=1;
 		console.log(8);
 	}
+	if(latt==0 && lngg==0){
+		console.log("same location");
+		latt=document.getElementById('lat').value;
+		lngg=document.getElementById('lng').value;
+		console.log(latt);
+		console.log(lngg);
+
+
+	}
 
 	 var test=validbank&validcompname&validpass1&validpass&validemail&validaddr&validpostal;
 	 console.log(validbank);
@@ -463,7 +475,7 @@ $(document).on('click','.btn-update1',function(){
 			url:'/app/company_update',
 			success: function(){
 				console.log("insertion done");
-				window.location.href='https://localhost:8765/app/company.jsp'
+			//	window.location.href='https://localhost:8765/app/company.jsp'
 
 
 				// sync=1;	
@@ -472,7 +484,7 @@ $(document).on('click','.btn-update1',function(){
 		});	
 		
 		// console.log("synchronous ajax");
-		return true;
+		return false;
 		
 	} 
 	else{
@@ -480,5 +492,5 @@ $(document).on('click','.btn-update1',function(){
 		document.getElementById('total_error').innerHTML = 'Πρέπει να συμπληρώσετε τα όλα πεδία και να συμφωνήσετε με τους όρους και τις προϋποθέσεις';
 		return false; 	
 	} 
-});
+}
 

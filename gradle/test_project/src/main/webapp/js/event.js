@@ -323,8 +323,8 @@ jQuery().ready(function(){
   // console.log(test); 
   if(test){
     document.getElementById('total_error1').innerHTML = "";
-    var compid=1;
-    //var compid=get_comp_id_from_session();
+    var compid=3;
+    //var compid=get_omp_id_from_session();
     $.ajax({
       type:"POST",
       data:{

@@ -43,13 +43,13 @@ public class UploadImageCompanyServlet extends HttpServlet {
 	      boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 	      java.io.PrintWriter out = response.getWriter( );
 
-
+	       System.out.println("ΓΑΜΙΕΣΑΙ");
 	   
 	      
 	      
 	      if( !isMultipart )
 	      {
-	         out.println("No Upload This Time");
+	         System.out.println("No Upload This Time");
 	         return;
 	      }
 	      String username="default";
@@ -80,13 +80,14 @@ public class UploadImageCompanyServlet extends HttpServlet {
 	    		  	String temp="user_profiles/"+username;
 	    			  String fieldName = item.getFieldName();
 	    			  String fileName = item.getName();
+	    			  if(fileName!=""){
 	    			  String path = new java.io.File( "." ).getCanonicalPath();
 	    			  if (FileUploadComp.processFile(path,item,fileName,temp))
 	    				  response.getWriter().println(fileName+" file success!!!\n");
 	    			  else 
 	    				  response.getWriter().println("pulo");
 	    		  }
-	    		  
+	    		  }
 	    	  }
 	    	  	
 	    	  

@@ -9,7 +9,13 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <style type="text/css">
-    body { padding-top: 70px; }
+    body { padding-top: 70px; 
+
+
+  
+}
+
+
     .jumbotron {
       color: #2c3e50;
       background: #ecf0f1;
@@ -46,13 +52,16 @@
         width: 400px;
     }
 
-
-  </style>
-  <style>
-       .gmap {
+   .gmap {
         height: 400px;
+        margin: auto;
         width: 50%;
-       }
+    }
+    .h2 {
+        margin: auto;
+        width: 50%;
+        text-align: center;
+    }
     </style>
 
 </head>
@@ -66,7 +75,7 @@
             <div class="row">
                 <div class="col-lg-4"></div>
                 <div class="col-lg-4">
-                    <h1>
+                    <h1 style="text-align: center">
                        <span data-bind="text:companyname"></span> 
                     </h1>
                 </div>
@@ -89,9 +98,13 @@
                         </h2>
                         <p>
                             <span data-bind="text:address"></span> 
-                            <a href="#">
+                            <span data-bind="text:postal"></span> 
+                            <br>
+                            <a 
+                            data-bind="attr: { href: web }">
                             <span data-bind="text:web"></span> 
                             </a>
+                            <span data-bind="text:telephone"></span>
                         </p>
                     </div>
                 </div>
@@ -101,7 +114,7 @@
             <div class="row">
                 <div class="col-lg-4"></div>
                 <div class="col-lg-4">
-                    <h2 >Περιγραφή
+                    <h2 style="text-align: center">Περιγραφή
                         
                     </h2>
                 </div>
@@ -112,7 +125,7 @@
             
              <div class="row">
                 
-                    <p>
+                    <p style="text-align: center">
                        <span data-bind="text:description"></span> 
                     </p>
                     <button type="button" class="btn btn-primary btn-lg btn-block">Events</button>
@@ -122,7 +135,7 @@
             
                 
 
-            <h2>Map</h2>
+            <h2 style="text-align: center">Τοποθεσία</h2>
 
             <div id="map" class="gmap"></div>
     
@@ -149,7 +162,9 @@
                 this.web = ko.observable(); 
                 this.description =  ko.observable(); 
                 this.address =  ko.observable();
-                this.PhotosFolder = ko.observable();    
+                this.PhotosFolder = ko.observable();  
+                this.telephone = ko.observable();  
+                this.postal = ko.observable();
             }
 
             VM.prototype.loadCompany = function() {
@@ -176,7 +191,9 @@
                 viewModel.web(companyJson.WebPage);
                 viewModel.description(companyJson.Description);
                 viewModel.address(companyJson.Address);
-                viewModel.PhotosFolder(companyJson.PhotosFolder);
+                viewModel.PhotosFolder(companyJson.PhotosFolder+'user.png');
+                viewModel.telephone(companyJson.TelephoneNumber);
+                viewModel.postal(companyJson.PostalCode);
                 
                 <%  System.out.println(FileChecker.main("/src/main/webapp/images/user_profiles/krataios/")); %>
                 var uluru = {lat: companyJson.Latitude, lng: companyJson.Longitude};
