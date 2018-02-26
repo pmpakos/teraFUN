@@ -34,7 +34,7 @@
     </head>
 
     <body>
-<%@include file="header_company.jsp" %>
+<%@include file="header.jsp" %>
       <div class="container">
       <div id="ko">
             <h1>Επερχόμενες εκδηλώσεις : <span data-bind="text:events().length"></span> </h1>
@@ -45,6 +45,7 @@
                         <th scope="col">Ημερομηνία </th>
                         <th scope="col">Διεύθυνση </th>
                         <th scope="col">Περιγραφή </th>
+                        <th scope="col">Λεπτομέρειες </th>
                     </tr>
                 </thead>  
                 <tbody data-bind="foreach:events">
@@ -58,6 +59,9 @@
                           <!-- <span data-bind="text:description"></span> -->
                           <button id="description" data-bind="click: function(data, event) { show_description(name, description, data,  event) }" type="button" class="btn btn-info btn-admin">Περιγραφή</button>
                         </td>                    
+                        <td> 
+                          <button  data-bind="value: id" onclick="location.href = 'event_profile.jsp/?id='+this.value;" type="button" class="btn btn-success" style="vertical-align:bottom;">Μάθε Περισσότερα</button>
+                        </td>
                     </tr>                   
                 </tbody>
             </table>

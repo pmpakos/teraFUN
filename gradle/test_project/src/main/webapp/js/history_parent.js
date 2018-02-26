@@ -1,6 +1,5 @@
-
 var Event = function(id, name, date, address, description,numberoftickets,code) {
-    this.id = id
+    this.id = id;
     this.name = name;
     this.date = date;
     this.address = address; 
@@ -38,7 +37,7 @@ viewModel.loadEvents().done(function(json){
 
     json.results.forEach(function(eventJson){             
         var event = new Event(
-            eventJson.ID,
+            eventJson.EventID,
             eventJson.Name,
             eventJson.DateEvent,
             eventJson.Address,
@@ -47,6 +46,7 @@ viewModel.loadEvents().done(function(json){
             eventJson.Code
             );
         console.log(event);
+        console.log(eventJson.ID);
         viewModel.events.push(event);
     });
 
@@ -55,10 +55,10 @@ viewModel.loadEvents().done(function(json){
 
     var table = $('#Data').DataTable( {
         "paging": false,
-        "iDisplay": 2,
+        "iDisplay": 3,
         "bLengthChange": false,
         "columnDefs": [ {
-          "targets": 3,
+          "targets": 4,
           "orderable": false
         } ],
         "bDeferRender": true, 

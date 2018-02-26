@@ -47,6 +47,7 @@
                         <th scope="col">Συνολικά Εισιτήρια </th>
                         <th scope="col">Έσοδα σε ευρώ </th>
                         <th scope="col">Περιγραφή </th>
+                        <th scope="col">Λεπτομέρειες </th>
                     </tr>
                 </thead>  
                 <tbody data-bind="foreach:events">
@@ -56,12 +57,14 @@
                         <td> <span data-bind="text:address"></span> </td>
                         <td> <span data-bind="text:ticket_counter"></span> </td>
                         <td> <span data-bind="text:income"></span> </td>
-                                              
                         <td>
                           <!-- shit to be done here -->
                           <!-- <span data-bind="text:description"></span> -->
                           <button id="description" data-bind="click: function(data, event) { show_description(name, description, data,  event) }" type="button" class="btn btn-info btn-admin">Περιγραφή</button>
                         </td>                    
+                        <td> 
+                          <button  data-bind="value: id" onclick="location.href = 'event_profile.jsp/?id='+this.value;" type="button" class="btn btn-success" style="vertical-align:bottom;">Μάθε Περισσότερα</button>
+                        </td>
                     </tr>                   
                 </tbody>
             </table>
