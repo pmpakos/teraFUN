@@ -4,13 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Event | teraFUN</title>
+<title>Create Event | teraFUN</title>
 
   <!-- Latest compiled and minified CSS -->
+
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
   <!-- Latest compiled JavaScript -->
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>  -->
+  <%@include file="header.jsp" %>
+
+  <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
   <link href="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
 
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -93,6 +96,7 @@ p {
   /*text-align: center;*/
 }
 </style>
+
 </head>
 
 <body>

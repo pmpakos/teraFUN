@@ -29,6 +29,9 @@ public class RestApi extends Application {
 		router.attach("/parent/{id}", ParentResource.class);
 
 		//GET, POST
+		router.attach("/event/{id}", EventResource.class);
+
+		//GET, POST
 		router.attach("/adminprofile", AdminProfileResource.class);
 
 		//GET, POST

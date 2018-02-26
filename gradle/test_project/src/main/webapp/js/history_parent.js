@@ -1,9 +1,13 @@
 
-var Event = function(name, date, address, description) {
+var Event = function(id, name, date, address, description,numberoftickets,code) {
+    this.id = id
     this.name = name;
     this.date = date;
     this.address = address; 
     this.description = description;
+    this.numberoftickets = numberoftickets;
+    this.code = code;
+
 }
 
 var VM = function(){
@@ -34,10 +38,13 @@ viewModel.loadEvents().done(function(json){
 
     json.results.forEach(function(eventJson){             
         var event = new Event(
-			eventJson.Name,
-			eventJson.DateEvent,
-			eventJson.Address,
-			eventJson.Description
+            eventJson.ID,
+            eventJson.Name,
+            eventJson.DateEvent,
+            eventJson.Address,
+            eventJson.Description,
+            eventJson.NumberOfTickets,
+            eventJson.Code
             );
         console.log(event);
         viewModel.events.push(event);
@@ -47,40 +54,21 @@ viewModel.loadEvents().done(function(json){
      
 
     var table = $('#Data').DataTable( {
-        "paging": true,
-        "iDisplay": 10,
+        "paging": false,
+        "iDisplay": 2,
         "bLengthChange": false,
         "columnDefs": [ {
-          "targets": 11,
+          "targets": 3,
           "orderable": false
         } ],
         "bDeferRender": true, 
-
+        "bInfo" : false,
         "pagingType": "simple_numbers",
         //"scrollY": "200px",
         //"stateSave": true,
-        //"searching": true,
-        "dom": '<"toolbar">frtip'
+        "searching": false
     } );
 
-    $("div.toolbar").html(
-    '<div class="row">'+
-    '<div class="col-lg-12">'+
-       '<div class="button-group">'+
-          '<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon '+
-            'glyphicon-filter"> Φίλτρα</span> <span class="caret"></span></button>'+
-          '<ul class="dropdown-menu">'+
-            '<li> <button id="check0" type="button" class="toggle-vis btn btn-success btn-filter" data-column="0">Όνομα </button> </li>         '+
-            '<li> <button id="check1" type="button" class="toggle-vis btn btn-success btn-filter" data-column="1">Ημερομηνία </button> </li>'+
-            '<li> <button id="check2" type="button" class="toggle-vis btn btn-success btn-filter" data-column="2">Πλήθος Κρατήσεων </button> </li>'+
-            '<li> <button id="check3" type="button" class="toggle-vis btn btn-success btn-filter" data-column="3">Έσοδα </button> </li>'+
-            '<li> <button id="check4" type="button" class="toggle-vis btn btn-success btn-filter" data-column="4">Επισκέψεις </button></li>'+
-            '<li> <button id="check5" type="button" class="toggle-vis btn btn-success btn-filter" data-column="5">Περιγραφή </button> </li>'+
-            '</ul>'+
-      '</div>'+
-    '</div>'+
-    '</div>'
-    );
 
     $('[id^="check"]').click(function () {
        $(this).toggleClass('btn-success btn-danger'); 
