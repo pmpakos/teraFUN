@@ -52,8 +52,11 @@ public class WalletUpdateServlet extends HttpServlet {
 		parent_dao.setDataSource(dataAccess.dataSource);
 		parent_dao.setJdbcTemplate(dataAccess.jdbcTemplate);
 
-		parent_dao.updatePoints(parent_id, points);
+		int status = parent_dao.checkStatus(parent_id);
 
+		String flag = parent_dao.updatePoints(parent_id, points, status);
+
+		response.getWriter().append(flag);
 	}
 
 }

@@ -62,13 +62,33 @@ public class ParentDAO{
     }
 
 
-   public void updatePoints(int id, int points){
-        String sql = "UPDATE parent SET points = ? WHERE ParentID = ?";
+   public String updatePoints(int id, int points, int status){
+
+        int flag = 0;
+
+        if(status == 1){
+
+            if(points<50){
+                return "0";
+            }
+            else{
+                points -= 50;
+                flag=1;
+            }            
+
+        }
+            
+        String sql = "UPDATE parent SET points = ?, Status=2 WHERE ParentID = ?";
 
         List<String> db_points = jdbcTemplate.queryForList("select Points from parent where (ParentID = ?)", new Object[] {id}, String.class); 
         int temp = points + Integer.parseInt(db_points.get(0));
         if(points >= 100) temp = temp + points/10;
-        this.jdbcTemplate.update(sql, new Object[] {temp, id}); 
+        this.jdbcTemplate.update(sql, new Object[] {temp, id});
+        if(flag==1)
+            return "1"; 
+
+        return "2";// 0 -> Points < 50 && Status = 1 | 1 -> Points > 50 && Status=1 | 2 -> Status=2
+
     }
 
     public Optional<Parent> getParent(int id) {        

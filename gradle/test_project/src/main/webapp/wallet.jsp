@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" 
     pageEncoding="UTF-8"%>
 <%@ page import="gr.ntua.ece.softeng17b.conf.*" %>
-<% int ID = 4; %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -149,7 +149,9 @@
 <!-- <body background="static/balls.jpg"> -->
 <body>
 
-<%@include file="header.jsp" %>
+  <%@include file="header.jsp" %>
+<% String ID = id; %>
+
 
 <div class="container" id="ko">
 
@@ -162,6 +164,22 @@
              <h>Πορτοφόλι</h>
           </div>
           <div class="panel-body">
+
+
+            <div class="alert alert-success alert-dismissible success" >
+                <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
+                        Η αγορά πόντων έγινε επιτυχώς!
+            </div>
+            <div class="alert alert-danger alert-dismissible fail1" >
+                <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
+                        Ανεπιτυχής συναλλαγή! Για την πρώτη αγορά απαιτείται η εξόφληση της συνδρομής (50 πόντοι). 
+            </div>
+            <div class="alert alert-info alert-dismissible success2" >
+                <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
+                        Συγχαρητήρια για την πρώτη αγορά πόντων! Είσαι έτοιμος να ανακαλύψεις τις δυνατότητες της πλατφόρμας TeraFUN.
+            </div>
+
+
              <div class="row"> 
               <div class="col-lg-12 col-md-offset-1 col-sm-offset-1"> 
                 <h4>Διαθέσιμο υπόλοιπο : <span data-bind="text:points"></span> πόντοι </h4>
@@ -314,6 +332,9 @@
     <script> init();</script>
 
     <script type="text/javascript">
+      $('.success2').hide();
+      $('.success').hide();
+      $('.fail1').hide();
       validname=0;
       validcvv=0;
       validmonth=0;
@@ -477,11 +498,16 @@
       });
 
 
+      function sleep(milliseconds) {
+        var start = new Date().getTime();
+        for (var i = 0; i < 1e7; i++) {
+          if ((new Date().getTime() - start) > milliseconds){
+            break;
+          }
+        }
+      }
 
       $(document).on('click','.final-btn',function(){
-        
-        
-        
         var points=$(this).parent().parent().siblings('.points').find('input[name=points]').val();
         console.log(points);
         
@@ -506,8 +532,35 @@
               points:points
             },
             url:'/app/wallet_update',
-            success: function(){
-              window.location.href='https://localhost:8765/app/wallet.jsp'
+            success: function(result){
+              // window.location.href='https://localhost:8765/app/wallet.jsp'
+
+              // 0 -> Points < 50 && Status = 1 | 1 -> Points > 50 && Status=1 | 2 -> Status=2
+              if(result == "0"){
+                $('.success2').hide();
+                $('.success').hide();
+                $('.fail1').show();
+
+              }
+              else if(result=="1"){
+                $('.success2').show();
+                $('.success').hide();
+                $('.fail1').hide();
+                setTimeout(function() {
+                    document.location = 'https://localhost:8765/app/wallet.jsp';
+                }, 1821);
+              }
+              else{
+                $('.success2').hide();
+                $('.success').show();
+                $('.fail1').hide();
+                setTimeout(function() {
+                    document.location = 'https://localhost:8765/app/wallet.jsp';
+                }, 1453);
+                
+
+              }
+              
             }
               
           }); 
