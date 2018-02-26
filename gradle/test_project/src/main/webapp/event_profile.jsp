@@ -99,6 +99,9 @@ $(document).ready(function(){
             <div class="panel-heading">
                         <br>
                          <h><span data-bind="text:eventname"></span> </h>
+                         <br>
+                         <h>Sylvia edw einai to compname : <span data-bind="text:compname"></span> </h>
+                         
                         <!-- <hr class="style1"> -->
                         <br>
                     </br>
@@ -184,16 +187,17 @@ $(document).ready(function(){
                  this.address= ko.observable(); 
                  this.date= ko.observable(); 
                  this.cost= ko.observable(); 
-                 this.visits= ko.observable();                   
+                 this.visits= ko.observable(); 
+                 this.compname=ko.observable();                  
             }
 
-            VM.prototype.loadEvent = function() {
-                console.log("Loading company...");
+            VM.prototype.loadEventComp = function() {
+                console.log("Loading event...");
                 var ID = <%=ID%>;
                 var opts = {
                     traditional : true,
                     cache       : false,
-                    url         : "./api/event/"+ID,
+                    url         : "./api/event_plus_comp/"+ID,
                     type        : "GET",
                     dataType    : "json"
                 };
@@ -204,17 +208,18 @@ $(document).ready(function(){
             var viewModel = new VM();
             console.log("Created VM");            
 
-            viewModel.loadEvent().done(function(eventJson){
-                console.log("Done loading companies.");                 
+            viewModel.loadEventComp().done(function(eventJson){
+                console.log("Done loading event+comp.");                 
                 viewModel.id(eventJson.EventID);
                 viewModel.eventname(eventJson.Name);
                 viewModel.hour(eventJson.Hour);
                 viewModel.address(eventJson.Address);
                 viewModel.date(eventJson.DateEvent);
                 viewModel.cost(eventJson.Cost);
-               	viewModel.visits(eventJson.Visits);
+                viewModel.visits(eventJson.Visits);
+                viewModel.compname(eventJson.TagDescription);
+                console.log('skata nifo :!!!!!'+eventJson.TagDescription);
                 
-
                 $.ajax({
                   type:"POST",
                   data:{
@@ -228,7 +233,8 @@ $(document).ready(function(){
                 }); 
 
                 
-                <%  System.out.println(FileChecker.main("/src/main/webapp/images/user_profiles/krataios/")); %>
+                <%  //System.out.println(FileChecker.main("/src/main/webapp/images/user_profiles/krataios/"));
+                 %>
                 var uluru = {lat: eventJson.Latitude, lng: eventJson.Longitude};
 
                 var map = new google.maps.Map(document.getElementById('map'), {

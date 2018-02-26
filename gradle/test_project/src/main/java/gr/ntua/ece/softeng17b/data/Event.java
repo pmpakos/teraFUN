@@ -75,6 +75,10 @@ public class Event {
 		return this.EventID;
 	}
 	
+	public int getCompanyID(){
+		return this.CompanyID;
+	}
+	
 	public String getName(){
 		return this.Name;
 	}
@@ -88,5 +92,13 @@ public class Event {
 	public int getMaxCapacity(){
 		return this.MaxCapacity;
 	}
-	
+
+	public String getTagDescription(){
+		return this.TagDescription;
+	}
+
+	public void setTagDescription(String auto){
+		this.TagDescription = auto;
+	}
+
 }
