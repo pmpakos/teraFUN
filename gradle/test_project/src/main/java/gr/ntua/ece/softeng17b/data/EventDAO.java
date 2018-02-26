@@ -17,6 +17,12 @@ import java.text.ParseException;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
+
 public class EventDAO{
 
 
@@ -44,6 +50,58 @@ public class EventDAO{
             event.Latitude, event.Longitude, event.MaxCapacity, event.Indoor, event.MinAge, 
             event.MaxAge, event.Fun, event.Sport, event.Education, event.Team, 
             event.TagDescription});   
+    }
+
+    public int insert1(Event event){
+
+        PreparedStatementCreator psc = new PreparedStatementCreator(){
+            public PreparedStatement createPreparedStatement(final Connection connection) throws SQLException {
+                
+                String sql = "INSERT INTO event (CompanyID, Name, Address,"
+                    + "DateEvent, Hour, Duration, TicketCounter, IncomingCash, Cost, Description, PhotosFolder, IsOffer, Visits, Latitude,"
+                    + "Longitude, MaxCapacity, Indoor, MinAge, MaxAge, Fun, Sport, Education, Team, TagDescription)"
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?, ?)";
+
+                Connection conn = null;
+                conn = dataSource.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+                
+                ps.setInt(1, event.CompanyID);
+                ps.setString(2, event.Name);
+                ps.setString(3, event.Address);
+                ps.setDate(4, event.DateEvent);
+                ps.setString(5, event.Hour);
+                ps.setInt(6, event.Duration);
+                ps.setInt(7, event.TicketCounter);
+                ps.setInt(8, event.IncomingCash);
+                ps.setInt(9, event.Cost);
+                ps.setString(10, event.Description);
+                ps.setString(11, event.PhotosFolder);
+                ps.setInt(12, event.IsOffer);
+                ps.setInt(13, event.Visits);
+                ps.setDouble(14, event.Latitude);
+                ps.setDouble(15, event.Longitude);
+                ps.setInt(16, event.MaxCapacity);
+                ps.setInt(17, event.Indoor);
+                ps.setInt(18, event.MinAge);
+                ps.setInt(19, event.MaxAge);
+                ps.setInt(20, event.Fun);
+                ps.setInt(21, event.Sport);
+                ps.setInt(22, event.Education);
+                ps.setInt(23, event.Team);
+                ps.setString(24, event.TagDescription);
+
+                return ps;
+            }
+        };
+
+        final KeyHolder holder = new GeneratedKeyHolder();
+
+        jdbcTemplate.update(psc, holder);
+
+        int newNameId = holder.getKey().intValue();
+
+        return newNameId;
     }
 
     public int getId(Event event) {     

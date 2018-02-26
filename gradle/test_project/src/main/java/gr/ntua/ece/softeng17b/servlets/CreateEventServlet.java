@@ -95,15 +95,14 @@ public class CreateEventServlet extends HttpServlet {
 
 			event_dao.setDataSource(dataAccess.dataSource);
 			event_dao.setJdbcTemplate(dataAccess.jdbcTemplate);
-			event_dao.insert(event_insert);
+			int id = event_dao.insert1(event_insert);
 			
 
-			EventDAO event_dao2=new EventDAO();
-			event_dao2.setDataSource(dataAccess.dataSource);
-			event_dao2.setJdbcTemplate(dataAccess.jdbcTemplate);
+			//EventDAO event_dao2=new EventDAO();
+			//event_dao2.setDataSource(dataAccess.dataSource);
+			//event_dao2.setJdbcTemplate(dataAccess.jdbcTemplate);
 			//int id = event_dao2.getId(event_insert);
 
-			int id=10;
 			System.out.println("To id einai: "+id);
 			String reply=Integer.toString(id);
 			response.getWriter().append(reply);

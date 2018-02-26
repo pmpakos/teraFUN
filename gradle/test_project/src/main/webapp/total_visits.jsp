@@ -49,8 +49,7 @@
                     <tr>
                         <td> <span data-bind="text:name"></span> </td>
                         <td> <span data-bind="text:visits"></span> </td>
-                       
-                                     
+                                                           
                     </tr>                   
                 </tbody>
             </table>
