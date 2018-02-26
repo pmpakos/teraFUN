@@ -67,7 +67,7 @@ public class ParentDAO{
 
         List<String> db_points = jdbcTemplate.queryForList("select Points from parent where (ParentID = ?)", new Object[] {id}, String.class); 
         int temp = points + Integer.parseInt(db_points.get(0));
-        if(points >= 10) temp = temp + points/10;
+        if(points >= 100) temp = temp + points/10;
         this.jdbcTemplate.update(sql, new Object[] {temp, id}); 
     }
 

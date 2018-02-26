@@ -2,7 +2,7 @@
 var Event = function(name, ticket_counter, income) {
     this.name = name;
     this.ticket_counter = ticket_counter;
-    this.income = income;
+    this.income = income/10;
 }
 
 var VM = function(){
