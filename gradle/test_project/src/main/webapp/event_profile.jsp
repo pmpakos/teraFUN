@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="gr.ntua.ece.softeng17b.conf.*" %>
 <%@ page import="gr.ntua.ece.softeng17b.FileChecker" %>
-<%  String ID = request.getParameter("id"); %>
+<%  String ID= request.getParameter("id"); %>
+<!-- <%  //ID = "5"; %> -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -183,7 +184,7 @@ $(document).ready(function(){
                  this.address= ko.observable(); 
                  this.date= ko.observable(); 
                  this.cost= ko.observable(); 
-                   
+                 this.visits= ko.observable();                   
             }
 
             VM.prototype.loadEvent = function() {
@@ -211,7 +212,21 @@ $(document).ready(function(){
                 viewModel.address(eventJson.Address);
                 viewModel.date(eventJson.DateEvent);
                 viewModel.cost(eventJson.Cost);
-               
+               	viewModel.visits(eventJson.Visits);
+                
+
+                $.ajax({
+                  type:"POST",
+                  data:{
+                    id:eventJson.EventID,
+                    visits:eventJson.Visits
+                  },
+                  url:'/app/event_visits_update',
+                  success: function(){
+                    //window.location.href='https://localhost:8765/app/event_profile.jsp'
+                  }
+                }); 
+
                 
                 <%  System.out.println(FileChecker.main("/src/main/webapp/images/user_profiles/krataios/")); %>
                 var uluru = {lat: eventJson.Latitude, lng: eventJson.Longitude};

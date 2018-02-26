@@ -126,6 +126,16 @@ public class EventDAO{
         }        
     }
 
+    public void updateVisits(int id, int visits){
+        String sql = "UPDATE event SET Visits = ? WHERE EventID = ?";
+        System.out.println("paw na kanw update ta Visits tou Event:"+id+". Twra exei visits:"+visits);
+
+        List<String> db_visits = jdbcTemplate.queryForList("select Visits from event where (EventID = ?)", new Object[] {id}, String.class); 
+        int temp = 1 + Integer.parseInt(db_visits.get(0));
+        this.jdbcTemplate.update(sql, new Object[] {temp, id}); 
+    }
+
+
     public List<Event> getPastEventsOfCompany(int id){
              return jdbcTemplate.query("SELECT * FROM event WHERE (CompanyID = ? and DateEvent < CURDATE())", new Object[] {id}, new EventRowMapper());
 

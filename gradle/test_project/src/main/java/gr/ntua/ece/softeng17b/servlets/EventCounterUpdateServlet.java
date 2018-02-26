@@ -14,13 +14,13 @@ import gr.ntua.ece.softeng17b.data.*;
  * Servlet implementation class LoginServlet
  */
 
-public class WalletUpdateServlet extends HttpServlet {
+public class EventCounterUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public WalletUpdateServlet() {
+    public EventCounterUpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,20 +39,20 @@ public class WalletUpdateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-		int parent_id = Integer.parseInt(request.getParameter("id"));
-		int points = Integer.parseInt(request.getParameter("points"));
+		int event_id = Integer.parseInt(request.getParameter("id"));
+		int visits = Integer.parseInt(request.getParameter("visits"));
 
-		System.out.println("to post egine me epityxia :" + parent_id);
+		//System.out.println("to post egine me epityxia :" + id);
 
-        // do some processing here...
+	        // do some processing here...
         Configuration conf = Configuration.getInstance();
         DataAccess dataAccess = Configuration.getInstance().getDataAccess();
-        ParentDAO parent_dao = new ParentDAO();
+        EventDAO event_dao = new EventDAO();
 
-		parent_dao.setDataSource(dataAccess.dataSource);
-		parent_dao.setJdbcTemplate(dataAccess.jdbcTemplate);
+		event_dao.setDataSource(dataAccess.dataSource);
+		event_dao.setJdbcTemplate(dataAccess.jdbcTemplate);
 
-		parent_dao.updatePoints(parent_id, points);
+		event_dao.updateVisits(event_id, visits);
 
 	}
 

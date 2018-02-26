@@ -8,6 +8,12 @@
     <display-name>App</display-name>
     <description>App description</description>
 
+   	<welcome-file-list>
+   		<welcome-file>
+   			home_unknown.jsp
+   		</welcome-file>
+   	</welcome-file-list>
+
     <context-param>
         <param-name>properties</param-name>
         <param-value>/conf/app.properties</param-value>
@@ -42,6 +48,11 @@
         <servlet-name>wallet_update_form</servlet-name>
         <servlet-class>gr.ntua.ece.softeng17b.servlets.WalletUpdateServlet</servlet-class>
     </servlet>
+
+    <servlet>
+        <servlet-name>event_visits_update</servlet-name>
+        <servlet-class>gr.ntua.ece.softeng17b.servlets.EventCounterUpdateServlet</servlet-class>
+    </servlet>    
 
     <servlet>
         <servlet-name>parent_check_username</servlet-name>
@@ -186,6 +197,11 @@
     <servlet-mapping>
         <servlet-name>wallet_update_form</servlet-name>
         <url-pattern>/wallet_update</url-pattern>
+    </servlet-mapping>  
+
+    <servlet-mapping>
+        <servlet-name>event_visits_update</servlet-name>
+        <url-pattern>/event_visits_update</url-pattern>
     </servlet-mapping>  
 
     <servlet-mapping>
