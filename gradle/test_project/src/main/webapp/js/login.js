@@ -352,7 +352,7 @@ $(document).on('click','.btn-loginc',function(){
 				        }); 						
 					}
 					if(result[0]==1){
-						window.location.href='https://localhost:8765/app/home_company.jsp'
+						window.location.href='https://localhost:8765/app/home_admin.jsp'
 					}
 				}
 				

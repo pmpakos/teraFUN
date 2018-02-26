@@ -21,7 +21,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="index.html" class="navbar-brand"><img src="static/logo.png"  class="img-responsive" alt=""/></a>
+                <a href="home_unknown.jsp" class="navbar-brand"><img src="static/logo.png"  class="img-responsive" alt=""/></a>
             </div>
             <div class="collapse navbar-collapse" id="bs-nav-demo">
                 <ul class="nav navbar-nav">
