@@ -43,7 +43,7 @@ viewModel.loadEvents().done(function(json){
 			eventJson.Address,
 			eventJson.Description,
             eventJson.Cost,
-            eventJson.TagDescription,
+            eventJson.TagDescription
             );
         console.log(event);
         viewModel.events.push(event);

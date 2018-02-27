@@ -3,7 +3,7 @@
 <%@ page import="gr.ntua.ece.softeng17b.FileChecker" %>
 <%
   String id2;
-  String ID= request.getParameter("idevent");
+  String ID= request.getParameter("id");
   int show=0,notshow=0;
     if(session.getAttribute("id") == null || session.getAttribute("id").equals("")){
         id2 ="";
@@ -21,9 +21,9 @@
        <title>Event | TeraFUN</title>
 
 
-       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
 
   <%@include file="header.jsp" %>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
 
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
@@ -132,6 +132,22 @@ $(document).ready(function(){
 
 </head>
 <body>
+      <div class="alert alert-success alert-dismissible success" style="position: absolute;  z-index: 0">
+            <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
+                    Η αγορά έγινε επιτυχώς! Το εισιτήριό σου έχει σταλεί στο email.
+        </div>
+        <div class="alert alert-danger alert-dismissible fail1" style="position: absolute; z-index: 0">
+            <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
+                    Ουψ! Δεν υπάρχουν τόσες διαθέσιμες θέσεις για την εκδήλωση.
+        </div>
+        <div class="alert alert-danger alert-dismissible fail2" style="position: absolute; z-index: 0">
+            <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
+                    Οι πόντοι που διαθέτεις δεν επαρκούν!
+        </div>
+        <div class="alert alert-danger alert-dismissible fail3" style="position: absolute; z-index: 0">
+            <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
+                    Συναλλαγή ανεπιτυχής! Για την αγορά εισιτηρίου είναι απαραίτητη η πληρωμή της συνδρομής!
+        </div>
     
 
                     <div class="row">
@@ -169,10 +185,9 @@ $(document).ready(function(){
               <button onclick="location.href = 'sign_up_parent.jsp';" data-bind="visible: $parent.notShow" type="button" class="btn btn-warning" style="float: right;" data-toggle="tooltip" title="Γίνε μέλος για να κάνεις κράτηση!">Κάνε εγγραφή τώρα!</button> -->
           </div>
            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 excerpet">
-                                
-                                           
-                            
-                                <button id="mybtn" href="#myModal" data-bind="visible: show" type="button" class="btn btn-success" style="float: right;" data-toggle="modal" onclick="set(this.value)">Κλείσε θέση τώρα!</button>
+                                    
+
+                                 <button type="button" style="float: right;" data-bind="visible: show" class="btn btn-success" data-toggle="modal" data-target="#myModal">Κλείσε θέση τώρα!</button>
                                 <button onclick="location.href = 'sign_up_parent.jsp';" data-bind="visible: notshow" type="button" class="btn btn-warning" style="float: right;" data-toggle="tooltip" title="Γίνε μέλος για να κάνεις κράτηση!">Κάνε εγγραφή τώρα!</button>
 
                                 <!-- data-bind="visible: $parent.notShow" -->
@@ -221,6 +236,7 @@ $(document).ready(function(){
        <div><poffer  ><br></br>Η εκδήλωση αυτή είναι σε τιμή προσφοράς!<br><br><br></poffer></div>
      </div>
    </div>
+
       
       <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
         <p5>Πληροφορίες:</p5>
@@ -231,8 +247,43 @@ $(document).ready(function(){
                     <li><p2><ka>Διάρκεια:</ka> <span data-bind="text:duration"></span> λεπτά</p2></li><div></div>
                     <li><p2><ka>Κόστος:</ka> <span data-bind="text:cost"></span> πόντοι</p2></li><div></div>
                     <li><p2><ka>Τοποθεσία:</ka> <span data-bind="text:address"></span></p2></li><div></div>
-      </div>
+      
               </ul>
+            </div>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button style="float: right;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" style="float:left;" id="myModalLabel">Αγορά Εισιτηρίου | teraFUN</h5>
+              </div>
+              <div class="modal-body" id="mbody">
+                <input type="hidden" id="eventID" name="eventID"/>
+                <div class="modal-portrait">
+                    <!-- <a class="thumbnail"><img id="modal-img"></a> -->
+                    <p id="p1"><strong>Εκδήλωση: </strong><span data-bind="text:eventname"></span></p>
+                    <p id="p2"><strong>Πότε: </strong><span data-bind="text:date"></span> <span data-bind="text:hour"></span></p>
+                    <p id="p3"><strong>Πού: </strong><span data-bind="text:address"></span> </p>
+                    <p id="p4"><strong>Κόστος: </strong><span data-bind="text:cost" id="totalcost"></span> πόντοι</p>
+                    <p id="p4"><strong>Πλήθος εισιτηρίων: </strong></p>
+                    <select class="form-control" id="ticket">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                    </select>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Ακύρωση</button>
+                <button id="proceed" type="button" class="btn btn-primary">Επιβεβαίωση πληρωμής</button>
+              </div>
+            </div>
+            </div>
+        </div>
 
               <div id="map" class="gmap"></div>
           <!-- </div> -->
@@ -250,7 +301,7 @@ $(document).ready(function(){
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <!-- <script src="./static/bootstrap/js/bootstrap.min.js"></script> -->
     <script src="./static/knockout-3.4.2.js"></script>
@@ -258,6 +309,122 @@ $(document).ready(function(){
     <% Configuration conf = Configuration.getInstance(); %>
 
     <script>
+
+      var viewModel;
+      var startcost=0;
+          
+
+// Get the modal
+
+    
+    var select = document.getElementById('ticket');
+    select.addEventListener('change', function () {
+        console.log("naaaaai");
+        var tic=select.value;
+        var sum=tic*startcost;
+        viewModel.cost(sum);
+
+        console.log(viewModel.cost());
+        
+    });
+      var modal = document.getElementById('myModal');
+
+      // Get the button that opens the modal
+      var btn = document.getElementById("mybtn");
+
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+                            $('.fail3').hide();
+                            $('.fail2').hide();
+                            $('.fail1').hide();
+                            $('.success').hide();
+       var proceed = document.getElementById("proceed");
+
+            proceed.onclick = function() {
+                var r = confirm("Είστε σίγουρος/η πως θέλετε να προχωρήσετε με την πληρωμή;");
+                if(r == true){
+                    console.log("Θα το πληρώσεις!");
+                    var parentID = "<%=id2%>";
+                    console.log(parentID);
+                    var eventID =  <%=ID%>;
+                    var ticket_number = document.getElementById('ticket').value;
+                    console.log(ticket_number);
+                    //var date= viewModel.date;
+                   
+
+                    var today = new Date();
+                    var dd = today.getDate();
+                    var mm = today.getMonth()+1; //January is 0!
+                    var yyyy = today.getFullYear();
+
+
+                    if(dd<10) {
+                        dd = '0'+dd
+                    } 
+
+                    if(mm<10) {
+                        mm = '0'+mm
+                    } 
+
+                    var date = dd+ '/' + mm + '/' + yyyy ;
+                    console.log(date);
+
+                    //Ready to create the booking
+                    $.ajax({
+                        type:"POST",
+                        data:{
+                            parentID:parentID,
+                            eventID:eventID,
+                            tickets:ticket_number,
+                            date:date
+                        },
+                        url:'/app/booking',
+                        success: function(reply){
+                            $('.fail3').hide();
+                            $('.fail2').hide();
+                            $('.fail1').hide();
+                            $('.success').hide();
+                            if(reply == "Success"){
+                                $("#myModal").modal("hide"); 
+                                $(".success").fadeTo(2000, 500).slideUp(500, function(){
+                                    $(".success").slideUp(500);
+                                });
+                            }
+                            else if(reply == "Tickets"){
+                                $("#myModal").modal("hide"); 
+                                $('.fail1').show(); 
+                            }
+                            else if(reply == "Pay"){
+                                $("#myModal").modal("hide"); 
+                                $('.fail3').show(); 
+                            }
+                            else{
+                                $("#myModal").modal("hide"); 
+                                $('.fail2').show();
+                            }
+                        }
+                            
+                    }); 
+                }
+                else{
+                    $("#myModal").modal("hide"); 
+                }
+            };
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            };
+
+            span.onclick = function() {
+                modal.style.display = "none";
+                $('.fail3').hide();
+                $('.fail2').hide();
+                $('.fail1').hide();
+                $('.success').hide();
+            };
+
 
             var dictfull = {
                 Mon: "Δευτέρα",
@@ -285,6 +452,7 @@ $(document).ready(function(){
 
         var show1= <%=show%>;
         var notshow1=<%=notshow%>;
+        var validdate=0;
         console.log(notshow1);
         function initMap() {    
             var VM = function(){
@@ -321,7 +489,7 @@ $(document).ready(function(){
                 return $.ajax(opts); //returns a promise
             }
 
-            var viewModel = new VM();
+            viewModel = new VM();
             console.log("Created VM");      
 
             viewModel.loadEventComp().done(function(eventJson){
@@ -352,6 +520,35 @@ $(document).ready(function(){
                 viewModel.compname(eventJson.TagDescription);
                 viewModel.compid(eventJson.CompanyID);
                 console.log('skata nifo :!!!!!'+eventJson.TagDescription);
+                startcost=viewModel.cost();
+
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth()+1; //January is 0!
+                var yyyy = today.getFullYear();
+
+
+                if(dd<10) {
+                    dd = '0'+dd
+                } 
+
+                if(mm<10) {
+                    mm = '0'+mm
+                } 
+
+                var date = dd+ '/' + mm + '/' + yyyy ;
+                console.log(today);
+                console.log(init_date);
+                if (today>init_date){
+                  console.log('ela malaka');
+                  viewModel.show(0);
+                  viewModel.notshow(0);
+                }
+                else{
+                  console.log('ela mwrh');
+
+                }
+
                 
                 $.ajax({
                   type:"POST",
