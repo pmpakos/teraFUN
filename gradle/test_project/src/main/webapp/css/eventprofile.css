@@ -4,3 +4,56 @@
         width: 50%;
        }
     </style>
+
+p1 {
+  /*font:   'GFS Neohellenic', sans-serif;*/
+  /*font: 400 20px/0.8 'Didact Gothic', sans-serif;*/
+  font-size: 20px
+  color: #333333;
+  /*text-shadow: 4px 4px 3px rgba(0,0,0,0); */
+  text-align: center;
+}
+ka { text-decoration:bold; 
+	color: #333333;
+
+}
+
+ps {
+font-size: 20px;
+font-family: helvectia, geneva, arial, sun-sans, sans serif;
+color:  #333333;
+}
+
+poffer{
+font-size: 20px;
+font-family: helvectia, geneva, arial, sun-sans, sans serif;
+color:  red;
+
+}
+
+ p2 {
+  /*font:   'GFS Neohellenic', sans-serif;*/
+  /*font: 400 20px/0.8 'Didact Gothic', sans-serif;*/
+  font-family: helvectia, geneva, arial, sun-sans, sans serif;
+  font-size: 20px;
+  color: #333333;
+  /*text-shadow: 4px 4px 3px rgba(0,0,0,0); */
+  text-align: center;
+}
+p5 {
+  /*font:   'GFS Neohellenic', sans-serif;*/
+  /*font: 400 30px/0.8 'Didact Gothic', sans-serif;*/
+   font-size: 30px;
+  color: #333333;
+  /*text-shadow: 4px 4px 3px rgba(0,0,0,0); */
+  text-align: center;
+}
+
+h2 {
+  /*font:   'GFS Neohellenic', sans-serif;*/
+  font-family: helvectia, geneva, arial, sun-sans, sans serif;
+  font-size: 50px;
+  color: #333;
+  /*text-shadow: 4px 4px 3px rgba(0,0,0,0); */
+  text-align: center;
+}

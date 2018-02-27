@@ -144,7 +144,7 @@
                             <div class="col-xs-7 col-sm-6 col-md-5 col-lg-7 excerpet">
                                 <h3><span data-bind="text:name"></span></h3>
                                 <p data-bind="text:description"></p>                        
-                                <button  data-bind="value: id" onclick="location.href = 'event_profile.jsp/?id='+this.value;" type="button" class="btn btn-info btn-sm" style="vertical-align:bottom;">Μάθε Περισσότερα</button>
+                                <button  data-bind="value: id" onclick="location.href = 'event_profile.jsp/?idevent='+this.value;" type="button" class="btn btn-info btn-sm" style="vertical-align:bottom;">Μάθε Περισσότερα</button>
                                 <button id="mybtn" href="#myModal" data-bind="visible: $parent.showMe, value: id" type="button" class="btn btn-success" style="float: right;" data-toggle="modal" onclick="set(this.value)">Κλείσε θέση τώρα!</button>
                                 <button onclick="location.href = 'sign_up_parent.jsp';" data-bind="visible: $parent.notShow" type="button" class="btn btn-warning" style="float: right;" data-toggle="tooltip" title="Γίνε μέλος για να κάνεις κράτηση!">Κάνε εγγραφή τώρα!</button>
                             </div>
@@ -662,19 +662,19 @@
                 var paragraph = document.createElement("span");
                 var txt = document.createTextNode(event1.name);
                 paragraph.appendChild(txt);
-                myDiv.append(paragraph);
+                $(".p1").appendChild(paragraph);
 
                 myDiv = document.getElementById("p2");
                 paragraph = document.createElement("span");
                 txt = document.createTextNode(event1.date_full +" και ώρα "+event1.hour);
                 paragraph.appendChild(txt);
-                myDiv.append(paragraph);
+                $(".p2").append(paragraph);
 
                 myDiv = document.getElementById("p3");
                 paragraph = document.createElement("span");
                 txt = document.createTextNode(event1.address);
                 paragraph.appendChild(txt);
-                myDiv.append(paragraph);
+                $(".p3").append(paragraph);
 
                 var ticket = "<%=ticket%>";
                 var help = "";
@@ -693,7 +693,7 @@
                 txt =  document.createTextNode(sum+" Πόντοι");
                 temp.appendChild(txt);
                 paragraph.appendChild(temp);
-                myDiv.append(paragraph);
+                $(".p4").append(paragraph);
             }
         </script>
 
