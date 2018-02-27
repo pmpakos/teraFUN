@@ -257,7 +257,7 @@ public class EventDAO{
     }
 
     public List<Event> getAll(){
-        return jdbcTemplate.query("SELECT * FROM event",new EventRowMapper());
+        return jdbcTemplate.query("SELECT * FROM event WHERE DateEvent>=CURDATE()",new EventRowMapper());
     }
 
     /*
