@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import java.util.*;
+
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
@@ -256,9 +258,75 @@ public class EventDAO{
         //WITH QUERY EXPANSION
     }
 
+
+    public int getStatFun(int id) {     
+       String stat= jdbcTemplate.queryForObject("SELECT SUM(TicketCounter) from event where (CompanyID =? and Fun = 1 and DateEvent < CURDATE() and DateEvent >= CURDATE() -30)", new Object[] {id}, String.class); 
+        if(stat==null) return 0;
+       return Integer.parseInt(stat);
+    }
+    public int getStatEducation(int id) {     
+       String stat= jdbcTemplate.queryForObject("SELECT SUM(TicketCounter) from event where (CompanyID =? and Education = 1 and DateEvent < CURDATE() and DateEvent >= CURDATE() -30)", new Object[] {id}, String.class); 
+        if(stat==null) return 0;
+       return Integer.parseInt(stat);
+    }
+    public int getStatSport(int id) {     
+       String stat= jdbcTemplate.queryForObject("SELECT SUM(TicketCounter) from event where (CompanyID =? and Sport = 1 and DateEvent < CURDATE() and DateEvent >= CURDATE() -30)", new Object[] {id}, String.class); 
+       if(stat==null) return 0;
+       return Integer.parseInt(stat);
+    }
+
+    public int getStatIndoor(int id) {     
+       String stat= jdbcTemplate.queryForObject("SELECT SUM(TicketCounter) from event where (CompanyID =? and Indoor = 1 and DateEvent < CURDATE() and DateEvent >= CURDATE() -30)", new Object[] {id}, String.class); 
+        if(stat==null) return 0;
+       return Integer.parseInt(stat);
+    }
+    public int getStatOutdoor(int id) {     
+       String stat= jdbcTemplate.queryForObject("SELECT SUM(TicketCounter) from event where (CompanyID =? and Indoor = 0 and DateEvent < CURDATE() and DateEvent >= CURDATE() -30)", new Object[] {id}, String.class); 
+        if(stat==null) return 0;
+       return Integer.parseInt(stat);
+    }
+    public int getStatOffer(int id) {     
+       String stat= jdbcTemplate.queryForObject("SELECT SUM(TicketCounter) from event where (CompanyID =? and IsOffer = 1 and DateEvent < CURDATE() and DateEvent >= CURDATE() -30)", new Object[] {id}, String.class); 
+       if(stat==null) return 0;
+       return Integer.parseInt(stat);
+    }
+    public int getStatNotOffer(int id) {     
+       String stat= jdbcTemplate.queryForObject("SELECT SUM(TicketCounter) from event where (CompanyID =? and IsOffer = 0 and DateEvent < CURDATE() and DateEvent >= CURDATE() -30)", new Object[] {id}, String.class); 
+        if(stat==null) return 0;
+       return Integer.parseInt(stat);
+    }
+    public int getStatTeam(int id) {     
+       String stat =jdbcTemplate.queryForObject("SELECT SUM(TicketCounter) from event where (CompanyID =? and Team = 1 and DateEvent < CURDATE() and DateEvent >= CURDATE() -30)", new Object[] {id}, String.class); 
+        if(stat==null) return 0;
+       return Integer.parseInt(stat);
+    }
+    public int getStatAtomic(int id) {     
+       String stat= jdbcTemplate.queryForObject("SELECT SUM(TicketCounter) from event where (CompanyID =? and Team = 0 and DateEvent < CURDATE() and DateEvent >= CURDATE() -30)", new Object[] {id}, String.class); 
+       if(stat==null) return 0;
+       return Integer.parseInt(stat);
+    }
+    public int getStatAge1(int id) {     
+       String stat= jdbcTemplate.queryForObject("SELECT SUM(TicketCounter) from event where (CompanyID =? and MinAge <= 5 and DateEvent < CURDATE() and DateEvent >= CURDATE() -30)", new Object[] {id}, String.class); 
+        if(stat==null) return 0;
+       return Integer.parseInt(stat);
+    }
+    public int getStatAge2(int id) {     
+       String stat= jdbcTemplate.queryForObject("SELECT SUM(TicketCounter) from event where (CompanyID =? and MaxAge >= 6 and MinAge <= 11 and DateEvent < CURDATE() and DateEvent >= CURDATE() -30)", new Object[] {id}, String.class); 
+        if(stat==null) return 0;
+       return Integer.parseInt(stat);
+    }
+    public int getStatAge3(int id) {     
+       String stat= jdbcTemplate.queryForObject("SELECT SUM(TicketCounter) from event where (CompanyID =? and MaxAge >= 12 and DateEvent < CURDATE() and DateEvent >= CURDATE() -30)", new Object[] {id}, String.class); 
+       if(stat==null) return 0;
+       return Integer.parseInt(stat);
+    }
+
+
     public List<Event> getAll(){
         return jdbcTemplate.query("SELECT * FROM event WHERE DateEvent>=CURDATE()",new EventRowMapper());
     }
+
+
 
     /*
     public ArrayList<Event> getAllEvents(){
