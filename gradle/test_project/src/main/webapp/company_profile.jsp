@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="gr.ntua.ece.softeng17b.conf.*" %>
 <%@ page import="gr.ntua.ece.softeng17b.FileChecker" %>
-<%  //int ID = 3; 
-  String ID= request.getParameter("idcompany");
-
+<% 
+  String id2= request.getParameter("idcompany");
 %>
 <!DOCTYPE html>
 <html>
@@ -99,9 +98,8 @@
                             <span data-bind="text:address"></span> 
                             <span data-bind="text:postal"></span> 
                             <br>
-                            <a 
-                            data-bind="attr: { href: web }">
-                            <span data-bind="text:web"></span> 
+                            <a data-bind="attr: { href: web }">
+                                <span data-bind="text:web"></span> 
                             </a>
                             <span data-bind="text:telephone"></span>
                         </p>
@@ -168,7 +166,7 @@
 
             VM.prototype.loadCompany = function() {
                 console.log("Loading company...");
-                var ID = <%=ID%>;
+                var ID = <%=id2%>;
                 var opts = {
                     traditional : true,
                     cache       : false,

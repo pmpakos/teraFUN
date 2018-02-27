@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
 <!DOCTYPE html>
+
 <html>
 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -47,7 +48,8 @@
                          <!-- <a class="nav-link dropdown-toggle" style="background-color:#2c3e50;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span data-bind="text:username"> </span><i class="fa fa-user"></i></a> -->
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#2c3e50;" >
                             <ul class="nav navbar-nav">
-                                <li style="background-color:#2c3e50;"><a href="company_profile.jsp" ><i class="fa fa-edit"></i>  Προφίλ </a></li>
+                                
+                                <li style="background-color:#2c3e50;"><a href="company_profile.jsp/?idcompany=-1"><i class="fa fa-edit"></i>  Προφίλ </a></li>
                     <!-- prepei na proste8ei edw koumpi gia log out me sugkekrimeno action na sumvainei otan auto patietai -->
                                 <li><a href="" onclick="return theFunction();"><i class="fa fa-power-off"></i>  Αποσύνδεση </a></li>
                             </ul>
@@ -59,17 +61,6 @@
     </nav>
 
 <!--
-<%  
-    String id;
-    if(session.getAttribute("id") == null || session.getAttribute("id").equals("")){
-        id ="";
-    }
-    else{
-        id = (String)session.getAttribute("id");
-    }
-    System.out.println(id);
-    // id="9";
-%>
 
     <script>
         function initMap() {    

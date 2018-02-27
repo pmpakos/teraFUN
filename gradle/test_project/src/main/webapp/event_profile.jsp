@@ -241,7 +241,16 @@ $(document).ready(function(){
       <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
         <p5>Πληροφορίες:</p5>
               <ul class="meta-search">
-                <li><p2><ka>Διοργανωτής:</ka>  <a  data-bind="attr: {href: compid}" onclick="location.href = 'company_profile.jsp/?idcompany='+this.value;" style="vertical-align:bottom;"><span data-bind="text:compname"></span> </a> </p2></li><div></div>
+                <li><p2><ka>Διοργανωτής:</ka>
+
+                  <!-- <a data-bind="value: clink" onclick="location.href = this.clink" style="vertical-align:bottom;"><span data-bind="text:compname"></span></a>  -->
+
+                <a data-bind="attr: { href: clink }">
+                    <span data-bind="text:compname"></span> 
+                </a>
+
+
+                </p2></li><div></div>
                    <li><p2><ka>Ημερομηνία:</ka> <span data-bind="text:date"></span></p2></li><div></div>
                    <li><p2><ka>Ώρα:</ka> <span data-bind="text:hour"></span></p2></li><div></div>
                     <li><p2><ka>Διάρκεια:</ka> <span data-bind="text:duration"></span> λεπτά</p2></li><div></div>
@@ -453,6 +462,8 @@ $(document).ready(function(){
         var show1= <%=show%>;
         var notshow1=<%=notshow%>;
         var validdate=0;
+        var link="";
+
         console.log(notshow1);
         function initMap() {    
             var VM = function(){
@@ -472,7 +483,7 @@ $(document).ready(function(){
                  this.visits=ko.observable();
                  this.compname=ko.observable();
                  this.compid=ko.observable();
-                   
+                 this.clink=ko.observable();
             }
 
            VM.prototype.loadEventComp = function() {
@@ -521,6 +532,10 @@ $(document).ready(function(){
                 viewModel.compid(eventJson.CompanyID);
                 console.log('skata nifo :!!!!!'+eventJson.TagDescription);
                 startcost=viewModel.cost();
+
+                link="company_profile.jsp?idcompany="+eventJson.CompanyID;
+                console.log(link);
+                viewModel.clink(link);
 
                 var today = new Date();
                 var dd = today.getDate();
