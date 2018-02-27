@@ -28,78 +28,50 @@ import javax.servlet.http.*;
 public class UploadImageCompanyServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
        
-
-
-	 
-	   public void doPost(HttpServletRequest request,    HttpServletResponse response)   throws ServletException, java.io.IOException {
-		   
-		  
-		   // Check that we have a file upload request
-	    
-		  // String password = request.getParameter("password");
-	
-
-	      response.setContentType("text/html");
-	      boolean isMultipart = ServletFileUpload.isMultipartContent(request);
-	      java.io.PrintWriter out = response.getWriter( );
-
-	       System.out.println("ΓΑΜΙΕΣΑΙ");
-	   
-	      
-	      
-	      if( !isMultipart )
-	      {
-	         System.out.println("No Upload This Time");
-	         return;
-	      }
-	      String username="default";
-	      String value[]=new String[20];
-	      int i=0;
-	      ServletFileUpload upload = new ServletFileUpload();
-	      try{
-	    	  FileItemIterator itr= upload.getItemIterator(request);
-	    	  // FileItemStream item = itr.next();
-
-	    	  while(itr.hasNext()){
-	    		  FileItemStream item = itr.next();
-	    		  if(item.isFormField()){
-	    			 String fieldName = item.getFieldName();
-	    			 InputStream is = item.openStream();
-	    			 byte[] b= new byte[is.available()];
-	    			 is.read(b);
-
-	    			 value[i]=new String(b);
-	    			 if(i==0){
-	    			 	username=value[i];
-	    			 }
-	    			 response.getWriter().println(fieldName+":"+value[i]+"<br/>");
-	    			 i++;
-	    		  }
-	    		  else{
-	    			  //String path = getServletContext().getRealPath("/");
-	    		  	String temp="user_profiles/"+username;
-	    			  String fieldName = item.getFieldName();
-	    			  String fileName = item.getName();
-	    			  if(fileName!=""){
-	    			  String path = new java.io.File( "." ).getCanonicalPath();
-	    			  if (FileUploadComp.processFile(path,item,fileName,temp))
-	    				  response.getWriter().println(fileName+" file success!!!\n");
-	    			  else 
-	    				  response.getWriter().println("pulo");
-	    		  }
-	    		  }
-	    	  }
-	    	  	
-	    	  
-	      }catch(FileUploadException fue){
-	    	  fue.printStackTrace();
-	      }
-	      
-	      
-	    }
-
-	   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException { doPost(request, response); }
-	   	
-
-
+	public void doPost(HttpServletRequest request,    HttpServletResponse response)   throws ServletException, java.io.IOException {
+		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+		java.io.PrintWriter out = response.getWriter( );
+		if( !isMultipart )
+		{
+			System.out.println("No Upload This Time");
+			return;
+		}
+		String username="default";
+		String value[]=new String[20];
+		int i=0;
+		ServletFileUpload upload = new ServletFileUpload();
+		try{
+			FileItemIterator itr= upload.getItemIterator(request);
+			while(itr.hasNext()){
+				FileItemStream item = itr.next();
+				if(item.isFormField()){
+					String fieldName = item.getFieldName();
+					InputStream is = item.openStream();
+					byte[] b= new byte[is.available()];
+					is.read(b);
+					value[i]=new String(b);
+					if(i==0){
+						username=value[i];
+					}
+					i++;
+				}
+				else{
+					String temp="user_profiles/"+username;
+					String fieldName = item.getFieldName();
+					String fileName = item.getName();
+					if(fileName!=""){
+						String path = new java.io.File( "." ).getCanonicalPath();
+						if (FileUploadComp.processFile(path,item,fileName,temp))
+							System.out.println("ela");
+						else 
+							System.out.println("alh8eia?");
+					}
+				}
+			}
+		}catch(FileUploadException fue){
+			fue.printStackTrace();
+		}
+		response.sendRedirect("https://localhost:8765/app/sign_up_complete.jsp?fv=2");
+	}	
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException { doPost(request, response); }
 }

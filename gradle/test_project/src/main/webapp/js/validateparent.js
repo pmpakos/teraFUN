@@ -556,7 +556,7 @@ $(document).on('click','.signup-btn',function(){
 			},
 			url:'/app/parent_signup',
 			success: function(){
-				window.location.href='https://localhost:8765/app/parent.jsp'
+				window.location.href='https://localhost:8765/app/sign_up_complete.jsp?fv=1'
 			}
 				
 		});	

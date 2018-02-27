@@ -37,6 +37,10 @@
     background-position: 50% 50%;
     background-repeat:   no-repeat;
     background-size:     cover;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 50px;
+    margin-left: 50px;
 }
 
 </style>
@@ -75,50 +79,39 @@
 
  <h1 class="text-center"> Η ομάδα μας: </h1>
 
-<div class="row">
-      <div class="col-lg-4 col-sm-6">
-        <div >
-          <img class="image2" src="images/team/14206206_1519202061438916_5784600612905694952_o.jpg" alt="Avatar" >
-        </div>
+  <div class="row">
+    <div class="col-lg-4 col-sm-6">
+      <div >
+        <img class="image2" src="images/team/14206206_1519202061438916_5784600612905694952_o.jpg" alt="Avatar" >
       </div>
-      <div class="col-lg-4 col-sm-6">
-        <div >
-          <img class="image2" src="images/team/28512595_10210598958081992_345812403_n.jpg" alt="Avatar"  >
-        </div>
+    </div>
+    <div class="col-lg-4 col-sm-6">
+      <div >
+        <img class="image2" src="images/team/28461762_10210598958081992_345812403_o.jpg" alt="Avatar"  >
       </div>
-      <div class="col-lg-4 col-sm-6">
-        <div >
-          <img class="image2" src="images/team/26231013_1794060913972600_3314827946457038955_n.jpg" alt="Avatar"   >
-        </div>
+    </div>
+    <div class="col-lg-4 col-sm-6">
+      <div >
+        <img class="image2" src="images/team/26231013_1794060913972600_3314827946457038955_n.jpg" alt="Avatar"   >
       </div>
-
-      <div>
-      <br>
-      
-      <div class="row"></div>
-      <div class="row">
-
-      
-      <div class="col-lg-4 col-sm-6">
-        <div >
-          <img class="image2" src="images/team/18033230_1554583711218641_6883455355817281985_n.jpg" alt="Avatar"  >
-        </div>
+    </div>
+    <div class="col-lg-4 col-sm-6">
+      <div >
+        <img class="image2" src="images/team/18033230_1554583711218641_6883455355817281985_n.jpg" alt="Avatar" >
       </div>
-      
-      <div class="col-lg-4 col-sm-6">
-        <div >
-          <img class="image2" src="images/team/23131794_10210614872034609_529643354418041067_n.jpg" alt="Avatar"  >
-        </div>
+    </div>
+    <div class="col-lg-4 col-sm-6">
+      <div >
+        <img class="image2" src="images/team/23131794_10210614872034609_529643354418041067_n.jpg" alt="Avatar"  >
       </div>
-      <div class="col-lg-4 col-sm-6">
-        <div >
-          <img class="image2" src="images/team/1147564_10152013690148464_1971968111_o.jpg" alt="Avatar" >
-        </div>
+    </div>
+    <div class="col-lg-4 col-sm-6">
+      <div >
+        <img class="image2" src="images/team/26112108_10209889788592111_6391759674145682846_n.jpg" alt="Avatar"   >
       </div>
-      </div>
-
+    </div>
   </div>
-  </div>
+  
   <div class="body1"></div>
 </body>
 </html>
