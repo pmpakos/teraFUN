@@ -46,6 +46,9 @@
                         <th scope="col">Διεύθυνση </th>
                         <th scope="col">Περιγραφή </th>
                         <th scope="col">Λεπτομέρειες </th>
+                        <th scope="col">Αριθμός Εισιτηρίων </th>
+                        <th scope="col">Κωδικός Εισιτηρίου </th>
+
                     </tr>
                 </thead>  
                 <tbody data-bind="foreach:events">
@@ -62,6 +65,8 @@
                         <td> 
                           <button  data-bind="value: id" onclick="location.href = 'event_profile.jsp/?id='+this.value;" type="button" class="btn btn-success" style="vertical-align:bottom;">Μάθε Περισσότερα</button>
                         </td>
+                        <td> <span data-bind="text:ntickets"></span></td>
+                        <td> <span data-bind="text:code"></span></td>
                     </tr>                   
                 </tbody>
             </table>
