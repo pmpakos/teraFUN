@@ -246,7 +246,7 @@ public class EventDAO{
         
         sql_ticket = "(? <=(MaxCapacity-TicketCounter))";
         sql_age = "((? >= MinAge and ? <= MaxAge) OR ? = -1)";
-        sql_date = "( (DATE_FORMAT(DateEvent, '%Y-%m-%d') >= ?) OR (? = -1) )";
+        sql_date = "( (DATE_FORMAT(DateEvent, '%Y-%m-%d') >= ?) OR DateEvent >= CURDATE() )";
        // sql_date = "( (DATE_FORMAT(DateEvent, '%d/%m/%Y') >= ?) OR ? = -1 )";
        // sql_date = "( (date2 > DateEvent) OR ? = -1 )";
         
