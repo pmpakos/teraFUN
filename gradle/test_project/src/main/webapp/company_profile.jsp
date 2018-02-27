@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="gr.ntua.ece.softeng17b.conf.*" %>
 <%@ page import="gr.ntua.ece.softeng17b.FileChecker" %>
-<%  int ID = 3; %>
+<%  //int ID = 3; 
+  String ID= request.getParameter("idcompany");
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,11 +12,7 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <style type="text/css">
-    body { padding-top: 70px; 
-
-
-  
-}
+    body { padding-top: 70px; }
 
 
     .jumbotron {
@@ -195,7 +194,7 @@
                 viewModel.telephone(companyJson.TelephoneNumber);
                 viewModel.postal(companyJson.PostalCode);
                 
-                <%  System.out.println(FileChecker.main("/src/main/webapp/images/user_profiles/krataios/")); %>
+                <%  //System.out.println(FileChecker.main("/src/main/webapp/images/user_profiles/krataios/")); %>
                 var uluru = {lat: companyJson.Latitude, lng: companyJson.Longitude};
 
                 var map = new google.maps.Map(document.getElementById('map'), {

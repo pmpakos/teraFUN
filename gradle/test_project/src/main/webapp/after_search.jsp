@@ -662,19 +662,19 @@
                 var paragraph = document.createElement("span");
                 var txt = document.createTextNode(event1.name);
                 paragraph.appendChild(txt);
-                $(".p1").appendChild(paragraph);
+                myDiv.appendChild(paragraph);
 
                 myDiv = document.getElementById("p2");
                 paragraph = document.createElement("span");
                 txt = document.createTextNode(event1.date_full +" και ώρα "+event1.hour);
                 paragraph.appendChild(txt);
-                $(".p2").append(paragraph);
+                myDiv.appendChild(paragraph);
 
                 myDiv = document.getElementById("p3");
                 paragraph = document.createElement("span");
                 txt = document.createTextNode(event1.address);
                 paragraph.appendChild(txt);
-                $(".p3").append(paragraph);
+                myDiv.appendChild(paragraph);
 
                 var ticket = "<%=ticket%>";
                 var help = "";
@@ -693,7 +693,7 @@
                 txt =  document.createTextNode(sum+" Πόντοι");
                 temp.appendChild(txt);
                 paragraph.appendChild(temp);
-                $(".p4").append(paragraph);
+                myDiv.appendChild(paragraph);
             }
         </script>
 

@@ -25,7 +25,16 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-nav-demo">
                 <ul class="nav navbar-nav">
-                    <li><a href="search.jsp"> Αναζήτηση  <i class="fa fa-search"></i></a></li>              
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" style="background-color:#2c3e50;"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Δραστηριότητες  <i class="fa fa-chevron-down"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#2c3e50; width:300px" >
+                            <ul class="nav navbar-nav ">
+                                <li style="background-color:#2c3e50;"><a href="search.jsp" ><i class="fa fa-search"></i>  Αναζήτηση </a></li>
+                                <li style="background-color:#2c3e50;"><a href="events_active.jsp" ><i class="fa fa-calendar"></i>  Επερχόμενες Εκδηλώσεις </a></li>
+
+                            </ul>
+                        </div>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" style="background-color:#2c3e50;"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Πληροφορίες  <i class="fa fa-info"></i></a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#2c3e50;  width:250px">

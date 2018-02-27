@@ -90,7 +90,7 @@
                             <div class="col-xs-7 col-sm-6 col-md-5 col-lg-7 excerpet">
                                 <h3><span data-bind="text:name"></span></h3>
                                 <p data-bind="text:description"></p>                        
-                                <button  data-bind="value: id" onclick="location.href = 'event_profile.jsp/?id='+this.value;" type="button" class="btn btn-info btn-sm" style="vertical-align:bottom;">Μάθε Περισσότερα</button>
+                                <button  data-bind="value: id" onclick="location.href = 'event_profile.jsp/?idevent ='+this.value;" type="button" class="btn btn-info btn-sm" style="vertical-align:bottom;">Μάθε Περισσότερα</button>
                                 <button id="mybtn" href="#myModal" data-bind="visible: $parent.showMe, value: id" type="button" class="btn btn-success" style="float: right;" data-toggle="modal" onclick="set(this.value)">Κλείσε θέση τώρα!</button>
                                 <button onclick="location.href = 'sign_up_parent.jsp';" data-bind="visible: $parent.notShow" type="button" class="btn btn-warning" style="float: right;" data-toggle="tooltip" title="Γίνε μέλος για να κάνεις κράτηση!">Κάνε εγγραφή τώρα!</button>
                             </div>

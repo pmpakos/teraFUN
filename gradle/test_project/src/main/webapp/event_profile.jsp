@@ -213,30 +213,25 @@ $(document).ready(function(){
                 
       </div>
        </div>
-       <div class="row">
+       <div class="row" data-bind="visible:offer">
        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
         <a href="#" title="offer" class="thumbnail"><img src="static/offer.jpg" data-bind="visible:offer"></a>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-       <div><poffer  data-bind="visible:offer"><br></br>Η εκδήλωση αυτή είναι σε τιμή προσφορα!<br><br><br></poffer></div>
+       <div><poffer  ><br></br>Η εκδήλωση αυτή είναι σε τιμή προσφοράς!<br><br><br></poffer></div>
      </div>
    </div>
       
       <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
         <p5>Πληροφορίες:</p5>
               <ul class="meta-search">
-                <li><p2><ka>Διοργανωτής:</ka> <span data-bind="text:compname"></span></p2></li><div></div>
+                <li><p2><ka>Διοργανωτής:</ka>  <a  data-bind="attr: {href: compid}" onclick="location.href = 'company_profile.jsp/?idcompany='+this.value;" style="vertical-align:bottom;"><span data-bind="text:compname"></span> </a> </p2></li><div></div>
                    <li><p2><ka>Ημερομηνία:</ka> <span data-bind="text:date"></span></p2></li><div></div>
                    <li><p2><ka>Ώρα:</ka> <span data-bind="text:hour"></span></p2></li><div></div>
                     <li><p2><ka>Διάρκεια:</ka> <span data-bind="text:duration"></span> λεπτά</p2></li><div></div>
                     <li><p2><ka>Κόστος:</ka> <span data-bind="text:cost"></span> πόντοι</p2></li><div></div>
-
                     <li><p2><ka>Τοποθεσία:</ka> <span data-bind="text:address"></span></p2></li><div></div>
-                    
-    
-    </div>
-                  
-            
+      </div>
               </ul>
 
               <div id="map" class="gmap"></div>
@@ -308,6 +303,7 @@ $(document).ready(function(){
                  this.notshow=ko.observable(notshow1);
                  this.visits=ko.observable();
                  this.compname=ko.observable();
+                 this.compid=ko.observable();
                    
             }
 
@@ -354,6 +350,7 @@ $(document).ready(function(){
                 viewModel.description(eventJson.Description);
                 viewModel.offer(eventJson.IsOffer);
                 viewModel.compname(eventJson.TagDescription);
+                viewModel.compid(eventJson.CompanyID);
                 console.log('skata nifo :!!!!!'+eventJson.TagDescription);
                 
                 $.ajax({
