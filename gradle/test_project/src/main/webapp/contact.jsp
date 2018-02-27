@@ -14,36 +14,27 @@
   <title>Contact Us | teraFUN</title>
   <style type="text/css">
     body { padding-top: 70px; }
-    .jumbotron {
-      color: #2c3e50;
-      background: #ecf0f1;
 
+    .body1 {
+    background: url('static/lala.jpg');
+    background-color: #cccccc;
+    display: block;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    position: fixed;
+    right: 0;
+    z-index: -1;
+     top: 0;
+
+    background-size:cover;
+      -webkit-filter: blur(0px);
+      -moz-filter: blur(0px);
+      -o-filter: blur(0px);
+      -ms-filter: blur(0px);
+      filter: blur(0px);   
     }
-    .navbar-inverse {
-      background: #2c3e50;
-      color: white;
-    }
-    .navbar-inverse .navbar-brand, .navbar-inverse a{
-      color:white;
-      height:60px;
-    }
-    .navbar-inverse .navbar-nav>li>a {
-      color: white;
-      margin-top:10px;
-      font-size:150%;
-    } 
-    .navbar-brand img{
-       height:50px;
-       margin-top:0px;
-    }
-    .form-inline{
-	margin-top:20px;
-    }
-	img {
-    width: 200px; 
-    max-height: 200px;
-    object-fit: cover;
-    }
+    
 
 
   </style>
@@ -71,6 +62,8 @@
 <div class="bg-faded">Για να γίνει αυτό στείλτε απλώς ένα e-mail στο <a href="mailto:terafun@outlook.com">terafun@outlook.com</a></div>
   </div>
 </div>
+<div class="body1"></div>
 </body>
+
 </html>
 
