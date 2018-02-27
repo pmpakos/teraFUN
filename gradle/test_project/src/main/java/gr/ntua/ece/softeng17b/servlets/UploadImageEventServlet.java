@@ -98,7 +98,7 @@ public class UploadImageEventServlet extends HttpServlet {
 	    	  fue.printStackTrace();
 	      }
 	      
-	      
+	      response.sendRedirect("https://localhost:8765/app/home_company.jsp");
 	    }
 
 	   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException { doPost(request, response); }
