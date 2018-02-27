@@ -85,6 +85,10 @@ public class Event {
 	public int getCost(){
 		return this.Cost;
 	}
+	public void setCost(int auto){
+		this.Cost = auto;
+	}
+
 	public int getTicketCounter(){
 		return this.TicketCounter;
 	}

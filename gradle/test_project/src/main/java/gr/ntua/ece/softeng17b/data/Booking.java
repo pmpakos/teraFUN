@@ -27,4 +27,12 @@ public class Booking {
 		return this.BookingID;
 	}
 	
+	public int getNumberOfTickets(){
+		return this.NumberOfTickets;
+	}
+	
+	public String getCode(){
+		return this.Code;
+	}
+	
 }

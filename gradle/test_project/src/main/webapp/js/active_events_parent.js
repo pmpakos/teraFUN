@@ -42,8 +42,8 @@ viewModel.loadEvents().done(function(json){
 			eventJson.DateEvent,
 			eventJson.Address,
 			eventJson.Description,
-            eventJson.NumberOfTickets,
-            eventJson.Code,
+            eventJson.Cost,
+            eventJson.TagDescription,
             );
         console.log(event);
         viewModel.events.push(event);

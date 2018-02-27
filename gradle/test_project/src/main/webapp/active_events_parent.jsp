@@ -45,9 +45,9 @@
                         <th scope="col">Ημερομηνία </th>
                         <th scope="col">Διεύθυνση </th>
                         <th scope="col">Περιγραφή </th>
-                        <th scope="col">Λεπτομέρειες </th>
                         <th scope="col">Αριθμός Εισιτηρίων </th>
                         <th scope="col">Κωδικός Εισιτηρίου </th>
+                        <th scope="col">Λεπτομέρειες </th>
 
                     </tr>
                 </thead>  
@@ -62,11 +62,11 @@
                           <!-- <span data-bind="text:description"></span> -->
                           <button id="description" data-bind="click: function(data, event) { show_description(name, description, data,  event) }" type="button" class="btn btn-info btn-admin">Περιγραφή</button>
                         </td>                    
+                        <td> <span data-bind="text:ntickets"></span></td>
+                        <td> <span data-bind="text:code"></span></td>
                         <td> 
                           <button  data-bind="value: id" onclick="location.href = 'event_profile.jsp/?id='+this.value;" type="button" class="btn btn-success" style="vertical-align:bottom;">Μάθε Περισσότερα</button>
                         </td>
-                        <td> <span data-bind="text:ntickets"></span></td>
-                        <td> <span data-bind="text:code"></span></td>
                     </tr>                   
                 </tbody>
             </table>

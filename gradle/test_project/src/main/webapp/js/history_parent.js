@@ -1,10 +1,10 @@
-var Event = function(id, name, date, address, description,numberoftickets,code) {
+var Event = function(id, name, date, address, description,ntickets,code) {
     this.id = id;
     this.name = name;
     this.date = date;
     this.address = address; 
     this.description = description;
-    this.numberoftickets = numberoftickets;
+    this.ntickets = ntickets;
     this.code = code;
 
 }
@@ -42,11 +42,10 @@ viewModel.loadEvents().done(function(json){
             eventJson.DateEvent,
             eventJson.Address,
             eventJson.Description,
-            eventJson.NumberOfTickets,
-            eventJson.Code
+            eventJson.Cost,
+            eventJson.TagDescription,
             );
         console.log(event);
-        console.log(eventJson.ID);
         viewModel.events.push(event);
     });
 
@@ -55,10 +54,10 @@ viewModel.loadEvents().done(function(json){
 
     var table = $('#Data').DataTable( {
         "paging": false,
-        "iDisplay": 3,
+        "iDisplay": 5,
         "bLengthChange": false,
         "columnDefs": [ {
-          "targets": 4,
+          "targets": 6,
           "orderable": false
         } ],
         "bDeferRender": true, 

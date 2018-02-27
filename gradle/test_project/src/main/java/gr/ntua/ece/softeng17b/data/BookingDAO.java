@@ -33,8 +33,6 @@ public class BookingDAO{
          String sql = "INSERT INTO booking (ParentID, EventID, BookDate,"
                     + "NumberOfTickets, Code)"
                     + "VALUES (?, ?, ?, ?, ?)";
-
-        
         this.jdbcTemplate.update(sql, new Object[] {booking.ParentID, booking.EventID, booking.BookDate, 
                                         booking.NumberOfTickets, booking.Code});
     }
@@ -43,7 +41,11 @@ public class BookingDAO{
         return jdbcTemplate.query("SELECT * FROM booking",new BookingRowMapper());
     }
 
-   
+    public List<Booking> getActiveBookingOfParent(int par_id,int ev_id){
+            return jdbcTemplate.query("SELECT * FROM event, booking, parent WHERE ((event.EventID = booking.EventID) and (booking.ParentID = parent.ParentID) and (parent.ParentID = ?) and (event.EventID = ?) and (event.DateEvent >= CURDATE()))", new Object[] {par_id,ev_id}, new BookingRowMapper());
+    }
     
-
+    public List<Booking> getPastBookingOfParent(int par_id,int ev_id){
+            return jdbcTemplate.query("SELECT * FROM event, booking, parent WHERE ((event.EventID = booking.EventID) and (booking.ParentID = parent.ParentID) and (parent.ParentID = ?) and (event.EventID = ?) and (event.DateEvent < CURDATE()))", new Object[] {par_id,ev_id}, new BookingRowMapper());
+    }
 }
