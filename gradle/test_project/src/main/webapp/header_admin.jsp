@@ -27,7 +27,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="admin_parents_panel.jsp"><i class="fa fa-user"></i>  Γονείς </a></li>
                     <li><a href="admin_companies_panel.jsp"><i class="fa fa-building"></i>  Εταιρίες </a></li> 
-                    <li><a href="admin_bank.jsp"><i class="fa fa-eur"></i>  Τράπεζα </a></li>                
+                    <!-- <li><a href="admin_bank.jsp"><i class="fa fa-eur"></i>  Τράπεζα </a></li>                 -->
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="" onclick="return theFunction();"> Αποσύνδεση  <i class="fa fa-power-off"></i></a></li>

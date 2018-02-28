@@ -16,6 +16,27 @@
 <link rel="stylesheet" href="css/stylelogin.css"> 
 <link rel="stylesheet" href="css/header.css"> 
 
+<style type="text/css">
+	    .body1 {
+  background: url('static/balls.jpg');
+  background-color: #cccccc;
+  display: block;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: -1;
+   top: 0;
+
+  background-size:cover;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);   
+}
+</style>
 </head>
 <body>
 <%@include file="header.jsp" %>
@@ -66,7 +87,7 @@ if(flagidi==0 | flagidi==1 | flagidi==2){
 			</div>
 		</div>
 	</div>	
-
+<div class="body1"></div>
 	<%String flag_v= request.getParameter("fv"); %>
 <script type="text/javascript">
 	var flag_v="0";

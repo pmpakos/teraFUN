@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Αρχική Γονέα | teraFun</title>
+<title>Αρχική Γονέα | teraFUN</title>
 
 
   <!-- Latest compiled and minified CSS -->

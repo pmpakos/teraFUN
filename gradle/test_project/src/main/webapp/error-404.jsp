@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>404 | teraFun</title>
+<title>404 | teraFUN</title>
 
 
   <!-- Latest compiled and minified CSS -->
