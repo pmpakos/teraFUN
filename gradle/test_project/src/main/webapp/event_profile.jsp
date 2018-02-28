@@ -144,20 +144,16 @@ $(document).ready(function(){
 
 </head>
 <body>
-      <div class="alert alert-success alert-dismissible success" style="position: absolute;  z-index: 0">
-            <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
+      <div class="alert alert-success alert-dismissible success" style="position: absolute; width:100%; z-index: 0">
                     Η αγορά έγινε επιτυχώς! Το εισιτήριό σου έχει σταλεί στο email.
         </div>
-        <div class="alert alert-danger alert-dismissible fail1" style="position: absolute; z-index: 0">
-            <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
+        <div class="alert alert-danger alert-dismissible fail1" style="position: absolute; width:100%; z-index: 0">
                     Ουψ! Δεν υπάρχουν τόσες διαθέσιμες θέσεις για την εκδήλωση.
         </div>
-        <div class="alert alert-danger alert-dismissible fail2" style="position: absolute; z-index: 0">
-            <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
+        <div class="alert alert-danger fail2" style="position: absolute; width:100%; z-index: 0">
                     Οι πόντοι που διαθέτεις δεν επαρκούν!
         </div>
-        <div class="alert alert-danger alert-dismissible fail3" style="position: absolute; z-index: 0">
-            <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
+        <div class="alert alert-danger alert-dismissible fail3" style="position: absolute; width:100%; z-index: 0">
                     Συναλλαγή ανεπιτυχής! Για την αγορά εισιτηρίου είναι απαραίτητη η πληρωμή της συνδρομής!
         </div>
     
@@ -199,8 +195,8 @@ $(document).ready(function(){
            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 excerpet">
                                     
 
-                                 <button type="button" style="float: right;" data-bind="visible: show" class="btn btn-success" data-toggle="modal" data-target="#myModal">Κλείσε θέση τώρα!</button>
-                                <button onclick="location.href = 'sign_up_parent.jsp';" data-bind="visible: notshow" type="button" class="btn btn-warning" style="float: right;" data-toggle="tooltip" title="Γίνε μέλος για να κάνεις κράτηση!">Κάνε εγγραφή τώρα!</button>
+                                 <button type="button" style="float: right;" data-bind="visible: show()" class="btn btn-success" data-toggle="modal" data-target="#myModal">Κλείσε θέση τώρα!</button>
+                                <button onclick="location.href = 'sign_up_parent.jsp';" data-bind="visible: notshow()" type="button" class="btn btn-warning" style="float: right;" data-toggle="tooltip" title="Γίνε μέλος για να κάνεις κράτηση!">Κάνε εγγραφή τώρα!</button>
 
                                 <!-- data-bind="visible: $parent.notShow" -->
                                  <!-- data-bind="visible: $parent.showMe, value: id" -->
@@ -413,15 +409,21 @@ $(document).ready(function(){
                             }
                             else if(reply == "Tickets"){
                                 $("#myModal").modal("hide"); 
-                                $('.fail1').show(); 
+                                    $(".fail1").fadeTo(2000, 500).slideUp(500, function(){
+                                    $(".fail1").slideUp(500);
+                                });
                             }
                             else if(reply == "Pay"){
                                 $("#myModal").modal("hide"); 
-                                $('.fail3').show(); 
+                                    $(".fail3").fadeTo(2000, 500).slideUp(500, function(){
+                                    $(".fail3").slideUp(500);
+                                });
                             }
                             else{
                                 $("#myModal").modal("hide"); 
-                                $('.fail2').show();
+                                $(".fail2").fadeTo(2000, 500).slideUp(500, function(){
+                                    $(".fail2").slideUp(500);
+                                });
                             }
                         }
                             

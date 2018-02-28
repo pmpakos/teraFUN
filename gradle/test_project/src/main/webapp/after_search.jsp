@@ -71,19 +71,19 @@ if(flagidi==0 | flagidi==2){
 <!-- ////////////////////////////////////////////////////////// -->
 
         <div class="alert alert-success alert-dismissible success" style="position: absolute; width: 60%; z-index: 0">
-            <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
+                    <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
                     Η αγορά έγινε επιτυχώς! Το εισιτήριό σου έχει σταλεί στο email.
         </div>
         <div class="alert alert-danger alert-dismissible fail1" style="position: absolute; width: 60%; z-index: 0">
-            <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
+        <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
                     Ουψ! Δεν υπάρχουν τόσες διαθέσιμες θέσεις για την εκδήλωση.
         </div>
-        <div class="alert alert-danger alert-dismissible fail2" style="position: absolute; width: 60%; z-index: 0">
-            <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
+        <div class="alert alert-danger fail2" style="position: absolute; width: 60%; z-index: 0">
+        <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
                     Οι πόντοι που διαθέτεις δεν επαρκούν!
         </div>
         <div class="alert alert-danger alert-dismissible fail3" style="position: absolute; width: 60%; z-index: 0">
-            <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
+        <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
                     Συναλλαγή ανεπιτυχής! Για την αγορά εισιτηρίου είναι απαραίτητη η πληρωμή της συνδρομής!
         </div>
         <div class="parent" style="margin-top:20px; display: none;" data-bind="visible: true"">
@@ -158,7 +158,7 @@ if(flagidi==0 | flagidi==2){
                                 <p data-bind="text:description"></p>                        
                                 <button  data-bind="value: id" onclick="location.href = 'event_profile.jsp/?id='+this.value;" type="button" class="btn btn-info btn-sm" style="vertical-align:bottom;">Μάθε Περισσότερα</button>
                                 <button id="mybtn" href="#myModal" data-bind="visible: $parent.showMe, value: id" type="button" class="btn btn-success" style="float: right;" data-toggle="modal" onclick="set(this.value)">Κλείσε θέση τώρα!</button>
-                                <button onclick="location.href = 'sign_up_parent.jsp';" data-bind="visible: $parent.notShow" type="button" class="btn btn-warning" style="float: right;" data-toggle="tooltip" title="Γίνε μέλος για να κάνεις κράτηση!">Κάνε εγγραφή τώρα!</button>
+                                <button onclick="location.href = 'sign_up_parent.jsp';" data-bind="visible: $parent.notShow()" type="button" class="btn btn-warning" style="float: right;" data-toggle="tooltip" title="Γίνε μέλος για να κάνεις κράτηση!">Κάνε εγγραφή τώρα!</button>
                             </div>
                         <span class="clearfix borda"></span>
                     </article>       
@@ -274,11 +274,11 @@ if(flagidi==0 | flagidi==2){
                             }
                             else if(reply == "Tickets"){
                                 $("#myModal").modal("hide"); 
-                                $('.fail1').show(); 
+                                $('.fail1').show();
                             }
                             else if(reply == "Pay"){
                                 $("#myModal").modal("hide"); 
-                                $('.fail3').show(); 
+                                $('.fail3').show();
                             }
                             else{
                                 $("#myModal").modal("hide"); 
