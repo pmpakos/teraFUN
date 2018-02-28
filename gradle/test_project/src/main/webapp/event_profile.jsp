@@ -23,6 +23,18 @@
 
 
   <%@include file="header.jsp" %>
+   <!-- ////////////////////////////////////////////////////////// -->
+<!-- flag=="" shmainei unknown -->
+<!-- flagidi==0 shmainei admin -->
+<!-- flagidi==1 shmainei user -->
+<!-- flagidi==2 shmainei company -->
+<%
+if(flagidi==0 ){
+  response.sendRedirect(request.getContextPath() + "/error-404.jsp");
+}
+%>
+<!-- ////////////////////////////////////////////////////////// -->
+
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
 
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">

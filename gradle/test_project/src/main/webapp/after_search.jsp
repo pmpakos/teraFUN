@@ -22,7 +22,6 @@
     String indoor = request.getParameter("indoor");    
     String offer = request.getParameter("offer");
 
-    id2="3";
     System.out.println(id2);
 
  %>
@@ -57,9 +56,20 @@
     </head>
 
     <body>
-
-<%@include file="header.jsp" %>
         
+<%@include file="header.jsp" %>
+ <!-- ////////////////////////////////////////////////////////// -->
+<!-- flag=="" shmainei unknown -->
+<!-- flagidi==0 shmainei admin -->
+<!-- flagidi==1 shmainei user -->
+<!-- flagidi==2 shmainei company -->
+<%
+if(flagidi==0 | flagidi==2){
+  response.sendRedirect(request.getContextPath() + "/error-404.jsp");
+}
+%>
+<!-- ////////////////////////////////////////////////////////// -->
+
         <div class="alert alert-success alert-dismissible success" style="position: absolute; width: 60%; z-index: 0">
             <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
                     Η αγορά έγινε επιτυχώς! Το εισιτήριό σου έχει σταλεί στο email.

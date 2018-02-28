@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Create Account | teraFUN </title>
+	<title>Εγγραφή Γονέα | teraFUN </title>
 	
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
@@ -150,8 +150,19 @@ color: red;
 <body>
 
 
-    <%@include file="header.jsp" %>
- 
+<%@include file="header.jsp" %>
+ <!-- ////////////////////////////////////////////////////////// -->
+<!-- flag=="" shmainei unknown -->
+<!-- flagidi==0 shmainei admin -->
+<!-- flagidi==1 shmainei user -->
+<!-- flagidi==2 shmainei company -->
+<%
+if(flagidi==0 | flagidi==1 | flagidi==2){
+  response.sendRedirect(request.getContextPath() + "/error-404.jsp");
+}
+%>
+<!-- ////////////////////////////////////////////////////////// -->
+
  
 <div class="container">
 

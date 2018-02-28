@@ -323,7 +323,7 @@ jQuery().ready(function(){
   // console.log(test); 
   if(test){
     document.getElementById('total_error1').innerHTML = "";
-    var compid=3;
+    var compid=<%=ID%>;
     //var compid=get_omp_id_from_session();
     $.ajax({
       type:"POST",

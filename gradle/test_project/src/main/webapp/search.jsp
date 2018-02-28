@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Search | teraFUN</title>
+<title>Αναζήτηση | teraFUN</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
@@ -13,8 +13,18 @@
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
 	
-	<%@include file="header_unknown.jsp" %>
-	
+<%@include file="header.jsp" %>
+<!-- ////////////////////////////////////////////////////////// -->
+<!-- flag=="" shmainei unknown -->
+<!-- flagidi==0 shmainei admin -->
+<!-- flagidi==1 shmainei user -->
+<!-- flagidi==2 shmainei company -->
+<%
+if(flagidi==0 | flagidi==2){
+  response.sendRedirect(request.getContextPath() + "/error-404.jsp");
+}
+%>
+<!-- ////////////////////////////////////////////////////////// -->
 	<!-- Latest compiled JavaScript -->
 	<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
 	<link href="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
@@ -36,7 +46,7 @@
   background-color: #cccccc;
   display: block;
   height: 100%;
-  width: 100%;
+  width:  100%;
   left: 0;
   position: fixed;
   right: 0;

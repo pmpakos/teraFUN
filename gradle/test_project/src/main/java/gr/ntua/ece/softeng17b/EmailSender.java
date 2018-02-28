@@ -75,7 +75,7 @@ public class EmailSender{
 				"<br>"+"<b>Τηλέφωνο Επικοινωνίας </b>: "+tel+
 				"<br><br>"+"Παρακαλούμε επιβεβαιώστε ότι εσείς κάνατε την εγγραφή, χρησιμοποιώντας τον ακόλουθο κωδικο επιβεβαιωσης: "+
 				"<br><br>"+"<h2>"+vcode+"</h2>"+
-				"<a href='https://github.com/pmpakos/teraFUN/'>εδώ</a>"+
+				"<a href='https://localhost:8765/app/verification_parent.jsp'>εδώ</a>"+
 				"<br><br><br>"+"Ευχαριστούμε πολύ!"+
 				"<br>"+"TeraFUN!","text/html; charset=UTF-8");
 			Transport.send(message);

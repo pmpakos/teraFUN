@@ -648,7 +648,7 @@ $(document).on('click','.update-btn',function(){
 			},
 			url:'/app/parent_update',
 			success: function(){
-				window.location.href='https://localhost:8765/app/parent.jsp'
+				window.location.href='https://localhost:8765/app/parent_profile.jsp'
 			}
 				
 		});	

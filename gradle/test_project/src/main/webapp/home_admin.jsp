@@ -17,28 +17,30 @@
 
 <style>
 .body1 {
-  background: url('static/balls.jpg');
+  background: url('static/lala.jpg') ;
   background-color: #cccccc;
   display: block;
   height: 100%;
   width: 100%;
   left: 0;
   position: fixed;
+  margin:auto;
   right: 0;
   z-index: -1;
-   top: 0;
+  top: 0;
 
   background-size:cover;
-    -webkit-filter: blur(5px);
-    -moz-filter: blur(5px);
-    -o-filter: blur(5px);
-    -ms-filter: blur(5px);
-    filter: blur(5px);   
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);   
 }
 .header{
   font-size:40px;
 
   }
+
 
 </style>
 
@@ -49,11 +51,9 @@
 </head>
 
 
-<!-- <body background="static/balls.jpg"> -->
-<body>
+<body >
 
 <%@include file="header.jsp" %>
-
 <!-- ////////////////////////////////////////////////////////// -->
 <!-- flag=="" shmainei unknown -->
 <!-- flagidi==0 shmainei admin -->
@@ -61,7 +61,6 @@
 <!-- flagidi==2 shmainei company -->
 <%
 if(flag=="" | flagidi==1 | flagidi==2){
-  System.out.println("wwwp la8oosss syggnwmhhh?");
   response.sendRedirect(request.getContextPath() + "/error-404.jsp");
 }
 %>
@@ -99,7 +98,7 @@ if(flag=="" | flagidi==1 | flagidi==2){
 </div>
 
 
-<div class="body1"></div>
+<div class="body1" ></div>
 
 
     <!-- <script src="https://code.jquery.com/jquery-2.1.4.js"></script> -->

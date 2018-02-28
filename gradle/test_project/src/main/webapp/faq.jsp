@@ -38,7 +38,17 @@
 <body>
 
 <%@include file="header.jsp" %>
-
+<!-- ////////////////////////////////////////////////////////// -->
+<!-- flag=="" shmainei unknown -->
+<!-- flagidi==0 shmainei admin -->
+<!-- flagidi==1 shmainei user -->
+<!-- flagidi==2 shmainei company -->
+<%
+if(flagidi==0){
+  response.sendRedirect(request.getContextPath() + "/error-404.jsp");
+}
+%>
+<!-- ////////////////////////////////////////////////////////// -->
 <div class="container">
 	
 <div class="jumbotron">

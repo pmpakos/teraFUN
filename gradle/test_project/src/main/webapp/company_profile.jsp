@@ -1,18 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="gr.ntua.ece.softeng17b.conf.*" %>
 <%@ page import="gr.ntua.ece.softeng17b.FileChecker" %>
-<% 
-  String id2= request.getParameter("idcompany");
-%>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>TeraFun</title>
+    <title>Προφίλ Εταιρείας | teraFUN</title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <style type="text/css">
     body { padding-top: 70px; }
+.body1 {
+  background: url('static/balls.jpg');
+  background-color: #cccccc;
+  display: block;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: -1;
+   top: 0;
 
+  background-size:cover;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);   
+}
 
     .jumbotron {
       color: #2c3e50;
@@ -65,7 +80,30 @@
 </head>
 <body>
     <%@include file="header.jsp" %>
+ <!-- ////////////////////////////////////////////////////////// -->
+<!-- flag=="" shmainei unknown -->
+<!-- flagidi==0 shmainei admin -->
+<!-- flagidi==1 shmainei user -->
+<!-- flagidi==2 shmainei company -->
+<%
+if(flagidi==0 ){
+  response.sendRedirect(request.getContextPath() + "/error-404.jsp");
+}
+%>
+<!-- ////////////////////////////////////////////////////////// -->
 
+<% 
+    // String id2= (String)request.getParameter("idcompany");
+    // System.out.println("nai re egw eimai: "+id2);
+    int id2 = Integer.parseInt((String)request.getParameter("idcompany"));
+    if (id2==-1) {//means we are already logged in
+        //System.out.println((String)session.getAttribute("id"));
+
+        id2=Integer.parseInt((String)session.getAttribute("id"));
+    }
+    System.out.println("nai re egw eimai: ");
+    System.out.println(id2);
+%>
 
 
         <div class="container" id="ko">
@@ -95,12 +133,18 @@
                             Στοιχεία Επικοινωνίας
                         </h2>
                         <p>
+                            <span class="glyphicon glyphicon-home"></span>
                             <span data-bind="text:address"></span> 
                             <span data-bind="text:postal"></span> 
-                            <br>
+                        </p>
+                        <p>
+                            <span class="fa fa-paper-plane"> </span>
                             <a data-bind="attr: { href: web }">
                                 <span data-bind="text:web"></span> 
                             </a>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-phone-alt"></span>
                             <span data-bind="text:telephone"></span>
                         </p>
                     </div>
@@ -125,20 +169,22 @@
                     <p style="text-align: center">
                        <span data-bind="text:description"></span> 
                     </p>
-                    <button type="button" class="btn btn-primary btn-lg btn-block">Events</button>
-                </div>
-               
+                    <button onclick="window.location.href='edit_profile_company.jsp';" type="button" class="btn btn-primary btn-lg btn-block">Επεξεργασία Προφίλ</button>
+
+                    <button onclick="window.location.href='active_events_company.jsp';" type="button" class="btn btn-success btn-lg btn-block">Ενεργές Εκδηλώσεις</button>
+
+                    <button onclick="window.location.href='history_company.jsp';" type="button" class="btn btn-warning btn-lg btn-block">Ιστορικό Εκδηλώσεων</button>
+                </div>               
             </div>
             
-                
-
-            <h2 style="text-align: center">Τοποθεσία</h2>
-
+            <div style="margin:0 auto; width:50%" class="jumbotron"><h2 style="text-align: center">Τοποθεσία</h2></div>
             <div id="map" class="gmap"></div>
+            
     
     </div>
 
-    
+        <div class="body1"></div>
+
 
 <!--     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

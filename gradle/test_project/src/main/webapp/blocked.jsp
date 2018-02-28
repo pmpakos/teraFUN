@@ -15,7 +15,27 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/stylelogin.css"> 
 <link rel="stylesheet" href="css/header.css"> 
+<style>
+.body1 {
+  background: url('static/balls.jpg');
+  background-color: #cccccc;
+  display: block;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: -1;
+   top: 0;
 
+  background-size:cover;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);   
+}
+</style>
 </head>
 <body>
 <%@include file="header.jsp" %>
@@ -52,6 +72,7 @@
 			</div>
 		</div>
 	</div>	
+<div class="body1"></div>
 
 </body>
 </html>

@@ -12,6 +12,14 @@
 <link rel="stylesheet" href="css/stylelogin.css"> 
 
 <head>
+    <% 
+        String id3=(String)request.getParameter("id");
+    %>
+    <script type="text/javascript"> 
+        console.log(<%=id3%>);
+        var id3 = <%=id3%>;
+    </script>
+
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <!-- <div class="container" id="ko"> -->
         <div class="container">
@@ -48,7 +56,6 @@
                          <!-- <a class="nav-link dropdown-toggle" style="background-color:#2c3e50;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span data-bind="text:username"> </span><i class="fa fa-user"></i></a> -->
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#2c3e50;" >
                             <ul class="nav navbar-nav">
-                                
                                 <li style="background-color:#2c3e50;"><a href="company_profile.jsp/?idcompany=-1"><i class="fa fa-edit"></i>  Προφίλ </a></li>
                     <!-- prepei na proste8ei edw koumpi gia log out me sugkekrimeno action na sumvainei otan auto patietai -->
                                 <li><a href="" onclick="return theFunction();"><i class="fa fa-power-off"></i>  Αποσύνδεση </a></li>
@@ -60,43 +67,6 @@
         </div>
     </nav>
 
-<!--
-
-    <script>
-        function initMap() {    
-            var VM = function(){
-                this.username = ko.observable(); 
-            }
-
-            VM.prototype.loadCompany = function() {
-                console.log("Loading company...");
-                var ID = <%%>;
-                var opts = {
-                    traditional : true,
-                    cache       : false,
-                    url         : "./api/company/"+ID,
-                    type        : "GET",
-                    dataType    : "json"
-                };
-
-                return $.ajax(opts); //returns a promise
-            }
-
-            var viewModel = new VM();
-            console.log("Created VM");            
-
-            viewModel.loadCompany().done(function(parentJson){
-                console.log("Done loading companies.");                 
-                viewModel.username(companyJson.Username);
-            });
-
-            ko.applyBindings(viewModel);            
-            console.log("Applied bindings");
-        }
-    </script>
-
-    <script> initMap(); </script>
- -->
 </head>
 <script type="text/javascript">
     function theFunction () {

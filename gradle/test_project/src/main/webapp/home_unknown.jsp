@@ -6,7 +6,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<title>Home Unknown | teraFUN</title>
+<title>Αρχική | teraFUN</title>
 <style type="text/css">
   body { padding-top: 10px; } 
     .body1 {
@@ -59,13 +59,24 @@
 <body>
 
 <%@include file="header.jsp" %>
+<!-- ////////////////////////////////////////////////////////// -->
+<!-- flag=="" shmainei unknown -->
+<!-- flagidi==0 shmainei admin -->
+<!-- flagidi==1 shmainei user -->
+<!-- flagidi==2 shmainei company -->
+<%
+if(flagidi==0 | flagidi==1 | flagidi==2){
+  response.sendRedirect(request.getContextPath() + "/error-404.jsp");
+}
+%>
+<!-- ////////////////////////////////////////////////////////// -->
 
 
 
 <div class="container">
   <div class="jumbotron">
       <h1 style="font-family:Times New Roman font-size:25px"><span>Καλώς ήρθατε στην Tera</span><span style="color:red">F</span><span style="color:#ff9900">U</span><span style="color:#0086b3">N</span>!</h1> 
-      <p style = "font-size:15px">
+      <p style="font-size:20px">
         Tην πρώτη online πλατφόρμα δραστηριοτήτων για παιδιά!
         <br>
         Οι καλύτερες δραστηριότητες για τα παιδιά είναι κοντά σου, με το πάτημα ενός click.
@@ -128,23 +139,23 @@
   </div>
 
 <div class="jumbotron" style="margin-top:20px;text-align: center">
-      <p style = "font-size:13px">
+      <p style = "font-size:20px">
         Έχετε ήδη λογαριασμό; Αν ναι, συνδεθείτε τώρα και εξερευνήσετε νέες δραστηριότητες για τα παιδιά σας!
       </p>
-      <button onclick="window.location.href='login.jsp';" style="width:170px; border:red; background-color:red" class="btn btn-success" >Σύνδεση</button>
+      <button onclick="window.location.href='login.jsp';" style="width:210px; border:red; background-color:red" class="btn btn-success btn-lg" >Σύνδεση</button>
 
-      <p style = "font-size:13px">
+      <p style = "font-size:20px">
         <br><br><br><br>
-        Αν δεν έχετε, επισκεφθείτε τις σελίδες πληροφοριών, για να μάθετε περισσότερα για εμάς, και φτιάξτε λογαριασμό. 
+        Αν δεν έχετε, επισκεφθείτε τις σελίδες πληροφοριών, για να μάθετε περισσότερα για εμάς, και φτιάξτε λογαριασμό. Μπορείτε ακόμη να δείτε εν συντομία τις εκδηλώσεις που προβάλλονται στην ιστοσελίδα μας κάνοντας κλικ στο menu Δραστηριότητες.
       </p>
-      <button onclick="window.location.href='sign_up_parent.jsp';" style="width:170px ; border:#ff9900 ;background-color:#ff9900" class="btn btn-info" >Εγγραφή</button>
+      <button onclick="window.location.href='sign_up_parent.jsp';" style="width:210px ; border:#ff9900 ;background-color:#ff9900" class="btn btn-info btn-lg" >Εγγραφή</button>
 
 
-      <p style = "font-size:13px">
+      <p style = "font-size:20px">
         <br><br><br>
         Εάν είστε επιχείρηση παροχής υπηρεσιών για παιδιά, πατήστε εδώ για να μεταφερθείτε στη φόρμα υποβολής των στοιχείων σας. Η ομάδα της teraFUN θα εξετάσει την εγκυρότητα των στοιχείων σας και θα σας προβάλλει σε όλους τους χρήστες της πλατφόρμας, δίνοντας μια νέα πνοή στην επιχείρησή σας.
       </p>
-      <button onclick="window.location.href='sign_up_company.jsp';" style="width:170px; border:#0086b3; background-color:#0086b3" class="btn btn-primary" >Εγγραφή Επιχείρησης</button>
+      <button onclick="window.location.href='sign_up_company.jsp';" style="width:210px; border:#0086b3; background-color:#0086b3" class="btn btn-primary btn-lg" >Εγγραφή Επιχείρησης</button>
   </div>
 
 

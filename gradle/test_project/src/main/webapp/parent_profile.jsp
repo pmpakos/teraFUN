@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="gr.ntua.ece.softeng17b.conf.*" %>
 <%@ page import="gr.ntua.ece.softeng17b.FileChecker" %>
-<%  int ID = 1; %>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>TeraFun</title>
+    <title>Προφίλ | teraFUN</title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <style type="text/css">
@@ -69,10 +68,6 @@
     filter: blur(5px);   
 }
 
-
-
-  </style>
-  <style>
        .gmap {
         height: 400px;
         width: 50%;
@@ -81,15 +76,27 @@
 
 </head>
 <body>
-    <%@include file="header.jsp" %>
+<%@include file="header.jsp" %>
+ <!-- ////////////////////////////////////////////////////////// -->
+<!-- flag=="" shmainei unknown -->
+<!-- flagidi==0 shmainei admin -->
+<!-- flagidi==1 shmainei user -->
+<!-- flagidi==2 shmainei company -->
+<%
+if(flag=="" | flagidi==0 | flagidi==2){
+  response.sendRedirect(request.getContextPath() + "/error-404.jsp");
+}
+int ID = Integer.parseInt(id);
+%>
+<!-- ////////////////////////////////////////////////////////// -->
 
+ 
 
 
         <div class="container" style="text-align: center" id="ko">
         <div class="jumbotron">
 
-        <h2> Το προφίλ μου  <i class="fa fa-user"></i> </h2> <button type="button" class="btn btn-primary btn-lg ">Αποσύνδεση</button>
-
+        <h2> Το προφίλ μου  <i class="fa fa-user"></i> </h2> 
         <table class="table table-striped ">
         
     
@@ -155,13 +162,9 @@
   </tbody>
 </table>
 
-    <button type="button" class="btn btn-primary btn-lg btn-block">Επεξεργασία Προφίλ</button>
-    
-
-
-       
-    <button type="button" class="btn btn-success btn-lg btn-block">Ενεργές Εκδηλώσεις</button>
-    <button type="button" class="btn btn-warning btn-lg btn-block">Ιστορικό Εκδηλώσεων</button> 
+    <button onclick="window.location.href='edit_profile_parent.jsp';" type="button" class="btn btn-primary btn-lg btn-block">Επεξεργασία Προφίλ</button>
+    <button onclick="window.location.href='active_events_parent.jsp';" type="button" class="btn btn-success btn-lg btn-block">Ενεργές Εκδηλώσεις</button>
+    <button onclick="window.location.href='history_parent.jsp';" type="button" class="btn btn-warning btn-lg btn-block">Ιστορικό Εκδηλώσεων</button> 
       
             </div>            
     

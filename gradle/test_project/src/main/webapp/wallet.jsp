@@ -150,7 +150,18 @@
 <body>
 
   <%@include file="header.jsp" %>
-<% String ID = id; %>
+ <!-- ////////////////////////////////////////////////////////// -->
+<!-- flag=="" shmainei unknown -->
+<!-- flagidi==0 shmainei admin -->
+<!-- flagidi==1 shmainei user -->
+<!-- flagidi==2 shmainei company -->
+<%
+if(flag=="" | flagidi==0 | flagidi==2){
+  response.sendRedirect(request.getContextPath() + "/error-404.jsp");
+}
+int ID = Integer.parseInt(id);
+%>
+<!-- ////////////////////////////////////////////////////////// -->
 
 
 <div class="container" id="ko">

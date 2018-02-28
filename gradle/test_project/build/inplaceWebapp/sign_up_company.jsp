@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Company SignUp | teraFUN</title>
+<title>Εγγραφή Επιχείρησης | teraFUN</title>
 
 
 	<!-- Latest compiled and minified CSS -->
@@ -48,6 +48,17 @@
 
 
 <%@include file="header.jsp" %>
+ <!-- ////////////////////////////////////////////////////////// -->
+<!-- flag=="" shmainei unknown -->
+<!-- flagidi==0 shmainei admin -->
+<!-- flagidi==1 shmainei user -->
+<!-- flagidi==2 shmainei company -->
+<%
+if(flagidi==0 | flagidi==1 | flagidi==2){
+  response.sendRedirect(request.getContextPath() + "/error-404.jsp");
+}
+%>
+<!-- ////////////////////////////////////////////////////////// -->
 <br>
 <br>
 	<div class="container">

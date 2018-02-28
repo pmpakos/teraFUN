@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
-<%  int ID = 1; %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -151,8 +150,20 @@ color: red;
 <body>
 
 
-    <%@include file="header_unknown.jsp" %>
- 
+<%@include file="header.jsp" %>
+ <!-- ////////////////////////////////////////////////////////// -->
+<!-- flag=="" shmainei unknown -->
+<!-- flagidi==0 shmainei admin -->
+<!-- flagidi==1 shmainei user -->
+<!-- flagidi==2 shmainei company -->
+<%
+if(flag=="" | flagidi==0 | flagidi==2){
+  response.sendRedirect(request.getContextPath() + "/error-404.jsp");
+}
+int ID = Integer.parseInt(id);
+%>
+<!-- ////////////////////////////////////////////////////////// -->
+
  
 <div class="container">
 

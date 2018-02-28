@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="gr.ntua.ece.softeng17b.conf.*" %>
-<% int ID = 3; %>
 <!DOCTYPE html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <html>
@@ -35,6 +34,19 @@
 
     <body>
 <%@include file="header.jsp" %>
+<!-- ////////////////////////////////////////////////////////// -->
+<!-- flag=="" shmainei unknown -->
+<!-- flagidi==0 shmainei admin -->
+<!-- flagidi==1 shmainei user -->
+<!-- flagidi==2 shmainei company -->
+<%
+if(flag=="" | flagidi==0 | flagidi==1){
+  response.sendRedirect(request.getContextPath() + "/error-404.jsp");
+}
+int ID = Integer.parseInt(id);
+%>
+<!-- ////////////////////////////////////////////////////////// -->
+
       <div class="container">
       <div id="ko">
             <h1>Στατιστικά εισιτηρίων με βάση την ομαδικότητα : <span ></span> </h1>
@@ -66,7 +78,100 @@
     <script src="./static/knockout-3.4.2.js"></script>
     <script src="./js/DataTable.js"></script>
     <script src="./js/DataTable.bootstrap4.js"></script>
-    <script src="js/stats_team.js"></script>
+    <!-- <script src="js/stats_team.js"></script> -->
+<script type="text/javascript">
+  
 
+var VM = function(){
+    this.team = ko.observable();
+    this.atomic = ko.observable();  
+}
+
+VM.prototype.loadEvents = function() {
+    console.log("Loading events...");
+    var ID = <%=ID%>;
+    var opts = {
+        traditional : true,
+        cache       : false,
+        url         : "./api/stats_team/"+ID,
+        type        : "GET",
+        dataType    : "json"
+    };
+
+    return $.ajax(opts); //returns a promise
+}
+
+var viewModel = new VM();
+console.log("Created VM");            
+
+
+viewModel.loadEvents().done(function(eventJson){
+    console.log("Done loading events."+eventJson.Fun);  
+
+        viewModel.team(eventJson.Team);
+        viewModel.atomic(eventJson.Fun);
+});
+
+
+     
+
+    var table = $('#Data').DataTable( {
+        "paging": false,
+        "iDisplay": 3,
+        "bLengthChange": false,
+        "columnDefs": [ {
+          "targets": 0,
+          "orderable": true
+        } ],
+        "bDeferRender": true, 
+        "bInfo" : false,
+        "pagingType": "simple_numbers",
+        //"scrollY": "200px",
+        //"stateSave": true,
+        "searching": false
+    } );
+
+
+    $('[id^="check"]').click(function () {
+       $(this).toggleClass('btn-success btn-danger'); 
+    });
+
+    $('.toggle-vis').on( 'click', function (e) {
+        e.preventDefault();
+
+        // Get the column API object
+        var column = table.column( $(this).attr('data-column') );
+
+        // Toggle the visibility
+        column.visible( !column.visible() );
+    } );
+
+
+ko.applyBindings(viewModel, document.getElementById('ko'));            
+
+function format ( description ) {
+    // `d` is the original data object for the row
+    return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
+        '<tr>'+
+            '<td>Description</td>'+
+            '<td>'+description+'</td>'+
+        '</tr>'+
+    '</table>';
+}
+
+
+
+
+function show_description(name,description){
+    //console.log(description);
+    swal({title: name,text: description, button: false});
+    // swal(description);
+
+    
+    buttons: false
+
+}
+
+</script>
     </body>
 </html>

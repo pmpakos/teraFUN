@@ -3,14 +3,40 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <html>
   <head>
-      <title>Parents Admin Panel | teraFUN</title>
+      <title>Διαχείριση Γονέων | teraFUN</title>
       <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="css/dataTables.min.css"/>
       <link rel="stylesheet" href="css/header.css"> 
 
         <style type="text/css">
+                 .body1 {
+          background: url('static/sunrise.jpg') ;
+          background-color: #cccccc;
+          display: block;
+          height: 100%;
+          width: 100%;
+          left: 0;
+          position: fixed;
+          margin:auto;
+          right: 0;
+          z-index: -1;
+          top: 0;
+
+          background-size:cover;
+          -webkit-filter: blur(5px);
+          -moz-filter: blur(5px);
+          -o-filter: blur(5px);
+          -ms-filter: blur(5px);
+          filter: blur(5px);   
+        }
+        .header{
+          font-size:40px;
+
+          }
+
          body { padding-top: 10px; } 
+
         .toolbar {
           float: left;
         }
@@ -26,6 +52,10 @@
 
             font-family: 'Open Sans', sans-serif;
           }
+
+.table-striped{
+    background-color:#eee;
+}
         </style>
 
 
@@ -33,6 +63,18 @@
 
     <body>
 <%@include file="header.jsp" %>
+<!-- ////////////////////////////////////////////////////////// -->
+<!-- flag=="" shmainei unknown -->
+<!-- flagidi==0 shmainei admin -->
+<!-- flagidi==1 shmainei user -->
+<!-- flagidi==2 shmainei company -->
+<%
+if(flag=="" | flagidi==1 | flagidi==2){
+  response.sendRedirect(request.getContextPath() + "/error-404.jsp");
+}
+%>
+<!-- ////////////////////////////////////////////////////////// -->
+
       <div id="ko">
             <h1> <span data-bind="text:parents().length"></span> Parents </h1>
             <table id="Data" class="table table-striped table-bordered" data-bind="visible: parents().length > 0">
@@ -78,6 +120,7 @@
                 </tbody>
             </table>
         </div>
+<div class="body1" ></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="./static/knockout-3.4.2.js"></script>

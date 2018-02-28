@@ -11,7 +11,7 @@ var VM = function(){
 
 VM.prototype.loadEvents = function() {
     console.log("Loading events...");
-    var ID = 3;
+    var ID = <%=ID%>;
     var opts = {
         traditional : true,
         cache       : false,

@@ -1,12 +1,10 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%  int ID = 3; %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Company SignUp | teraFUN</title>
+<title>Επεξεργασία Προφίλ | teraFUN</title>
 
 
 	<!-- Latest compiled and minified CSS -->
@@ -49,6 +47,18 @@
 
 
 <%@include file="header.jsp" %>
+ <!-- ////////////////////////////////////////////////////////// -->
+<!-- flag=="" shmainei unknown -->
+<!-- flagidi==0 shmainei admin -->
+<!-- flagidi==1 shmainei user -->
+<!-- flagidi==2 shmainei company -->
+<%
+if(flag=="" | flagidi==0 | flagidi==1){
+  response.sendRedirect(request.getContextPath() + "/error-404.jsp");
+}
+int ID = Integer.parseInt(id);
+%>
+<!-- ////////////////////////////////////////////////////////// -->
 
  
 <br>

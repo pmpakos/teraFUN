@@ -11,10 +11,9 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-  <title>Contact Us | teraFUN</title>
-  <style type="text/css">
+<title>Επικοινωνία | teraFUN</title>
+<style type="text/css">
     body { padding-top: 70px; }
-
     .body1 {
     background: url('static/lala.jpg');
     background-color: #cccccc;
@@ -34,36 +33,43 @@
       -ms-filter: blur(0px);
       filter: blur(0px);   
     }
-    
-
-
-  </style>
+</style>
 </head>
+
 <body>
 
 <%@include file="header.jsp" %>
+<!-- ////////////////////////////////////////////////////////// -->
+<!-- flag=="" shmainei unknown -->
+<!-- flagidi==0 shmainei admin -->
+<!-- flagidi==1 shmainei user -->
+<!-- flagidi==2 shmainei company -->
+<%
+if(flagidi==0){
+  response.sendRedirect(request.getContextPath() + "/error-404.jsp");
+}
+%>
+<!-- ////////////////////////////////////////////////////////// -->
 
-<div class="container">
-	
-<div class="jumbotron">
-       <p class="text-center">Επικοινωνία</p>
-	<div class="bg-faded">Αντιμετωπίζετε κάποιο πρόβλημα; Έχετε κάποια απορία;</div>
+  <div class="container">
+  	
+    <div class="jumbotron">
+            <h1 class="text-center"> Επικοινωνία </h1>
+    </div>
 
-<div class="bg-faded"><br></div>
+    <div class="jumbotron">
 
-<div class="bg-faded">Για αρχή σας προτείνουμε να δοκιμάσετε τον τομέα των συχνών ερωτήσεων. Δεν είναι απίθανο να βρίσκεται εκεί η απάντηση στο ερώτημα σας.</div>
-
-<div class="bg-faded text-white"><br></div>
-
-<div class="bg-faded">Σε αντίθετη όμως περίπτωση μπορείτε να επικοινωνήσετε με την ομάδα μας. Το συντομότερο δυνατό θα λάβετε την απάντηση που ψάχνετε</div>
-
-<div class="bg-faded text-white"><br></div>
-
-<div class="bg-faded">Για να γίνει αυτό στείλτε απλώς ένα e-mail στο <a href="mailto:terafun@outlook.com">terafun@outlook.com</a></div>
+    <div class="font-weight-bold"><h4><strong>Αντιμετωπίζετε κάποιο πρόβλημα; Έχετε κάποια απορία;</strong></h4></div>
+    <div class="font-weight-bold"><h4><strong></strong></h4><br></div>
+    <div class="font-weight-bold"><h4><strong>Για αρχή σας προτείνουμε να δοκιμάσετε τον τομέα των συχνών ερωτήσεων. Δεν είναι απίθανο να βρίσκεται εκεί η απάντηση στο ερώτημα σας.</strong></h4></div>
+    <div class="font-weight-bold t<h4><strong>ext-white"><h4><strong><br></strong></h4></div>
+    <div class="font-weight-bold"><h4><strong>Σε αντίθετη όμως περίπτωση μπορείτε να επικοινωνήσετε με την ομάδα μας. Το συντομότερο δυνατό θα λάβετε την απάντηση που ψάχνετε</strong></h4></div>
+    <div class="font-weight-bold t<h4><strong>ext-white"><h4><strong><br></strong></h4></div>
+    <div class="font-weight-bold"><h4><strong>Για να γίνει αυτό στείλτε απλώς ένα e-mail στο <a href="mailto:terafun@outlook.com">terafun@outlook.com</a></strong></h4></div>
+    </div>
   </div>
-</div>
-<div class="body1"></div>
-</body>
 
+  <div class="body1"></div>
+</body>
 </html>
 

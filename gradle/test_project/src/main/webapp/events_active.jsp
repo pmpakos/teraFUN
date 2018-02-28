@@ -51,6 +51,17 @@
 
     <body>
     <%@include file="header.jsp" %>
+ <!-- ////////////////////////////////////////////////////////// -->
+<!-- flag=="" shmainei unknown -->
+<!-- flagidi==0 shmainei admin -->
+<!-- flagidi==1 shmainei user -->
+<!-- flagidi==2 shmainei company -->
+<%
+if(flagidi==0 | flagidi==2){
+  response.sendRedirect(request.getContextPath() + "/error-404.jsp");
+}
+%>
+<!-- ////////////////////////////////////////////////////////// -->
 
     
         
@@ -165,16 +176,14 @@
                 console.log("Done loading events.");                 
 
                 json.results.forEach(function(eventJson){  
-                var init_date =new Date(eventJson.DateEvent);
-
-                            
-                            var parts = init_date.toString().split(" ");
-                            var date = "";
-                            if(parts[2].startsWith("0")){
-                                parts[2] = parts[2].substring(1,2);
-                            }
-                            console.log("Ημέρα "+parts[0]);
-                            var date = dict[parts[0]]+" "+parts[2]+" "+dict[parts[1]]+" "+parts[3];           
+                    var init_date =new Date(eventJson.DateEvent);            
+                    var parts = init_date.toString().split(" ");
+                    var date = "";
+                    if(parts[2].startsWith("0")){
+                        parts[2] = parts[2].substring(1,2);
+                    }
+                    console.log("Ημέρα "+parts[0]);
+                    var date = dict[parts[0]]+" "+parts[2]+" "+dict[parts[1]]+" "+parts[3];           
                     var event = new Event(
                         eventJson.EventID,
                         eventJson.Name,
