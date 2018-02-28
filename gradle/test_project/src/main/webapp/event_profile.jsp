@@ -1,20 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="gr.ntua.ece.softeng17b.conf.*" %>
 <%@ page import="gr.ntua.ece.softeng17b.FileChecker" %>
-<%
-  String id2;
-  String ID= request.getParameter("id");
-  int show=0,notshow=0;
-    if(session.getAttribute("id") == null || session.getAttribute("id").equals("")){
-        id2 ="";
-        notshow=1;
-
-    }
-    else{
-        id2 = (String)session.getAttribute("id");
-        show=1;
-    }
-    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,6 +20,20 @@ if(flagidi==0 ){
 }
 %>
 <!-- ////////////////////////////////////////////////////////// -->
+<%
+  String id2;
+  String ID= request.getParameter("id");
+  int show=0,notshow=0;
+    if(session.getAttribute("id") == null || session.getAttribute("id").equals("")){
+        id2 ="";
+        notshow=1;
+
+    }
+    else{
+        id2 = (String)session.getAttribute("id");
+        show=1;
+    }
+    %>
 
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
 

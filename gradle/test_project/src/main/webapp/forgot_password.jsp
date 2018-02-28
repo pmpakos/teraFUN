@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Forgot Password | teraFUN</title>
+<title>Υπενθύμιση Κωδικού | teraFUN</title>
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
@@ -12,7 +12,6 @@
 	<!-- Latest compiled JavaScript -->
 	<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
 	<script src="js/forgot_pass.js"></script>
-
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/stylelogin.css"> 
 <link rel="stylesheet" href="css/header.css"> 
@@ -60,7 +59,7 @@ if(flagidi==0 | flagidi==1 | flagidi==2){
 					<div class="panel-heading">
 						<div class="row">
 							<div >
-								<a href="" class="active" id="login-admin-link">Υπενθύμιση password</a>
+								<a href="" class="active" id="login-admin-link">Υπενθύμιση Κωδικού</a>
 							</div>
 						</div>
 						<hr>
@@ -77,8 +76,10 @@ if(flagidi==0 | flagidi==1 | flagidi==2){
 									<div class="form-group email">
 								    	<label for="Email"> <span class="glyphicon glyphicon-envelope"> </span> Email</label>
 								    	<!-- psakse stous parents -->
-								        <input style="display:none" type="email" class="form-control email-validation form-element" name="email1" id="email" placeholder="Εισάγετε την διεύθυνση ηλεκτρονικού ταχυδρομίου" data-validation="false">
+								        <!-- <input style="display:none" type="email" class="form-control email-validation form-element" name="email1" id="email" placeholder="Εισάγετε την διεύθυνση ηλεκτρονικού ταχυδρομίου" data-validation="false"> -->
 								        
+								        <input style="display:none" type="email" class="form-control email-validation form-element" name="email1" id="email" placeholder="Εισάγετε την διεύθυνση ηλεκτρονικού ταχυδρομίου" data-validation="false">
+
 										<!-- psakse stous companies -->
 								        <input style="display:none" type="email" class="form-control email-comp-validation form-element" name="email2" id="email-comp" placeholder="Εισάγετε την διεύθυνση ηλεκτρονικού ταχυδρομίου" data-validation="false">
 								   		
@@ -105,5 +106,7 @@ if(flagidi==0 | flagidi==1 | flagidi==2){
 			</div>
 		</div>
 	</div>	
+	<div class="body1"></div>
+
 </body>
 </html>

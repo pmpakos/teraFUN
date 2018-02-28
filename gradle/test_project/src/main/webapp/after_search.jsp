@@ -1,31 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="gr.ntua.ece.softeng17b.conf.*" %>
-
-<%  
-    // o monos logos pou einai id2 einai giati uparxei logw tou header.jsp hdh orismenh h metavlhth me onoma "id"
-    String id2;
-    if(session.getAttribute("id") == null || session.getAttribute("id").equals("")){
-        id2 ="";
-    }
-    else{
-        id2 = (String)session.getAttribute("id");
-    }
-
-    String text_search = request.getParameter("text_search");
-    String date = request.getParameter("date");
-    String ticket = request.getParameter("ticket");
-    String age = request.getParameter("age");
-    //String distance = request.getParameter("distance");
-   
-    String kind = request.getParameter("kind");
-    String team = request.getParameter("team");
-    String indoor = request.getParameter("indoor");    
-    String offer = request.getParameter("offer");
-
-    System.out.println(id2);
-
- %>
-
 <!DOCTYPE html>
 <% //FOr example the search is being done by Πέτρος Μανταλίδης with given lat, long
  %>
@@ -69,7 +43,30 @@ if(flagidi==0 | flagidi==2){
 }
 %>
 <!-- ////////////////////////////////////////////////////////// -->
+<%  
+    // o monos logos pou einai id2 einai giati uparxei logw tou header.jsp hdh orismenh h metavlhth me onoma "id"
+    String id2;
+    if(session.getAttribute("id") == null || session.getAttribute("id").equals("")){
+        id2 ="";
+    }
+    else{
+        id2 = (String)session.getAttribute("id");
+    }
 
+    String text_search = request.getParameter("text_search");
+    String date = request.getParameter("date");
+    String ticket = request.getParameter("ticket");
+    String age = request.getParameter("age");
+    //String distance = request.getParameter("distance");
+   
+    String kind = request.getParameter("kind");
+    String team = request.getParameter("team");
+    String indoor = request.getParameter("indoor");    
+    String offer = request.getParameter("offer");
+
+    System.out.println(id2);
+
+ %>
         <div class="alert alert-success alert-dismissible success" style="position: absolute; width: 60%; z-index: 0">
                     <button type="button" class="close" data-hide="alert" aria-hidden="true">&times;</button>
                     Η αγορά έγινε επιτυχώς! Το εισιτήριό σου έχει σταλεί στο email.

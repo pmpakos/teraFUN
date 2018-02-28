@@ -45,7 +45,7 @@ $(document).on('blur','.email-validation',function(){
 			url:'/app/check_email',
 			success: function(email_check){
 				console.log("Result is: "+email_check);
-				if (email_check == "true"){
+				if (email_check != ""){
 					document.getElementById('email_error').innerHTML = "";
 					validemail=1;
 					document.getElementById('email_error').innerHTML = "<span style=\"color:green\">" + "Έγκυρο email" + "</span>";
@@ -101,7 +101,7 @@ $(document).on('blur','.email-comp-validation',function(){
 			url:'/app/company_check_email',
 			success: function(email_check){
 			console.log("Result is: "+email_check);
-				if (email_check == "true"){
+				if (email_check != ""){
 					document.getElementById('email_error').innerHTML = "";
 					validemail=1;
 					document.getElementById('email_error').innerHTML = "<span style=\"color:green\">" + "Έγκυρο email" + "</span>";
