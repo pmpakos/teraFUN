@@ -63,10 +63,10 @@
 <!-- flagidi==1 shmainei user -->
 <!-- flagidi==2 shmainei company -->
 <%
-if(flag=="" | flagidi==0 | flagidi==1){
+if(flagidi==0 | flagidi==2){
   response.sendRedirect(request.getContextPath() + "/error-404.jsp");
 }
-int ID = Integer.parseInt(id);
+int ID = Integer.parseInt((String)request.getParameter("idcompany"));
 %>
 <!-- ////////////////////////////////////////////////////////// -->
 
@@ -83,8 +83,6 @@ int ID = Integer.parseInt(id);
                         <th scope="col">Όνομα </th>
                         <th scope="col">Ημερομηνία </th>
                         <th scope="col">Διεύθυνση </th>
-                        <th scope="col">Συνολικά Εισιτήρια </th>
-                        <th scope="col">Έσοδα σε ευρώ </th>
                         <th scope="col">Περιγραφή </th>
                         <th scope="col">Λεπτομέρειες </th>
                     </tr>
@@ -94,8 +92,6 @@ int ID = Integer.parseInt(id);
                         <td> <span data-bind="text:name"></span> </td>
                         <td> <span data-bind="text:date"></span> </td>
                         <td> <span data-bind="text:address"></span> </td>
-                        <td> <span data-bind="text:ticket_counter"></span> </td>
-                        <td> <span data-bind="text:income"></span> </td>
                         <td>
                           <!-- shit to be done here -->
                           <!-- <span data-bind="text:description"></span> -->
@@ -125,13 +121,11 @@ int ID = Integer.parseInt(id);
     <script src="./js/DataTable.bootstrap4.js"></script>
     <!-- <script src="js/active_events_company.js"></script> -->
 <script type="text/javascript">
-  var Event = function(id, name, date, address, ticket_counter, income, description) {
+  var Event = function(id, name, date, address, description) {
     this.id = id;
     this.name = name;
     this.date = date;
     this.address = address;
-    this.ticket_counter = ticket_counter;
-    this.income = income/10;
     this.description = description;
 }
 
@@ -196,8 +190,6 @@ viewModel.loadEvents().done(function(json){
       eventJson.Name,
       date,
             eventJson.Address,
-      eventJson.TicketCounter,
-      eventJson.IncomingCash,
       eventJson.Description
             );
         console.log(event);
@@ -206,10 +198,10 @@ viewModel.loadEvents().done(function(json){
 
     var table = $('#Data').DataTable( {
         "paging": false,
-        "iDisplay": 5,
+        "iDisplay": 3,
         "bLengthChange": false,
         "columnDefs": [ {
-          "targets": 6,
+          "targets": 4,
           "orderable": false
         } ],
         "bDeferRender": true, 

@@ -157,7 +157,7 @@ $(document).on('click','.btn-forgot1',function(){
 					document.getElementById("pass0").value = '';
 				}
 				else{
-					//window.location.href='https://localhost:8765/app/index.jsp'
+					window.location.href='https://localhost:8765/app/forgot_password_complete.jsp'
 				}
 				
 			}
@@ -192,7 +192,7 @@ $(document).on('click','.btn-forgot2',function(){
 					document.getElementById("pass0").value = '';
 				}
 				else{
-					//window.location.href='https://localhost:8765/app/index.jsp'
+					window.location.href='https://localhost:8765/app/forgot_password_complete.jsp'
 				}
 				
 			}

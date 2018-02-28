@@ -72,8 +72,10 @@ int ID = Integer.parseInt(id);
 
       <div class="container">
       <div id="ko">
-            <div style=" width:50%;text-align:center;margin:0 auto;background-color: #eee"><h1>Εκδηλώσεις που έχουν ολοκληρωθεί : <span data-bind="text:events().length"></span> </h1></div>
-            <table id="Data" class="table table-striped table-bordered" data-bind="visible: events().length > 0">
+        <div class="panel panel-login">
+          <div class="panel-heading"> <span class="header">Εκδηλώσεις που έχουν ολοκληρωθεί : <span data-bind="text:events().length"></span></span> </div>
+          <div class="panel-body">
+              <table id="Data" class="table table-striped table-bordered" data-bind="visible: events().length > 0">
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">Όνομα </th>
@@ -104,8 +106,10 @@ int ID = Integer.parseInt(id);
                     </tr>                   
                 </tbody>
             </table>
+          </div>
         </div>
-        </div>
+      </div>
+      </div>
 
 <div class="body1" ></div>
 
@@ -125,7 +129,7 @@ int ID = Integer.parseInt(id);
     this.date = date;
     this.address = address;
     this.ticket_counter = ticket_counter;
-    this.income = income;
+    this.income = income/10;
     this.description = description;
 }
 

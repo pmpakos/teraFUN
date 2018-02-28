@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <html>
   <head>
-      <title>Επερχόμενες Εκδηλώσεις Εταιρείας | teraFUN</title>
+      <title>Ιστορικό Εκδηλώσεων Εταιρείας | teraFUN</title>
       <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="css/dataTables.min.css"/>
@@ -63,28 +63,24 @@
 <!-- flagidi==1 shmainei user -->
 <!-- flagidi==2 shmainei company -->
 <%
-if(flag=="" | flagidi==0 | flagidi==1){
+if(flagidi==0 | flagidi==2){
   response.sendRedirect(request.getContextPath() + "/error-404.jsp");
 }
-int ID = Integer.parseInt(id);
+int ID = Integer.parseInt((String)request.getParameter("idcompany"));
 %>
 <!-- ////////////////////////////////////////////////////////// -->
 
       <div class="container">
       <div id="ko">
         <div class="panel panel-login">
-          <div class="panel-heading"> <span class="header">Eπερχόμενες Εκδηλώσεις : <span data-bind="text:events().length"></span></span> </div>
+          <div class="panel-heading"> <span class="header">Εκδηλώσεις που έχουν ολοκληρωθεί : <span data-bind="text:events().length"></span></span> </div>
           <div class="panel-body">
-
-            
-            <table id="Data" class="table table-striped table-bordered" data-bind="visible: events().length > 0">
+              <table id="Data" class="table table-striped table-bordered" data-bind="visible: events().length > 0">
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">Όνομα </th>
                         <th scope="col">Ημερομηνία </th>
                         <th scope="col">Διεύθυνση </th>
-                        <th scope="col">Συνολικά Εισιτήρια </th>
-                        <th scope="col">Έσοδα σε ευρώ </th>
                         <th scope="col">Περιγραφή </th>
                         <th scope="col">Λεπτομέρειες </th>
                     </tr>
@@ -94,44 +90,40 @@ int ID = Integer.parseInt(id);
                         <td> <span data-bind="text:name"></span> </td>
                         <td> <span data-bind="text:date"></span> </td>
                         <td> <span data-bind="text:address"></span> </td>
-                        <td> <span data-bind="text:ticket_counter"></span> </td>
-                        <td> <span data-bind="text:income"></span> </td>
+                                              
                         <td>
                           <!-- shit to be done here -->
                           <!-- <span data-bind="text:description"></span> -->
                           <button id="description" data-bind="click: function(data, event) { show_description(name, description, data,  event) }" type="button" class="btn btn-info btn-admin">Περιγραφή</button>
-                        </td>                    
+                        </td>
                         <td> 
                           <button  data-bind="value: id" onclick="location.href = 'event_profile.jsp/?id='+this.value;" type="button" class="btn btn-success" style="vertical-align:bottom;">Μάθε Περισσότερα</button>
                         </td>
                     </tr>                   
                 </tbody>
             </table>
+          </div>
+        </div>
+      </div>
+      </div>
 
-        </div>
-        </div>      
-        </div>
-        </div>
 <div class="body1" ></div>
-
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="./static/bootstrap/js/bootstrap.min.js"></script>
+    <!-- <script src="./static/bootstrap/js/bootstrap.min.js"></script> -->
     <script src="./static/knockout-3.4.2.js"></script>
     <script src="./js/DataTable.js"></script>
     <script src="./js/DataTable.bootstrap4.js"></script>
-    <!-- <script src="js/active_events_company.js"></script> -->
+    <!-- <script src="js/history_company.js"></script> -->
 <script type="text/javascript">
-  var Event = function(id, name, date, address, ticket_counter, income, description) {
+  var Event = function(id, name, date, address, description) {
     this.id = id;
     this.name = name;
     this.date = date;
     this.address = address;
-    this.ticket_counter = ticket_counter;
-    this.income = income/10;
     this.description = description;
 }
 
@@ -146,7 +138,7 @@ VM.prototype.loadEvents = function() {
     var opts = {
         traditional : true,
         cache       : false,
-        url         : "./api/active_events_company/"+ID,
+        url         : "./api/past_events_company/"+ID,
         type        : "GET",
         dataType    : "json"
     };
@@ -196,8 +188,6 @@ viewModel.loadEvents().done(function(json){
       eventJson.Name,
       date,
             eventJson.Address,
-      eventJson.TicketCounter,
-      eventJson.IncomingCash,
       eventJson.Description
             );
         console.log(event);
@@ -206,10 +196,10 @@ viewModel.loadEvents().done(function(json){
 
     var table = $('#Data').DataTable( {
         "paging": false,
-        "iDisplay": 5,
+        "iDisplay": 3,
         "bLengthChange": false,
         "columnDefs": [ {
-          "targets": 6,
+          "targets": 5,
           "orderable": false
         } ],
         "bDeferRender": true, 

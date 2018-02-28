@@ -97,6 +97,12 @@ public class CreateEventServlet extends HttpServlet {
 			event_dao.setJdbcTemplate(dataAccess.jdbcTemplate);
 			int id = event_dao.insert1(event_insert);
 			
+			EventDAO event_dao2 = new EventDAO();
+
+			event_dao2.setDataSource(dataAccess.dataSource);
+			event_dao2.setJdbcTemplate(dataAccess.jdbcTemplate);
+			event_dao2.update_filepath(id);
+			
 
 			//EventDAO event_dao2=new EventDAO();
 			//event_dao2.setDataSource(dataAccess.dataSource);

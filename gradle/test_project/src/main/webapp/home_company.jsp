@@ -135,7 +135,7 @@ var Event = function(id, name, date, address, ticket_counter, income, descriptio
     this.date = date;
     this.address = address;
     this.ticket_counter = ticket_counter;
-    this.income = income;
+    this.income = income/10;
     this.description = description;
 }
 

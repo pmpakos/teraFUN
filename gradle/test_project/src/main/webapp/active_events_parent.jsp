@@ -69,8 +69,10 @@ int ID = Integer.parseInt(id);
 
       <div class="container">
       <div id="ko">
-            <h1>Επερχόμενες εκδηλώσεις : <span data-bind="text:events().length"></span> </h1>
-            <table id="Data" class="table table-striped table-bordered" data-bind="visible: events().length > 0">
+            <div class="panel panel-login">
+                <div class="panel-heading"> <span class="header">Επερχόμενες Εκδηλώσεις : <span data-bind="text:events().length"></span></span> </div>
+            <div class="panel-body">
+              <table id="Data" class="table table-striped table-bordered" data-bind="visible: events().length > 0">
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">Όνομα </th>
@@ -103,8 +105,10 @@ int ID = Integer.parseInt(id);
                 </tbody>
             </table>
         </div>
+        </div>        </div>
         </div>
 
+<div class="body1" ></div>
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 

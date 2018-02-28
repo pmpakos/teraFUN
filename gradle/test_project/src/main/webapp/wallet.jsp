@@ -234,7 +234,7 @@ int ID = Integer.parseInt(id);
           <br>
                   <div class="row">
                      <div class="form-group points col-xs-10">
-                      <label for="points"><span class="glyphicon"></span>Πόντοι προς αγορά :</label><h5> Η αναλογία είναι 1.00 ευρώ = 10 πόντοι (η μετατροπή γίνεται αυτόματα)</h5> 
+                      <label for="points"><span class="glyphicon"></span>Πόντοι προς αγορά :</label><h5> Η αναλογία είναι 1.00 ευρώ = 10 πόντοι (η μετατροπή γίνεται αυτόματα).</h5><h5> Για αγορές άνω των 100 πόντων κερδίζετε δώρο από την teraFUN επιπλέον 10% των πόντων!</h5> <br>
                       <input type="text" class="form-control points-validation form-element" name="points" placeholder="Εισάγετε τους πόντους" data-validation="false">
                        <span class="error"><p1 id="points_error"></p1></span>
                      </div>

@@ -89,14 +89,14 @@ a:active  {color:#A11313; background-color:transparent; text-decoration:underlin
 <!-- flagidi==1 shmainei user -->
 <!-- flagidi==2 shmainei company -->
 <%
-if(flagidi==0|flagidi==2){
-    response.sendRedirect(request.getContextPath() + "/error-404.jsp");
+if(flag==""|flagidi==0|flagidi==1){
+  response.sendRedirect(request.getContextPath() + "/error-404.jsp");
 }
 %>
 <!-- ////////////////////////////////////////////////////////// -->
 
 <% 
-    int id2=Integer.parseInt((String)request.getParameter("idcompany"));
+    int id2=Integer.parseInt((String)session.getAttribute("id"));
     System.out.println("nai re egw eimai: ");
     System.out.println(id2);
 %>
@@ -158,15 +158,39 @@ if(flagidi==0|flagidi==2){
                             <div><br></div><div><br></div>                     
 
                 <p style="text-align: center">
-                    <button  data-bind="value: id" onclick="location.href = 'active_events_company2.jsp/?idcompany='+this.value;" type="button" class="btn btn-success btn-lg " style="width: 500px">Ενεργές Εκδηλώσεις</button>
-
+                    <button onclick="window.location.href='edit_profile_company.jsp';" type="button" class="btn btn-primary btn-lg" style="width: 500px">Επεξεργασία Προφίλ</button>
                 </p><p style="text-align: center">
-                    <button  data-bind="value: id" onclick="location.href = 'history_company2.jsp/?idcompany='+this.value;" type="button" class="btn btn-warning btn-lg " style="width: 500px">Ιστορικό Εκδηλώσεων</button>
-                </p>
+                    <button onclick="window.location.href='active_events_company.jsp';" type="button" class="btn btn-success btn-lg " style="width: 500px">Ενεργές Εκδηλώσεις</button>
+                </p><p style="text-align: center">
                 
-                        <div><br></div><div><br></div>
+                    <button onclick="window.location.href='history_company.jsp';" type="button" class="btn btn-warning btn-lg" style="width: 500px">Ιστορικό Εκδηλώσεων</button>
+                </p>
 
-             
+            <div><br></div>                     
+                  
+            <div><br></div>                     
+            </div>
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 excerpet">
+                <p5 style="text-align:center">Συνολικά έχετε κερδίσει : <span data-bind="text:points"></span> πόντους </p5>
+                        <div><br></div><div><br></div>
+            </div>
+
+
+             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 excerpet">
+                <h2 style="text-align:center">Στατιστικά Εκδηλωσεων </h2>
+                <p2 ><a href="stats_age.jsp">Ηλικιας</a> | <p2>
+                <p2><a href="stats_indoor.jsp">Χωρου</a> | <p2>
+                <p2><a href="stats_kind.jsp">Ειδος</a> | <p2>
+                <p2><a href="stats_offer.jsp">Προσφορες</a> | <p2>
+                <p2><a href="stats_team.jsp">Ομαδικοτητα</a> | <p2>
+                <p2><a href="total_visits.jsp">Επισκεψιμοτητα</a><p2>
+                    <div><br></div>
+            </div>
+            <p style="text-align: center">
+                <button onclick="window.location.href='month_report.jsp';" type="button" class="btn  btn-lg " style="background-color: #A11313; color:white;width: 500px">Μηνιαια Αναφορα</button>
+                <div><br></div>
+            </p>                        
+
            <h2 style="text-align: center">Τοποθεσία</h2>
             <div id="map" class="gmap"></div>
             
@@ -192,9 +216,7 @@ if(flagidi==0|flagidi==2){
     <% Configuration conf = Configuration.getInstance(); %>
 
     <script>
-        function initMap() {
-            
-
+        function initMap() {    
             var VM = function(){
                 this.id = ko.observable();
                 this.companyname = ko.observable(); 
@@ -204,7 +226,7 @@ if(flagidi==0|flagidi==2){
                 this.PhotosFolder = ko.observable();  
                 this.telephone = ko.observable();  
                 this.postal = ko.observable();
-                
+                this.points = ko.observable();
             }
 
             VM.prototype.loadCompany = function() {
@@ -234,8 +256,7 @@ if(flagidi==0|flagidi==2){
                 viewModel.PhotosFolder(companyJson.PhotosFolder+'user.png');
                 viewModel.telephone(companyJson.TelephoneNumber);
                 viewModel.postal(companyJson.PostalCode);
-                
-                
+                viewModel.points(companyJson.Points);
                 
                 <%  //System.out.println(FileChecker.main("/src/main/webapp/images/user_profiles/krataios/")); %>
                 var uluru = {lat: companyJson.Latitude, lng: companyJson.Longitude};

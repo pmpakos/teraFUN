@@ -475,7 +475,7 @@ function updatecompany(){
 			url:'/app/company_update',
 			success: function(){
 				console.log("insertion done");
-			//	window.location.href='https://localhost:8765/app/company.jsp'
+				window.location.href='https://localhost:8765/app/home_company.jsp'
 
 
 				// sync=1;	
@@ -489,8 +489,7 @@ function updatecompany(){
 	} 
 	else{
 
-		document.getElementById('total_error').innerHTML = 'Πρέπει να συμπληρώσετε τα όλα πεδία και να συμφωνήσετε με τους όρους και τις προϋποθέσεις';
+		document.getElementById('total_error').innerHTML = 'Πρέπει να συμπληρώσετε όλα τα πεδία και να συμφωνήσετε με τους όρους και τις προϋποθέσεις';
 		return false; 	
 	} 
 }
-

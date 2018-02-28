@@ -137,6 +137,14 @@ public class EventDAO{
         this.jdbcTemplate.update(sql, new Object[] {temp, id}); 
     }
 
+    public void update_filepath(int id){
+        String id_s = Integer.toString(id);
+        String newpath = "images/events/event"+id_s;
+        String sql = "UPDATE event SET PhotosFolder = ?  WHERE EventID = ?";
+        System.out.println("paw na kanw update ta PhotosFolder  tou Event:"+id);
+        this.jdbcTemplate.update(sql, new Object[] {newpath , id}); 
+    }
+
 
     public List<Event> getPastEventsOfCompany(int id){
              return jdbcTemplate.query("SELECT * FROM event WHERE (CompanyID = ? and DateEvent < CURDATE())", new Object[] {id}, new EventRowMapper());
@@ -246,14 +254,14 @@ public class EventDAO{
         
         sql_ticket = "(? <=(MaxCapacity-TicketCounter))";
         sql_age = "((? >= MinAge and ? <= MaxAge) OR ? = -1)";
-        sql_date = "( (DATE_FORMAT(DateEvent, '%Y-%m-%d') >= ?) OR DateEvent >= CURDATE() )";
+        sql_date = "( ((DATE_FORMAT(DateEvent, '%Y-%m-%d') >= ?) OR ? = -1) AND DateEvent > CURDATE() )";
        // sql_date = "( (DATE_FORMAT(DateEvent, '%d/%m/%Y') >= ?) OR ? = -1 )";
        // sql_date = "( (date2 > DateEvent) OR ? = -1 )";
         
 
         sql =  sql_date + " and " + sql_age +" and "+ sql_ticket + " and " + sql_text+ " and " + sql_kind+ " and " + sql_team+ " and " + sql_indoor + " and " + sql_offer;
 
-        return jdbcTemplate.query("SELECT * FROM event WHERE ("+ sql + ")", new Object[] { date, check_age, check_age, check_age, check_ticket, text_search, check_text}, new EventRowMapper());
+        return jdbcTemplate.query("SELECT * FROM event WHERE ("+ sql + ")", new Object[] { date, check_date, check_age, check_age, check_age, check_ticket, text_search, check_text}, new EventRowMapper());
 
         //WITH QUERY EXPANSION
     }

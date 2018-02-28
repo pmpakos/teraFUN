@@ -27,6 +27,27 @@
 
             font-family: 'Open Sans', sans-serif;
           }
+
+          .body1 {
+          background: url('static/balls.jpg') ;
+          background-color: #cccccc;
+          display: block;
+          height: 100%;
+          width: 100%;
+          left: 0;
+          position: fixed;
+          margin:auto;
+          right: 0;
+          z-index: -1;
+          top: 0;
+
+          background-size:cover;
+          -webkit-filter: blur(5px);
+          -moz-filter: blur(5px);
+          -o-filter: blur(5px);
+          -ms-filter: blur(5px);
+          filter: blur(5px);   
+        }
         </style>
 
    
@@ -48,7 +69,9 @@ int ID = Integer.parseInt(id);
 <!-- ////////////////////////////////////////////////////////// -->
      <div class="container">
       <div id="ko">
-            <h1>Εκδηλώσεις που έχουν ολοκληρωθεί : <span data-bind="text:events().length"></span> </h1>
+            <div class="panel panel-login">
+                <div class="panel-heading"> <span class="header">Εκδηλώσεις που έχουν ολοκληρωθεί : <span data-bind="text:events().length"></span></span> </div>
+            <div class="panel-body">
             <table id="Data" class="table table-striped table-bordered" data-bind="visible: events().length > 0">
                 <thead class="thead-light">
                     <tr>
@@ -81,8 +104,10 @@ int ID = Integer.parseInt(id);
                 </tbody>
             </table>
         </div>
+        </div>        </div>
         </div>
 
+<div class="body1" ></div>
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 

@@ -181,12 +181,12 @@ if(flagidi==0 | flagidi==1 | flagidi==2){
   	 	<div class="row">
   	 	<div class="form-group fname col-xs-6">
       	<label for="fname"><span class="glyphicon glyphicon-user"></span>Όνομα</label>
-      	<input type="text" class="form-control fname-validation form-element" name="fname" placeholder="First Name" data-validation="false">
+      	<input type="text" class="form-control fname-validation form-element" name="fname" placeholder="Όνομα" data-validation="false">
 	  	<span class="error"><p1 id="fname_error"></p1></span>
     	</div>
     	<div class="form-group lname col-xs-6">
       	<label for="lname"><span class="glyphicon glyphicon-user"></span> Επώνυμο</label>
-      	<input type="text" class="form-control lname-validation form-element" name="lname" placeholder="Last Name" data-validation="false">
+      	<input type="text" class="form-control lname-validation form-element" name="lname" placeholder="Επώνυμο" data-validation="false">
     	<span class="error"><p1 id="lname_error"></p1></span>
     	</div>  	 
   	 </div>

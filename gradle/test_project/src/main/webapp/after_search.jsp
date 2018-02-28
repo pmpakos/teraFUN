@@ -33,7 +33,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Results | teraFUN</title>
+        <title>Αποτελέσματα | teraFUN</title>
 
 
         <!-- Latest compiled and minified CSS -->
@@ -92,7 +92,9 @@ if(flagidi==0 | flagidi==2){
                 <hgroup class="mb20">
                     
                     <h2 class="lead" style="float:left">Εμφανίζονται  <strong class="text-danger"> <span data-bind="text:calculate"></span> </strong>από συνολικά<strong class="text-danger"> <span data-bind="text:events().length"></span> </strong> <span data-bind="visible:events().length>1">εκδηλώσεις</span> <span data-bind="visible:events().length<2">εκδήλωση</span><span data-bind="visible:events().length<1">: Δεν βρέθηκαν αποτελέσματα για την αναζήτησή σου. <a href="search.jsp">Ξαναπροσπάθησε!</a></span></h2>
-                    <div class="btn-group" style="float:right; margin-top:6px; margin-bottom:6px;" data-bind="visible: showMe && events().length>0" aria-haspopup="true">
+
+                    <div class="btn-group" style="float:right; margin-top:6px; margin-bottom:6px;" data-bind="visible: showMe() && events().length>0" aria-haspopup="true">
+
                         <button type="button"  data-toggle="dropdown" class="btn btn-default dropdown-toggle">
                             <span class="glyphicon glyphicon-road"> Απόσταση</span>
                             <span class="caret"></span>

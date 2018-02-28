@@ -109,13 +109,13 @@ public class CompanyDAO{
         }        
     }
 
-    public int check_email(String email) {        
+    public String check_email(String email) {        
         List<Company> company = jdbcTemplate.query("select * from companyservice where Email = ?", new Object[] {email}, new CompanyRowMapper());
         if (company.size() == 1)  {
-            return 1;
+            return company.get(0).Username;
         }
         else {
-            return 0;
+            return "";
         }        
     }
 

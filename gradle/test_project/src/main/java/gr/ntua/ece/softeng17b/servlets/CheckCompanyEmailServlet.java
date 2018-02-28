@@ -49,10 +49,9 @@ public class CheckCompanyEmailServlet extends HttpServlet {
 		company_dao.setDataSource(dataAccess.dataSource);
 		company_dao.setJdbcTemplate(dataAccess.jdbcTemplate);
 
-		int result = company_dao.check_email(email);
+		String result = company_dao.check_email(email);
 		System.out.println("Email: "+ email+" existis ? = "+result);
-		String reply = (result == 1)? "true" : "false";
-		response.getWriter().append(reply);
+		response.getWriter().append(result);
 
 	}
 

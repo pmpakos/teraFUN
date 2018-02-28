@@ -18,7 +18,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-       <title>Event | TeraFUN</title>
+<title>Εκδήλωση | teraFUN</title>
 
 
 
@@ -546,8 +546,8 @@ $(document).ready(function(){
                 startcost=viewModel.cost();
 
                 link="company_profile.jsp?idcompany="+eventJson.CompanyID;
-                console.log(link);
                 viewModel.clink(link);
+                console.log(link);
 
                 var today = new Date();
                 var dd = today.getDate();

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Πορτοφόλι Εταιρείας | teraFun</title>
+<title>Πορτοφόλι teraFUN | teraFun</title>
 
 
   <!-- Latest compiled and minified CSS -->
