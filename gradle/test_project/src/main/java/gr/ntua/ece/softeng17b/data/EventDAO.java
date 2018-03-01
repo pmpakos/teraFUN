@@ -250,7 +250,7 @@ public class EventDAO{
         else sql_offer = "( IsOffer = 0)";
 
         
-        sql_text = "( MATCH (TagDescription) AGAINST(? IN NATURAL LANGUAGE MODE) OR (? = -1) )";
+        sql_text = "( MATCH (TagDescription) AGAINST(? IN NATURAL LANGUAGE MODE) OR MATCH (Name) AGAINST(? IN NATURAL LANGUAGE MODE) OR MATCH (Description) AGAINST(? IN NATURAL LANGUAGE MODE) OR(? = -1) )";
         
         sql_ticket = "(? <=(MaxCapacity-TicketCounter))";
         sql_age = "((? >= MinAge and ? <= MaxAge) OR ? = -1)";
@@ -261,7 +261,7 @@ public class EventDAO{
 
         sql =  sql_date + " and " + sql_age +" and "+ sql_ticket + " and " + sql_text+ " and " + sql_kind+ " and " + sql_team+ " and " + sql_indoor + " and " + sql_offer;
 
-        return jdbcTemplate.query("SELECT * FROM event WHERE ("+ sql + ")", new Object[] { date, check_date, check_age, check_age, check_age, check_ticket, text_search, check_text}, new EventRowMapper());
+        return jdbcTemplate.query("SELECT * FROM event WHERE ("+ sql + ")", new Object[] { date, check_date, check_age, check_age, check_age, check_ticket, text_search, text_search, text_search, check_text}, new EventRowMapper());
 
         //WITH QUERY EXPANSION
     }
