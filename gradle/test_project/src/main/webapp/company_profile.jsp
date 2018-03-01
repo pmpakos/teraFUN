@@ -231,7 +231,7 @@ if(flagidi==0|flagidi==2){
                 viewModel.web(companyJson.WebPage);
                 viewModel.description(companyJson.Description);
                 viewModel.address(companyJson.Address);
-                viewModel.PhotosFolder(companyJson.PhotosFolder+'user.png');
+                viewModel.PhotosFolder(companyJson.PhotosFolder);
                 viewModel.telephone(companyJson.TelephoneNumber);
                 viewModel.postal(companyJson.PostalCode);
                 
