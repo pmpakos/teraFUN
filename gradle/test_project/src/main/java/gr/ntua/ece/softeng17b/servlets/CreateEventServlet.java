@@ -53,28 +53,29 @@ public class CreateEventServlet extends HttpServlet {
 			int price= Integer.parseInt(request.getParameter("price"));
 			int offer=0;
 			String temp = request.getParameter("offer");
-			if(temp=="ναι"){
+			if(temp.equals("ναι")){
 				offer=1;
 			}
 			int ind=0,fun=0,sport=0,education=0,team=0;
 			temp = request.getParameter("ind");
-			if(temp=="true"){
+			//System.out.println("temp is "+temp);
+			if(temp.equals("true")){
 				ind=1;
 			}
 			temp = request.getParameter("lea");
-			if(temp=="true"){
+			if(temp.equals("true")){
 				education=1;
 			}
 			temp = request.getParameter("fun");
-			if(temp=="true"){
+			if(temp.equals("true")){
 				fun=1;
 			}
 			temp = request.getParameter("ath");
-			if(temp=="true"){
+			if(temp.equals("true")){
 				sport=1;
 			}
 			temp = request.getParameter("team");
-			if(temp=="true"){
+			if(temp.equals("true")){
 				team=1;
 			}
 
